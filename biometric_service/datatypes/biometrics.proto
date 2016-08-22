@@ -1,0 +1,100 @@
+syntax = "proto3";
+
+import "datatypes/geometry.proto";
+
+option java_package = "ex.grpc";
+option objc_class_prefix = "RTG";
+
+package DataTypes;
+
+message Faces
+{
+  repeated FaceCharacteristic Faces = 1;
+}
+
+message FaceCharacteristic
+{  
+  int64    id          = 1;
+  Box      box         = 2;  
+  float    confidence  = 3;  
+  int64    person_id   = 4;
+  int64    photo_id    = 5;
+}					
+
+
+message Match
+{ 
+  int64 face_id = 2;
+  float match   = 3;
+}
+
+message Matches
+{
+           int64 face_id = 1;
+  repeated Match matches = 2;
+}
+
+
+enum BiometricDataType
+{
+  Unspecified_BioData  = 0;
+  Facial               = 1;
+  Fingerprint          = 2;
+  Iris                 = 3;
+  All                  = 4;
+}
+
+enum EyeType
+{
+  Unspecified_Eye  = 0;
+  Left             = 1;
+  Right            = 2;
+  Both             = 3;
+}
+
+enum Finger
+{ 
+  Unspecified_Finger = 0; 
+  RightThumb         = 1;  
+  LeftThumb          = 2; 
+  RightIndex         = 3;  
+  LeftIndex          = 4;  
+  RightMiddle        = 5;    
+  LeftMiddle         = 6;    
+  RightRing          = 7; 
+  LeftRing           = 8;   
+  RightLittle        = 9;    
+  LeftLittle         = 10;
+}
+
+enum FacialIsoComplianceTemplate
+{
+  Unspecified_IsoTemplate         = 0 ;
+  OnlyOneFaceVisible              = 1 ;
+  goodVerticalFacePosition		  = 2 ;
+  horizontallyCenteredFace		  = 3 ;
+  widthOfHead					  = 4 ;
+  lengthOfHead					  = 5 ;
+  widthOfHeadBestPractice		  = 6 ;
+  lengthOfHeadBestPractice		  = 7 ;
+  resolution					  = 8 ;
+  resolutionBestPractice		  = 9 ;
+  imageWidthToHeightBestPractice  = 10;
+  goodExposure					  = 11;
+  goodGrayScaleProfile			  = 12;
+  hasNaturalSkinColour			  = 13;
+  noHotSpots					  = 14;
+  isBackgroundUniformBestPractice =	15;
+  isFrontal						  =	16;
+  isFrontalBestPractice			  =	17;
+  isLightingUniform				  =	18;
+  eyesOpenBestPractice			  =	19;
+  eyesGazeFrontalBestPractice	  =	20;
+  eyesNotRedBestPractice		  =	21;
+  noTintedGlasses				  =	22;
+  isSharp						  =	23;
+  mouthClosedBestPractice		  =	24;
+}
+
+
+

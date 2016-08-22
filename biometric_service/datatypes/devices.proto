@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option java_package = "ex.grpc";
+option objc_class_prefix = "RTG";
+
+package DataTypes;
+
+message AccessDevice
+{  
+  string device_name   = 1;  
+}
+/*
+message CaptureDevice
+{ 
+  string device_name   = 1;   
+}
+
+message FingerprintDevice
+{ 
+  string device_name    = 1;    
+}
+
+message IrisDevice
+{ 
+  string device_name   = 1;   
+}
+*/
+
+

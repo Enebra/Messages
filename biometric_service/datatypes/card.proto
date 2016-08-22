@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_package = "ex.grpc";
+option objc_class_prefix = "RTG";
+
+package DataTypes;
+
+message Card
+{ 
+  string      unique_identifier = 1;  
+  int64       owner_id          = 2;    
+}
+
+
+message Cards
+{
+  repeated Card  items = 1;
+           int64 count = 2;
+}
+
+

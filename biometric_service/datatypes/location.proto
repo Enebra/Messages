@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "datatypes/devices.proto";
+
+option java_package = "ex.grpc";
+option objc_class_prefix = "RTG";
+
+package DataTypes;
+
+message Location
+{
+  int64             id                = 1 ;
+  string            name              = 2 ;
+  string            description       = 3 ;    
+  string            mac_address       = 4 ; 
+
+  //CaptureDevice     capture_device     = 5 ;
+  AccessDevice      access_device      = 6 ;
+  //FingerprintDevice fingerprint_device = 7 ;
+  //IrisDevice        iris_device        = 8 ; 
+}
+
+message Locations
+{
+  repeated Location items = 1;
+           int64    count = 2;
+}
+
+

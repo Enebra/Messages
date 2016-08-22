@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+import "datatypes/visitor.proto";
+
+option java_package = "ex.grpc";
+option objc_class_prefix = "RTG";
+
+package Services;
+
+message GetPhotoRequest
+{  
+  enum PhotoResponseType
+  {
+    Undefined = 0;
+	Full      = 1;
+	OnlyBytes = 2;
+	NoBytes   = 3;
+  }
+
+           PhotoResponseType  type     = 1;
+  repeated int64              persons  = 2;
+  repeated int64              photos   = 3;
+           Page               page     = 4; 
+}
+
+message GetPersonRequest
+{ 
+   string search_text    = 1;  //search in first name, search in surname
+   string first_name     = 2;
+   string last_name      = 3; 
+   Page   page           = 4;
+}
+
+message GetLocationRequest
+{ 
+  string search_text    = 1; //search in name, description
+  string name           = 2;
+  string mac_address    = 3;
+  string device_name    = 4;
+  Page   page           = 5;
+}
+
+message GetVisitorRequest
+{ 
+           string                search_text    = 1;
+           DataTypes.AccessState state          = 2;
+  repeated int64                 locations      = 3;
+  repeated int64                 persons        = 4;
+           int64                 datetime_from  = 5;
+           int64                 datetime_to    = 6;
+           Page                  page           = 7;		   
+}
+
+
+message Page
+{
+   int32 index = 1;
+   int32 size  = 2;
+}

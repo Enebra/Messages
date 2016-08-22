@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+import "datatypes/photo.proto";
+import "datatypes/biometrics.proto";
+
+option java_package = "ex.grpc";
+option objc_class_prefix = "RTG";
+
+package Services;
+
+service BiometricFacialSevice
+{  
+  rpc Acquire         ( DataTypes.Photo     ) returns ( DataTypes.Faces            ) {} 
+  rpc CreatePopulation( DataTypes.Photos    ) returns ( PopulationCreationResponse ) {}
+  rpc Verify          ( VerificationData    ) returns ( FaceSearchResponse         ) {}
+  rpc Identify        ( IdentificationData  ) returns ( FaceSearchResponse         ) {}
+}
+
+message PopulationCreationResponse
+{
+           int64           id    = 1;
+  repeated DataTypes.Faces faces = 2;         
+}
+
+message VerificationData
+{
+  DataTypes.Photo  target_image         = 1;
+  DataTypes.Photo  comparison_image     = 2;
+  int64            comparison_person_id = 3;
+}
+
+message IdentificationData
+{
+  DataTypes.Photo target_image      = 1;
+  int64           population_id     = 2; 
+}
+
+message FaceSearchResponse
+{
+  repeated DataTypes.Faces   faces   = 1;
+  repeated DataTypes.Matches matches = 2;   
+}
