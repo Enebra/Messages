@@ -2,12 +2,12 @@ set VS2013="C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\vcvars32.
 set VS2013_AMD64="C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\amd64\vcvars64.bat"
 
 
-set file=biometric_service/services/queries.proto
+set file=biometric_service/services/database_service.proto
 
 
 CALL %VS2013%
 
-cd  D:\development\Server\protos
+cd  D:\development\Messages\Messages
 
 protoc --grpc_out=.\cpp --plugin=protoc-gen-grpc=grpc_cpp_plugin.exe %file% --proto_path biometric_service
 protoc --cpp_out=.\cpp %file% --proto_path biometric_service
