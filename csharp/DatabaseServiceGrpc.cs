@@ -141,98 +141,6 @@ namespace Services {
       get { return global::Services.DatabaseServiceReflection.Descriptor.Services[0]; }
     }
 
-    /// <summary>Client for DatabaseSevice</summary>
-    [System.Obsolete("Client side interfaced will be removed in the next release. Use client class directly.")]
-    public interface IDatabaseSeviceClient
-    {
-      global::DataTypes.Persons GetPerson(global::Services.Query request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      global::DataTypes.Persons GetPerson(global::Services.Query request, CallOptions options);
-      AsyncUnaryCall<global::DataTypes.Persons> GetPersonAsync(global::Services.Query request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      AsyncUnaryCall<global::DataTypes.Persons> GetPersonAsync(global::Services.Query request, CallOptions options);
-      global::DataTypes.Person InsertPerson(global::DataTypes.Person request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      global::DataTypes.Person InsertPerson(global::DataTypes.Person request, CallOptions options);
-      AsyncUnaryCall<global::DataTypes.Person> InsertPersonAsync(global::DataTypes.Person request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      AsyncUnaryCall<global::DataTypes.Person> InsertPersonAsync(global::DataTypes.Person request, CallOptions options);
-      global::Google.Protobuf.WellKnownTypes.Empty UpdatePerson(global::DataTypes.Person request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      global::Google.Protobuf.WellKnownTypes.Empty UpdatePerson(global::DataTypes.Person request, CallOptions options);
-      AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdatePersonAsync(global::DataTypes.Person request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdatePersonAsync(global::DataTypes.Person request, CallOptions options);
-      global::Google.Protobuf.WellKnownTypes.Empty DeletePerson(global::DataTypes.Person request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      global::Google.Protobuf.WellKnownTypes.Empty DeletePerson(global::DataTypes.Person request, CallOptions options);
-      AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeletePersonAsync(global::DataTypes.Person request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeletePersonAsync(global::DataTypes.Person request, CallOptions options);
-      global::DataTypes.Cards GetCard(global::Services.Query request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      global::DataTypes.Cards GetCard(global::Services.Query request, CallOptions options);
-      AsyncUnaryCall<global::DataTypes.Cards> GetCardAsync(global::Services.Query request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      AsyncUnaryCall<global::DataTypes.Cards> GetCardAsync(global::Services.Query request, CallOptions options);
-      global::DataTypes.Card InsertCard(global::DataTypes.Card request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      global::DataTypes.Card InsertCard(global::DataTypes.Card request, CallOptions options);
-      AsyncUnaryCall<global::DataTypes.Card> InsertCardAsync(global::DataTypes.Card request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      AsyncUnaryCall<global::DataTypes.Card> InsertCardAsync(global::DataTypes.Card request, CallOptions options);
-      global::Google.Protobuf.WellKnownTypes.Empty UpdateCard(global::DataTypes.Card request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      global::Google.Protobuf.WellKnownTypes.Empty UpdateCard(global::DataTypes.Card request, CallOptions options);
-      AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateCardAsync(global::DataTypes.Card request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateCardAsync(global::DataTypes.Card request, CallOptions options);
-      global::Google.Protobuf.WellKnownTypes.Empty DeleteCard(global::DataTypes.Card request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      global::Google.Protobuf.WellKnownTypes.Empty DeleteCard(global::DataTypes.Card request, CallOptions options);
-      AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeleteCardAsync(global::DataTypes.Card request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeleteCardAsync(global::DataTypes.Card request, CallOptions options);
-      global::DataTypes.Locations GetLocation(global::Services.Query request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      global::DataTypes.Locations GetLocation(global::Services.Query request, CallOptions options);
-      AsyncUnaryCall<global::DataTypes.Locations> GetLocationAsync(global::Services.Query request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      AsyncUnaryCall<global::DataTypes.Locations> GetLocationAsync(global::Services.Query request, CallOptions options);
-      global::DataTypes.Location InsertLocation(global::DataTypes.Location request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      global::DataTypes.Location InsertLocation(global::DataTypes.Location request, CallOptions options);
-      AsyncUnaryCall<global::DataTypes.Location> InsertLocationAsync(global::DataTypes.Location request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      AsyncUnaryCall<global::DataTypes.Location> InsertLocationAsync(global::DataTypes.Location request, CallOptions options);
-      global::Google.Protobuf.WellKnownTypes.Empty UpdateLocation(global::DataTypes.Location request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      global::Google.Protobuf.WellKnownTypes.Empty UpdateLocation(global::DataTypes.Location request, CallOptions options);
-      AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateLocationAsync(global::DataTypes.Location request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateLocationAsync(global::DataTypes.Location request, CallOptions options);
-      global::Google.Protobuf.WellKnownTypes.Empty DeleteLocation(global::DataTypes.Location request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      global::Google.Protobuf.WellKnownTypes.Empty DeleteLocation(global::DataTypes.Location request, CallOptions options);
-      AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeleteLocationAsync(global::DataTypes.Location request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeleteLocationAsync(global::DataTypes.Location request, CallOptions options);
-      global::DataTypes.Visitors GetVisitor(global::Services.Query request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      global::DataTypes.Visitors GetVisitor(global::Services.Query request, CallOptions options);
-      AsyncUnaryCall<global::DataTypes.Visitors> GetVisitorAsync(global::Services.Query request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      AsyncUnaryCall<global::DataTypes.Visitors> GetVisitorAsync(global::Services.Query request, CallOptions options);
-      global::DataTypes.Visitor InsertVisitor(global::DataTypes.Visitor request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      global::DataTypes.Visitor InsertVisitor(global::DataTypes.Visitor request, CallOptions options);
-      AsyncUnaryCall<global::DataTypes.Visitor> InsertVisitorAsync(global::DataTypes.Visitor request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      AsyncUnaryCall<global::DataTypes.Visitor> InsertVisitorAsync(global::DataTypes.Visitor request, CallOptions options);
-      global::Google.Protobuf.WellKnownTypes.Empty UpdateVisitor(global::DataTypes.Visitor request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      global::Google.Protobuf.WellKnownTypes.Empty UpdateVisitor(global::DataTypes.Visitor request, CallOptions options);
-      AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateVisitorAsync(global::DataTypes.Visitor request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateVisitorAsync(global::DataTypes.Visitor request, CallOptions options);
-      global::Google.Protobuf.WellKnownTypes.Empty DeleteVisitor(global::DataTypes.Visitor request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      global::Google.Protobuf.WellKnownTypes.Empty DeleteVisitor(global::DataTypes.Visitor request, CallOptions options);
-      AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeleteVisitorAsync(global::DataTypes.Visitor request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken));
-      AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeleteVisitorAsync(global::DataTypes.Visitor request, CallOptions options);
-    }
-
-    /// <summary>Interface of server-side implementations of DatabaseSevice</summary>
-    [System.Obsolete("Service implementations should inherit from the generated abstract base class instead.")]
-    public interface IDatabaseSevice
-    {
-      global::System.Threading.Tasks.Task<global::DataTypes.Persons> GetPerson(global::Services.Query request, ServerCallContext context);
-      global::System.Threading.Tasks.Task<global::DataTypes.Person> InsertPerson(global::DataTypes.Person request, ServerCallContext context);
-      global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> UpdatePerson(global::DataTypes.Person request, ServerCallContext context);
-      global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> DeletePerson(global::DataTypes.Person request, ServerCallContext context);
-      global::System.Threading.Tasks.Task<global::DataTypes.Cards> GetCard(global::Services.Query request, ServerCallContext context);
-      global::System.Threading.Tasks.Task<global::DataTypes.Card> InsertCard(global::DataTypes.Card request, ServerCallContext context);
-      global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> UpdateCard(global::DataTypes.Card request, ServerCallContext context);
-      global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> DeleteCard(global::DataTypes.Card request, ServerCallContext context);
-      global::System.Threading.Tasks.Task<global::DataTypes.Locations> GetLocation(global::Services.Query request, ServerCallContext context);
-      global::System.Threading.Tasks.Task<global::DataTypes.Location> InsertLocation(global::DataTypes.Location request, ServerCallContext context);
-      global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> UpdateLocation(global::DataTypes.Location request, ServerCallContext context);
-      global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> DeleteLocation(global::DataTypes.Location request, ServerCallContext context);
-      global::System.Threading.Tasks.Task<global::DataTypes.Visitors> GetVisitor(global::Services.Query request, ServerCallContext context);
-      global::System.Threading.Tasks.Task<global::DataTypes.Visitor> InsertVisitor(global::DataTypes.Visitor request, ServerCallContext context);
-      global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> UpdateVisitor(global::DataTypes.Visitor request, ServerCallContext context);
-      global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> DeleteVisitor(global::DataTypes.Visitor request, ServerCallContext context);
-    }
-
     /// <summary>Base class for server-side implementations of DatabaseSevice</summary>
     public abstract class DatabaseSeviceBase
     {
@@ -319,21 +227,24 @@ namespace Services {
     }
 
     /// <summary>Client for DatabaseSevice</summary>
-    #pragma warning disable 0618
-    public class DatabaseSeviceClient : ClientBase<DatabaseSeviceClient>, IDatabaseSeviceClient
-    #pragma warning restore 0618
+    public class DatabaseSeviceClient : ClientBase<DatabaseSeviceClient>
     {
+      /// <summary>Creates a new client for DatabaseSevice</summary>
+      /// <param name="channel">The channel to use to make remote calls.</param>
       public DatabaseSeviceClient(Channel channel) : base(channel)
       {
       }
+      /// <summary>Creates a new client for DatabaseSevice that uses a custom <c>CallInvoker</c>.</summary>
+      /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
       public DatabaseSeviceClient(CallInvoker callInvoker) : base(callInvoker)
       {
       }
-      ///<summary>Protected parameterless constructor to allow creation of test doubles.</summary>
+      /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
       protected DatabaseSeviceClient() : base()
       {
       }
-      ///<summary>Protected constructor to allow creation of configured clients.</summary>
+      /// <summary>Protected constructor to allow creation of configured clients.</summary>
+      /// <param name="configuration">The client configuration.</param>
       protected DatabaseSeviceClient(ClientBaseConfiguration configuration) : base(configuration)
       {
       }
@@ -600,42 +511,10 @@ namespace Services {
       }
     }
 
-    /// <summary>Creates a new client for DatabaseSevice</summary>
-    public static DatabaseSeviceClient NewClient(Channel channel)
-    {
-      return new DatabaseSeviceClient(channel);
-    }
-
     /// <summary>Creates service definition that can be registered with a server</summary>
-    #pragma warning disable 0618
-    public static ServerServiceDefinition BindService(IDatabaseSevice serviceImpl)
-    #pragma warning restore 0618
-    {
-      return ServerServiceDefinition.CreateBuilder(__ServiceName)
-          .AddMethod(__Method_GetPerson, serviceImpl.GetPerson)
-          .AddMethod(__Method_InsertPerson, serviceImpl.InsertPerson)
-          .AddMethod(__Method_UpdatePerson, serviceImpl.UpdatePerson)
-          .AddMethod(__Method_DeletePerson, serviceImpl.DeletePerson)
-          .AddMethod(__Method_GetCard, serviceImpl.GetCard)
-          .AddMethod(__Method_InsertCard, serviceImpl.InsertCard)
-          .AddMethod(__Method_UpdateCard, serviceImpl.UpdateCard)
-          .AddMethod(__Method_DeleteCard, serviceImpl.DeleteCard)
-          .AddMethod(__Method_GetLocation, serviceImpl.GetLocation)
-          .AddMethod(__Method_InsertLocation, serviceImpl.InsertLocation)
-          .AddMethod(__Method_UpdateLocation, serviceImpl.UpdateLocation)
-          .AddMethod(__Method_DeleteLocation, serviceImpl.DeleteLocation)
-          .AddMethod(__Method_GetVisitor, serviceImpl.GetVisitor)
-          .AddMethod(__Method_InsertVisitor, serviceImpl.InsertVisitor)
-          .AddMethod(__Method_UpdateVisitor, serviceImpl.UpdateVisitor)
-          .AddMethod(__Method_DeleteVisitor, serviceImpl.DeleteVisitor).Build();
-    }
-
-    /// <summary>Creates service definition that can be registered with a server</summary>
-    #pragma warning disable 0618
     public static ServerServiceDefinition BindService(DatabaseSeviceBase serviceImpl)
-    #pragma warning restore 0618
     {
-      return ServerServiceDefinition.CreateBuilder(__ServiceName)
+      return ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_GetPerson, serviceImpl.GetPerson)
           .AddMethod(__Method_InsertPerson, serviceImpl.InsertPerson)
           .AddMethod(__Method_UpdatePerson, serviceImpl.UpdatePerson)

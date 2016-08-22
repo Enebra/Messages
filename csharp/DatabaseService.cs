@@ -10,7 +10,6 @@ using scg = global::System.Collections.Generic;
 namespace Services {
 
   /// <summary>Holder for reflection information generated from services/database_service.proto</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public static partial class DatabaseServiceReflection {
 
     #region Descriptor
@@ -59,29 +58,34 @@ namespace Services {
 
   }
   #region Messages
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class Query : pb::IMessage<Query> {
     private static readonly pb::MessageParser<Query> _parser = new pb::MessageParser<Query>(() => new Query());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<Query> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Services.DatabaseServiceReflection.Descriptor.MessageTypes[0]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Query() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Query(Query other) : this() {
       query_ = other.query_;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Query Clone() {
       return new Query(this);
     }
@@ -89,6 +93,7 @@ namespace Services {
     /// <summary>Field number for the "query" field.</summary>
     public const int Query_FieldNumber = 1;
     private string query_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Query_ {
       get { return query_; }
       set {
@@ -96,10 +101,12 @@ namespace Services {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Query);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(Query other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -111,16 +118,19 @@ namespace Services {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (Query_.Length != 0) hash ^= Query_.GetHashCode();
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Query_.Length != 0) {
         output.WriteRawTag(10);
@@ -128,6 +138,7 @@ namespace Services {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (Query_.Length != 0) {
@@ -136,6 +147,7 @@ namespace Services {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(Query other) {
       if (other == null) {
         return;
@@ -145,6 +157,7 @@ namespace Services {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
