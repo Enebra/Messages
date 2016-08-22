@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option java_package = "ex.grpc";
+option objc_class_prefix = "RTG";
+
+package Services;
+
+service CommService
+{  
+    	
+  rpc Heartbeat    ( google.protobuf.Empty    ) returns ( google.protobuf.Empty  ) {}
+}
