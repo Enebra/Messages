@@ -25,10 +25,14 @@ message GetPhotoRequest
 
 message GetPersonRequest
 { 
-   string search_text    = 1;  //search in first name, search in surname
-   string first_name     = 2;
-   string last_name      = 3; 
-   Page   page           = 4;
+            string search_text    = 1;  //search in first name, search in surname
+            string first_name     = 2;
+            string last_name      = 3; 
+            string card           = 4;
+   //TODO Photo    photo
+   //TODO Rights   rights
+   repeated int64  locations      = 5;
+            Page   page           = 6;
 }
 
 message GetLocationRequest
@@ -42,13 +46,14 @@ message GetLocationRequest
 
 message GetVisitorRequest
 { 
-           string                search_text    = 1;
+           string                search_text    = 1;		 
            DataTypes.AccessState state          = 2;
   repeated int64                 locations      = 3;
   repeated int64                 persons        = 4;
            int64                 datetime_from  = 5;
            int64                 datetime_to    = 6;
-           Page                  page           = 7;		   
+		   string                card           = 7;
+           Page                  page           = 8;		   
 }
 
 

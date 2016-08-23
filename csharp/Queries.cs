@@ -29,25 +29,26 @@ namespace Services {
             "eXBlEg8KB3BlcnNvbnMYAiADKAMSDgoGcGhvdG9zGAMgAygDEhwKBHBhZ2UY",
             "BCABKAsyDi5TZXJ2aWNlcy5QYWdlIkgKEVBob3RvUmVzcG9uc2VUeXBlEg0K",
             "CVVuZGVmaW5lZBAAEggKBEZ1bGwQARINCglPbmx5Qnl0ZXMQAhILCgdOb0J5",
-            "dGVzEAMibAoQR2V0UGVyc29uUmVxdWVzdBITCgtzZWFyY2hfdGV4dBgBIAEo",
-            "CRISCgpmaXJzdF9uYW1lGAIgASgJEhEKCWxhc3RfbmFtZRgDIAEoCRIcCgRw",
-            "YWdlGAQgASgLMg4uU2VydmljZXMuUGFnZSJ/ChJHZXRMb2NhdGlvblJlcXVl",
-            "c3QSEwoLc2VhcmNoX3RleHQYASABKAkSDAoEbmFtZRgCIAEoCRITCgttYWNf",
-            "YWRkcmVzcxgDIAEoCRITCgtkZXZpY2VfbmFtZRgEIAEoCRIcCgRwYWdlGAUg",
-            "ASgLMg4uU2VydmljZXMuUGFnZSK9AQoRR2V0VmlzaXRvclJlcXVlc3QSEwoL",
-            "c2VhcmNoX3RleHQYASABKAkSJQoFc3RhdGUYAiABKA4yFi5EYXRhVHlwZXMu",
-            "QWNjZXNzU3RhdGUSEQoJbG9jYXRpb25zGAMgAygDEg8KB3BlcnNvbnMYBCAD",
-            "KAMSFQoNZGF0ZXRpbWVfZnJvbRgFIAEoAxITCgtkYXRldGltZV90bxgGIAEo",
-            "AxIcCgRwYWdlGAcgASgLMg4uU2VydmljZXMuUGFnZSIjCgRQYWdlEg0KBWlu",
-            "ZGV4GAEgASgFEgwKBHNpemUYAiABKAVCDwoHZXguZ3JwY6ICA1JUR2IGcHJv",
-            "dG8z"));
+            "dGVzEAMijQEKEEdldFBlcnNvblJlcXVlc3QSEwoLc2VhcmNoX3RleHQYASAB",
+            "KAkSEgoKZmlyc3RfbmFtZRgCIAEoCRIRCglsYXN0X25hbWUYAyABKAkSDAoE",
+            "Y2FyZBgEIAEoCRIRCglsb2NhdGlvbnMYBSADKAMSHAoEcGFnZRgGIAEoCzIO",
+            "LlNlcnZpY2VzLlBhZ2UifwoSR2V0TG9jYXRpb25SZXF1ZXN0EhMKC3NlYXJj",
+            "aF90ZXh0GAEgASgJEgwKBG5hbWUYAiABKAkSEwoLbWFjX2FkZHJlc3MYAyAB",
+            "KAkSEwoLZGV2aWNlX25hbWUYBCABKAkSHAoEcGFnZRgFIAEoCzIOLlNlcnZp",
+            "Y2VzLlBhZ2UiywEKEUdldFZpc2l0b3JSZXF1ZXN0EhMKC3NlYXJjaF90ZXh0",
+            "GAEgASgJEiUKBXN0YXRlGAIgASgOMhYuRGF0YVR5cGVzLkFjY2Vzc1N0YXRl",
+            "EhEKCWxvY2F0aW9ucxgDIAMoAxIPCgdwZXJzb25zGAQgAygDEhUKDWRhdGV0",
+            "aW1lX2Zyb20YBSABKAMSEwoLZGF0ZXRpbWVfdG8YBiABKAMSDAoEY2FyZBgH",
+            "IAEoCRIcCgRwYWdlGAggASgLMg4uU2VydmljZXMuUGFnZSIjCgRQYWdlEg0K",
+            "BWluZGV4GAEgASgFEgwKBHNpemUYAiABKAVCDwoHZXguZ3JwY6ICA1JUR2IG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::DataTypes.VisitorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Services.GetPhotoRequest), global::Services.GetPhotoRequest.Parser, new[]{ "Type", "Persons", "Photos", "Page" }, null, new[]{ typeof(global::Services.GetPhotoRequest.Types.PhotoResponseType) }, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Services.GetPersonRequest), global::Services.GetPersonRequest.Parser, new[]{ "SearchText", "FirstName", "LastName", "Page" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Services.GetPersonRequest), global::Services.GetPersonRequest.Parser, new[]{ "SearchText", "FirstName", "LastName", "Card", "Locations", "Page" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Services.GetLocationRequest), global::Services.GetLocationRequest.Parser, new[]{ "SearchText", "Name", "MacAddress", "DeviceName", "Page" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Services.GetVisitorRequest), global::Services.GetVisitorRequest.Parser, new[]{ "SearchText", "State", "Locations", "Persons", "DatetimeFrom", "DatetimeTo", "Page" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Services.GetVisitorRequest), global::Services.GetVisitorRequest.Parser, new[]{ "SearchText", "State", "Locations", "Persons", "DatetimeFrom", "DatetimeTo", "Card", "Page" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Services.Page), global::Services.Page.Parser, new[]{ "Index", "Size" }, null, null, null)
           }));
     }
@@ -268,6 +269,8 @@ namespace Services {
       searchText_ = other.searchText_;
       firstName_ = other.firstName_;
       lastName_ = other.lastName_;
+      card_ = other.card_;
+      locations_ = other.locations_.Clone();
       Page = other.page_ != null ? other.Page.Clone() : null;
     }
 
@@ -308,8 +311,31 @@ namespace Services {
       }
     }
 
+    /// <summary>Field number for the "card" field.</summary>
+    public const int CardFieldNumber = 4;
+    private string card_ = "";
+    public string Card {
+      get { return card_; }
+      set {
+        card_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "locations" field.</summary>
+    public const int LocationsFieldNumber = 5;
+    private static readonly pb::FieldCodec<long> _repeated_locations_codec
+        = pb::FieldCodec.ForInt64(42);
+    private readonly pbc::RepeatedField<long> locations_ = new pbc::RepeatedField<long>();
+    /// <summary>
+    /// TODO Photo    photo
+    /// TODO Rights   rights
+    /// </summary>
+    public pbc::RepeatedField<long> Locations {
+      get { return locations_; }
+    }
+
     /// <summary>Field number for the "page" field.</summary>
-    public const int PageFieldNumber = 4;
+    public const int PageFieldNumber = 6;
     private global::Services.Page page_;
     public global::Services.Page Page {
       get { return page_; }
@@ -332,6 +358,8 @@ namespace Services {
       if (SearchText != other.SearchText) return false;
       if (FirstName != other.FirstName) return false;
       if (LastName != other.LastName) return false;
+      if (Card != other.Card) return false;
+      if(!locations_.Equals(other.locations_)) return false;
       if (!object.Equals(Page, other.Page)) return false;
       return true;
     }
@@ -341,6 +369,8 @@ namespace Services {
       if (SearchText.Length != 0) hash ^= SearchText.GetHashCode();
       if (FirstName.Length != 0) hash ^= FirstName.GetHashCode();
       if (LastName.Length != 0) hash ^= LastName.GetHashCode();
+      if (Card.Length != 0) hash ^= Card.GetHashCode();
+      hash ^= locations_.GetHashCode();
       if (page_ != null) hash ^= Page.GetHashCode();
       return hash;
     }
@@ -362,8 +392,13 @@ namespace Services {
         output.WriteRawTag(26);
         output.WriteString(LastName);
       }
-      if (page_ != null) {
+      if (Card.Length != 0) {
         output.WriteRawTag(34);
+        output.WriteString(Card);
+      }
+      locations_.WriteTo(output, _repeated_locations_codec);
+      if (page_ != null) {
+        output.WriteRawTag(50);
         output.WriteMessage(Page);
       }
     }
@@ -379,6 +414,10 @@ namespace Services {
       if (LastName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(LastName);
       }
+      if (Card.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Card);
+      }
+      size += locations_.CalculateSize(_repeated_locations_codec);
       if (page_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Page);
       }
@@ -398,6 +437,10 @@ namespace Services {
       if (other.LastName.Length != 0) {
         LastName = other.LastName;
       }
+      if (other.Card.Length != 0) {
+        Card = other.Card;
+      }
+      locations_.Add(other.locations_);
       if (other.page_ != null) {
         if (page_ == null) {
           page_ = new global::Services.Page();
@@ -426,6 +469,15 @@ namespace Services {
             break;
           }
           case 34: {
+            Card = input.ReadString();
+            break;
+          }
+          case 42:
+          case 40: {
+            locations_.AddEntriesFrom(input, _repeated_locations_codec);
+            break;
+          }
+          case 50: {
             if (page_ == null) {
               page_ = new global::Services.Page();
             }
@@ -684,6 +736,7 @@ namespace Services {
       persons_ = other.persons_.Clone();
       datetimeFrom_ = other.datetimeFrom_;
       datetimeTo_ = other.datetimeTo_;
+      card_ = other.card_;
       Page = other.page_ != null ? other.Page.Clone() : null;
     }
 
@@ -749,8 +802,18 @@ namespace Services {
       }
     }
 
+    /// <summary>Field number for the "card" field.</summary>
+    public const int CardFieldNumber = 7;
+    private string card_ = "";
+    public string Card {
+      get { return card_; }
+      set {
+        card_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "page" field.</summary>
-    public const int PageFieldNumber = 7;
+    public const int PageFieldNumber = 8;
     private global::Services.Page page_;
     public global::Services.Page Page {
       get { return page_; }
@@ -776,6 +839,7 @@ namespace Services {
       if(!persons_.Equals(other.persons_)) return false;
       if (DatetimeFrom != other.DatetimeFrom) return false;
       if (DatetimeTo != other.DatetimeTo) return false;
+      if (Card != other.Card) return false;
       if (!object.Equals(Page, other.Page)) return false;
       return true;
     }
@@ -788,6 +852,7 @@ namespace Services {
       hash ^= persons_.GetHashCode();
       if (DatetimeFrom != 0L) hash ^= DatetimeFrom.GetHashCode();
       if (DatetimeTo != 0L) hash ^= DatetimeTo.GetHashCode();
+      if (Card.Length != 0) hash ^= Card.GetHashCode();
       if (page_ != null) hash ^= Page.GetHashCode();
       return hash;
     }
@@ -815,8 +880,12 @@ namespace Services {
         output.WriteRawTag(48);
         output.WriteInt64(DatetimeTo);
       }
-      if (page_ != null) {
+      if (Card.Length != 0) {
         output.WriteRawTag(58);
+        output.WriteString(Card);
+      }
+      if (page_ != null) {
+        output.WriteRawTag(66);
         output.WriteMessage(Page);
       }
     }
@@ -836,6 +905,9 @@ namespace Services {
       }
       if (DatetimeTo != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(DatetimeTo);
+      }
+      if (Card.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Card);
       }
       if (page_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Page);
@@ -860,6 +932,9 @@ namespace Services {
       }
       if (other.DatetimeTo != 0L) {
         DatetimeTo = other.DatetimeTo;
+      }
+      if (other.Card.Length != 0) {
+        Card = other.Card;
       }
       if (other.page_ != null) {
         if (page_ == null) {
@@ -903,6 +978,10 @@ namespace Services {
             break;
           }
           case 58: {
+            Card = input.ReadString();
+            break;
+          }
+          case 66: {
             if (page_ == null) {
               page_ = new global::Services.Page();
             }

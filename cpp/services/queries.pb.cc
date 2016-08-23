@@ -67,10 +67,12 @@ void protobuf_AssignDesc_services_2fqueries_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetPhotoRequest, _is_default_instance_));
   GetPhotoRequest_PhotoResponseType_descriptor_ = GetPhotoRequest_descriptor_->enum_type(0);
   GetPersonRequest_descriptor_ = file->message_type(1);
-  static const int GetPersonRequest_offsets_[4] = {
+  static const int GetPersonRequest_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetPersonRequest, search_text_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetPersonRequest, first_name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetPersonRequest, last_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetPersonRequest, card_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetPersonRequest, locations_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetPersonRequest, page_),
   };
   GetPersonRequest_reflection_ =
@@ -104,13 +106,14 @@ void protobuf_AssignDesc_services_2fqueries_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetLocationRequest, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetLocationRequest, _is_default_instance_));
   GetVisitorRequest_descriptor_ = file->message_type(3);
-  static const int GetVisitorRequest_offsets_[7] = {
+  static const int GetVisitorRequest_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetVisitorRequest, search_text_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetVisitorRequest, state_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetVisitorRequest, locations_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetVisitorRequest, persons_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetVisitorRequest, datetime_from_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetVisitorRequest, datetime_to_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetVisitorRequest, card_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetVisitorRequest, page_),
   };
   GetVisitorRequest_reflection_ =
@@ -193,20 +196,21 @@ void protobuf_AddDesc_services_2fqueries_2eproto() {
     ".PhotoResponseType\022\017\n\007persons\030\002 \003(\003\022\016\n\006p"
     "hotos\030\003 \003(\003\022\034\n\004page\030\004 \001(\0132\016.Services.Pag"
     "e\"H\n\021PhotoResponseType\022\r\n\tUndefined\020\000\022\010\n"
-    "\004Full\020\001\022\r\n\tOnlyBytes\020\002\022\013\n\007NoBytes\020\003\"l\n\020G"
-    "etPersonRequest\022\023\n\013search_text\030\001 \001(\t\022\022\n\n"
-    "first_name\030\002 \001(\t\022\021\n\tlast_name\030\003 \001(\t\022\034\n\004p"
-    "age\030\004 \001(\0132\016.Services.Page\"\177\n\022GetLocation"
-    "Request\022\023\n\013search_text\030\001 \001(\t\022\014\n\004name\030\002 \001"
-    "(\t\022\023\n\013mac_address\030\003 \001(\t\022\023\n\013device_name\030\004"
-    " \001(\t\022\034\n\004page\030\005 \001(\0132\016.Services.Page\"\275\001\n\021G"
-    "etVisitorRequest\022\023\n\013search_text\030\001 \001(\t\022%\n"
-    "\005state\030\002 \001(\0162\026.DataTypes.AccessState\022\021\n\t"
-    "locations\030\003 \003(\003\022\017\n\007persons\030\004 \003(\003\022\025\n\rdate"
-    "time_from\030\005 \001(\003\022\023\n\013datetime_to\030\006 \001(\003\022\034\n\004"
-    "page\030\007 \001(\0132\016.Services.Page\"#\n\004Page\022\r\n\005in"
-    "dex\030\001 \001(\005\022\014\n\004size\030\002 \001(\005B\017\n\007ex.grpc\242\002\003RTG"
-    "b\006proto3", 768);
+    "\004Full\020\001\022\r\n\tOnlyBytes\020\002\022\013\n\007NoBytes\020\003\"\215\001\n\020"
+    "GetPersonRequest\022\023\n\013search_text\030\001 \001(\t\022\022\n"
+    "\nfirst_name\030\002 \001(\t\022\021\n\tlast_name\030\003 \001(\t\022\014\n\004"
+    "card\030\004 \001(\t\022\021\n\tlocations\030\005 \003(\003\022\034\n\004page\030\006 "
+    "\001(\0132\016.Services.Page\"\177\n\022GetLocationReques"
+    "t\022\023\n\013search_text\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\023\n\013"
+    "mac_address\030\003 \001(\t\022\023\n\013device_name\030\004 \001(\t\022\034"
+    "\n\004page\030\005 \001(\0132\016.Services.Page\"\313\001\n\021GetVisi"
+    "torRequest\022\023\n\013search_text\030\001 \001(\t\022%\n\005state"
+    "\030\002 \001(\0162\026.DataTypes.AccessState\022\021\n\tlocati"
+    "ons\030\003 \003(\003\022\017\n\007persons\030\004 \003(\003\022\025\n\rdatetime_f"
+    "rom\030\005 \001(\003\022\023\n\013datetime_to\030\006 \001(\003\022\014\n\004card\030\007"
+    " \001(\t\022\034\n\004page\030\010 \001(\0132\016.Services.Page\"#\n\004Pa"
+    "ge\022\r\n\005index\030\001 \001(\005\022\014\n\004size\030\002 \001(\005B\017\n\007ex.gr"
+    "pc\242\002\003RTGb\006proto3", 816);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "services/queries.proto", &protobuf_RegisterTypes);
   GetPhotoRequest::default_instance_ = new GetPhotoRequest();
@@ -773,6 +777,8 @@ void GetPhotoRequest::set_allocated_page(::Services::Page* page) {
 const int GetPersonRequest::kSearchTextFieldNumber;
 const int GetPersonRequest::kFirstNameFieldNumber;
 const int GetPersonRequest::kLastNameFieldNumber;
+const int GetPersonRequest::kCardFieldNumber;
+const int GetPersonRequest::kLocationsFieldNumber;
 const int GetPersonRequest::kPageFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -802,6 +808,7 @@ void GetPersonRequest::SharedCtor() {
   search_text_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   first_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   last_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  card_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   page_ = NULL;
 }
 
@@ -814,6 +821,7 @@ void GetPersonRequest::SharedDtor() {
   search_text_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   first_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   last_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  card_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
     delete page_;
   }
@@ -849,8 +857,10 @@ void GetPersonRequest::Clear() {
   search_text_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   first_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   last_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  card_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == NULL && page_ != NULL) delete page_;
   page_ = NULL;
+  locations_.Clear();
 }
 
 bool GetPersonRequest::MergePartialFromCodedStream(
@@ -909,13 +919,48 @@ bool GetPersonRequest::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(34)) goto parse_page;
+        if (input->ExpectTag(34)) goto parse_card;
         break;
       }
 
-      // optional .Services.Page page = 4;
+      // optional string card = 4;
       case 4: {
         if (tag == 34) {
+         parse_card:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_card()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->card().data(), this->card().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "Services.GetPersonRequest.card"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(42)) goto parse_locations;
+        break;
+      }
+
+      // repeated int64 locations = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_locations:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, this->mutable_locations())));
+        } else if (tag == 40) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 1, 42, input, this->mutable_locations())));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(50)) goto parse_page;
+        break;
+      }
+
+      // optional .Services.Page page = 6;
+      case 6: {
+        if (tag == 50) {
          parse_page:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_page()));
@@ -980,10 +1025,30 @@ void GetPersonRequest::SerializeWithCachedSizes(
       3, this->last_name(), output);
   }
 
-  // optional .Services.Page page = 4;
+  // optional string card = 4;
+  if (this->card().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->card().data(), this->card().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "Services.GetPersonRequest.card");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->card(), output);
+  }
+
+  // repeated int64 locations = 5;
+  if (this->locations_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(5, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(_locations_cached_byte_size_);
+  }
+  for (int i = 0; i < this->locations_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64NoTag(
+      this->locations(i), output);
+  }
+
+  // optional .Services.Page page = 6;
   if (this->has_page()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, *this->page_, output);
+      6, *this->page_, output);
   }
 
   // @@protoc_insertion_point(serialize_end:Services.GetPersonRequest)
@@ -1025,11 +1090,36 @@ void GetPersonRequest::SerializeWithCachedSizes(
         3, this->last_name(), target);
   }
 
-  // optional .Services.Page page = 4;
+  // optional string card = 4;
+  if (this->card().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->card().data(), this->card().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "Services.GetPersonRequest.card");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->card(), target);
+  }
+
+  // repeated int64 locations = 5;
+  if (this->locations_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      5,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+      _locations_cached_byte_size_, target);
+  }
+  for (int i = 0; i < this->locations_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt64NoTagToArray(this->locations(i), target);
+  }
+
+  // optional .Services.Page page = 6;
   if (this->has_page()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        4, *this->page_, target);
+        6, *this->page_, target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:Services.GetPersonRequest)
@@ -1061,11 +1151,35 @@ int GetPersonRequest::ByteSize() const {
         this->last_name());
   }
 
-  // optional .Services.Page page = 4;
+  // optional string card = 4;
+  if (this->card().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->card());
+  }
+
+  // optional .Services.Page page = 6;
   if (this->has_page()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->page_);
+  }
+
+  // repeated int64 locations = 5;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->locations_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int64Size(this->locations(i));
+    }
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
+    }
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _locations_cached_byte_size_ = data_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
   }
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -1092,6 +1206,7 @@ void GetPersonRequest::MergeFrom(const ::google::protobuf::Message& from) {
 void GetPersonRequest::MergeFrom(const GetPersonRequest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:Services.GetPersonRequest)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  locations_.MergeFrom(from.locations_);
   if (from.search_text().size() > 0) {
 
     search_text_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.search_text_);
@@ -1103,6 +1218,10 @@ void GetPersonRequest::MergeFrom(const GetPersonRequest& from) {
   if (from.last_name().size() > 0) {
 
     last_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.last_name_);
+  }
+  if (from.card().size() > 0) {
+
+    card_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.card_);
   }
   if (from.has_page()) {
     mutable_page()->::Services::Page::MergeFrom(from.page());
@@ -1136,6 +1255,8 @@ void GetPersonRequest::InternalSwap(GetPersonRequest* other) {
   search_text_.Swap(&other->search_text_);
   first_name_.Swap(&other->first_name_);
   last_name_.Swap(&other->last_name_);
+  card_.Swap(&other->card_);
+  locations_.UnsafeArenaSwap(&other->locations_);
   std::swap(page_, other->page_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -1284,7 +1405,81 @@ void GetPersonRequest::clear_last_name() {
   // @@protoc_insertion_point(field_set_allocated:Services.GetPersonRequest.last_name)
 }
 
-// optional .Services.Page page = 4;
+// optional string card = 4;
+void GetPersonRequest::clear_card() {
+  card_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& GetPersonRequest::card() const {
+  // @@protoc_insertion_point(field_get:Services.GetPersonRequest.card)
+  return card_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void GetPersonRequest::set_card(const ::std::string& value) {
+  
+  card_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:Services.GetPersonRequest.card)
+}
+ void GetPersonRequest::set_card(const char* value) {
+  
+  card_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:Services.GetPersonRequest.card)
+}
+ void GetPersonRequest::set_card(const char* value, size_t size) {
+  
+  card_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:Services.GetPersonRequest.card)
+}
+ ::std::string* GetPersonRequest::mutable_card() {
+  
+  // @@protoc_insertion_point(field_mutable:Services.GetPersonRequest.card)
+  return card_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* GetPersonRequest::release_card() {
+  // @@protoc_insertion_point(field_release:Services.GetPersonRequest.card)
+  
+  return card_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void GetPersonRequest::set_allocated_card(::std::string* card) {
+  if (card != NULL) {
+    
+  } else {
+    
+  }
+  card_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), card);
+  // @@protoc_insertion_point(field_set_allocated:Services.GetPersonRequest.card)
+}
+
+// repeated int64 locations = 5;
+int GetPersonRequest::locations_size() const {
+  return locations_.size();
+}
+void GetPersonRequest::clear_locations() {
+  locations_.Clear();
+}
+ ::google::protobuf::int64 GetPersonRequest::locations(int index) const {
+  // @@protoc_insertion_point(field_get:Services.GetPersonRequest.locations)
+  return locations_.Get(index);
+}
+ void GetPersonRequest::set_locations(int index, ::google::protobuf::int64 value) {
+  locations_.Set(index, value);
+  // @@protoc_insertion_point(field_set:Services.GetPersonRequest.locations)
+}
+ void GetPersonRequest::add_locations(::google::protobuf::int64 value) {
+  locations_.Add(value);
+  // @@protoc_insertion_point(field_add:Services.GetPersonRequest.locations)
+}
+ const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+GetPersonRequest::locations() const {
+  // @@protoc_insertion_point(field_list:Services.GetPersonRequest.locations)
+  return locations_;
+}
+ ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+GetPersonRequest::mutable_locations() {
+  // @@protoc_insertion_point(field_mutable_list:Services.GetPersonRequest.locations)
+  return &locations_;
+}
+
+// optional .Services.Page page = 6;
 bool GetPersonRequest::has_page() const {
   return !_is_default_instance_ && page_ != NULL;
 }
@@ -1988,6 +2183,7 @@ const int GetVisitorRequest::kLocationsFieldNumber;
 const int GetVisitorRequest::kPersonsFieldNumber;
 const int GetVisitorRequest::kDatetimeFromFieldNumber;
 const int GetVisitorRequest::kDatetimeToFieldNumber;
+const int GetVisitorRequest::kCardFieldNumber;
 const int GetVisitorRequest::kPageFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -2018,6 +2214,7 @@ void GetVisitorRequest::SharedCtor() {
   state_ = 0;
   datetime_from_ = GOOGLE_LONGLONG(0);
   datetime_to_ = GOOGLE_LONGLONG(0);
+  card_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   page_ = NULL;
 }
 
@@ -2028,6 +2225,7 @@ GetVisitorRequest::~GetVisitorRequest() {
 
 void GetVisitorRequest::SharedDtor() {
   search_text_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  card_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
     delete page_;
   }
@@ -2079,6 +2277,7 @@ void GetVisitorRequest::Clear() {
   ZR_(datetime_from_, datetime_to_);
   search_text_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   state_ = 0;
+  card_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == NULL && page_ != NULL) delete page_;
   page_ = NULL;
 
@@ -2193,13 +2392,30 @@ bool GetVisitorRequest::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(58)) goto parse_page;
+        if (input->ExpectTag(58)) goto parse_card;
         break;
       }
 
-      // optional .Services.Page page = 7;
+      // optional string card = 7;
       case 7: {
         if (tag == 58) {
+         parse_card:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_card()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->card().data(), this->card().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "Services.GetVisitorRequest.card"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(66)) goto parse_page;
+        break;
+      }
+
+      // optional .Services.Page page = 8;
+      case 8: {
+        if (tag == 66) {
          parse_page:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_page()));
@@ -2280,10 +2496,20 @@ void GetVisitorRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(6, this->datetime_to(), output);
   }
 
-  // optional .Services.Page page = 7;
+  // optional string card = 7;
+  if (this->card().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->card().data(), this->card().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "Services.GetVisitorRequest.card");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      7, this->card(), output);
+  }
+
+  // optional .Services.Page page = 8;
   if (this->has_page()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      7, *this->page_, output);
+      8, *this->page_, output);
   }
 
   // @@protoc_insertion_point(serialize_end:Services.GetVisitorRequest)
@@ -2347,11 +2573,22 @@ void GetVisitorRequest::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(6, this->datetime_to(), target);
   }
 
-  // optional .Services.Page page = 7;
+  // optional string card = 7;
+  if (this->card().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->card().data(), this->card().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "Services.GetVisitorRequest.card");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        7, this->card(), target);
+  }
+
+  // optional .Services.Page page = 8;
   if (this->has_page()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        7, *this->page_, target);
+        8, *this->page_, target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:Services.GetVisitorRequest)
@@ -2389,7 +2626,14 @@ int GetVisitorRequest::ByteSize() const {
         this->datetime_to());
   }
 
-  // optional .Services.Page page = 7;
+  // optional string card = 7;
+  if (this->card().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->card());
+  }
+
+  // optional .Services.Page page = 8;
   if (this->has_page()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -2469,6 +2713,10 @@ void GetVisitorRequest::MergeFrom(const GetVisitorRequest& from) {
   if (from.datetime_to() != 0) {
     set_datetime_to(from.datetime_to());
   }
+  if (from.card().size() > 0) {
+
+    card_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.card_);
+  }
   if (from.has_page()) {
     mutable_page()->::Services::Page::MergeFrom(from.page());
   }
@@ -2504,6 +2752,7 @@ void GetVisitorRequest::InternalSwap(GetVisitorRequest* other) {
   persons_.UnsafeArenaSwap(&other->persons_);
   std::swap(datetime_from_, other->datetime_from_);
   std::swap(datetime_to_, other->datetime_to_);
+  card_.Swap(&other->card_);
   std::swap(page_, other->page_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -2666,7 +2915,51 @@ void GetVisitorRequest::clear_datetime_to() {
   // @@protoc_insertion_point(field_set:Services.GetVisitorRequest.datetime_to)
 }
 
-// optional .Services.Page page = 7;
+// optional string card = 7;
+void GetVisitorRequest::clear_card() {
+  card_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& GetVisitorRequest::card() const {
+  // @@protoc_insertion_point(field_get:Services.GetVisitorRequest.card)
+  return card_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void GetVisitorRequest::set_card(const ::std::string& value) {
+  
+  card_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:Services.GetVisitorRequest.card)
+}
+ void GetVisitorRequest::set_card(const char* value) {
+  
+  card_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:Services.GetVisitorRequest.card)
+}
+ void GetVisitorRequest::set_card(const char* value, size_t size) {
+  
+  card_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:Services.GetVisitorRequest.card)
+}
+ ::std::string* GetVisitorRequest::mutable_card() {
+  
+  // @@protoc_insertion_point(field_mutable:Services.GetVisitorRequest.card)
+  return card_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* GetVisitorRequest::release_card() {
+  // @@protoc_insertion_point(field_release:Services.GetVisitorRequest.card)
+  
+  return card_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void GetVisitorRequest::set_allocated_card(::std::string* card) {
+  if (card != NULL) {
+    
+  } else {
+    
+  }
+  card_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), card);
+  // @@protoc_insertion_point(field_set_allocated:Services.GetVisitorRequest.card)
+}
+
+// optional .Services.Page page = 8;
 bool GetVisitorRequest::has_page() const {
   return !_is_default_instance_ && page_ != NULL;
 }
