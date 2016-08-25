@@ -35,13 +35,13 @@ message Matches
 }
 
 
-enum BiometricDataType
+enum BiometricType
 {
-  Unspecified_BioData  = 0;
-  Facial               = 1;
-  Fingerprint          = 2;
-  Iris                 = 3;
-  All                  = 4;
+  UnspecifiedBio  = 0;
+  Facial          = 1;
+  Fingerprint     = 2;
+  Iris            = 3;
+  All             = 4;
 }
 
 enum EyeType

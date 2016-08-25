@@ -9,13 +9,12 @@ package DataTypes;
 
 message Photo
 {
-  int64             id          = 1;  
-  string            photo_url   = 2;  
-  bytes             bytestring  = 3;  
-  int32             width       = 4;
-  int32             height      = 5;
-  BiometricDataType biotype     = 6;    
-  int64             owner_id    = 7;
+  int64             id        = 1;  
+  string            url       = 2;   
+  int32             width     = 3;
+  int32             height    = 4;
+  BiometricDataType biotype   = 5;    
+  int64             owner_id  = 6;
 }
 
 message Photos

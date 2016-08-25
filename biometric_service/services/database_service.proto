@@ -32,6 +32,9 @@ service DatabaseSevice
   rpc InsertVisitor   ( DataTypes.Visitor   ) returns ( DataTypes.Visitor      ) {}    	
   rpc UpdateVisitor   ( DataTypes.Visitor   ) returns ( google.protobuf.Empty  ) {}
   rpc DeleteVisitor   ( DataTypes.Visitor   ) returns ( google.protobuf.Empty  ) {}
+
+  rpc InsertPhoto   ( DataTypes.Photo   ) returns ( DataTypes.Photo      ) {}    	
+  rpc DeletePhoto   ( DataTypes.Photo   ) returns ( google.protobuf.Empty  ) {}
 }
 
 
