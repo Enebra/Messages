@@ -21,9 +21,6 @@ namespace Services {
 
 namespace {
 
-const ::google::protobuf::Descriptor* Query_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  Query_reflection_ = NULL;
 
 }  // namespace
 
@@ -34,21 +31,6 @@ void protobuf_AssignDesc_services_2fdatabase_5fservice_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "services/database_service.proto");
   GOOGLE_CHECK(file != NULL);
-  Query_descriptor_ = file->message_type(0);
-  static const int Query_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Query, query_),
-  };
-  Query_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      Query_descriptor_,
-      Query::default_instance_,
-      Query_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(Query),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Query, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Query, _is_default_instance_));
 }
 
 namespace {
@@ -61,15 +43,11 @@ inline void protobuf_AssignDescriptorsOnce() {
 
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      Query_descriptor_, &Query::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_services_2fdatabase_5fservice_2eproto() {
-  delete Query::default_instance_;
-  delete Query_reflection_;
 }
 
 void protobuf_AddDesc_services_2fdatabase_5fservice_2eproto() {
@@ -83,41 +61,39 @@ void protobuf_AddDesc_services_2fdatabase_5fservice_2eproto() {
   ::DataTypes::protobuf_AddDesc_datatypes_2fcard_2eproto();
   ::DataTypes::protobuf_AddDesc_datatypes_2flocation_2eproto();
   ::DataTypes::protobuf_AddDesc_datatypes_2fvisitor_2eproto();
+  ::Services::protobuf_AddDesc_services_2fqueries_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\037services/database_service.proto\022\010Servi"
     "ces\032\033google/protobuf/empty.proto\032\026dataty"
     "pes/person.proto\032\024datatypes/card.proto\032\030"
     "datatypes/location.proto\032\027datatypes/visi"
-    "tor.proto\"\026\n\005Query\022\r\n\005query\030\001 \001(\t2\261\007\n\016Da"
-    "tabaseSevice\0222\n\tGetPerson\022\017.Services.Que"
-    "ry\032\022.DataTypes.Persons\"\000\0226\n\014InsertPerson"
-    "\022\021.DataTypes.Person\032\021.DataTypes.Person\"\000"
-    "\022;\n\014UpdatePerson\022\021.DataTypes.Person\032\026.go"
-    "ogle.protobuf.Empty\"\000\022;\n\014DeletePerson\022\021."
-    "DataTypes.Person\032\026.google.protobuf.Empty"
-    "\"\000\022.\n\007GetCard\022\017.Services.Query\032\020.DataTyp"
-    "es.Cards\"\000\0220\n\nInsertCard\022\017.DataTypes.Car"
-    "d\032\017.DataTypes.Card\"\000\0227\n\nUpdateCard\022\017.Dat"
-    "aTypes.Card\032\026.google.protobuf.Empty\"\000\0227\n"
-    "\nDeleteCard\022\017.DataTypes.Card\032\026.google.pr"
-    "otobuf.Empty\"\000\0226\n\013GetLocation\022\017.Services"
-    ".Query\032\024.DataTypes.Locations\"\000\022<\n\016Insert"
-    "Location\022\023.DataTypes.Location\032\023.DataType"
-    "s.Location\"\000\022\?\n\016UpdateLocation\022\023.DataTyp"
-    "es.Location\032\026.google.protobuf.Empty\"\000\022\?\n"
-    "\016DeleteLocation\022\023.DataTypes.Location\032\026.g"
-    "oogle.protobuf.Empty\"\000\0224\n\nGetVisitor\022\017.S"
-    "ervices.Query\032\023.DataTypes.Visitors\"\000\0229\n\r"
-    "InsertVisitor\022\022.DataTypes.Visitor\032\022.Data"
-    "Types.Visitor\"\000\022=\n\rUpdateVisitor\022\022.DataT"
-    "ypes.Visitor\032\026.google.protobuf.Empty\"\000\022="
-    "\n\rDeleteVisitor\022\022.DataTypes.Visitor\032\026.go"
-    "ogle.protobuf.Empty\"\000B\017\n\007ex.grpc\242\002\003RTGb\006"
-    "proto3", 1166);
+    "tor.proto\032\026services/queries.proto2\245\007\n\016Da"
+    "tabaseSevice\022=\n\tGetPerson\022\032.Services.Get"
+    "PersonRequest\032\022.DataTypes.Persons\"\000\0226\n\014I"
+    "nsertPerson\022\021.DataTypes.Person\032\021.DataTyp"
+    "es.Person\"\000\022;\n\014UpdatePerson\022\021.DataTypes."
+    "Person\032\026.google.protobuf.Empty\"\000\022;\n\014Dele"
+    "tePerson\022\021.DataTypes.Person\032\026.google.pro"
+    "tobuf.Empty\"\000\0220\n\nInsertCard\022\017.DataTypes."
+    "Card\032\017.DataTypes.Card\"\000\0227\n\nUpdateCard\022\017."
+    "DataTypes.Card\032\026.google.protobuf.Empty\"\000"
+    "\0227\n\nDeleteCard\022\017.DataTypes.Card\032\026.google"
+    ".protobuf.Empty\"\000\022C\n\013GetLocation\022\034.Servi"
+    "ces.GetLocationRequest\032\024.DataTypes.Locat"
+    "ions\"\000\022<\n\016InsertLocation\022\023.DataTypes.Loc"
+    "ation\032\023.DataTypes.Location\"\000\022\?\n\016UpdateLo"
+    "cation\022\023.DataTypes.Location\032\026.google.pro"
+    "tobuf.Empty\"\000\022\?\n\016DeleteLocation\022\023.DataTy"
+    "pes.Location\032\026.google.protobuf.Empty\"\000\022@"
+    "\n\nGetVisitor\022\033.Services.GetVisitorReques"
+    "t\032\023.DataTypes.Visitors\"\000\0229\n\rInsertVisito"
+    "r\022\022.DataTypes.Visitor\032\022.DataTypes.Visito"
+    "r\"\000\022=\n\rUpdateVisitor\022\022.DataTypes.Visitor"
+    "\032\026.google.protobuf.Empty\"\000\022=\n\rDeleteVisi"
+    "tor\022\022.DataTypes.Visitor\032\026.google.protobu"
+    "f.Empty\"\000B\017\n\007ex.grpc\242\002\003RTGb\006proto3", 1154);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "services/database_service.proto", &protobuf_RegisterTypes);
-  Query::default_instance_ = new Query();
-  Query::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_services_2fdatabase_5fservice_2eproto);
 }
 
@@ -127,296 +103,6 @@ struct StaticDescriptorInitializer_services_2fdatabase_5fservice_2eproto {
     protobuf_AddDesc_services_2fdatabase_5fservice_2eproto();
   }
 } static_descriptor_initializer_services_2fdatabase_5fservice_2eproto_;
-
-namespace {
-
-static void MergeFromFail(int line) GOOGLE_ATTRIBUTE_COLD;
-static void MergeFromFail(int line) {
-  GOOGLE_CHECK(false) << __FILE__ << ":" << line;
-}
-
-}  // namespace
-
-
-// ===================================================================
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Query::kQueryFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-Query::Query()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:Services.Query)
-}
-
-void Query::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-}
-
-Query::Query(const Query& from)
-  : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Services.Query)
-}
-
-void Query::SharedCtor() {
-    _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
-  query_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-
-Query::~Query() {
-  // @@protoc_insertion_point(destructor:Services.Query)
-  SharedDtor();
-}
-
-void Query::SharedDtor() {
-  query_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != default_instance_) {
-  }
-}
-
-void Query::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* Query::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return Query_descriptor_;
-}
-
-const Query& Query::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_services_2fdatabase_5fservice_2eproto();
-  return *default_instance_;
-}
-
-Query* Query::default_instance_ = NULL;
-
-Query* Query::New(::google::protobuf::Arena* arena) const {
-  Query* n = new Query;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
-}
-
-void Query::Clear() {
-// @@protoc_insertion_point(message_clear_start:Services.Query)
-  query_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-
-bool Query::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Services.Query)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string query = 1;
-      case 1: {
-        if (tag == 10) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_query()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->query().data(), this->query().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "Services.Query.query"));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectAtEnd()) goto success;
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:Services.Query)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:Services.Query)
-  return false;
-#undef DO_
-}
-
-void Query::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Services.Query)
-  // optional string query = 1;
-  if (this->query().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->query().data(), this->query().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Services.Query.query");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->query(), output);
-  }
-
-  // @@protoc_insertion_point(serialize_end:Services.Query)
-}
-
-::google::protobuf::uint8* Query::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Services.Query)
-  // optional string query = 1;
-  if (this->query().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->query().data(), this->query().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Services.Query.query");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->query(), target);
-  }
-
-  // @@protoc_insertion_point(serialize_to_array_end:Services.Query)
-  return target;
-}
-
-int Query::ByteSize() const {
-// @@protoc_insertion_point(message_byte_size_start:Services.Query)
-  int total_size = 0;
-
-  // optional string query = 1;
-  if (this->query().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->query());
-  }
-
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void Query::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:Services.Query)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const Query* source = 
-      ::google::protobuf::internal::DynamicCastToGenerated<const Query>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Services.Query)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:Services.Query)
-    MergeFrom(*source);
-  }
-}
-
-void Query::MergeFrom(const Query& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Services.Query)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  if (from.query().size() > 0) {
-
-    query_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.query_);
-  }
-}
-
-void Query::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:Services.Query)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Query::CopyFrom(const Query& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:Services.Query)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Query::IsInitialized() const {
-
-  return true;
-}
-
-void Query::Swap(Query* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void Query::InternalSwap(Query* other) {
-  query_.Swap(&other->query_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  std::swap(_cached_size_, other->_cached_size_);
-}
-
-::google::protobuf::Metadata Query::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Query_descriptor_;
-  metadata.reflection = Query_reflection_;
-  return metadata;
-}
-
-#if PROTOBUF_INLINE_NOT_IN_HEADERS
-// Query
-
-// optional string query = 1;
-void Query::clear_query() {
-  query_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- const ::std::string& Query::query() const {
-  // @@protoc_insertion_point(field_get:Services.Query.query)
-  return query_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- void Query::set_query(const ::std::string& value) {
-  
-  query_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Services.Query.query)
-}
- void Query::set_query(const char* value) {
-  
-  query_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Services.Query.query)
-}
- void Query::set_query(const char* value, size_t size) {
-  
-  query_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Services.Query.query)
-}
- ::std::string* Query::mutable_query() {
-  
-  // @@protoc_insertion_point(field_mutable:Services.Query.query)
-  return query_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- ::std::string* Query::release_query() {
-  // @@protoc_insertion_point(field_release:Services.Query.query)
-  
-  return query_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- void Query::set_allocated_query(::std::string* query) {
-  if (query != NULL) {
-    
-  } else {
-    
-  }
-  query_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), query);
-  // @@protoc_insertion_point(field_set_allocated:Services.Query.query)
-}
-
-#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 

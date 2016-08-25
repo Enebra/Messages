@@ -12,22 +12,23 @@ namespace Services {
   {
     static readonly string __ServiceName = "Services.DatabaseSevice";
 
-    static readonly Marshaller<global::Services.Query> __Marshaller_Query = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.Query.Parser.ParseFrom);
+    static readonly Marshaller<global::Services.GetPersonRequest> __Marshaller_GetPersonRequest = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.GetPersonRequest.Parser.ParseFrom);
     static readonly Marshaller<global::DataTypes.Persons> __Marshaller_Persons = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Persons.Parser.ParseFrom);
     static readonly Marshaller<global::DataTypes.Person> __Marshaller_Person = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Person.Parser.ParseFrom);
     static readonly Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_Empty = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Google.Protobuf.WellKnownTypes.Empty.Parser.ParseFrom);
-    static readonly Marshaller<global::DataTypes.Cards> __Marshaller_Cards = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Cards.Parser.ParseFrom);
     static readonly Marshaller<global::DataTypes.Card> __Marshaller_Card = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Card.Parser.ParseFrom);
+    static readonly Marshaller<global::Services.GetLocationRequest> __Marshaller_GetLocationRequest = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.GetLocationRequest.Parser.ParseFrom);
     static readonly Marshaller<global::DataTypes.Locations> __Marshaller_Locations = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Locations.Parser.ParseFrom);
     static readonly Marshaller<global::DataTypes.Location> __Marshaller_Location = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Location.Parser.ParseFrom);
+    static readonly Marshaller<global::Services.GetVisitorRequest> __Marshaller_GetVisitorRequest = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.GetVisitorRequest.Parser.ParseFrom);
     static readonly Marshaller<global::DataTypes.Visitors> __Marshaller_Visitors = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Visitors.Parser.ParseFrom);
     static readonly Marshaller<global::DataTypes.Visitor> __Marshaller_Visitor = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Visitor.Parser.ParseFrom);
 
-    static readonly Method<global::Services.Query, global::DataTypes.Persons> __Method_GetPerson = new Method<global::Services.Query, global::DataTypes.Persons>(
+    static readonly Method<global::Services.GetPersonRequest, global::DataTypes.Persons> __Method_GetPerson = new Method<global::Services.GetPersonRequest, global::DataTypes.Persons>(
         MethodType.Unary,
         __ServiceName,
         "GetPerson",
-        __Marshaller_Query,
+        __Marshaller_GetPersonRequest,
         __Marshaller_Persons);
 
     static readonly Method<global::DataTypes.Person, global::DataTypes.Person> __Method_InsertPerson = new Method<global::DataTypes.Person, global::DataTypes.Person>(
@@ -51,13 +52,6 @@ namespace Services {
         __Marshaller_Person,
         __Marshaller_Empty);
 
-    static readonly Method<global::Services.Query, global::DataTypes.Cards> __Method_GetCard = new Method<global::Services.Query, global::DataTypes.Cards>(
-        MethodType.Unary,
-        __ServiceName,
-        "GetCard",
-        __Marshaller_Query,
-        __Marshaller_Cards);
-
     static readonly Method<global::DataTypes.Card, global::DataTypes.Card> __Method_InsertCard = new Method<global::DataTypes.Card, global::DataTypes.Card>(
         MethodType.Unary,
         __ServiceName,
@@ -79,11 +73,11 @@ namespace Services {
         __Marshaller_Card,
         __Marshaller_Empty);
 
-    static readonly Method<global::Services.Query, global::DataTypes.Locations> __Method_GetLocation = new Method<global::Services.Query, global::DataTypes.Locations>(
+    static readonly Method<global::Services.GetLocationRequest, global::DataTypes.Locations> __Method_GetLocation = new Method<global::Services.GetLocationRequest, global::DataTypes.Locations>(
         MethodType.Unary,
         __ServiceName,
         "GetLocation",
-        __Marshaller_Query,
+        __Marshaller_GetLocationRequest,
         __Marshaller_Locations);
 
     static readonly Method<global::DataTypes.Location, global::DataTypes.Location> __Method_InsertLocation = new Method<global::DataTypes.Location, global::DataTypes.Location>(
@@ -107,11 +101,11 @@ namespace Services {
         __Marshaller_Location,
         __Marshaller_Empty);
 
-    static readonly Method<global::Services.Query, global::DataTypes.Visitors> __Method_GetVisitor = new Method<global::Services.Query, global::DataTypes.Visitors>(
+    static readonly Method<global::Services.GetVisitorRequest, global::DataTypes.Visitors> __Method_GetVisitor = new Method<global::Services.GetVisitorRequest, global::DataTypes.Visitors>(
         MethodType.Unary,
         __ServiceName,
         "GetVisitor",
-        __Marshaller_Query,
+        __Marshaller_GetVisitorRequest,
         __Marshaller_Visitors);
 
     static readonly Method<global::DataTypes.Visitor, global::DataTypes.Visitor> __Method_InsertVisitor = new Method<global::DataTypes.Visitor, global::DataTypes.Visitor>(
@@ -144,7 +138,7 @@ namespace Services {
     /// <summary>Base class for server-side implementations of DatabaseSevice</summary>
     public abstract class DatabaseSeviceBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::DataTypes.Persons> GetPerson(global::Services.Query request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::DataTypes.Persons> GetPerson(global::Services.GetPersonRequest request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
@@ -164,11 +158,9 @@ namespace Services {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::DataTypes.Cards> GetCard(global::Services.Query request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
+      /// <summary>
+      /// rpc GetCard         ( Query               ) returns ( DataTypes.Cards        ) {}
+      /// </summary>
       public virtual global::System.Threading.Tasks.Task<global::DataTypes.Card> InsertCard(global::DataTypes.Card request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
@@ -184,7 +176,7 @@ namespace Services {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::DataTypes.Locations> GetLocation(global::Services.Query request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::DataTypes.Locations> GetLocation(global::Services.GetLocationRequest request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
@@ -204,7 +196,7 @@ namespace Services {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::DataTypes.Visitors> GetVisitor(global::Services.Query request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::DataTypes.Visitors> GetVisitor(global::Services.GetVisitorRequest request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
@@ -249,19 +241,19 @@ namespace Services {
       {
       }
 
-      public virtual global::DataTypes.Persons GetPerson(global::Services.Query request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::DataTypes.Persons GetPerson(global::Services.GetPersonRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return GetPerson(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::DataTypes.Persons GetPerson(global::Services.Query request, CallOptions options)
+      public virtual global::DataTypes.Persons GetPerson(global::Services.GetPersonRequest request, CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetPerson, null, options, request);
       }
-      public virtual AsyncUnaryCall<global::DataTypes.Persons> GetPersonAsync(global::Services.Query request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual AsyncUnaryCall<global::DataTypes.Persons> GetPersonAsync(global::Services.GetPersonRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return GetPersonAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncUnaryCall<global::DataTypes.Persons> GetPersonAsync(global::Services.Query request, CallOptions options)
+      public virtual AsyncUnaryCall<global::DataTypes.Persons> GetPersonAsync(global::Services.GetPersonRequest request, CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetPerson, null, options, request);
       }
@@ -313,34 +305,30 @@ namespace Services {
       {
         return CallInvoker.AsyncUnaryCall(__Method_DeletePerson, null, options, request);
       }
-      public virtual global::DataTypes.Cards GetCard(global::Services.Query request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return GetCard(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::DataTypes.Cards GetCard(global::Services.Query request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_GetCard, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::DataTypes.Cards> GetCardAsync(global::Services.Query request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return GetCardAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::DataTypes.Cards> GetCardAsync(global::Services.Query request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_GetCard, null, options, request);
-      }
+      /// <summary>
+      /// rpc GetCard         ( Query               ) returns ( DataTypes.Cards        ) {}
+      /// </summary>
       public virtual global::DataTypes.Card InsertCard(global::DataTypes.Card request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return InsertCard(request, new CallOptions(headers, deadline, cancellationToken));
       }
+      /// <summary>
+      /// rpc GetCard         ( Query               ) returns ( DataTypes.Cards        ) {}
+      /// </summary>
       public virtual global::DataTypes.Card InsertCard(global::DataTypes.Card request, CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_InsertCard, null, options, request);
       }
+      /// <summary>
+      /// rpc GetCard         ( Query               ) returns ( DataTypes.Cards        ) {}
+      /// </summary>
       public virtual AsyncUnaryCall<global::DataTypes.Card> InsertCardAsync(global::DataTypes.Card request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return InsertCardAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
+      /// <summary>
+      /// rpc GetCard         ( Query               ) returns ( DataTypes.Cards        ) {}
+      /// </summary>
       public virtual AsyncUnaryCall<global::DataTypes.Card> InsertCardAsync(global::DataTypes.Card request, CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_InsertCard, null, options, request);
@@ -377,19 +365,19 @@ namespace Services {
       {
         return CallInvoker.AsyncUnaryCall(__Method_DeleteCard, null, options, request);
       }
-      public virtual global::DataTypes.Locations GetLocation(global::Services.Query request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::DataTypes.Locations GetLocation(global::Services.GetLocationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return GetLocation(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::DataTypes.Locations GetLocation(global::Services.Query request, CallOptions options)
+      public virtual global::DataTypes.Locations GetLocation(global::Services.GetLocationRequest request, CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetLocation, null, options, request);
       }
-      public virtual AsyncUnaryCall<global::DataTypes.Locations> GetLocationAsync(global::Services.Query request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual AsyncUnaryCall<global::DataTypes.Locations> GetLocationAsync(global::Services.GetLocationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return GetLocationAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncUnaryCall<global::DataTypes.Locations> GetLocationAsync(global::Services.Query request, CallOptions options)
+      public virtual AsyncUnaryCall<global::DataTypes.Locations> GetLocationAsync(global::Services.GetLocationRequest request, CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetLocation, null, options, request);
       }
@@ -441,19 +429,19 @@ namespace Services {
       {
         return CallInvoker.AsyncUnaryCall(__Method_DeleteLocation, null, options, request);
       }
-      public virtual global::DataTypes.Visitors GetVisitor(global::Services.Query request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::DataTypes.Visitors GetVisitor(global::Services.GetVisitorRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return GetVisitor(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::DataTypes.Visitors GetVisitor(global::Services.Query request, CallOptions options)
+      public virtual global::DataTypes.Visitors GetVisitor(global::Services.GetVisitorRequest request, CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetVisitor, null, options, request);
       }
-      public virtual AsyncUnaryCall<global::DataTypes.Visitors> GetVisitorAsync(global::Services.Query request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual AsyncUnaryCall<global::DataTypes.Visitors> GetVisitorAsync(global::Services.GetVisitorRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return GetVisitorAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncUnaryCall<global::DataTypes.Visitors> GetVisitorAsync(global::Services.Query request, CallOptions options)
+      public virtual AsyncUnaryCall<global::DataTypes.Visitors> GetVisitorAsync(global::Services.GetVisitorRequest request, CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetVisitor, null, options, request);
       }
@@ -519,7 +507,6 @@ namespace Services {
           .AddMethod(__Method_InsertPerson, serviceImpl.InsertPerson)
           .AddMethod(__Method_UpdatePerson, serviceImpl.UpdatePerson)
           .AddMethod(__Method_DeletePerson, serviceImpl.DeletePerson)
-          .AddMethod(__Method_GetCard, serviceImpl.GetCard)
           .AddMethod(__Method_InsertCard, serviceImpl.InsertCard)
           .AddMethod(__Method_UpdateCard, serviceImpl.UpdateCard)
           .AddMethod(__Method_DeleteCard, serviceImpl.DeleteCard)

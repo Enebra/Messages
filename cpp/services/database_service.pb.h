@@ -23,15 +23,14 @@
 #include <google/protobuf/arenastring.h>
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/metadata.h>
-#include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
-#include <google/protobuf/unknown_field_set.h>
 #include <google/protobuf/empty.pb.h>
 #include "datatypes/person.pb.h"
 #include "datatypes/card.pb.h"
 #include "datatypes/location.pb.h"
 #include "datatypes/visitor.pb.h"
+#include "services/queries.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace Services {
@@ -41,143 +40,16 @@ void protobuf_AddDesc_services_2fdatabase_5fservice_2eproto();
 void protobuf_AssignDesc_services_2fdatabase_5fservice_2eproto();
 void protobuf_ShutdownFile_services_2fdatabase_5fservice_2eproto();
 
-class Query;
 
 // ===================================================================
 
-class Query : public ::google::protobuf::Message {
- public:
-  Query();
-  virtual ~Query();
 
-  Query(const Query& from);
-
-  inline Query& operator=(const Query& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Query& default_instance();
-
-  void Swap(Query* other);
-
-  // implements Message ----------------------------------------------
-
-  inline Query* New() const { return New(NULL); }
-
-  Query* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Query& from);
-  void MergeFrom(const Query& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(Query* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional string query = 1;
-  void clear_query();
-  static const int kQueryFieldNumber = 1;
-  const ::std::string& query() const;
-  void set_query(const ::std::string& value);
-  void set_query(const char* value);
-  void set_query(const char* value, size_t size);
-  ::std::string* mutable_query();
-  ::std::string* release_query();
-  void set_allocated_query(::std::string* query);
-
-  // @@protoc_insertion_point(class_scope:Services.Query)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  bool _is_default_instance_;
-  ::google::protobuf::internal::ArenaStringPtr query_;
-  mutable int _cached_size_;
-  friend void  protobuf_AddDesc_services_2fdatabase_5fservice_2eproto();
-  friend void protobuf_AssignDesc_services_2fdatabase_5fservice_2eproto();
-  friend void protobuf_ShutdownFile_services_2fdatabase_5fservice_2eproto();
-
-  void InitAsDefaultInstance();
-  static Query* default_instance_;
-};
 // ===================================================================
 
 
 // ===================================================================
 
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
-// Query
-
-// optional string query = 1;
-inline void Query::clear_query() {
-  query_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& Query::query() const {
-  // @@protoc_insertion_point(field_get:Services.Query.query)
-  return query_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void Query::set_query(const ::std::string& value) {
-  
-  query_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Services.Query.query)
-}
-inline void Query::set_query(const char* value) {
-  
-  query_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Services.Query.query)
-}
-inline void Query::set_query(const char* value, size_t size) {
-  
-  query_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Services.Query.query)
-}
-inline ::std::string* Query::mutable_query() {
-  
-  // @@protoc_insertion_point(field_mutable:Services.Query.query)
-  return query_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* Query::release_query() {
-  // @@protoc_insertion_point(field_release:Services.Query.query)
-  
-  return query_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void Query::set_allocated_query(::std::string* query) {
-  if (query != NULL) {
-    
-  } else {
-    
-  }
-  query_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), query);
-  // @@protoc_insertion_point(field_set_allocated:Services.Query.query)
-}
-
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
