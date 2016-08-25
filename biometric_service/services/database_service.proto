@@ -5,6 +5,7 @@ import "datatypes/person.proto";
 import "datatypes/card.proto";
 import "datatypes/location.proto";
 import "datatypes/visitor.proto";
+import "services/queries.proto";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
@@ -13,22 +14,22 @@ package Services;
 
 service DatabaseSevice
 {  
-  rpc GetPerson       ( Query               ) returns ( DataTypes.Persons      ) {}
+  rpc GetPerson       ( GetPersonRequest    ) returns ( DataTypes.Persons      ) {}
   rpc InsertPerson    ( DataTypes.Person    ) returns ( DataTypes.Person       ) {}    	
   rpc UpdatePerson    ( DataTypes.Person    ) returns ( google.protobuf.Empty  ) {}
   rpc DeletePerson    ( DataTypes.Person    ) returns ( google.protobuf.Empty  ) {}
 
-  rpc GetCard         ( Query               ) returns ( DataTypes.Cards        ) {}
+  //rpc GetCard         ( Query               ) returns ( DataTypes.Cards        ) {}
   rpc InsertCard      ( DataTypes.Card      ) returns ( DataTypes.Card         ) {}    	
   rpc UpdateCard      ( DataTypes.Card      ) returns ( google.protobuf.Empty  ) {}
   rpc DeleteCard      ( DataTypes.Card      ) returns ( google.protobuf.Empty  ) {}
 
-  rpc GetLocation     ( Query               ) returns ( DataTypes.Locations    ) {}
+  rpc GetLocation     ( GetLocationRequest  ) returns ( DataTypes.Locations    ) {}
   rpc InsertLocation  ( DataTypes.Location  ) returns ( DataTypes.Location     ) {}    	
   rpc UpdateLocation  ( DataTypes.Location  ) returns ( google.protobuf.Empty  ) {}
   rpc DeleteLocation  ( DataTypes.Location  ) returns ( google.protobuf.Empty  ) {}
 
-  rpc GetVisitor      ( Query               ) returns ( DataTypes.Visitors     ) {}
+  rpc GetVisitor      ( GetVisitorRequest   ) returns ( DataTypes.Visitors     ) {}
   rpc InsertVisitor   ( DataTypes.Visitor   ) returns ( DataTypes.Visitor      ) {}    	
   rpc UpdateVisitor   ( DataTypes.Visitor   ) returns ( google.protobuf.Empty  ) {}
   rpc DeleteVisitor   ( DataTypes.Visitor   ) returns ( google.protobuf.Empty  ) {}
@@ -37,8 +38,9 @@ service DatabaseSevice
   rpc DeletePhoto   ( DataTypes.Photo   ) returns ( google.protobuf.Empty  ) {}
 }
 
-
+/*
 message Query
 {
   string query = 1;
 }
+*/
