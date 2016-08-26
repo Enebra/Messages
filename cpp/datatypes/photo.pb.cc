@@ -27,6 +27,7 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Photos_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Photos_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* Purpose_descriptor_ = NULL;
 
 }  // namespace
 
@@ -40,10 +41,10 @@ void protobuf_AssignDesc_datatypes_2fphoto_2eproto() {
   Photo_descriptor_ = file->message_type(0);
   static const int Photo_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Photo, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Photo, photo_url_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Photo, bytestring_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Photo, url_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Photo, width_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Photo, height_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Photo, purpose_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Photo, biotype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Photo, owner_id_),
   };
@@ -73,6 +74,7 @@ void protobuf_AssignDesc_datatypes_2fphoto_2eproto() {
       sizeof(Photos),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Photos, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Photos, _is_default_instance_));
+  Purpose_descriptor_ = file->enum_type(0);
 }
 
 namespace {
@@ -109,13 +111,14 @@ void protobuf_AddDesc_datatypes_2fphoto_2eproto() {
   ::DataTypes::protobuf_AddDesc_datatypes_2fbiometrics_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\025datatypes/photo.proto\022\tDataTypes\032\032data"
-    "types/biometrics.proto\"\232\001\n\005Photo\022\n\n\002id\030\001"
-    " \001(\003\022\021\n\tphoto_url\030\002 \001(\t\022\022\n\nbytestring\030\003 "
-    "\001(\014\022\r\n\005width\030\004 \001(\005\022\016\n\006height\030\005 \001(\005\022-\n\007bi"
-    "otype\030\006 \001(\0162\034.DataTypes.BiometricDataTyp"
-    "e\022\020\n\010owner_id\030\007 \001(\003\"*\n\006Photos\022 \n\006photos\030"
-    "\001 \003(\0132\020.DataTypes.PhotoB\017\n\007ex.grpc\242\002\003RTG"
-    "b\006proto3", 288);
+    "types/biometrics.proto\"\241\001\n\005Photo\022\n\n\002id\030\001"
+    " \001(\003\022\013\n\003url\030\002 \001(\t\022\r\n\005width\030\003 \001(\005\022\016\n\006heig"
+    "ht\030\004 \001(\005\022#\n\007purpose\030\005 \001(\0162\022.DataTypes.Pu"
+    "rpose\022)\n\007biotype\030\006 \001(\0162\030.DataTypes.Biome"
+    "tricType\022\020\n\010owner_id\030\007 \001(\003\"*\n\006Photos\022 \n\006"
+    "photos\030\001 \003(\0132\020.DataTypes.Photo*9\n\007Purpos"
+    "e\022\017\n\013NonePurpose\020\000\022\r\n\tThumbnail\020\001\022\016\n\nPop"
+    "ulation\020\002B\017\n\007ex.grpc\242\002\003RTGb\006proto3", 354);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "datatypes/photo.proto", &protobuf_RegisterTypes);
   Photo::default_instance_ = new Photo();
@@ -131,6 +134,21 @@ struct StaticDescriptorInitializer_datatypes_2fphoto_2eproto {
     protobuf_AddDesc_datatypes_2fphoto_2eproto();
   }
 } static_descriptor_initializer_datatypes_2fphoto_2eproto_;
+const ::google::protobuf::EnumDescriptor* Purpose_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Purpose_descriptor_;
+}
+bool Purpose_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 namespace {
 
@@ -146,10 +164,10 @@ static void MergeFromFail(int line) {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Photo::kIdFieldNumber;
-const int Photo::kPhotoUrlFieldNumber;
-const int Photo::kBytestringFieldNumber;
+const int Photo::kUrlFieldNumber;
 const int Photo::kWidthFieldNumber;
 const int Photo::kHeightFieldNumber;
+const int Photo::kPurposeFieldNumber;
 const int Photo::kBiotypeFieldNumber;
 const int Photo::kOwnerIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -177,10 +195,10 @@ void Photo::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   id_ = GOOGLE_LONGLONG(0);
-  photo_url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  bytestring_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   width_ = 0;
   height_ = 0;
+  purpose_ = 0;
   biotype_ = 0;
   owner_id_ = GOOGLE_LONGLONG(0);
 }
@@ -191,8 +209,7 @@ Photo::~Photo() {
 }
 
 void Photo::SharedDtor() {
-  photo_url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  bytestring_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
@@ -240,10 +257,9 @@ void Photo::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  ZR_(width_, biotype_);
+  ZR_(width_, owner_id_);
   id_ = GOOGLE_LONGLONG(0);
-  photo_url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  bytestring_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -270,43 +286,30 @@ bool Photo::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_photo_url;
+        if (input->ExpectTag(18)) goto parse_url;
         break;
       }
 
-      // optional string photo_url = 2;
+      // optional string url = 2;
       case 2: {
         if (tag == 18) {
-         parse_photo_url:
+         parse_url:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_photo_url()));
+                input, this->mutable_url()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->photo_url().data(), this->photo_url().length(),
+            this->url().data(), this->url().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "DataTypes.Photo.photo_url"));
+            "DataTypes.Photo.url"));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_bytestring;
+        if (input->ExpectTag(24)) goto parse_width;
         break;
       }
 
-      // optional bytes bytestring = 3;
+      // optional int32 width = 3;
       case 3: {
-        if (tag == 26) {
-         parse_bytestring:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_bytestring()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(32)) goto parse_width;
-        break;
-      }
-
-      // optional int32 width = 4;
-      case 4: {
-        if (tag == 32) {
+        if (tag == 24) {
          parse_width:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -315,13 +318,13 @@ bool Photo::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(40)) goto parse_height;
+        if (input->ExpectTag(32)) goto parse_height;
         break;
       }
 
-      // optional int32 height = 5;
-      case 5: {
-        if (tag == 40) {
+      // optional int32 height = 4;
+      case 4: {
+        if (tag == 32) {
          parse_height:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -330,11 +333,27 @@ bool Photo::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(40)) goto parse_purpose;
+        break;
+      }
+
+      // optional .DataTypes.Purpose purpose = 5;
+      case 5: {
+        if (tag == 40) {
+         parse_purpose:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_purpose(static_cast< ::DataTypes::Purpose >(value));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectTag(48)) goto parse_biotype;
         break;
       }
 
-      // optional .DataTypes.BiometricDataType biotype = 6;
+      // optional .DataTypes.BiometricType biotype = 6;
       case 6: {
         if (tag == 48) {
          parse_biotype:
@@ -342,7 +361,7 @@ bool Photo::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          set_biotype(static_cast< ::DataTypes::BiometricDataType >(value));
+          set_biotype(static_cast< ::DataTypes::BiometricType >(value));
         } else {
           goto handle_unusual;
         }
@@ -394,33 +413,33 @@ void Photo::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
   }
 
-  // optional string photo_url = 2;
-  if (this->photo_url().size() > 0) {
+  // optional string url = 2;
+  if (this->url().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->photo_url().data(), this->photo_url().length(),
+      this->url().data(), this->url().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "DataTypes.Photo.photo_url");
+      "DataTypes.Photo.url");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->photo_url(), output);
+      2, this->url(), output);
   }
 
-  // optional bytes bytestring = 3;
-  if (this->bytestring().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      3, this->bytestring(), output);
-  }
-
-  // optional int32 width = 4;
+  // optional int32 width = 3;
   if (this->width() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->width(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->width(), output);
   }
 
-  // optional int32 height = 5;
+  // optional int32 height = 4;
   if (this->height() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->height(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->height(), output);
   }
 
-  // optional .DataTypes.BiometricDataType biotype = 6;
+  // optional .DataTypes.Purpose purpose = 5;
+  if (this->purpose() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      5, this->purpose(), output);
+  }
+
+  // optional .DataTypes.BiometricType biotype = 6;
   if (this->biotype() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       6, this->biotype(), output);
@@ -442,35 +461,34 @@ void Photo::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
   }
 
-  // optional string photo_url = 2;
-  if (this->photo_url().size() > 0) {
+  // optional string url = 2;
+  if (this->url().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->photo_url().data(), this->photo_url().length(),
+      this->url().data(), this->url().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "DataTypes.Photo.photo_url");
+      "DataTypes.Photo.url");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->photo_url(), target);
+        2, this->url(), target);
   }
 
-  // optional bytes bytestring = 3;
-  if (this->bytestring().size() > 0) {
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        3, this->bytestring(), target);
-  }
-
-  // optional int32 width = 4;
+  // optional int32 width = 3;
   if (this->width() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->width(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->width(), target);
   }
 
-  // optional int32 height = 5;
+  // optional int32 height = 4;
   if (this->height() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->height(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->height(), target);
   }
 
-  // optional .DataTypes.BiometricDataType biotype = 6;
+  // optional .DataTypes.Purpose purpose = 5;
+  if (this->purpose() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      5, this->purpose(), target);
+  }
+
+  // optional .DataTypes.BiometricType biotype = 6;
   if (this->biotype() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       6, this->biotype(), target);
@@ -496,35 +514,34 @@ int Photo::ByteSize() const {
         this->id());
   }
 
-  // optional string photo_url = 2;
-  if (this->photo_url().size() > 0) {
+  // optional string url = 2;
+  if (this->url().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->photo_url());
+        this->url());
   }
 
-  // optional bytes bytestring = 3;
-  if (this->bytestring().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->bytestring());
-  }
-
-  // optional int32 width = 4;
+  // optional int32 width = 3;
   if (this->width() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->width());
   }
 
-  // optional int32 height = 5;
+  // optional int32 height = 4;
   if (this->height() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->height());
   }
 
-  // optional .DataTypes.BiometricDataType biotype = 6;
+  // optional .DataTypes.Purpose purpose = 5;
+  if (this->purpose() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->purpose());
+  }
+
+  // optional .DataTypes.BiometricType biotype = 6;
   if (this->biotype() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->biotype());
@@ -564,19 +581,18 @@ void Photo::MergeFrom(const Photo& from) {
   if (from.id() != 0) {
     set_id(from.id());
   }
-  if (from.photo_url().size() > 0) {
+  if (from.url().size() > 0) {
 
-    photo_url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.photo_url_);
-  }
-  if (from.bytestring().size() > 0) {
-
-    bytestring_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.bytestring_);
+    url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.url_);
   }
   if (from.width() != 0) {
     set_width(from.width());
   }
   if (from.height() != 0) {
     set_height(from.height());
+  }
+  if (from.purpose() != 0) {
+    set_purpose(from.purpose());
   }
   if (from.biotype() != 0) {
     set_biotype(from.biotype());
@@ -611,10 +627,10 @@ void Photo::Swap(Photo* other) {
 }
 void Photo::InternalSwap(Photo* other) {
   std::swap(id_, other->id_);
-  photo_url_.Swap(&other->photo_url_);
-  bytestring_.Swap(&other->bytestring_);
+  url_.Swap(&other->url_);
   std::swap(width_, other->width_);
   std::swap(height_, other->height_);
+  std::swap(purpose_, other->purpose_);
   std::swap(biotype_, other->biotype_);
   std::swap(owner_id_, other->owner_id_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -646,95 +662,51 @@ void Photo::clear_id() {
   // @@protoc_insertion_point(field_set:DataTypes.Photo.id)
 }
 
-// optional string photo_url = 2;
-void Photo::clear_photo_url() {
-  photo_url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional string url = 2;
+void Photo::clear_url() {
+  url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& Photo::photo_url() const {
-  // @@protoc_insertion_point(field_get:DataTypes.Photo.photo_url)
-  return photo_url_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ const ::std::string& Photo::url() const {
+  // @@protoc_insertion_point(field_get:DataTypes.Photo.url)
+  return url_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void Photo::set_photo_url(const ::std::string& value) {
+ void Photo::set_url(const ::std::string& value) {
   
-  photo_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:DataTypes.Photo.photo_url)
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:DataTypes.Photo.url)
 }
- void Photo::set_photo_url(const char* value) {
+ void Photo::set_url(const char* value) {
   
-  photo_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:DataTypes.Photo.photo_url)
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:DataTypes.Photo.url)
 }
- void Photo::set_photo_url(const char* value, size_t size) {
+ void Photo::set_url(const char* value, size_t size) {
   
-  photo_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:DataTypes.Photo.photo_url)
+  // @@protoc_insertion_point(field_set_pointer:DataTypes.Photo.url)
 }
- ::std::string* Photo::mutable_photo_url() {
+ ::std::string* Photo::mutable_url() {
   
-  // @@protoc_insertion_point(field_mutable:DataTypes.Photo.photo_url)
-  return photo_url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:DataTypes.Photo.url)
+  return url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* Photo::release_photo_url() {
-  // @@protoc_insertion_point(field_release:DataTypes.Photo.photo_url)
+ ::std::string* Photo::release_url() {
+  // @@protoc_insertion_point(field_release:DataTypes.Photo.url)
   
-  return photo_url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void Photo::set_allocated_photo_url(::std::string* photo_url) {
-  if (photo_url != NULL) {
+ void Photo::set_allocated_url(::std::string* url) {
+  if (url != NULL) {
     
   } else {
     
   }
-  photo_url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), photo_url);
-  // @@protoc_insertion_point(field_set_allocated:DataTypes.Photo.photo_url)
+  url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), url);
+  // @@protoc_insertion_point(field_set_allocated:DataTypes.Photo.url)
 }
 
-// optional bytes bytestring = 3;
-void Photo::clear_bytestring() {
-  bytestring_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- const ::std::string& Photo::bytestring() const {
-  // @@protoc_insertion_point(field_get:DataTypes.Photo.bytestring)
-  return bytestring_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- void Photo::set_bytestring(const ::std::string& value) {
-  
-  bytestring_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:DataTypes.Photo.bytestring)
-}
- void Photo::set_bytestring(const char* value) {
-  
-  bytestring_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:DataTypes.Photo.bytestring)
-}
- void Photo::set_bytestring(const void* value, size_t size) {
-  
-  bytestring_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:DataTypes.Photo.bytestring)
-}
- ::std::string* Photo::mutable_bytestring() {
-  
-  // @@protoc_insertion_point(field_mutable:DataTypes.Photo.bytestring)
-  return bytestring_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- ::std::string* Photo::release_bytestring() {
-  // @@protoc_insertion_point(field_release:DataTypes.Photo.bytestring)
-  
-  return bytestring_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- void Photo::set_allocated_bytestring(::std::string* bytestring) {
-  if (bytestring != NULL) {
-    
-  } else {
-    
-  }
-  bytestring_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), bytestring);
-  // @@protoc_insertion_point(field_set_allocated:DataTypes.Photo.bytestring)
-}
-
-// optional int32 width = 4;
+// optional int32 width = 3;
 void Photo::clear_width() {
   width_ = 0;
 }
@@ -748,7 +720,7 @@ void Photo::clear_width() {
   // @@protoc_insertion_point(field_set:DataTypes.Photo.width)
 }
 
-// optional int32 height = 5;
+// optional int32 height = 4;
 void Photo::clear_height() {
   height_ = 0;
 }
@@ -762,15 +734,29 @@ void Photo::clear_height() {
   // @@protoc_insertion_point(field_set:DataTypes.Photo.height)
 }
 
-// optional .DataTypes.BiometricDataType biotype = 6;
+// optional .DataTypes.Purpose purpose = 5;
+void Photo::clear_purpose() {
+  purpose_ = 0;
+}
+ ::DataTypes::Purpose Photo::purpose() const {
+  // @@protoc_insertion_point(field_get:DataTypes.Photo.purpose)
+  return static_cast< ::DataTypes::Purpose >(purpose_);
+}
+ void Photo::set_purpose(::DataTypes::Purpose value) {
+  
+  purpose_ = value;
+  // @@protoc_insertion_point(field_set:DataTypes.Photo.purpose)
+}
+
+// optional .DataTypes.BiometricType biotype = 6;
 void Photo::clear_biotype() {
   biotype_ = 0;
 }
- ::DataTypes::BiometricDataType Photo::biotype() const {
+ ::DataTypes::BiometricType Photo::biotype() const {
   // @@protoc_insertion_point(field_get:DataTypes.Photo.biotype)
-  return static_cast< ::DataTypes::BiometricDataType >(biotype_);
+  return static_cast< ::DataTypes::BiometricType >(biotype_);
 }
- void Photo::set_biotype(::DataTypes::BiometricDataType value) {
+ void Photo::set_biotype(::DataTypes::BiometricType value) {
   
   biotype_ = value;
   // @@protoc_insertion_point(field_set:DataTypes.Photo.biotype)

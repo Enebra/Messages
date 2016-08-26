@@ -24,22 +24,32 @@ namespace DataTypes {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChVkYXRhdHlwZXMvcGhvdG8ucHJvdG8SCURhdGFUeXBlcxoaZGF0YXR5cGVz",
-            "L2Jpb21ldHJpY3MucHJvdG8imgEKBVBob3RvEgoKAmlkGAEgASgDEhEKCXBo",
-            "b3RvX3VybBgCIAEoCRISCgpieXRlc3RyaW5nGAMgASgMEg0KBXdpZHRoGAQg",
-            "ASgFEg4KBmhlaWdodBgFIAEoBRItCgdiaW90eXBlGAYgASgOMhwuRGF0YVR5",
-            "cGVzLkJpb21ldHJpY0RhdGFUeXBlEhAKCG93bmVyX2lkGAcgASgDIioKBlBo",
-            "b3RvcxIgCgZwaG90b3MYASADKAsyEC5EYXRhVHlwZXMuUGhvdG9CDwoHZXgu",
-            "Z3JwY6ICA1JUR2IGcHJvdG8z"));
+            "L2Jpb21ldHJpY3MucHJvdG8ioQEKBVBob3RvEgoKAmlkGAEgASgDEgsKA3Vy",
+            "bBgCIAEoCRINCgV3aWR0aBgDIAEoBRIOCgZoZWlnaHQYBCABKAUSIwoHcHVy",
+            "cG9zZRgFIAEoDjISLkRhdGFUeXBlcy5QdXJwb3NlEikKB2Jpb3R5cGUYBiAB",
+            "KA4yGC5EYXRhVHlwZXMuQmlvbWV0cmljVHlwZRIQCghvd25lcl9pZBgHIAEo",
+            "AyIqCgZQaG90b3MSIAoGcGhvdG9zGAEgAygLMhAuRGF0YVR5cGVzLlBob3Rv",
+            "KjkKB1B1cnBvc2USDwoLTm9uZVB1cnBvc2UQABINCglUaHVtYm5haWwQARIO",
+            "CgpQb3B1bGF0aW9uEAJCDwoHZXguZ3JwY6ICA1JUR2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::DataTypes.BiometricsReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Photo), global::DataTypes.Photo.Parser, new[]{ "Id", "PhotoUrl", "Bytestring", "Width", "Height", "Biotype", "OwnerId" }, null, null, null),
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.Purpose), }, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Photo), global::DataTypes.Photo.Parser, new[]{ "Id", "Url", "Width", "Height", "Purpose", "Biotype", "OwnerId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Photos), global::DataTypes.Photos.Parser, new[]{ "Photos_" }, null, null, null)
           }));
     }
     #endregion
 
   }
+  #region Enums
+  public enum Purpose {
+    [pbr::OriginalName("NonePurpose")] NonePurpose = 0,
+    [pbr::OriginalName("Thumbnail")] Thumbnail = 1,
+    [pbr::OriginalName("Population")] Population = 2,
+  }
+
+  #endregion
+
   #region Messages
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class Photo : pb::IMessage<Photo> {
@@ -62,10 +72,10 @@ namespace DataTypes {
 
     public Photo(Photo other) : this() {
       id_ = other.id_;
-      photoUrl_ = other.photoUrl_;
-      bytestring_ = other.bytestring_;
+      url_ = other.url_;
       width_ = other.width_;
       height_ = other.height_;
+      purpose_ = other.purpose_;
       biotype_ = other.biotype_;
       ownerId_ = other.ownerId_;
     }
@@ -84,28 +94,18 @@ namespace DataTypes {
       }
     }
 
-    /// <summary>Field number for the "photo_url" field.</summary>
-    public const int PhotoUrlFieldNumber = 2;
-    private string photoUrl_ = "";
-    public string PhotoUrl {
-      get { return photoUrl_; }
+    /// <summary>Field number for the "url" field.</summary>
+    public const int UrlFieldNumber = 2;
+    private string url_ = "";
+    public string Url {
+      get { return url_; }
       set {
-        photoUrl_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "bytestring" field.</summary>
-    public const int BytestringFieldNumber = 3;
-    private pb::ByteString bytestring_ = pb::ByteString.Empty;
-    public pb::ByteString Bytestring {
-      get { return bytestring_; }
-      set {
-        bytestring_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        url_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
     /// <summary>Field number for the "width" field.</summary>
-    public const int WidthFieldNumber = 4;
+    public const int WidthFieldNumber = 3;
     private int width_;
     public int Width {
       get { return width_; }
@@ -115,7 +115,7 @@ namespace DataTypes {
     }
 
     /// <summary>Field number for the "height" field.</summary>
-    public const int HeightFieldNumber = 5;
+    public const int HeightFieldNumber = 4;
     private int height_;
     public int Height {
       get { return height_; }
@@ -124,10 +124,20 @@ namespace DataTypes {
       }
     }
 
+    /// <summary>Field number for the "purpose" field.</summary>
+    public const int PurposeFieldNumber = 5;
+    private global::DataTypes.Purpose purpose_ = 0;
+    public global::DataTypes.Purpose Purpose {
+      get { return purpose_; }
+      set {
+        purpose_ = value;
+      }
+    }
+
     /// <summary>Field number for the "biotype" field.</summary>
     public const int BiotypeFieldNumber = 6;
-    private global::DataTypes.BiometricDataType biotype_ = 0;
-    public global::DataTypes.BiometricDataType Biotype {
+    private global::DataTypes.BiometricType biotype_ = 0;
+    public global::DataTypes.BiometricType Biotype {
       get { return biotype_; }
       set {
         biotype_ = value;
@@ -156,10 +166,10 @@ namespace DataTypes {
         return true;
       }
       if (Id != other.Id) return false;
-      if (PhotoUrl != other.PhotoUrl) return false;
-      if (Bytestring != other.Bytestring) return false;
+      if (Url != other.Url) return false;
       if (Width != other.Width) return false;
       if (Height != other.Height) return false;
+      if (Purpose != other.Purpose) return false;
       if (Biotype != other.Biotype) return false;
       if (OwnerId != other.OwnerId) return false;
       return true;
@@ -168,10 +178,10 @@ namespace DataTypes {
     public override int GetHashCode() {
       int hash = 1;
       if (Id != 0L) hash ^= Id.GetHashCode();
-      if (PhotoUrl.Length != 0) hash ^= PhotoUrl.GetHashCode();
-      if (Bytestring.Length != 0) hash ^= Bytestring.GetHashCode();
+      if (Url.Length != 0) hash ^= Url.GetHashCode();
       if (Width != 0) hash ^= Width.GetHashCode();
       if (Height != 0) hash ^= Height.GetHashCode();
+      if (Purpose != 0) hash ^= Purpose.GetHashCode();
       if (Biotype != 0) hash ^= Biotype.GetHashCode();
       if (OwnerId != 0L) hash ^= OwnerId.GetHashCode();
       return hash;
@@ -186,21 +196,21 @@ namespace DataTypes {
         output.WriteRawTag(8);
         output.WriteInt64(Id);
       }
-      if (PhotoUrl.Length != 0) {
+      if (Url.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteString(PhotoUrl);
-      }
-      if (Bytestring.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteBytes(Bytestring);
+        output.WriteString(Url);
       }
       if (Width != 0) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(24);
         output.WriteInt32(Width);
       }
       if (Height != 0) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(32);
         output.WriteInt32(Height);
+      }
+      if (Purpose != 0) {
+        output.WriteRawTag(40);
+        output.WriteEnum((int) Purpose);
       }
       if (Biotype != 0) {
         output.WriteRawTag(48);
@@ -217,17 +227,17 @@ namespace DataTypes {
       if (Id != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Id);
       }
-      if (PhotoUrl.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(PhotoUrl);
-      }
-      if (Bytestring.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Bytestring);
+      if (Url.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Url);
       }
       if (Width != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Width);
       }
       if (Height != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Height);
+      }
+      if (Purpose != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Purpose);
       }
       if (Biotype != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Biotype);
@@ -245,17 +255,17 @@ namespace DataTypes {
       if (other.Id != 0L) {
         Id = other.Id;
       }
-      if (other.PhotoUrl.Length != 0) {
-        PhotoUrl = other.PhotoUrl;
-      }
-      if (other.Bytestring.Length != 0) {
-        Bytestring = other.Bytestring;
+      if (other.Url.Length != 0) {
+        Url = other.Url;
       }
       if (other.Width != 0) {
         Width = other.Width;
       }
       if (other.Height != 0) {
         Height = other.Height;
+      }
+      if (other.Purpose != 0) {
+        Purpose = other.Purpose;
       }
       if (other.Biotype != 0) {
         Biotype = other.Biotype;
@@ -277,23 +287,23 @@ namespace DataTypes {
             break;
           }
           case 18: {
-            PhotoUrl = input.ReadString();
+            Url = input.ReadString();
             break;
           }
-          case 26: {
-            Bytestring = input.ReadBytes();
-            break;
-          }
-          case 32: {
+          case 24: {
             Width = input.ReadInt32();
             break;
           }
-          case 40: {
+          case 32: {
             Height = input.ReadInt32();
             break;
           }
+          case 40: {
+            purpose_ = (global::DataTypes.Purpose) input.ReadEnum();
+            break;
+          }
           case 48: {
-            biotype_ = (global::DataTypes.BiometricDataType) input.ReadEnum();
+            biotype_ = (global::DataTypes.BiometricType) input.ReadEnum();
             break;
           }
           case 56: {

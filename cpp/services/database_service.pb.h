@@ -28,6 +28,7 @@
 #include <google/protobuf/empty.pb.h>
 #include "datatypes/person.pb.h"
 #include "datatypes/card.pb.h"
+#include "datatypes/photo.pb.h"
 #include "datatypes/location.pb.h"
 #include "datatypes/visitor.pb.h"
 #include "services/queries.pb.h"

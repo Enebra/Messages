@@ -24,28 +24,22 @@ namespace Services {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChZzZXJ2aWNlcy9xdWVyaWVzLnByb3RvEghTZXJ2aWNlcxoXZGF0YXR5cGVz",
-            "L3Zpc2l0b3IucHJvdG8i1QEKD0dldFBob3RvUmVxdWVzdBI5CgR0eXBlGAEg",
-            "ASgOMisuU2VydmljZXMuR2V0UGhvdG9SZXF1ZXN0LlBob3RvUmVzcG9uc2VU",
-            "eXBlEg8KB3BlcnNvbnMYAiADKAMSDgoGcGhvdG9zGAMgAygDEhwKBHBhZ2UY",
-            "BCABKAsyDi5TZXJ2aWNlcy5QYWdlIkgKEVBob3RvUmVzcG9uc2VUeXBlEg0K",
-            "CVVuZGVmaW5lZBAAEggKBEZ1bGwQARINCglPbmx5Qnl0ZXMQAhILCgdOb0J5",
-            "dGVzEAMijQEKEEdldFBlcnNvblJlcXVlc3QSEwoLc2VhcmNoX3RleHQYASAB",
-            "KAkSEgoKZmlyc3RfbmFtZRgCIAEoCRIRCglsYXN0X25hbWUYAyABKAkSDAoE",
-            "Y2FyZBgEIAEoCRIRCglsb2NhdGlvbnMYBSADKAMSHAoEcGFnZRgGIAEoCzIO",
-            "LlNlcnZpY2VzLlBhZ2UifwoSR2V0TG9jYXRpb25SZXF1ZXN0EhMKC3NlYXJj",
-            "aF90ZXh0GAEgASgJEgwKBG5hbWUYAiABKAkSEwoLbWFjX2FkZHJlc3MYAyAB",
-            "KAkSEwoLZGV2aWNlX25hbWUYBCABKAkSHAoEcGFnZRgFIAEoCzIOLlNlcnZp",
-            "Y2VzLlBhZ2UiywEKEUdldFZpc2l0b3JSZXF1ZXN0EhMKC3NlYXJjaF90ZXh0",
-            "GAEgASgJEiUKBXN0YXRlGAIgASgOMhYuRGF0YVR5cGVzLkFjY2Vzc1N0YXRl",
-            "EhEKCWxvY2F0aW9ucxgDIAMoAxIPCgdwZXJzb25zGAQgAygDEhUKDWRhdGV0",
-            "aW1lX2Zyb20YBSABKAMSEwoLZGF0ZXRpbWVfdG8YBiABKAMSDAoEY2FyZBgH",
-            "IAEoCRIcCgRwYWdlGAggASgLMg4uU2VydmljZXMuUGFnZSIjCgRQYWdlEg0K",
-            "BWluZGV4GAEgASgFEgwKBHNpemUYAiABKAVCDwoHZXguZ3JwY6ICA1JUR2IG",
-            "cHJvdG8z"));
+            "L3Zpc2l0b3IucHJvdG8ijQEKEEdldFBlcnNvblJlcXVlc3QSEwoLc2VhcmNo",
+            "X3RleHQYASABKAkSEgoKZmlyc3RfbmFtZRgCIAEoCRIRCglsYXN0X25hbWUY",
+            "AyABKAkSDAoEY2FyZBgEIAEoCRIRCglsb2NhdGlvbnMYBSADKAMSHAoEcGFn",
+            "ZRgGIAEoCzIOLlNlcnZpY2VzLlBhZ2UifwoSR2V0TG9jYXRpb25SZXF1ZXN0",
+            "EhMKC3NlYXJjaF90ZXh0GAEgASgJEgwKBG5hbWUYAiABKAkSEwoLbWFjX2Fk",
+            "ZHJlc3MYAyABKAkSEwoLZGV2aWNlX25hbWUYBCABKAkSHAoEcGFnZRgFIAEo",
+            "CzIOLlNlcnZpY2VzLlBhZ2UiywEKEUdldFZpc2l0b3JSZXF1ZXN0EhMKC3Nl",
+            "YXJjaF90ZXh0GAEgASgJEiUKBXN0YXRlGAIgASgOMhYuRGF0YVR5cGVzLkFj",
+            "Y2Vzc1N0YXRlEhEKCWxvY2F0aW9ucxgDIAMoAxIPCgdwZXJzb25zGAQgAygD",
+            "EhUKDWRhdGV0aW1lX2Zyb20YBSABKAMSEwoLZGF0ZXRpbWVfdG8YBiABKAMS",
+            "DAoEY2FyZBgHIAEoCRIcCgRwYWdlGAggASgLMg4uU2VydmljZXMuUGFnZSIj",
+            "CgRQYWdlEg0KBWluZGV4GAEgASgFEgwKBHNpemUYAiABKAVCDwoHZXguZ3Jw",
+            "Y6ICA1JUR2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::DataTypes.VisitorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Services.GetPhotoRequest), global::Services.GetPhotoRequest.Parser, new[]{ "Type", "Persons", "Photos", "Page" }, null, new[]{ typeof(global::Services.GetPhotoRequest.Types.PhotoResponseType) }, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Services.GetPersonRequest), global::Services.GetPersonRequest.Parser, new[]{ "SearchText", "FirstName", "LastName", "Card", "Locations", "Page" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Services.GetLocationRequest), global::Services.GetLocationRequest.Parser, new[]{ "SearchText", "Name", "MacAddress", "DeviceName", "Page" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Services.GetVisitorRequest), global::Services.GetVisitorRequest.Parser, new[]{ "SearchText", "State", "Locations", "Persons", "DatetimeFrom", "DatetimeTo", "Card", "Page" }, null, null, null),
@@ -57,202 +51,12 @@ namespace Services {
   }
   #region Messages
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class GetPhotoRequest : pb::IMessage<GetPhotoRequest> {
-    private static readonly pb::MessageParser<GetPhotoRequest> _parser = new pb::MessageParser<GetPhotoRequest>(() => new GetPhotoRequest());
-    public static pb::MessageParser<GetPhotoRequest> Parser { get { return _parser; } }
-
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Services.QueriesReflection.Descriptor.MessageTypes[0]; }
-    }
-
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    public GetPhotoRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    public GetPhotoRequest(GetPhotoRequest other) : this() {
-      type_ = other.type_;
-      persons_ = other.persons_.Clone();
-      photos_ = other.photos_.Clone();
-      Page = other.page_ != null ? other.Page.Clone() : null;
-    }
-
-    public GetPhotoRequest Clone() {
-      return new GetPhotoRequest(this);
-    }
-
-    /// <summary>Field number for the "type" field.</summary>
-    public const int TypeFieldNumber = 1;
-    private global::Services.GetPhotoRequest.Types.PhotoResponseType type_ = 0;
-    public global::Services.GetPhotoRequest.Types.PhotoResponseType Type {
-      get { return type_; }
-      set {
-        type_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "persons" field.</summary>
-    public const int PersonsFieldNumber = 2;
-    private static readonly pb::FieldCodec<long> _repeated_persons_codec
-        = pb::FieldCodec.ForInt64(18);
-    private readonly pbc::RepeatedField<long> persons_ = new pbc::RepeatedField<long>();
-    public pbc::RepeatedField<long> Persons {
-      get { return persons_; }
-    }
-
-    /// <summary>Field number for the "photos" field.</summary>
-    public const int PhotosFieldNumber = 3;
-    private static readonly pb::FieldCodec<long> _repeated_photos_codec
-        = pb::FieldCodec.ForInt64(26);
-    private readonly pbc::RepeatedField<long> photos_ = new pbc::RepeatedField<long>();
-    public pbc::RepeatedField<long> Photos {
-      get { return photos_; }
-    }
-
-    /// <summary>Field number for the "page" field.</summary>
-    public const int PageFieldNumber = 4;
-    private global::Services.Page page_;
-    public global::Services.Page Page {
-      get { return page_; }
-      set {
-        page_ = value;
-      }
-    }
-
-    public override bool Equals(object other) {
-      return Equals(other as GetPhotoRequest);
-    }
-
-    public bool Equals(GetPhotoRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Type != other.Type) return false;
-      if(!persons_.Equals(other.persons_)) return false;
-      if(!photos_.Equals(other.photos_)) return false;
-      if (!object.Equals(Page, other.Page)) return false;
-      return true;
-    }
-
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Type != 0) hash ^= Type.GetHashCode();
-      hash ^= persons_.GetHashCode();
-      hash ^= photos_.GetHashCode();
-      if (page_ != null) hash ^= Page.GetHashCode();
-      return hash;
-    }
-
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Type != 0) {
-        output.WriteRawTag(8);
-        output.WriteEnum((int) Type);
-      }
-      persons_.WriteTo(output, _repeated_persons_codec);
-      photos_.WriteTo(output, _repeated_photos_codec);
-      if (page_ != null) {
-        output.WriteRawTag(34);
-        output.WriteMessage(Page);
-      }
-    }
-
-    public int CalculateSize() {
-      int size = 0;
-      if (Type != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
-      }
-      size += persons_.CalculateSize(_repeated_persons_codec);
-      size += photos_.CalculateSize(_repeated_photos_codec);
-      if (page_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Page);
-      }
-      return size;
-    }
-
-    public void MergeFrom(GetPhotoRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Type != 0) {
-        Type = other.Type;
-      }
-      persons_.Add(other.persons_);
-      photos_.Add(other.photos_);
-      if (other.page_ != null) {
-        if (page_ == null) {
-          page_ = new global::Services.Page();
-        }
-        Page.MergeFrom(other.Page);
-      }
-    }
-
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 8: {
-            type_ = (global::Services.GetPhotoRequest.Types.PhotoResponseType) input.ReadEnum();
-            break;
-          }
-          case 18:
-          case 16: {
-            persons_.AddEntriesFrom(input, _repeated_persons_codec);
-            break;
-          }
-          case 26:
-          case 24: {
-            photos_.AddEntriesFrom(input, _repeated_photos_codec);
-            break;
-          }
-          case 34: {
-            if (page_ == null) {
-              page_ = new global::Services.Page();
-            }
-            input.ReadMessage(page_);
-            break;
-          }
-        }
-      }
-    }
-
-    #region Nested types
-    /// <summary>Container for nested types declared in the GetPhotoRequest message type.</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    public static partial class Types {
-      public enum PhotoResponseType {
-        [pbr::OriginalName("Undefined")] Undefined = 0,
-        [pbr::OriginalName("Full")] Full = 1,
-        [pbr::OriginalName("OnlyBytes")] OnlyBytes = 2,
-        [pbr::OriginalName("NoBytes")] NoBytes = 3,
-      }
-
-    }
-    #endregion
-
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class GetPersonRequest : pb::IMessage<GetPersonRequest> {
     private static readonly pb::MessageParser<GetPersonRequest> _parser = new pb::MessageParser<GetPersonRequest>(() => new GetPersonRequest());
     public static pb::MessageParser<GetPersonRequest> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Services.QueriesReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Services.QueriesReflection.Descriptor.MessageTypes[0]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -496,7 +300,7 @@ namespace Services {
     public static pb::MessageParser<GetLocationRequest> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Services.QueriesReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Services.QueriesReflection.Descriptor.MessageTypes[1]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -716,7 +520,7 @@ namespace Services {
     public static pb::MessageParser<GetVisitorRequest> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Services.QueriesReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Services.QueriesReflection.Descriptor.MessageTypes[2]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -1000,7 +804,7 @@ namespace Services {
     public static pb::MessageParser<Page> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Services.QueriesReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Services.QueriesReflection.Descriptor.MessageTypes[3]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {

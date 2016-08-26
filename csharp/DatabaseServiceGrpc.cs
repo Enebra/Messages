@@ -23,6 +23,7 @@ namespace Services {
     static readonly Marshaller<global::Services.GetVisitorRequest> __Marshaller_GetVisitorRequest = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.GetVisitorRequest.Parser.ParseFrom);
     static readonly Marshaller<global::DataTypes.Visitors> __Marshaller_Visitors = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Visitors.Parser.ParseFrom);
     static readonly Marshaller<global::DataTypes.Visitor> __Marshaller_Visitor = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Visitor.Parser.ParseFrom);
+    static readonly Marshaller<global::DataTypes.Photo> __Marshaller_Photo = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Photo.Parser.ParseFrom);
 
     static readonly Method<global::Services.GetPersonRequest, global::DataTypes.Persons> __Method_GetPerson = new Method<global::Services.GetPersonRequest, global::DataTypes.Persons>(
         MethodType.Unary,
@@ -129,6 +130,20 @@ namespace Services {
         __Marshaller_Visitor,
         __Marshaller_Empty);
 
+    static readonly Method<global::DataTypes.Photo, global::DataTypes.Photo> __Method_InsertPhoto = new Method<global::DataTypes.Photo, global::DataTypes.Photo>(
+        MethodType.Unary,
+        __ServiceName,
+        "InsertPhoto",
+        __Marshaller_Photo,
+        __Marshaller_Photo);
+
+    static readonly Method<global::DataTypes.Photo, global::Google.Protobuf.WellKnownTypes.Empty> __Method_DeletePhoto = new Method<global::DataTypes.Photo, global::Google.Protobuf.WellKnownTypes.Empty>(
+        MethodType.Unary,
+        __ServiceName,
+        "DeletePhoto",
+        __Marshaller_Photo,
+        __Marshaller_Empty);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -158,9 +173,6 @@ namespace Services {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
 
-      /// <summary>
-      /// rpc GetCard         ( Query               ) returns ( DataTypes.Cards        ) {}
-      /// </summary>
       public virtual global::System.Threading.Tasks.Task<global::DataTypes.Card> InsertCard(global::DataTypes.Card request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
@@ -212,6 +224,16 @@ namespace Services {
       }
 
       public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> DeleteVisitor(global::DataTypes.Visitor request, ServerCallContext context)
+      {
+        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::DataTypes.Photo> InsertPhoto(global::DataTypes.Photo request, ServerCallContext context)
+      {
+        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> DeletePhoto(global::DataTypes.Photo request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
@@ -305,30 +327,18 @@ namespace Services {
       {
         return CallInvoker.AsyncUnaryCall(__Method_DeletePerson, null, options, request);
       }
-      /// <summary>
-      /// rpc GetCard         ( Query               ) returns ( DataTypes.Cards        ) {}
-      /// </summary>
       public virtual global::DataTypes.Card InsertCard(global::DataTypes.Card request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return InsertCard(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      /// <summary>
-      /// rpc GetCard         ( Query               ) returns ( DataTypes.Cards        ) {}
-      /// </summary>
       public virtual global::DataTypes.Card InsertCard(global::DataTypes.Card request, CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_InsertCard, null, options, request);
       }
-      /// <summary>
-      /// rpc GetCard         ( Query               ) returns ( DataTypes.Cards        ) {}
-      /// </summary>
       public virtual AsyncUnaryCall<global::DataTypes.Card> InsertCardAsync(global::DataTypes.Card request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return InsertCardAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      /// <summary>
-      /// rpc GetCard         ( Query               ) returns ( DataTypes.Cards        ) {}
-      /// </summary>
       public virtual AsyncUnaryCall<global::DataTypes.Card> InsertCardAsync(global::DataTypes.Card request, CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_InsertCard, null, options, request);
@@ -493,6 +503,38 @@ namespace Services {
       {
         return CallInvoker.AsyncUnaryCall(__Method_DeleteVisitor, null, options, request);
       }
+      public virtual global::DataTypes.Photo InsertPhoto(global::DataTypes.Photo request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return InsertPhoto(request, new CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::DataTypes.Photo InsertPhoto(global::DataTypes.Photo request, CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_InsertPhoto, null, options, request);
+      }
+      public virtual AsyncUnaryCall<global::DataTypes.Photo> InsertPhotoAsync(global::DataTypes.Photo request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return InsertPhotoAsync(request, new CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual AsyncUnaryCall<global::DataTypes.Photo> InsertPhotoAsync(global::DataTypes.Photo request, CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_InsertPhoto, null, options, request);
+      }
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty DeletePhoto(global::DataTypes.Photo request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return DeletePhoto(request, new CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty DeletePhoto(global::DataTypes.Photo request, CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_DeletePhoto, null, options, request);
+      }
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeletePhotoAsync(global::DataTypes.Photo request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return DeletePhotoAsync(request, new CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeletePhotoAsync(global::DataTypes.Photo request, CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_DeletePhoto, null, options, request);
+      }
       protected override DatabaseSeviceClient NewInstance(ClientBaseConfiguration configuration)
       {
         return new DatabaseSeviceClient(configuration);
@@ -517,7 +559,9 @@ namespace Services {
           .AddMethod(__Method_GetVisitor, serviceImpl.GetVisitor)
           .AddMethod(__Method_InsertVisitor, serviceImpl.InsertVisitor)
           .AddMethod(__Method_UpdateVisitor, serviceImpl.UpdateVisitor)
-          .AddMethod(__Method_DeleteVisitor, serviceImpl.DeleteVisitor).Build();
+          .AddMethod(__Method_DeleteVisitor, serviceImpl.DeleteVisitor)
+          .AddMethod(__Method_InsertPhoto, serviceImpl.InsertPhoto)
+          .AddMethod(__Method_DeletePhoto, serviceImpl.DeletePhoto).Build();
     }
 
   }

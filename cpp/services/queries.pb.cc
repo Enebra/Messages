@@ -21,10 +21,6 @@ namespace Services {
 
 namespace {
 
-const ::google::protobuf::Descriptor* GetPhotoRequest_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  GetPhotoRequest_reflection_ = NULL;
-const ::google::protobuf::EnumDescriptor* GetPhotoRequest_PhotoResponseType_descriptor_ = NULL;
 const ::google::protobuf::Descriptor* GetPersonRequest_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   GetPersonRequest_reflection_ = NULL;
@@ -47,26 +43,7 @@ void protobuf_AssignDesc_services_2fqueries_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "services/queries.proto");
   GOOGLE_CHECK(file != NULL);
-  GetPhotoRequest_descriptor_ = file->message_type(0);
-  static const int GetPhotoRequest_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetPhotoRequest, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetPhotoRequest, persons_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetPhotoRequest, photos_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetPhotoRequest, page_),
-  };
-  GetPhotoRequest_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      GetPhotoRequest_descriptor_,
-      GetPhotoRequest::default_instance_,
-      GetPhotoRequest_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(GetPhotoRequest),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetPhotoRequest, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetPhotoRequest, _is_default_instance_));
-  GetPhotoRequest_PhotoResponseType_descriptor_ = GetPhotoRequest_descriptor_->enum_type(0);
-  GetPersonRequest_descriptor_ = file->message_type(1);
+  GetPersonRequest_descriptor_ = file->message_type(0);
   static const int GetPersonRequest_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetPersonRequest, search_text_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetPersonRequest, first_name_),
@@ -86,7 +63,7 @@ void protobuf_AssignDesc_services_2fqueries_2eproto() {
       sizeof(GetPersonRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetPersonRequest, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetPersonRequest, _is_default_instance_));
-  GetLocationRequest_descriptor_ = file->message_type(2);
+  GetLocationRequest_descriptor_ = file->message_type(1);
   static const int GetLocationRequest_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetLocationRequest, search_text_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetLocationRequest, name_),
@@ -105,7 +82,7 @@ void protobuf_AssignDesc_services_2fqueries_2eproto() {
       sizeof(GetLocationRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetLocationRequest, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetLocationRequest, _is_default_instance_));
-  GetVisitorRequest_descriptor_ = file->message_type(3);
+  GetVisitorRequest_descriptor_ = file->message_type(2);
   static const int GetVisitorRequest_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetVisitorRequest, search_text_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetVisitorRequest, state_),
@@ -127,7 +104,7 @@ void protobuf_AssignDesc_services_2fqueries_2eproto() {
       sizeof(GetVisitorRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetVisitorRequest, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetVisitorRequest, _is_default_instance_));
-  Page_descriptor_ = file->message_type(4);
+  Page_descriptor_ = file->message_type(3);
   static const int Page_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Page, index_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Page, size_),
@@ -156,8 +133,6 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      GetPhotoRequest_descriptor_, &GetPhotoRequest::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       GetPersonRequest_descriptor_, &GetPersonRequest::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       GetLocationRequest_descriptor_, &GetLocationRequest::default_instance());
@@ -170,8 +145,6 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }  // namespace
 
 void protobuf_ShutdownFile_services_2fqueries_2eproto() {
-  delete GetPhotoRequest::default_instance_;
-  delete GetPhotoRequest_reflection_;
   delete GetPersonRequest::default_instance_;
   delete GetPersonRequest_reflection_;
   delete GetLocationRequest::default_instance_;
@@ -191,34 +164,26 @@ void protobuf_AddDesc_services_2fqueries_2eproto() {
   ::DataTypes::protobuf_AddDesc_datatypes_2fvisitor_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\026services/queries.proto\022\010Services\032\027data"
-    "types/visitor.proto\"\325\001\n\017GetPhotoRequest\022"
-    "9\n\004type\030\001 \001(\0162+.Services.GetPhotoRequest"
-    ".PhotoResponseType\022\017\n\007persons\030\002 \003(\003\022\016\n\006p"
-    "hotos\030\003 \003(\003\022\034\n\004page\030\004 \001(\0132\016.Services.Pag"
-    "e\"H\n\021PhotoResponseType\022\r\n\tUndefined\020\000\022\010\n"
-    "\004Full\020\001\022\r\n\tOnlyBytes\020\002\022\013\n\007NoBytes\020\003\"\215\001\n\020"
-    "GetPersonRequest\022\023\n\013search_text\030\001 \001(\t\022\022\n"
-    "\nfirst_name\030\002 \001(\t\022\021\n\tlast_name\030\003 \001(\t\022\014\n\004"
-    "card\030\004 \001(\t\022\021\n\tlocations\030\005 \003(\003\022\034\n\004page\030\006 "
-    "\001(\0132\016.Services.Page\"\177\n\022GetLocationReques"
-    "t\022\023\n\013search_text\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\023\n\013"
-    "mac_address\030\003 \001(\t\022\023\n\013device_name\030\004 \001(\t\022\034"
-    "\n\004page\030\005 \001(\0132\016.Services.Page\"\313\001\n\021GetVisi"
-    "torRequest\022\023\n\013search_text\030\001 \001(\t\022%\n\005state"
-    "\030\002 \001(\0162\026.DataTypes.AccessState\022\021\n\tlocati"
-    "ons\030\003 \003(\003\022\017\n\007persons\030\004 \003(\003\022\025\n\rdatetime_f"
-    "rom\030\005 \001(\003\022\023\n\013datetime_to\030\006 \001(\003\022\014\n\004card\030\007"
-    " \001(\t\022\034\n\004page\030\010 \001(\0132\016.Services.Page\"#\n\004Pa"
-    "ge\022\r\n\005index\030\001 \001(\005\022\014\n\004size\030\002 \001(\005B\017\n\007ex.gr"
-    "pc\242\002\003RTGb\006proto3", 816);
+    "types/visitor.proto\"\215\001\n\020GetPersonRequest"
+    "\022\023\n\013search_text\030\001 \001(\t\022\022\n\nfirst_name\030\002 \001("
+    "\t\022\021\n\tlast_name\030\003 \001(\t\022\014\n\004card\030\004 \001(\t\022\021\n\tlo"
+    "cations\030\005 \003(\003\022\034\n\004page\030\006 \001(\0132\016.Services.P"
+    "age\"\177\n\022GetLocationRequest\022\023\n\013search_text"
+    "\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\023\n\013mac_address\030\003 \001("
+    "\t\022\023\n\013device_name\030\004 \001(\t\022\034\n\004page\030\005 \001(\0132\016.S"
+    "ervices.Page\"\313\001\n\021GetVisitorRequest\022\023\n\013se"
+    "arch_text\030\001 \001(\t\022%\n\005state\030\002 \001(\0162\026.DataTyp"
+    "es.AccessState\022\021\n\tlocations\030\003 \003(\003\022\017\n\007per"
+    "sons\030\004 \003(\003\022\025\n\rdatetime_from\030\005 \001(\003\022\023\n\013dat"
+    "etime_to\030\006 \001(\003\022\014\n\004card\030\007 \001(\t\022\034\n\004page\030\010 \001"
+    "(\0132\016.Services.Page\"#\n\004Page\022\r\n\005index\030\001 \001("
+    "\005\022\014\n\004size\030\002 \001(\005B\017\n\007ex.grpc\242\002\003RTGb\006proto3", 600);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "services/queries.proto", &protobuf_RegisterTypes);
-  GetPhotoRequest::default_instance_ = new GetPhotoRequest();
   GetPersonRequest::default_instance_ = new GetPersonRequest();
   GetLocationRequest::default_instance_ = new GetLocationRequest();
   GetVisitorRequest::default_instance_ = new GetVisitorRequest();
   Page::default_instance_ = new Page();
-  GetPhotoRequest::default_instance_->InitAsDefaultInstance();
   GetPersonRequest::default_instance_->InitAsDefaultInstance();
   GetLocationRequest::default_instance_->InitAsDefaultInstance();
   GetVisitorRequest::default_instance_->InitAsDefaultInstance();
@@ -242,534 +207,6 @@ static void MergeFromFail(int line) {
 
 }  // namespace
 
-
-// ===================================================================
-
-const ::google::protobuf::EnumDescriptor* GetPhotoRequest_PhotoResponseType_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return GetPhotoRequest_PhotoResponseType_descriptor_;
-}
-bool GetPhotoRequest_PhotoResponseType_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const GetPhotoRequest_PhotoResponseType GetPhotoRequest::Undefined;
-const GetPhotoRequest_PhotoResponseType GetPhotoRequest::Full;
-const GetPhotoRequest_PhotoResponseType GetPhotoRequest::OnlyBytes;
-const GetPhotoRequest_PhotoResponseType GetPhotoRequest::NoBytes;
-const GetPhotoRequest_PhotoResponseType GetPhotoRequest::PhotoResponseType_MIN;
-const GetPhotoRequest_PhotoResponseType GetPhotoRequest::PhotoResponseType_MAX;
-const int GetPhotoRequest::PhotoResponseType_ARRAYSIZE;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int GetPhotoRequest::kTypeFieldNumber;
-const int GetPhotoRequest::kPersonsFieldNumber;
-const int GetPhotoRequest::kPhotosFieldNumber;
-const int GetPhotoRequest::kPageFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-GetPhotoRequest::GetPhotoRequest()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:Services.GetPhotoRequest)
-}
-
-void GetPhotoRequest::InitAsDefaultInstance() {
-  _is_default_instance_ = true;
-  page_ = const_cast< ::Services::Page*>(&::Services::Page::default_instance());
-}
-
-GetPhotoRequest::GetPhotoRequest(const GetPhotoRequest& from)
-  : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Services.GetPhotoRequest)
-}
-
-void GetPhotoRequest::SharedCtor() {
-    _is_default_instance_ = false;
-  _cached_size_ = 0;
-  type_ = 0;
-  page_ = NULL;
-}
-
-GetPhotoRequest::~GetPhotoRequest() {
-  // @@protoc_insertion_point(destructor:Services.GetPhotoRequest)
-  SharedDtor();
-}
-
-void GetPhotoRequest::SharedDtor() {
-  if (this != default_instance_) {
-    delete page_;
-  }
-}
-
-void GetPhotoRequest::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* GetPhotoRequest::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return GetPhotoRequest_descriptor_;
-}
-
-const GetPhotoRequest& GetPhotoRequest::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_services_2fqueries_2eproto();
-  return *default_instance_;
-}
-
-GetPhotoRequest* GetPhotoRequest::default_instance_ = NULL;
-
-GetPhotoRequest* GetPhotoRequest::New(::google::protobuf::Arena* arena) const {
-  GetPhotoRequest* n = new GetPhotoRequest;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
-}
-
-void GetPhotoRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:Services.GetPhotoRequest)
-  type_ = 0;
-  if (GetArenaNoVirtual() == NULL && page_ != NULL) delete page_;
-  page_ = NULL;
-  persons_.Clear();
-  photos_.Clear();
-}
-
-bool GetPhotoRequest::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Services.GetPhotoRequest)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .Services.GetPhotoRequest.PhotoResponseType type = 1;
-      case 1: {
-        if (tag == 8) {
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          set_type(static_cast< ::Services::GetPhotoRequest_PhotoResponseType >(value));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(18)) goto parse_persons;
-        break;
-      }
-
-      // repeated int64 persons = 2;
-      case 2: {
-        if (tag == 18) {
-         parse_persons:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, this->mutable_persons())));
-        } else if (tag == 16) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 1, 18, input, this->mutable_persons())));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(26)) goto parse_photos;
-        break;
-      }
-
-      // repeated int64 photos = 3;
-      case 3: {
-        if (tag == 26) {
-         parse_photos:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, this->mutable_photos())));
-        } else if (tag == 24) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 1, 26, input, this->mutable_photos())));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(34)) goto parse_page;
-        break;
-      }
-
-      // optional .Services.Page page = 4;
-      case 4: {
-        if (tag == 34) {
-         parse_page:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_page()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectAtEnd()) goto success;
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:Services.GetPhotoRequest)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:Services.GetPhotoRequest)
-  return false;
-#undef DO_
-}
-
-void GetPhotoRequest::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Services.GetPhotoRequest)
-  // optional .Services.GetPhotoRequest.PhotoResponseType type = 1;
-  if (this->type() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      1, this->type(), output);
-  }
-
-  // repeated int64 persons = 2;
-  if (this->persons_size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteTag(2, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
-    output->WriteVarint32(_persons_cached_byte_size_);
-  }
-  for (int i = 0; i < this->persons_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64NoTag(
-      this->persons(i), output);
-  }
-
-  // repeated int64 photos = 3;
-  if (this->photos_size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteTag(3, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
-    output->WriteVarint32(_photos_cached_byte_size_);
-  }
-  for (int i = 0; i < this->photos_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64NoTag(
-      this->photos(i), output);
-  }
-
-  // optional .Services.Page page = 4;
-  if (this->has_page()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, *this->page_, output);
-  }
-
-  // @@protoc_insertion_point(serialize_end:Services.GetPhotoRequest)
-}
-
-::google::protobuf::uint8* GetPhotoRequest::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Services.GetPhotoRequest)
-  // optional .Services.GetPhotoRequest.PhotoResponseType type = 1;
-  if (this->type() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      1, this->type(), target);
-  }
-
-  // repeated int64 persons = 2;
-  if (this->persons_size() > 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
-      2,
-      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
-      target);
-    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
-      _persons_cached_byte_size_, target);
-  }
-  for (int i = 0; i < this->persons_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt64NoTagToArray(this->persons(i), target);
-  }
-
-  // repeated int64 photos = 3;
-  if (this->photos_size() > 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
-      3,
-      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
-      target);
-    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
-      _photos_cached_byte_size_, target);
-  }
-  for (int i = 0; i < this->photos_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt64NoTagToArray(this->photos(i), target);
-  }
-
-  // optional .Services.Page page = 4;
-  if (this->has_page()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        4, *this->page_, target);
-  }
-
-  // @@protoc_insertion_point(serialize_to_array_end:Services.GetPhotoRequest)
-  return target;
-}
-
-int GetPhotoRequest::ByteSize() const {
-// @@protoc_insertion_point(message_byte_size_start:Services.GetPhotoRequest)
-  int total_size = 0;
-
-  // optional .Services.GetPhotoRequest.PhotoResponseType type = 1;
-  if (this->type() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
-  }
-
-  // optional .Services.Page page = 4;
-  if (this->has_page()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->page_);
-  }
-
-  // repeated int64 persons = 2;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->persons_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int64Size(this->persons(i));
-    }
-    if (data_size > 0) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
-    }
-    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-    _persons_cached_byte_size_ = data_size;
-    GOOGLE_SAFE_CONCURRENT_WRITES_END();
-    total_size += data_size;
-  }
-
-  // repeated int64 photos = 3;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->photos_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int64Size(this->photos(i));
-    }
-    if (data_size > 0) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
-    }
-    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-    _photos_cached_byte_size_ = data_size;
-    GOOGLE_SAFE_CONCURRENT_WRITES_END();
-    total_size += data_size;
-  }
-
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void GetPhotoRequest::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:Services.GetPhotoRequest)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const GetPhotoRequest* source = 
-      ::google::protobuf::internal::DynamicCastToGenerated<const GetPhotoRequest>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Services.GetPhotoRequest)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:Services.GetPhotoRequest)
-    MergeFrom(*source);
-  }
-}
-
-void GetPhotoRequest::MergeFrom(const GetPhotoRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Services.GetPhotoRequest)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  persons_.MergeFrom(from.persons_);
-  photos_.MergeFrom(from.photos_);
-  if (from.type() != 0) {
-    set_type(from.type());
-  }
-  if (from.has_page()) {
-    mutable_page()->::Services::Page::MergeFrom(from.page());
-  }
-}
-
-void GetPhotoRequest::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:Services.GetPhotoRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void GetPhotoRequest::CopyFrom(const GetPhotoRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:Services.GetPhotoRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool GetPhotoRequest::IsInitialized() const {
-
-  return true;
-}
-
-void GetPhotoRequest::Swap(GetPhotoRequest* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void GetPhotoRequest::InternalSwap(GetPhotoRequest* other) {
-  std::swap(type_, other->type_);
-  persons_.UnsafeArenaSwap(&other->persons_);
-  photos_.UnsafeArenaSwap(&other->photos_);
-  std::swap(page_, other->page_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  std::swap(_cached_size_, other->_cached_size_);
-}
-
-::google::protobuf::Metadata GetPhotoRequest::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = GetPhotoRequest_descriptor_;
-  metadata.reflection = GetPhotoRequest_reflection_;
-  return metadata;
-}
-
-#if PROTOBUF_INLINE_NOT_IN_HEADERS
-// GetPhotoRequest
-
-// optional .Services.GetPhotoRequest.PhotoResponseType type = 1;
-void GetPhotoRequest::clear_type() {
-  type_ = 0;
-}
- ::Services::GetPhotoRequest_PhotoResponseType GetPhotoRequest::type() const {
-  // @@protoc_insertion_point(field_get:Services.GetPhotoRequest.type)
-  return static_cast< ::Services::GetPhotoRequest_PhotoResponseType >(type_);
-}
- void GetPhotoRequest::set_type(::Services::GetPhotoRequest_PhotoResponseType value) {
-  
-  type_ = value;
-  // @@protoc_insertion_point(field_set:Services.GetPhotoRequest.type)
-}
-
-// repeated int64 persons = 2;
-int GetPhotoRequest::persons_size() const {
-  return persons_.size();
-}
-void GetPhotoRequest::clear_persons() {
-  persons_.Clear();
-}
- ::google::protobuf::int64 GetPhotoRequest::persons(int index) const {
-  // @@protoc_insertion_point(field_get:Services.GetPhotoRequest.persons)
-  return persons_.Get(index);
-}
- void GetPhotoRequest::set_persons(int index, ::google::protobuf::int64 value) {
-  persons_.Set(index, value);
-  // @@protoc_insertion_point(field_set:Services.GetPhotoRequest.persons)
-}
- void GetPhotoRequest::add_persons(::google::protobuf::int64 value) {
-  persons_.Add(value);
-  // @@protoc_insertion_point(field_add:Services.GetPhotoRequest.persons)
-}
- const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-GetPhotoRequest::persons() const {
-  // @@protoc_insertion_point(field_list:Services.GetPhotoRequest.persons)
-  return persons_;
-}
- ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-GetPhotoRequest::mutable_persons() {
-  // @@protoc_insertion_point(field_mutable_list:Services.GetPhotoRequest.persons)
-  return &persons_;
-}
-
-// repeated int64 photos = 3;
-int GetPhotoRequest::photos_size() const {
-  return photos_.size();
-}
-void GetPhotoRequest::clear_photos() {
-  photos_.Clear();
-}
- ::google::protobuf::int64 GetPhotoRequest::photos(int index) const {
-  // @@protoc_insertion_point(field_get:Services.GetPhotoRequest.photos)
-  return photos_.Get(index);
-}
- void GetPhotoRequest::set_photos(int index, ::google::protobuf::int64 value) {
-  photos_.Set(index, value);
-  // @@protoc_insertion_point(field_set:Services.GetPhotoRequest.photos)
-}
- void GetPhotoRequest::add_photos(::google::protobuf::int64 value) {
-  photos_.Add(value);
-  // @@protoc_insertion_point(field_add:Services.GetPhotoRequest.photos)
-}
- const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-GetPhotoRequest::photos() const {
-  // @@protoc_insertion_point(field_list:Services.GetPhotoRequest.photos)
-  return photos_;
-}
- ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-GetPhotoRequest::mutable_photos() {
-  // @@protoc_insertion_point(field_mutable_list:Services.GetPhotoRequest.photos)
-  return &photos_;
-}
-
-// optional .Services.Page page = 4;
-bool GetPhotoRequest::has_page() const {
-  return !_is_default_instance_ && page_ != NULL;
-}
-void GetPhotoRequest::clear_page() {
-  if (GetArenaNoVirtual() == NULL && page_ != NULL) delete page_;
-  page_ = NULL;
-}
-const ::Services::Page& GetPhotoRequest::page() const {
-  // @@protoc_insertion_point(field_get:Services.GetPhotoRequest.page)
-  return page_ != NULL ? *page_ : *default_instance_->page_;
-}
-::Services::Page* GetPhotoRequest::mutable_page() {
-  
-  if (page_ == NULL) {
-    page_ = new ::Services::Page;
-  }
-  // @@protoc_insertion_point(field_mutable:Services.GetPhotoRequest.page)
-  return page_;
-}
-::Services::Page* GetPhotoRequest::release_page() {
-  // @@protoc_insertion_point(field_release:Services.GetPhotoRequest.page)
-  
-  ::Services::Page* temp = page_;
-  page_ = NULL;
-  return temp;
-}
-void GetPhotoRequest::set_allocated_page(::Services::Page* page) {
-  delete page_;
-  page_ = page;
-  if (page) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:Services.GetPhotoRequest.page)
-}
-
-#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
 

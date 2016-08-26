@@ -33,7 +33,7 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Matches_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Matches_reflection_ = NULL;
-const ::google::protobuf::EnumDescriptor* BiometricDataType_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* BiometricType_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* EyeType_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* Finger_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* FacialIsoComplianceTemplate_descriptor_ = NULL;
@@ -113,7 +113,7 @@ void protobuf_AssignDesc_datatypes_2fbiometrics_2eproto() {
       sizeof(Matches),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Matches, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Matches, _is_default_instance_));
-  BiometricDataType_descriptor_ = file->enum_type(0);
+  BiometricType_descriptor_ = file->enum_type(0);
   EyeType_descriptor_ = file->enum_type(1);
   Finger_descriptor_ = file->enum_type(2);
   FacialIsoComplianceTemplate_descriptor_ = file->enum_type(3);
@@ -168,33 +168,33 @@ void protobuf_AddDesc_datatypes_2fbiometrics_2eproto() {
     "\001(\002\022\021\n\tperson_id\030\004 \001(\003\022\020\n\010photo_id\030\005 \001(\003"
     "\"\'\n\005Match\022\017\n\007face_id\030\002 \001(\003\022\r\n\005match\030\003 \001("
     "\002\"=\n\007Matches\022\017\n\007face_id\030\001 \001(\003\022!\n\007matches"
-    "\030\002 \003(\0132\020.DataTypes.Match*\\\n\021BiometricDat"
-    "aType\022\027\n\023Unspecified_BioData\020\000\022\n\n\006Facial"
-    "\020\001\022\017\n\013Fingerprint\020\002\022\010\n\004Iris\020\003\022\007\n\003All\020\004*="
-    "\n\007EyeType\022\023\n\017Unspecified_Eye\020\000\022\010\n\004Left\020\001"
-    "\022\t\n\005Right\020\002\022\010\n\004Both\020\003*\275\001\n\006Finger\022\026\n\022Unsp"
-    "ecified_Finger\020\000\022\016\n\nRightThumb\020\001\022\r\n\tLeft"
-    "Thumb\020\002\022\016\n\nRightIndex\020\003\022\r\n\tLeftIndex\020\004\022\017"
-    "\n\013RightMiddle\020\005\022\016\n\nLeftMiddle\020\006\022\r\n\tRight"
-    "Ring\020\007\022\014\n\010LeftRing\020\010\022\017\n\013RightLittle\020\t\022\016\n"
-    "\nLeftLittle\020\n*\216\005\n\033FacialIsoComplianceTem"
-    "plate\022\033\n\027Unspecified_IsoTemplate\020\000\022\026\n\022On"
-    "lyOneFaceVisible\020\001\022\034\n\030goodVerticalFacePo"
-    "sition\020\002\022\034\n\030horizontallyCenteredFace\020\003\022\017"
-    "\n\013widthOfHead\020\004\022\020\n\014lengthOfHead\020\005\022\033\n\027wid"
-    "thOfHeadBestPractice\020\006\022\034\n\030lengthOfHeadBe"
-    "stPractice\020\007\022\016\n\nresolution\020\010\022\032\n\026resoluti"
-    "onBestPractice\020\t\022\"\n\036imageWidthToHeightBe"
-    "stPractice\020\n\022\020\n\014goodExposure\020\013\022\030\n\024goodGr"
-    "ayScaleProfile\020\014\022\030\n\024hasNaturalSkinColour"
-    "\020\r\022\016\n\nnoHotSpots\020\016\022#\n\037isBackgroundUnifor"
-    "mBestPractice\020\017\022\r\n\tisFrontal\020\020\022\031\n\025isFron"
-    "talBestPractice\020\021\022\025\n\021isLightingUniform\020\022"
-    "\022\030\n\024eyesOpenBestPractice\020\023\022\037\n\033eyesGazeFr"
-    "ontalBestPractice\020\024\022\032\n\026eyesNotRedBestPra"
-    "ctice\020\025\022\023\n\017noTintedGlasses\020\026\022\013\n\007isSharp\020"
-    "\027\022\033\n\027mouthClosedBestPractice\020\030B\017\n\007ex.grp"
-    "c\242\002\003RTGb\006proto3", 1375);
+    "\030\002 \003(\0132\020.DataTypes.Match*S\n\rBiometricTyp"
+    "e\022\022\n\016UnspecifiedBio\020\000\022\n\n\006Facial\020\001\022\017\n\013Fin"
+    "gerprint\020\002\022\010\n\004Iris\020\003\022\007\n\003All\020\004*=\n\007EyeType"
+    "\022\023\n\017Unspecified_Eye\020\000\022\010\n\004Left\020\001\022\t\n\005Right"
+    "\020\002\022\010\n\004Both\020\003*\275\001\n\006Finger\022\026\n\022Unspecified_F"
+    "inger\020\000\022\016\n\nRightThumb\020\001\022\r\n\tLeftThumb\020\002\022\016"
+    "\n\nRightIndex\020\003\022\r\n\tLeftIndex\020\004\022\017\n\013RightMi"
+    "ddle\020\005\022\016\n\nLeftMiddle\020\006\022\r\n\tRightRing\020\007\022\014\n"
+    "\010LeftRing\020\010\022\017\n\013RightLittle\020\t\022\016\n\nLeftLitt"
+    "le\020\n*\216\005\n\033FacialIsoComplianceTemplate\022\033\n\027"
+    "Unspecified_IsoTemplate\020\000\022\026\n\022OnlyOneFace"
+    "Visible\020\001\022\034\n\030goodVerticalFacePosition\020\002\022"
+    "\034\n\030horizontallyCenteredFace\020\003\022\017\n\013widthOf"
+    "Head\020\004\022\020\n\014lengthOfHead\020\005\022\033\n\027widthOfHeadB"
+    "estPractice\020\006\022\034\n\030lengthOfHeadBestPractic"
+    "e\020\007\022\016\n\nresolution\020\010\022\032\n\026resolutionBestPra"
+    "ctice\020\t\022\"\n\036imageWidthToHeightBestPractic"
+    "e\020\n\022\020\n\014goodExposure\020\013\022\030\n\024goodGrayScalePr"
+    "ofile\020\014\022\030\n\024hasNaturalSkinColour\020\r\022\016\n\nnoH"
+    "otSpots\020\016\022#\n\037isBackgroundUniformBestPrac"
+    "tice\020\017\022\r\n\tisFrontal\020\020\022\031\n\025isFrontalBestPr"
+    "actice\020\021\022\025\n\021isLightingUniform\020\022\022\030\n\024eyesO"
+    "penBestPractice\020\023\022\037\n\033eyesGazeFrontalBest"
+    "Practice\020\024\022\032\n\026eyesNotRedBestPractice\020\025\022\023"
+    "\n\017noTintedGlasses\020\026\022\013\n\007isSharp\020\027\022\033\n\027mout"
+    "hClosedBestPractice\020\030B\017\n\007ex.grpc\242\002\003RTGb\006"
+    "proto3", 1366);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "datatypes/biometrics.proto", &protobuf_RegisterTypes);
   Faces::default_instance_ = new Faces();
@@ -214,11 +214,11 @@ struct StaticDescriptorInitializer_datatypes_2fbiometrics_2eproto {
     protobuf_AddDesc_datatypes_2fbiometrics_2eproto();
   }
 } static_descriptor_initializer_datatypes_2fbiometrics_2eproto_;
-const ::google::protobuf::EnumDescriptor* BiometricDataType_descriptor() {
+const ::google::protobuf::EnumDescriptor* BiometricType_descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return BiometricDataType_descriptor_;
+  return BiometricType_descriptor_;
 }
-bool BiometricDataType_IsValid(int value) {
+bool BiometricType_IsValid(int value) {
   switch(value) {
     case 0:
     case 1:

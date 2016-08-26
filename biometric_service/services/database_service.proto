@@ -3,6 +3,7 @@ syntax = "proto3";
 import "google/protobuf/empty.proto";
 import "datatypes/person.proto";
 import "datatypes/card.proto";
+import "datatypes/photo.proto";
 import "datatypes/location.proto";
 import "datatypes/visitor.proto";
 import "services/queries.proto";
@@ -19,7 +20,6 @@ service DatabaseSevice
   rpc UpdatePerson    ( DataTypes.Person    ) returns ( google.protobuf.Empty  ) {}
   rpc DeletePerson    ( DataTypes.Person    ) returns ( google.protobuf.Empty  ) {}
 
-  //rpc GetCard         ( Query               ) returns ( DataTypes.Cards        ) {}
   rpc InsertCard      ( DataTypes.Card      ) returns ( DataTypes.Card         ) {}    	
   rpc UpdateCard      ( DataTypes.Card      ) returns ( google.protobuf.Empty  ) {}
   rpc DeleteCard      ( DataTypes.Card      ) returns ( google.protobuf.Empty  ) {}
@@ -34,13 +34,6 @@ service DatabaseSevice
   rpc UpdateVisitor   ( DataTypes.Visitor   ) returns ( google.protobuf.Empty  ) {}
   rpc DeleteVisitor   ( DataTypes.Visitor   ) returns ( google.protobuf.Empty  ) {}
 
-  rpc InsertPhoto   ( DataTypes.Photo   ) returns ( DataTypes.Photo      ) {}    	
-  rpc DeletePhoto   ( DataTypes.Photo   ) returns ( google.protobuf.Empty  ) {}
+  rpc InsertPhoto     ( DataTypes.Photo     ) returns ( DataTypes.Photo        ) {}    	
+  rpc DeletePhoto     ( DataTypes.Photo     ) returns ( google.protobuf.Empty  ) {}
 }
-
-/*
-message Query
-{
-  string query = 1;
-}
-*/

@@ -43,29 +43,29 @@ class Faces;
 class Match;
 class Matches;
 
-enum BiometricDataType {
-  Unspecified_BioData = 0,
+enum BiometricType {
+  UnspecifiedBio = 0,
   Facial = 1,
   Fingerprint = 2,
   Iris = 3,
   All = 4,
-  BiometricDataType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
-  BiometricDataType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+  BiometricType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  BiometricType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
-bool BiometricDataType_IsValid(int value);
-const BiometricDataType BiometricDataType_MIN = Unspecified_BioData;
-const BiometricDataType BiometricDataType_MAX = All;
-const int BiometricDataType_ARRAYSIZE = BiometricDataType_MAX + 1;
+bool BiometricType_IsValid(int value);
+const BiometricType BiometricType_MIN = UnspecifiedBio;
+const BiometricType BiometricType_MAX = All;
+const int BiometricType_ARRAYSIZE = BiometricType_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* BiometricDataType_descriptor();
-inline const ::std::string& BiometricDataType_Name(BiometricDataType value) {
+const ::google::protobuf::EnumDescriptor* BiometricType_descriptor();
+inline const ::std::string& BiometricType_Name(BiometricType value) {
   return ::google::protobuf::internal::NameOfEnum(
-    BiometricDataType_descriptor(), value);
+    BiometricType_descriptor(), value);
 }
-inline bool BiometricDataType_Parse(
-    const ::std::string& name, BiometricDataType* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<BiometricDataType>(
-    BiometricDataType_descriptor(), name, value);
+inline bool BiometricType_Parse(
+    const ::std::string& name, BiometricType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<BiometricType>(
+    BiometricType_descriptor(), name, value);
 }
 enum EyeType {
   Unspecified_Eye = 0,
@@ -765,10 +765,10 @@ Matches::matches() const {
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::DataTypes::BiometricDataType> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::DataTypes::BiometricType> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::DataTypes::BiometricDataType>() {
-  return ::DataTypes::BiometricDataType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::DataTypes::BiometricType>() {
+  return ::DataTypes::BiometricType_descriptor();
 }
 template <> struct is_proto_enum< ::DataTypes::EyeType> : ::google::protobuf::internal::true_type {};
 template <>

@@ -7,22 +7,6 @@ option objc_class_prefix = "RTG";
 
 package Services;
 
-message GetPhotoRequest
-{  
-  enum PhotoResponseType
-  {
-    Undefined = 0;
-	Full      = 1;
-	OnlyBytes = 2;
-	NoBytes   = 3;
-  }
-
-           PhotoResponseType  type     = 1;
-  repeated int64              persons  = 2;
-  repeated int64              photos   = 3;
-           Page               page     = 4; 
-}
-
 message GetPersonRequest
 { 
             string search_text    = 1;  //search in first name, search in surname

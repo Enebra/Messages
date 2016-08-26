@@ -26,7 +26,6 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
-#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "datatypes/visitor.pb.h"
 // @@protoc_insertion_point(includes)
@@ -40,180 +39,10 @@ void protobuf_ShutdownFile_services_2fqueries_2eproto();
 
 class GetLocationRequest;
 class GetPersonRequest;
-class GetPhotoRequest;
 class GetVisitorRequest;
 class Page;
 
-enum GetPhotoRequest_PhotoResponseType {
-  GetPhotoRequest_PhotoResponseType_Undefined = 0,
-  GetPhotoRequest_PhotoResponseType_Full = 1,
-  GetPhotoRequest_PhotoResponseType_OnlyBytes = 2,
-  GetPhotoRequest_PhotoResponseType_NoBytes = 3,
-  GetPhotoRequest_PhotoResponseType_GetPhotoRequest_PhotoResponseType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
-  GetPhotoRequest_PhotoResponseType_GetPhotoRequest_PhotoResponseType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
-};
-bool GetPhotoRequest_PhotoResponseType_IsValid(int value);
-const GetPhotoRequest_PhotoResponseType GetPhotoRequest_PhotoResponseType_PhotoResponseType_MIN = GetPhotoRequest_PhotoResponseType_Undefined;
-const GetPhotoRequest_PhotoResponseType GetPhotoRequest_PhotoResponseType_PhotoResponseType_MAX = GetPhotoRequest_PhotoResponseType_NoBytes;
-const int GetPhotoRequest_PhotoResponseType_PhotoResponseType_ARRAYSIZE = GetPhotoRequest_PhotoResponseType_PhotoResponseType_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* GetPhotoRequest_PhotoResponseType_descriptor();
-inline const ::std::string& GetPhotoRequest_PhotoResponseType_Name(GetPhotoRequest_PhotoResponseType value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    GetPhotoRequest_PhotoResponseType_descriptor(), value);
-}
-inline bool GetPhotoRequest_PhotoResponseType_Parse(
-    const ::std::string& name, GetPhotoRequest_PhotoResponseType* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<GetPhotoRequest_PhotoResponseType>(
-    GetPhotoRequest_PhotoResponseType_descriptor(), name, value);
-}
 // ===================================================================
-
-class GetPhotoRequest : public ::google::protobuf::Message {
- public:
-  GetPhotoRequest();
-  virtual ~GetPhotoRequest();
-
-  GetPhotoRequest(const GetPhotoRequest& from);
-
-  inline GetPhotoRequest& operator=(const GetPhotoRequest& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const GetPhotoRequest& default_instance();
-
-  void Swap(GetPhotoRequest* other);
-
-  // implements Message ----------------------------------------------
-
-  inline GetPhotoRequest* New() const { return New(NULL); }
-
-  GetPhotoRequest* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const GetPhotoRequest& from);
-  void MergeFrom(const GetPhotoRequest& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(GetPhotoRequest* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  typedef GetPhotoRequest_PhotoResponseType PhotoResponseType;
-  static const PhotoResponseType Undefined =
-    GetPhotoRequest_PhotoResponseType_Undefined;
-  static const PhotoResponseType Full =
-    GetPhotoRequest_PhotoResponseType_Full;
-  static const PhotoResponseType OnlyBytes =
-    GetPhotoRequest_PhotoResponseType_OnlyBytes;
-  static const PhotoResponseType NoBytes =
-    GetPhotoRequest_PhotoResponseType_NoBytes;
-  static inline bool PhotoResponseType_IsValid(int value) {
-    return GetPhotoRequest_PhotoResponseType_IsValid(value);
-  }
-  static const PhotoResponseType PhotoResponseType_MIN =
-    GetPhotoRequest_PhotoResponseType_PhotoResponseType_MIN;
-  static const PhotoResponseType PhotoResponseType_MAX =
-    GetPhotoRequest_PhotoResponseType_PhotoResponseType_MAX;
-  static const int PhotoResponseType_ARRAYSIZE =
-    GetPhotoRequest_PhotoResponseType_PhotoResponseType_ARRAYSIZE;
-  static inline const ::google::protobuf::EnumDescriptor*
-  PhotoResponseType_descriptor() {
-    return GetPhotoRequest_PhotoResponseType_descriptor();
-  }
-  static inline const ::std::string& PhotoResponseType_Name(PhotoResponseType value) {
-    return GetPhotoRequest_PhotoResponseType_Name(value);
-  }
-  static inline bool PhotoResponseType_Parse(const ::std::string& name,
-      PhotoResponseType* value) {
-    return GetPhotoRequest_PhotoResponseType_Parse(name, value);
-  }
-
-  // accessors -------------------------------------------------------
-
-  // optional .Services.GetPhotoRequest.PhotoResponseType type = 1;
-  void clear_type();
-  static const int kTypeFieldNumber = 1;
-  ::Services::GetPhotoRequest_PhotoResponseType type() const;
-  void set_type(::Services::GetPhotoRequest_PhotoResponseType value);
-
-  // repeated int64 persons = 2;
-  int persons_size() const;
-  void clear_persons();
-  static const int kPersonsFieldNumber = 2;
-  ::google::protobuf::int64 persons(int index) const;
-  void set_persons(int index, ::google::protobuf::int64 value);
-  void add_persons(::google::protobuf::int64 value);
-  const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-      persons() const;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-      mutable_persons();
-
-  // repeated int64 photos = 3;
-  int photos_size() const;
-  void clear_photos();
-  static const int kPhotosFieldNumber = 3;
-  ::google::protobuf::int64 photos(int index) const;
-  void set_photos(int index, ::google::protobuf::int64 value);
-  void add_photos(::google::protobuf::int64 value);
-  const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-      photos() const;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-      mutable_photos();
-
-  // optional .Services.Page page = 4;
-  bool has_page() const;
-  void clear_page();
-  static const int kPageFieldNumber = 4;
-  const ::Services::Page& page() const;
-  ::Services::Page* mutable_page();
-  ::Services::Page* release_page();
-  void set_allocated_page(::Services::Page* page);
-
-  // @@protoc_insertion_point(class_scope:Services.GetPhotoRequest)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  bool _is_default_instance_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > persons_;
-  mutable int _persons_cached_byte_size_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > photos_;
-  mutable int _photos_cached_byte_size_;
-  ::Services::Page* page_;
-  int type_;
-  mutable int _cached_size_;
-  friend void  protobuf_AddDesc_services_2fqueries_2eproto();
-  friend void protobuf_AssignDesc_services_2fqueries_2eproto();
-  friend void protobuf_ShutdownFile_services_2fqueries_2eproto();
-
-  void InitAsDefaultInstance();
-  static GetPhotoRequest* default_instance_;
-};
-// -------------------------------------------------------------------
 
 class GetPersonRequest : public ::google::protobuf::Message {
  public:
@@ -730,122 +559,6 @@ class Page : public ::google::protobuf::Message {
 // ===================================================================
 
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
-// GetPhotoRequest
-
-// optional .Services.GetPhotoRequest.PhotoResponseType type = 1;
-inline void GetPhotoRequest::clear_type() {
-  type_ = 0;
-}
-inline ::Services::GetPhotoRequest_PhotoResponseType GetPhotoRequest::type() const {
-  // @@protoc_insertion_point(field_get:Services.GetPhotoRequest.type)
-  return static_cast< ::Services::GetPhotoRequest_PhotoResponseType >(type_);
-}
-inline void GetPhotoRequest::set_type(::Services::GetPhotoRequest_PhotoResponseType value) {
-  
-  type_ = value;
-  // @@protoc_insertion_point(field_set:Services.GetPhotoRequest.type)
-}
-
-// repeated int64 persons = 2;
-inline int GetPhotoRequest::persons_size() const {
-  return persons_.size();
-}
-inline void GetPhotoRequest::clear_persons() {
-  persons_.Clear();
-}
-inline ::google::protobuf::int64 GetPhotoRequest::persons(int index) const {
-  // @@protoc_insertion_point(field_get:Services.GetPhotoRequest.persons)
-  return persons_.Get(index);
-}
-inline void GetPhotoRequest::set_persons(int index, ::google::protobuf::int64 value) {
-  persons_.Set(index, value);
-  // @@protoc_insertion_point(field_set:Services.GetPhotoRequest.persons)
-}
-inline void GetPhotoRequest::add_persons(::google::protobuf::int64 value) {
-  persons_.Add(value);
-  // @@protoc_insertion_point(field_add:Services.GetPhotoRequest.persons)
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-GetPhotoRequest::persons() const {
-  // @@protoc_insertion_point(field_list:Services.GetPhotoRequest.persons)
-  return persons_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-GetPhotoRequest::mutable_persons() {
-  // @@protoc_insertion_point(field_mutable_list:Services.GetPhotoRequest.persons)
-  return &persons_;
-}
-
-// repeated int64 photos = 3;
-inline int GetPhotoRequest::photos_size() const {
-  return photos_.size();
-}
-inline void GetPhotoRequest::clear_photos() {
-  photos_.Clear();
-}
-inline ::google::protobuf::int64 GetPhotoRequest::photos(int index) const {
-  // @@protoc_insertion_point(field_get:Services.GetPhotoRequest.photos)
-  return photos_.Get(index);
-}
-inline void GetPhotoRequest::set_photos(int index, ::google::protobuf::int64 value) {
-  photos_.Set(index, value);
-  // @@protoc_insertion_point(field_set:Services.GetPhotoRequest.photos)
-}
-inline void GetPhotoRequest::add_photos(::google::protobuf::int64 value) {
-  photos_.Add(value);
-  // @@protoc_insertion_point(field_add:Services.GetPhotoRequest.photos)
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-GetPhotoRequest::photos() const {
-  // @@protoc_insertion_point(field_list:Services.GetPhotoRequest.photos)
-  return photos_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-GetPhotoRequest::mutable_photos() {
-  // @@protoc_insertion_point(field_mutable_list:Services.GetPhotoRequest.photos)
-  return &photos_;
-}
-
-// optional .Services.Page page = 4;
-inline bool GetPhotoRequest::has_page() const {
-  return !_is_default_instance_ && page_ != NULL;
-}
-inline void GetPhotoRequest::clear_page() {
-  if (GetArenaNoVirtual() == NULL && page_ != NULL) delete page_;
-  page_ = NULL;
-}
-inline const ::Services::Page& GetPhotoRequest::page() const {
-  // @@protoc_insertion_point(field_get:Services.GetPhotoRequest.page)
-  return page_ != NULL ? *page_ : *default_instance_->page_;
-}
-inline ::Services::Page* GetPhotoRequest::mutable_page() {
-  
-  if (page_ == NULL) {
-    page_ = new ::Services::Page;
-  }
-  // @@protoc_insertion_point(field_mutable:Services.GetPhotoRequest.page)
-  return page_;
-}
-inline ::Services::Page* GetPhotoRequest::release_page() {
-  // @@protoc_insertion_point(field_release:Services.GetPhotoRequest.page)
-  
-  ::Services::Page* temp = page_;
-  page_ = NULL;
-  return temp;
-}
-inline void GetPhotoRequest::set_allocated_page(::Services::Page* page) {
-  delete page_;
-  page_ = page;
-  if (page) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:Services.GetPhotoRequest.page)
-}
-
-// -------------------------------------------------------------------
-
 // GetPersonRequest
 
 // optional string search_text = 1;
@@ -1581,26 +1294,10 @@ inline void Page::set_size(::google::protobuf::int32 value) {
 
 // -------------------------------------------------------------------
 
-// -------------------------------------------------------------------
-
 
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace Services
-
-#ifndef SWIG
-namespace google {
-namespace protobuf {
-
-template <> struct is_proto_enum< ::Services::GetPhotoRequest_PhotoResponseType> : ::google::protobuf::internal::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Services::GetPhotoRequest_PhotoResponseType>() {
-  return ::Services::GetPhotoRequest_PhotoResponseType_descriptor();
-}
-
-}  // namespace protobuf
-}  // namespace google
-#endif  // SWIG
 
 // @@protoc_insertion_point(global_scope)
 

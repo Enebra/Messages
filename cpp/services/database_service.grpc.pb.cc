@@ -31,6 +31,8 @@ static const char* DatabaseSevice_method_names[] = {
   "/Services.DatabaseSevice/InsertVisitor",
   "/Services.DatabaseSevice/UpdateVisitor",
   "/Services.DatabaseSevice/DeleteVisitor",
+  "/Services.DatabaseSevice/InsertPhoto",
+  "/Services.DatabaseSevice/DeletePhoto",
 };
 
 std::unique_ptr< DatabaseSevice::Stub> DatabaseSevice::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -54,6 +56,8 @@ DatabaseSevice::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& cha
   , rpcmethod_InsertVisitor_(DatabaseSevice_method_names[12], ::grpc::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_UpdateVisitor_(DatabaseSevice_method_names[13], ::grpc::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_DeleteVisitor_(DatabaseSevice_method_names[14], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_InsertPhoto_(DatabaseSevice_method_names[15], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_DeletePhoto_(DatabaseSevice_method_names[16], ::grpc::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status DatabaseSevice::Stub::GetPerson(::grpc::ClientContext* context, const ::Services::GetPersonRequest& request, ::DataTypes::Persons* response) {
@@ -176,6 +180,22 @@ DatabaseSevice::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& cha
   return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_DeleteVisitor_, context, request);
 }
 
+::grpc::Status DatabaseSevice::Stub::InsertPhoto(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::DataTypes::Photo* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_InsertPhoto_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::DataTypes::Photo>* DatabaseSevice::Stub::AsyncInsertPhotoRaw(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::DataTypes::Photo>(channel_.get(), cq, rpcmethod_InsertPhoto_, context, request);
+}
+
+::grpc::Status DatabaseSevice::Stub::DeletePhoto(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::google::protobuf::Empty* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_DeletePhoto_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* DatabaseSevice::Stub::AsyncDeletePhotoRaw(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_DeletePhoto_, context, request);
+}
+
 DatabaseSevice::Service::Service() {
   (void)DatabaseSevice_method_names;
   AddMethod(new ::grpc::RpcServiceMethod(
@@ -253,6 +273,16 @@ DatabaseSevice::Service::Service() {
       ::grpc::RpcMethod::NORMAL_RPC,
       new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::DataTypes::Visitor, ::google::protobuf::Empty>(
           std::mem_fn(&DatabaseSevice::Service::DeleteVisitor), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      DatabaseSevice_method_names[15],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::DataTypes::Photo, ::DataTypes::Photo>(
+          std::mem_fn(&DatabaseSevice::Service::InsertPhoto), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      DatabaseSevice_method_names[16],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::DataTypes::Photo, ::google::protobuf::Empty>(
+          std::mem_fn(&DatabaseSevice::Service::DeletePhoto), this)));
 }
 
 DatabaseSevice::Service::~Service() {
@@ -357,6 +387,20 @@ DatabaseSevice::Service::~Service() {
 }
 
 ::grpc::Status DatabaseSevice::Service::DeleteVisitor(::grpc::ServerContext* context, const ::DataTypes::Visitor* request, ::google::protobuf::Empty* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status DatabaseSevice::Service::InsertPhoto(::grpc::ServerContext* context, const ::DataTypes::Photo* request, ::DataTypes::Photo* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status DatabaseSevice::Service::DeletePhoto(::grpc::ServerContext* context, const ::DataTypes::Photo* request, ::google::protobuf::Empty* response) {
   (void) context;
   (void) request;
   (void) response;
