@@ -6,7 +6,6 @@ import "datatypes/card.proto";
 import "datatypes/photo.proto";
 import "datatypes/location.proto";
 import "datatypes/visit_record.proto";
-import "datatypes/unit.proto";
 import "services/queries.proto";
 
 option java_package = "ex.grpc";
@@ -39,5 +38,60 @@ service DatabaseSevice
   rpc InsertPhoto         ( DataTypes.Photo  ) returns ( DataTypes.Photo        ) {}    	
   rpc DeletePhoto         ( DataTypes.Photo  ) returns ( google.protobuf.Empty  ) {}
 
-  rpc GetConfig           ( google.protobuf.Empty ) returns ( DataTypes.UnitConfiguration  ) {}
+  rpc GetConfig           ( google.protobuf.Empty ) returns ( UnitConfiguration  ) {}
 }
+/*
+service UnitService 
+{    
+  rpc OpenDoor     ( DataTypes.Location     ) returns ( google.protobuf.Empty  ) {}  
+  rpc UpdateUnits  ( Units                  ) returns ( google.protobuf.Empty  ) {}
+  rpc UpdateActvity( DataTypes.VisitRecords ) returns ( google.protobuf.Empty  ) {}
+  //send connected devices
+}
+
+service MasterService
+{
+  rpc Connect             ( ConnectedUnit          ) returns ( google.protobuf.Empty  ) {}
+  rpc Heartbeat           ( google.protobuf.Empty  ) returns ( google.protobuf.Empty  ) {}
+  rpc SendLocations       ( DataTypes.Locations    ) returns ( google.protobuf.Empty  ) {}
+  rpc SendActivity        ( DataTypes.VisitRecords ) returns ( google.protobuf.Empty  ) {} 
+  rpc NotifyLocationState ( UnitLocationState      ) returns ( google.protobuf.Empty  ) {}
+  rpc GetUnits            ( google.protobuf.Empty  ) returns ( Units                  ) {}
+}
+
+message UnitLocationState
+{
+  LocationState  state  = 1;
+}
+
+enum LocationState
+{
+  Unspecified_State = 0;
+  Opened     = 1;
+  Closed     = 2;
+  Failure    = 3;
+}
+
+message Unit
+{
+  ConnectedUnit       unit            = 1;  
+  int64               heartbeat_time  = 2;
+  DataTypes.Locations locations       = 3;
+}
+
+message ConnectedUnit
+{
+  string ip_address      = 1;
+  string mac_address     = 2;
+}
+
+message Units
+{
+  repeated Unit items = 1;
+}
+
+message UnitConfiguration
+{
+  string master_ip_address = 1;
+}
+*/

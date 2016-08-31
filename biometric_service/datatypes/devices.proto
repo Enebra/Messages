@@ -7,23 +7,9 @@ package DataTypes;
 
 message AccessDevice
 {  
-  string device_name   = 1;  
-}
-/*
-message CaptureDevice
-{ 
-  string device_name   = 1;   
+  string  device_name    = 1;  
+  fixed64 serial_number  = 2;  
 }
 
-message FingerprintDevice
-{ 
-  string device_name    = 1;    
-}
-
-message IrisDevice
-{ 
-  string device_name   = 1;   
-}
-*/
 
 

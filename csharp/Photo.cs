@@ -24,18 +24,19 @@ namespace DataTypes {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChVkYXRhdHlwZXMvcGhvdG8ucHJvdG8SCURhdGFUeXBlcxoaZGF0YXR5cGVz",
-            "L2Jpb21ldHJpY3MucHJvdG8ioQEKBVBob3RvEgoKAmlkGAEgASgDEgsKA3Vy",
+            "L2Jpb21ldHJpY3MucHJvdG8iqAEKBVBob3RvEgoKAmlkGAEgASgJEgsKA3Vy",
             "bBgCIAEoCRINCgV3aWR0aBgDIAEoBRIOCgZoZWlnaHQYBCABKAUSIwoHcHVy",
-            "cG9zZRgFIAEoDjISLkRhdGFUeXBlcy5QdXJwb3NlEikKB2Jpb3R5cGUYBiAB",
-            "KA4yGC5EYXRhVHlwZXMuQmlvbWV0cmljVHlwZRIQCghvd25lcl9pZBgHIAEo",
-            "AyIqCgZQaG90b3MSIAoGcGhvdG9zGAEgAygLMhAuRGF0YVR5cGVzLlBob3Rv",
-            "KjkKB1B1cnBvc2USDwoLTm9uZVB1cnBvc2UQABINCglUaHVtYm5haWwQARIO",
-            "CgpQb3B1bGF0aW9uEAJCDwoHZXguZ3JwY6ICA1JUR2IGcHJvdG8z"));
+            "cG9zZRgFIAEoDjISLkRhdGFUeXBlcy5QdXJwb3NlEjAKDmJpb21ldHJpY190",
+            "eXBlGAYgASgOMhguRGF0YVR5cGVzLkJpb21ldHJpY1R5cGUSEAoIb3duZXJf",
+            "aWQYByABKAkiOQoGUGhvdG9zEiAKBnBob3RvcxgBIAMoCzIQLkRhdGFUeXBl",
+            "cy5QaG90bxINCgVjb3VudBgCIAEoAyo5CgdQdXJwb3NlEg8KC05vbmVQdXJw",
+            "b3NlEAASDQoJVGh1bWJuYWlsEAESDgoKUG9wdWxhdGlvbhACQg8KB2V4Lmdy",
+            "cGOiAgNSVEdiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::DataTypes.BiometricsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.Purpose), }, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Photo), global::DataTypes.Photo.Parser, new[]{ "Id", "Url", "Width", "Height", "Purpose", "Biotype", "OwnerId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Photos), global::DataTypes.Photos.Parser, new[]{ "Photos_" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Photo), global::DataTypes.Photo.Parser, new[]{ "Id", "Url", "Width", "Height", "Purpose", "BiometricType", "OwnerId" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Photos), global::DataTypes.Photos.Parser, new[]{ "Photos_", "Count" }, null, null, null)
           }));
     }
     #endregion
@@ -76,7 +77,7 @@ namespace DataTypes {
       width_ = other.width_;
       height_ = other.height_;
       purpose_ = other.purpose_;
-      biotype_ = other.biotype_;
+      biometricType_ = other.biometricType_;
       ownerId_ = other.ownerId_;
     }
 
@@ -86,11 +87,11 @@ namespace DataTypes {
 
     /// <summary>Field number for the "id" field.</summary>
     public const int IdFieldNumber = 1;
-    private long id_;
-    public long Id {
+    private string id_ = "";
+    public string Id {
       get { return id_; }
       set {
-        id_ = value;
+        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -134,23 +135,23 @@ namespace DataTypes {
       }
     }
 
-    /// <summary>Field number for the "biotype" field.</summary>
-    public const int BiotypeFieldNumber = 6;
-    private global::DataTypes.BiometricType biotype_ = 0;
-    public global::DataTypes.BiometricType Biotype {
-      get { return biotype_; }
+    /// <summary>Field number for the "biometric_type" field.</summary>
+    public const int BiometricTypeFieldNumber = 6;
+    private global::DataTypes.BiometricType biometricType_ = 0;
+    public global::DataTypes.BiometricType BiometricType {
+      get { return biometricType_; }
       set {
-        biotype_ = value;
+        biometricType_ = value;
       }
     }
 
     /// <summary>Field number for the "owner_id" field.</summary>
     public const int OwnerIdFieldNumber = 7;
-    private long ownerId_;
-    public long OwnerId {
+    private string ownerId_ = "";
+    public string OwnerId {
       get { return ownerId_; }
       set {
-        ownerId_ = value;
+        ownerId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -170,20 +171,20 @@ namespace DataTypes {
       if (Width != other.Width) return false;
       if (Height != other.Height) return false;
       if (Purpose != other.Purpose) return false;
-      if (Biotype != other.Biotype) return false;
+      if (BiometricType != other.BiometricType) return false;
       if (OwnerId != other.OwnerId) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
-      if (Id != 0L) hash ^= Id.GetHashCode();
+      if (Id.Length != 0) hash ^= Id.GetHashCode();
       if (Url.Length != 0) hash ^= Url.GetHashCode();
       if (Width != 0) hash ^= Width.GetHashCode();
       if (Height != 0) hash ^= Height.GetHashCode();
       if (Purpose != 0) hash ^= Purpose.GetHashCode();
-      if (Biotype != 0) hash ^= Biotype.GetHashCode();
-      if (OwnerId != 0L) hash ^= OwnerId.GetHashCode();
+      if (BiometricType != 0) hash ^= BiometricType.GetHashCode();
+      if (OwnerId.Length != 0) hash ^= OwnerId.GetHashCode();
       return hash;
     }
 
@@ -192,9 +193,9 @@ namespace DataTypes {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Id != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(Id);
+      if (Id.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Id);
       }
       if (Url.Length != 0) {
         output.WriteRawTag(18);
@@ -212,20 +213,20 @@ namespace DataTypes {
         output.WriteRawTag(40);
         output.WriteEnum((int) Purpose);
       }
-      if (Biotype != 0) {
+      if (BiometricType != 0) {
         output.WriteRawTag(48);
-        output.WriteEnum((int) Biotype);
+        output.WriteEnum((int) BiometricType);
       }
-      if (OwnerId != 0L) {
-        output.WriteRawTag(56);
-        output.WriteInt64(OwnerId);
+      if (OwnerId.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(OwnerId);
       }
     }
 
     public int CalculateSize() {
       int size = 0;
-      if (Id != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Id);
+      if (Id.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
       }
       if (Url.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Url);
@@ -239,11 +240,11 @@ namespace DataTypes {
       if (Purpose != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Purpose);
       }
-      if (Biotype != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Biotype);
+      if (BiometricType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) BiometricType);
       }
-      if (OwnerId != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(OwnerId);
+      if (OwnerId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(OwnerId);
       }
       return size;
     }
@@ -252,7 +253,7 @@ namespace DataTypes {
       if (other == null) {
         return;
       }
-      if (other.Id != 0L) {
+      if (other.Id.Length != 0) {
         Id = other.Id;
       }
       if (other.Url.Length != 0) {
@@ -267,10 +268,10 @@ namespace DataTypes {
       if (other.Purpose != 0) {
         Purpose = other.Purpose;
       }
-      if (other.Biotype != 0) {
-        Biotype = other.Biotype;
+      if (other.BiometricType != 0) {
+        BiometricType = other.BiometricType;
       }
-      if (other.OwnerId != 0L) {
+      if (other.OwnerId.Length != 0) {
         OwnerId = other.OwnerId;
       }
     }
@@ -282,8 +283,8 @@ namespace DataTypes {
           default:
             input.SkipLastField();
             break;
-          case 8: {
-            Id = input.ReadInt64();
+          case 10: {
+            Id = input.ReadString();
             break;
           }
           case 18: {
@@ -303,11 +304,11 @@ namespace DataTypes {
             break;
           }
           case 48: {
-            biotype_ = (global::DataTypes.BiometricType) input.ReadEnum();
+            biometricType_ = (global::DataTypes.BiometricType) input.ReadEnum();
             break;
           }
-          case 56: {
-            OwnerId = input.ReadInt64();
+          case 58: {
+            OwnerId = input.ReadString();
             break;
           }
         }
@@ -337,6 +338,7 @@ namespace DataTypes {
 
     public Photos(Photos other) : this() {
       photos_ = other.photos_.Clone();
+      count_ = other.count_;
     }
 
     public Photos Clone() {
@@ -352,6 +354,16 @@ namespace DataTypes {
       get { return photos_; }
     }
 
+    /// <summary>Field number for the "count" field.</summary>
+    public const int CountFieldNumber = 2;
+    private long count_;
+    public long Count {
+      get { return count_; }
+      set {
+        count_ = value;
+      }
+    }
+
     public override bool Equals(object other) {
       return Equals(other as Photos);
     }
@@ -364,12 +376,14 @@ namespace DataTypes {
         return true;
       }
       if(!photos_.Equals(other.photos_)) return false;
+      if (Count != other.Count) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
       hash ^= photos_.GetHashCode();
+      if (Count != 0L) hash ^= Count.GetHashCode();
       return hash;
     }
 
@@ -379,11 +393,18 @@ namespace DataTypes {
 
     public void WriteTo(pb::CodedOutputStream output) {
       photos_.WriteTo(output, _repeated_photos_codec);
+      if (Count != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(Count);
+      }
     }
 
     public int CalculateSize() {
       int size = 0;
       size += photos_.CalculateSize(_repeated_photos_codec);
+      if (Count != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Count);
+      }
       return size;
     }
 
@@ -392,6 +413,9 @@ namespace DataTypes {
         return;
       }
       photos_.Add(other.photos_);
+      if (other.Count != 0L) {
+        Count = other.Count;
+      }
     }
 
     public void MergeFrom(pb::CodedInputStream input) {
@@ -403,6 +427,10 @@ namespace DataTypes {
             break;
           case 10: {
             photos_.AddEntriesFrom(input, _repeated_photos_codec);
+            break;
+          }
+          case 16: {
+            Count = input.ReadInt64();
             break;
           }
         }

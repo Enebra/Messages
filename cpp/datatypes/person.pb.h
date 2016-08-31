@@ -146,11 +146,16 @@ class Person : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 id = 1;
+  // optional string id = 1;
   void clear_id();
   static const int kIdFieldNumber = 1;
-  ::google::protobuf::int64 id() const;
-  void set_id(::google::protobuf::int64 value);
+  const ::std::string& id() const;
+  void set_id(const ::std::string& value);
+  void set_id(const char* value);
+  void set_id(const char* value, size_t size);
+  ::std::string* mutable_id();
+  ::std::string* release_id();
+  void set_allocated_id(::std::string* id);
 
   // optional string first_name = 2;
   void clear_first_name();
@@ -203,7 +208,7 @@ class Person : public ::google::protobuf::Message {
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::google::protobuf::int64 id_;
+  ::google::protobuf::internal::ArenaStringPtr id_;
   ::google::protobuf::internal::ArenaStringPtr first_name_;
   ::google::protobuf::internal::ArenaStringPtr last_name_;
   ::google::protobuf::RepeatedPtrField< ::DataTypes::Photo > photos_;
@@ -315,18 +320,48 @@ class Persons : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // Person
 
-// optional int64 id = 1;
+// optional string id = 1;
 inline void Person::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
+  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::google::protobuf::int64 Person::id() const {
+inline const ::std::string& Person::id() const {
   // @@protoc_insertion_point(field_get:DataTypes.Person.id)
-  return id_;
+  return id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void Person::set_id(::google::protobuf::int64 value) {
+inline void Person::set_id(const ::std::string& value) {
   
-  id_ = value;
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:DataTypes.Person.id)
+}
+inline void Person::set_id(const char* value) {
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:DataTypes.Person.id)
+}
+inline void Person::set_id(const char* value, size_t size) {
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:DataTypes.Person.id)
+}
+inline ::std::string* Person::mutable_id() {
+  
+  // @@protoc_insertion_point(field_mutable:DataTypes.Person.id)
+  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Person::release_id() {
+  // @@protoc_insertion_point(field_release:DataTypes.Person.id)
+  
+  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Person::set_allocated_id(::std::string* id) {
+  if (id != NULL) {
+    
+  } else {
+    
+  }
+  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
+  // @@protoc_insertion_point(field_set_allocated:DataTypes.Person.id)
 }
 
 // optional string first_name = 2;

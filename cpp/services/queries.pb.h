@@ -27,7 +27,7 @@
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/unknown_field_set.h>
-#include "datatypes/visitor.pb.h"
+#include "datatypes/visit_record.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace Services {
@@ -37,9 +37,10 @@ void protobuf_AddDesc_services_2fqueries_2eproto();
 void protobuf_AssignDesc_services_2fqueries_2eproto();
 void protobuf_ShutdownFile_services_2fqueries_2eproto();
 
+class GetCardRequest;
 class GetLocationRequest;
 class GetPersonRequest;
-class GetVisitorRequest;
+class GetVisitRecordRequest;
 class Page;
 
 // ===================================================================
@@ -144,17 +145,21 @@ class GetPersonRequest : public ::google::protobuf::Message {
   ::std::string* release_card();
   void set_allocated_card(::std::string* card);
 
-  // repeated int64 locations = 5;
+  // repeated string locations = 5;
   int locations_size() const;
   void clear_locations();
   static const int kLocationsFieldNumber = 5;
-  ::google::protobuf::int64 locations(int index) const;
-  void set_locations(int index, ::google::protobuf::int64 value);
-  void add_locations(::google::protobuf::int64 value);
-  const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-      locations() const;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-      mutable_locations();
+  const ::std::string& locations(int index) const;
+  ::std::string* mutable_locations(int index);
+  void set_locations(int index, const ::std::string& value);
+  void set_locations(int index, const char* value);
+  void set_locations(int index, const char* value, size_t size);
+  ::std::string* add_locations();
+  void add_locations(const ::std::string& value);
+  void add_locations(const char* value);
+  void add_locations(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField< ::std::string>& locations() const;
+  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_locations();
 
   // optional .Services.Page page = 6;
   bool has_page() const;
@@ -174,8 +179,7 @@ class GetPersonRequest : public ::google::protobuf::Message {
   ::google::protobuf::internal::ArenaStringPtr first_name_;
   ::google::protobuf::internal::ArenaStringPtr last_name_;
   ::google::protobuf::internal::ArenaStringPtr card_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > locations_;
-  mutable int _locations_cached_byte_size_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> locations_;
   ::Services::Page* page_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_services_2fqueries_2eproto();
@@ -316,32 +320,32 @@ class GetLocationRequest : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class GetVisitorRequest : public ::google::protobuf::Message {
+class GetVisitRecordRequest : public ::google::protobuf::Message {
  public:
-  GetVisitorRequest();
-  virtual ~GetVisitorRequest();
+  GetVisitRecordRequest();
+  virtual ~GetVisitRecordRequest();
 
-  GetVisitorRequest(const GetVisitorRequest& from);
+  GetVisitRecordRequest(const GetVisitRecordRequest& from);
 
-  inline GetVisitorRequest& operator=(const GetVisitorRequest& from) {
+  inline GetVisitRecordRequest& operator=(const GetVisitRecordRequest& from) {
     CopyFrom(from);
     return *this;
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const GetVisitorRequest& default_instance();
+  static const GetVisitRecordRequest& default_instance();
 
-  void Swap(GetVisitorRequest* other);
+  void Swap(GetVisitRecordRequest* other);
 
   // implements Message ----------------------------------------------
 
-  inline GetVisitorRequest* New() const { return New(NULL); }
+  inline GetVisitRecordRequest* New() const { return New(NULL); }
 
-  GetVisitorRequest* New(::google::protobuf::Arena* arena) const;
+  GetVisitRecordRequest* New(::google::protobuf::Arena* arena) const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const GetVisitorRequest& from);
-  void MergeFrom(const GetVisitorRequest& from);
+  void CopyFrom(const GetVisitRecordRequest& from);
+  void MergeFrom(const GetVisitRecordRequest& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -356,7 +360,7 @@ class GetVisitorRequest : public ::google::protobuf::Message {
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(GetVisitorRequest* other);
+  void InternalSwap(GetVisitRecordRequest* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
@@ -389,29 +393,37 @@ class GetVisitorRequest : public ::google::protobuf::Message {
   ::DataTypes::AccessState state() const;
   void set_state(::DataTypes::AccessState value);
 
-  // repeated int64 locations = 3;
+  // repeated string locations = 3;
   int locations_size() const;
   void clear_locations();
   static const int kLocationsFieldNumber = 3;
-  ::google::protobuf::int64 locations(int index) const;
-  void set_locations(int index, ::google::protobuf::int64 value);
-  void add_locations(::google::protobuf::int64 value);
-  const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-      locations() const;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-      mutable_locations();
+  const ::std::string& locations(int index) const;
+  ::std::string* mutable_locations(int index);
+  void set_locations(int index, const ::std::string& value);
+  void set_locations(int index, const char* value);
+  void set_locations(int index, const char* value, size_t size);
+  ::std::string* add_locations();
+  void add_locations(const ::std::string& value);
+  void add_locations(const char* value);
+  void add_locations(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField< ::std::string>& locations() const;
+  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_locations();
 
-  // repeated int64 persons = 4;
+  // repeated string persons = 4;
   int persons_size() const;
   void clear_persons();
   static const int kPersonsFieldNumber = 4;
-  ::google::protobuf::int64 persons(int index) const;
-  void set_persons(int index, ::google::protobuf::int64 value);
-  void add_persons(::google::protobuf::int64 value);
-  const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-      persons() const;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-      mutable_persons();
+  const ::std::string& persons(int index) const;
+  ::std::string* mutable_persons(int index);
+  void set_persons(int index, const ::std::string& value);
+  void set_persons(int index, const char* value);
+  void set_persons(int index, const char* value, size_t size);
+  ::std::string* add_persons();
+  void add_persons(const ::std::string& value);
+  void add_persons(const char* value);
+  void add_persons(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField< ::std::string>& persons() const;
+  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_persons();
 
   // optional int64 datetime_from = 5;
   void clear_datetime_from();
@@ -445,16 +457,14 @@ class GetVisitorRequest : public ::google::protobuf::Message {
   ::Services::Page* release_page();
   void set_allocated_page(::Services::Page* page);
 
-  // @@protoc_insertion_point(class_scope:Services.GetVisitorRequest)
+  // @@protoc_insertion_point(class_scope:Services.GetVisitRecordRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr search_text_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > locations_;
-  mutable int _locations_cached_byte_size_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > persons_;
-  mutable int _persons_cached_byte_size_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> locations_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> persons_;
   ::google::protobuf::int64 datetime_from_;
   ::google::protobuf::int64 datetime_to_;
   ::google::protobuf::internal::ArenaStringPtr card_;
@@ -466,7 +476,7 @@ class GetVisitorRequest : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_services_2fqueries_2eproto();
 
   void InitAsDefaultInstance();
-  static GetVisitorRequest* default_instance_;
+  static GetVisitRecordRequest* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -552,6 +562,128 @@ class Page : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static Page* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GetCardRequest : public ::google::protobuf::Message {
+ public:
+  GetCardRequest();
+  virtual ~GetCardRequest();
+
+  GetCardRequest(const GetCardRequest& from);
+
+  inline GetCardRequest& operator=(const GetCardRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GetCardRequest& default_instance();
+
+  void Swap(GetCardRequest* other);
+
+  // implements Message ----------------------------------------------
+
+  inline GetCardRequest* New() const { return New(NULL); }
+
+  GetCardRequest* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GetCardRequest& from);
+  void MergeFrom(const GetCardRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(GetCardRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string search_text = 1;
+  void clear_search_text();
+  static const int kSearchTextFieldNumber = 1;
+  const ::std::string& search_text() const;
+  void set_search_text(const ::std::string& value);
+  void set_search_text(const char* value);
+  void set_search_text(const char* value, size_t size);
+  ::std::string* mutable_search_text();
+  ::std::string* release_search_text();
+  void set_allocated_search_text(::std::string* search_text);
+
+  // optional string unique_identifier = 2;
+  void clear_unique_identifier();
+  static const int kUniqueIdentifierFieldNumber = 2;
+  const ::std::string& unique_identifier() const;
+  void set_unique_identifier(const ::std::string& value);
+  void set_unique_identifier(const char* value);
+  void set_unique_identifier(const char* value, size_t size);
+  ::std::string* mutable_unique_identifier();
+  ::std::string* release_unique_identifier();
+  void set_allocated_unique_identifier(::std::string* unique_identifier);
+
+  // repeated string owners = 3;
+  int owners_size() const;
+  void clear_owners();
+  static const int kOwnersFieldNumber = 3;
+  const ::std::string& owners(int index) const;
+  ::std::string* mutable_owners(int index);
+  void set_owners(int index, const ::std::string& value);
+  void set_owners(int index, const char* value);
+  void set_owners(int index, const char* value, size_t size);
+  ::std::string* add_owners();
+  void add_owners(const ::std::string& value);
+  void add_owners(const char* value);
+  void add_owners(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField< ::std::string>& owners() const;
+  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_owners();
+
+  // optional .Services.Page page = 4;
+  bool has_page() const;
+  void clear_page();
+  static const int kPageFieldNumber = 4;
+  const ::Services::Page& page() const;
+  ::Services::Page* mutable_page();
+  ::Services::Page* release_page();
+  void set_allocated_page(::Services::Page* page);
+
+  // @@protoc_insertion_point(class_scope:Services.GetCardRequest)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  ::google::protobuf::internal::ArenaStringPtr search_text_;
+  ::google::protobuf::internal::ArenaStringPtr unique_identifier_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> owners_;
+  ::Services::Page* page_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_services_2fqueries_2eproto();
+  friend void protobuf_AssignDesc_services_2fqueries_2eproto();
+  friend void protobuf_ShutdownFile_services_2fqueries_2eproto();
+
+  void InitAsDefaultInstance();
+  static GetCardRequest* default_instance_;
 };
 // ===================================================================
 
@@ -737,31 +869,56 @@ inline void GetPersonRequest::set_allocated_card(::std::string* card) {
   // @@protoc_insertion_point(field_set_allocated:Services.GetPersonRequest.card)
 }
 
-// repeated int64 locations = 5;
+// repeated string locations = 5;
 inline int GetPersonRequest::locations_size() const {
   return locations_.size();
 }
 inline void GetPersonRequest::clear_locations() {
   locations_.Clear();
 }
-inline ::google::protobuf::int64 GetPersonRequest::locations(int index) const {
+inline const ::std::string& GetPersonRequest::locations(int index) const {
   // @@protoc_insertion_point(field_get:Services.GetPersonRequest.locations)
   return locations_.Get(index);
 }
-inline void GetPersonRequest::set_locations(int index, ::google::protobuf::int64 value) {
-  locations_.Set(index, value);
-  // @@protoc_insertion_point(field_set:Services.GetPersonRequest.locations)
+inline ::std::string* GetPersonRequest::mutable_locations(int index) {
+  // @@protoc_insertion_point(field_mutable:Services.GetPersonRequest.locations)
+  return locations_.Mutable(index);
 }
-inline void GetPersonRequest::add_locations(::google::protobuf::int64 value) {
-  locations_.Add(value);
+inline void GetPersonRequest::set_locations(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:Services.GetPersonRequest.locations)
+  locations_.Mutable(index)->assign(value);
+}
+inline void GetPersonRequest::set_locations(int index, const char* value) {
+  locations_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:Services.GetPersonRequest.locations)
+}
+inline void GetPersonRequest::set_locations(int index, const char* value, size_t size) {
+  locations_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:Services.GetPersonRequest.locations)
+}
+inline ::std::string* GetPersonRequest::add_locations() {
+  // @@protoc_insertion_point(field_add_mutable:Services.GetPersonRequest.locations)
+  return locations_.Add();
+}
+inline void GetPersonRequest::add_locations(const ::std::string& value) {
+  locations_.Add()->assign(value);
   // @@protoc_insertion_point(field_add:Services.GetPersonRequest.locations)
 }
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+inline void GetPersonRequest::add_locations(const char* value) {
+  locations_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:Services.GetPersonRequest.locations)
+}
+inline void GetPersonRequest::add_locations(const char* value, size_t size) {
+  locations_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:Services.GetPersonRequest.locations)
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
 GetPersonRequest::locations() const {
   // @@protoc_insertion_point(field_list:Services.GetPersonRequest.locations)
   return locations_;
 }
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
 GetPersonRequest::mutable_locations() {
   // @@protoc_insertion_point(field_mutable_list:Services.GetPersonRequest.locations)
   return &locations_;
@@ -1025,226 +1182,276 @@ inline void GetLocationRequest::set_allocated_page(::Services::Page* page) {
 
 // -------------------------------------------------------------------
 
-// GetVisitorRequest
+// GetVisitRecordRequest
 
 // optional string search_text = 1;
-inline void GetVisitorRequest::clear_search_text() {
+inline void GetVisitRecordRequest::clear_search_text() {
   search_text_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& GetVisitorRequest::search_text() const {
-  // @@protoc_insertion_point(field_get:Services.GetVisitorRequest.search_text)
+inline const ::std::string& GetVisitRecordRequest::search_text() const {
+  // @@protoc_insertion_point(field_get:Services.GetVisitRecordRequest.search_text)
   return search_text_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void GetVisitorRequest::set_search_text(const ::std::string& value) {
+inline void GetVisitRecordRequest::set_search_text(const ::std::string& value) {
   
   search_text_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Services.GetVisitorRequest.search_text)
+  // @@protoc_insertion_point(field_set:Services.GetVisitRecordRequest.search_text)
 }
-inline void GetVisitorRequest::set_search_text(const char* value) {
+inline void GetVisitRecordRequest::set_search_text(const char* value) {
   
   search_text_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Services.GetVisitorRequest.search_text)
+  // @@protoc_insertion_point(field_set_char:Services.GetVisitRecordRequest.search_text)
 }
-inline void GetVisitorRequest::set_search_text(const char* value, size_t size) {
+inline void GetVisitRecordRequest::set_search_text(const char* value, size_t size) {
   
   search_text_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Services.GetVisitorRequest.search_text)
+  // @@protoc_insertion_point(field_set_pointer:Services.GetVisitRecordRequest.search_text)
 }
-inline ::std::string* GetVisitorRequest::mutable_search_text() {
+inline ::std::string* GetVisitRecordRequest::mutable_search_text() {
   
-  // @@protoc_insertion_point(field_mutable:Services.GetVisitorRequest.search_text)
+  // @@protoc_insertion_point(field_mutable:Services.GetVisitRecordRequest.search_text)
   return search_text_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* GetVisitorRequest::release_search_text() {
-  // @@protoc_insertion_point(field_release:Services.GetVisitorRequest.search_text)
+inline ::std::string* GetVisitRecordRequest::release_search_text() {
+  // @@protoc_insertion_point(field_release:Services.GetVisitRecordRequest.search_text)
   
   return search_text_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void GetVisitorRequest::set_allocated_search_text(::std::string* search_text) {
+inline void GetVisitRecordRequest::set_allocated_search_text(::std::string* search_text) {
   if (search_text != NULL) {
     
   } else {
     
   }
   search_text_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), search_text);
-  // @@protoc_insertion_point(field_set_allocated:Services.GetVisitorRequest.search_text)
+  // @@protoc_insertion_point(field_set_allocated:Services.GetVisitRecordRequest.search_text)
 }
 
 // optional .DataTypes.AccessState state = 2;
-inline void GetVisitorRequest::clear_state() {
+inline void GetVisitRecordRequest::clear_state() {
   state_ = 0;
 }
-inline ::DataTypes::AccessState GetVisitorRequest::state() const {
-  // @@protoc_insertion_point(field_get:Services.GetVisitorRequest.state)
+inline ::DataTypes::AccessState GetVisitRecordRequest::state() const {
+  // @@protoc_insertion_point(field_get:Services.GetVisitRecordRequest.state)
   return static_cast< ::DataTypes::AccessState >(state_);
 }
-inline void GetVisitorRequest::set_state(::DataTypes::AccessState value) {
+inline void GetVisitRecordRequest::set_state(::DataTypes::AccessState value) {
   
   state_ = value;
-  // @@protoc_insertion_point(field_set:Services.GetVisitorRequest.state)
+  // @@protoc_insertion_point(field_set:Services.GetVisitRecordRequest.state)
 }
 
-// repeated int64 locations = 3;
-inline int GetVisitorRequest::locations_size() const {
+// repeated string locations = 3;
+inline int GetVisitRecordRequest::locations_size() const {
   return locations_.size();
 }
-inline void GetVisitorRequest::clear_locations() {
+inline void GetVisitRecordRequest::clear_locations() {
   locations_.Clear();
 }
-inline ::google::protobuf::int64 GetVisitorRequest::locations(int index) const {
-  // @@protoc_insertion_point(field_get:Services.GetVisitorRequest.locations)
+inline const ::std::string& GetVisitRecordRequest::locations(int index) const {
+  // @@protoc_insertion_point(field_get:Services.GetVisitRecordRequest.locations)
   return locations_.Get(index);
 }
-inline void GetVisitorRequest::set_locations(int index, ::google::protobuf::int64 value) {
-  locations_.Set(index, value);
-  // @@protoc_insertion_point(field_set:Services.GetVisitorRequest.locations)
+inline ::std::string* GetVisitRecordRequest::mutable_locations(int index) {
+  // @@protoc_insertion_point(field_mutable:Services.GetVisitRecordRequest.locations)
+  return locations_.Mutable(index);
 }
-inline void GetVisitorRequest::add_locations(::google::protobuf::int64 value) {
-  locations_.Add(value);
-  // @@protoc_insertion_point(field_add:Services.GetVisitorRequest.locations)
+inline void GetVisitRecordRequest::set_locations(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:Services.GetVisitRecordRequest.locations)
+  locations_.Mutable(index)->assign(value);
 }
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-GetVisitorRequest::locations() const {
-  // @@protoc_insertion_point(field_list:Services.GetVisitorRequest.locations)
+inline void GetVisitRecordRequest::set_locations(int index, const char* value) {
+  locations_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:Services.GetVisitRecordRequest.locations)
+}
+inline void GetVisitRecordRequest::set_locations(int index, const char* value, size_t size) {
+  locations_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:Services.GetVisitRecordRequest.locations)
+}
+inline ::std::string* GetVisitRecordRequest::add_locations() {
+  // @@protoc_insertion_point(field_add_mutable:Services.GetVisitRecordRequest.locations)
+  return locations_.Add();
+}
+inline void GetVisitRecordRequest::add_locations(const ::std::string& value) {
+  locations_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:Services.GetVisitRecordRequest.locations)
+}
+inline void GetVisitRecordRequest::add_locations(const char* value) {
+  locations_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:Services.GetVisitRecordRequest.locations)
+}
+inline void GetVisitRecordRequest::add_locations(const char* value, size_t size) {
+  locations_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:Services.GetVisitRecordRequest.locations)
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+GetVisitRecordRequest::locations() const {
+  // @@protoc_insertion_point(field_list:Services.GetVisitRecordRequest.locations)
   return locations_;
 }
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-GetVisitorRequest::mutable_locations() {
-  // @@protoc_insertion_point(field_mutable_list:Services.GetVisitorRequest.locations)
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+GetVisitRecordRequest::mutable_locations() {
+  // @@protoc_insertion_point(field_mutable_list:Services.GetVisitRecordRequest.locations)
   return &locations_;
 }
 
-// repeated int64 persons = 4;
-inline int GetVisitorRequest::persons_size() const {
+// repeated string persons = 4;
+inline int GetVisitRecordRequest::persons_size() const {
   return persons_.size();
 }
-inline void GetVisitorRequest::clear_persons() {
+inline void GetVisitRecordRequest::clear_persons() {
   persons_.Clear();
 }
-inline ::google::protobuf::int64 GetVisitorRequest::persons(int index) const {
-  // @@protoc_insertion_point(field_get:Services.GetVisitorRequest.persons)
+inline const ::std::string& GetVisitRecordRequest::persons(int index) const {
+  // @@protoc_insertion_point(field_get:Services.GetVisitRecordRequest.persons)
   return persons_.Get(index);
 }
-inline void GetVisitorRequest::set_persons(int index, ::google::protobuf::int64 value) {
-  persons_.Set(index, value);
-  // @@protoc_insertion_point(field_set:Services.GetVisitorRequest.persons)
+inline ::std::string* GetVisitRecordRequest::mutable_persons(int index) {
+  // @@protoc_insertion_point(field_mutable:Services.GetVisitRecordRequest.persons)
+  return persons_.Mutable(index);
 }
-inline void GetVisitorRequest::add_persons(::google::protobuf::int64 value) {
-  persons_.Add(value);
-  // @@protoc_insertion_point(field_add:Services.GetVisitorRequest.persons)
+inline void GetVisitRecordRequest::set_persons(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:Services.GetVisitRecordRequest.persons)
+  persons_.Mutable(index)->assign(value);
 }
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-GetVisitorRequest::persons() const {
-  // @@protoc_insertion_point(field_list:Services.GetVisitorRequest.persons)
+inline void GetVisitRecordRequest::set_persons(int index, const char* value) {
+  persons_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:Services.GetVisitRecordRequest.persons)
+}
+inline void GetVisitRecordRequest::set_persons(int index, const char* value, size_t size) {
+  persons_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:Services.GetVisitRecordRequest.persons)
+}
+inline ::std::string* GetVisitRecordRequest::add_persons() {
+  // @@protoc_insertion_point(field_add_mutable:Services.GetVisitRecordRequest.persons)
+  return persons_.Add();
+}
+inline void GetVisitRecordRequest::add_persons(const ::std::string& value) {
+  persons_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:Services.GetVisitRecordRequest.persons)
+}
+inline void GetVisitRecordRequest::add_persons(const char* value) {
+  persons_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:Services.GetVisitRecordRequest.persons)
+}
+inline void GetVisitRecordRequest::add_persons(const char* value, size_t size) {
+  persons_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:Services.GetVisitRecordRequest.persons)
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+GetVisitRecordRequest::persons() const {
+  // @@protoc_insertion_point(field_list:Services.GetVisitRecordRequest.persons)
   return persons_;
 }
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-GetVisitorRequest::mutable_persons() {
-  // @@protoc_insertion_point(field_mutable_list:Services.GetVisitorRequest.persons)
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+GetVisitRecordRequest::mutable_persons() {
+  // @@protoc_insertion_point(field_mutable_list:Services.GetVisitRecordRequest.persons)
   return &persons_;
 }
 
 // optional int64 datetime_from = 5;
-inline void GetVisitorRequest::clear_datetime_from() {
+inline void GetVisitRecordRequest::clear_datetime_from() {
   datetime_from_ = GOOGLE_LONGLONG(0);
 }
-inline ::google::protobuf::int64 GetVisitorRequest::datetime_from() const {
-  // @@protoc_insertion_point(field_get:Services.GetVisitorRequest.datetime_from)
+inline ::google::protobuf::int64 GetVisitRecordRequest::datetime_from() const {
+  // @@protoc_insertion_point(field_get:Services.GetVisitRecordRequest.datetime_from)
   return datetime_from_;
 }
-inline void GetVisitorRequest::set_datetime_from(::google::protobuf::int64 value) {
+inline void GetVisitRecordRequest::set_datetime_from(::google::protobuf::int64 value) {
   
   datetime_from_ = value;
-  // @@protoc_insertion_point(field_set:Services.GetVisitorRequest.datetime_from)
+  // @@protoc_insertion_point(field_set:Services.GetVisitRecordRequest.datetime_from)
 }
 
 // optional int64 datetime_to = 6;
-inline void GetVisitorRequest::clear_datetime_to() {
+inline void GetVisitRecordRequest::clear_datetime_to() {
   datetime_to_ = GOOGLE_LONGLONG(0);
 }
-inline ::google::protobuf::int64 GetVisitorRequest::datetime_to() const {
-  // @@protoc_insertion_point(field_get:Services.GetVisitorRequest.datetime_to)
+inline ::google::protobuf::int64 GetVisitRecordRequest::datetime_to() const {
+  // @@protoc_insertion_point(field_get:Services.GetVisitRecordRequest.datetime_to)
   return datetime_to_;
 }
-inline void GetVisitorRequest::set_datetime_to(::google::protobuf::int64 value) {
+inline void GetVisitRecordRequest::set_datetime_to(::google::protobuf::int64 value) {
   
   datetime_to_ = value;
-  // @@protoc_insertion_point(field_set:Services.GetVisitorRequest.datetime_to)
+  // @@protoc_insertion_point(field_set:Services.GetVisitRecordRequest.datetime_to)
 }
 
 // optional string card = 7;
-inline void GetVisitorRequest::clear_card() {
+inline void GetVisitRecordRequest::clear_card() {
   card_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& GetVisitorRequest::card() const {
-  // @@protoc_insertion_point(field_get:Services.GetVisitorRequest.card)
+inline const ::std::string& GetVisitRecordRequest::card() const {
+  // @@protoc_insertion_point(field_get:Services.GetVisitRecordRequest.card)
   return card_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void GetVisitorRequest::set_card(const ::std::string& value) {
+inline void GetVisitRecordRequest::set_card(const ::std::string& value) {
   
   card_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Services.GetVisitorRequest.card)
+  // @@protoc_insertion_point(field_set:Services.GetVisitRecordRequest.card)
 }
-inline void GetVisitorRequest::set_card(const char* value) {
+inline void GetVisitRecordRequest::set_card(const char* value) {
   
   card_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Services.GetVisitorRequest.card)
+  // @@protoc_insertion_point(field_set_char:Services.GetVisitRecordRequest.card)
 }
-inline void GetVisitorRequest::set_card(const char* value, size_t size) {
+inline void GetVisitRecordRequest::set_card(const char* value, size_t size) {
   
   card_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Services.GetVisitorRequest.card)
+  // @@protoc_insertion_point(field_set_pointer:Services.GetVisitRecordRequest.card)
 }
-inline ::std::string* GetVisitorRequest::mutable_card() {
+inline ::std::string* GetVisitRecordRequest::mutable_card() {
   
-  // @@protoc_insertion_point(field_mutable:Services.GetVisitorRequest.card)
+  // @@protoc_insertion_point(field_mutable:Services.GetVisitRecordRequest.card)
   return card_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* GetVisitorRequest::release_card() {
-  // @@protoc_insertion_point(field_release:Services.GetVisitorRequest.card)
+inline ::std::string* GetVisitRecordRequest::release_card() {
+  // @@protoc_insertion_point(field_release:Services.GetVisitRecordRequest.card)
   
   return card_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void GetVisitorRequest::set_allocated_card(::std::string* card) {
+inline void GetVisitRecordRequest::set_allocated_card(::std::string* card) {
   if (card != NULL) {
     
   } else {
     
   }
   card_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), card);
-  // @@protoc_insertion_point(field_set_allocated:Services.GetVisitorRequest.card)
+  // @@protoc_insertion_point(field_set_allocated:Services.GetVisitRecordRequest.card)
 }
 
 // optional .Services.Page page = 8;
-inline bool GetVisitorRequest::has_page() const {
+inline bool GetVisitRecordRequest::has_page() const {
   return !_is_default_instance_ && page_ != NULL;
 }
-inline void GetVisitorRequest::clear_page() {
+inline void GetVisitRecordRequest::clear_page() {
   if (GetArenaNoVirtual() == NULL && page_ != NULL) delete page_;
   page_ = NULL;
 }
-inline const ::Services::Page& GetVisitorRequest::page() const {
-  // @@protoc_insertion_point(field_get:Services.GetVisitorRequest.page)
+inline const ::Services::Page& GetVisitRecordRequest::page() const {
+  // @@protoc_insertion_point(field_get:Services.GetVisitRecordRequest.page)
   return page_ != NULL ? *page_ : *default_instance_->page_;
 }
-inline ::Services::Page* GetVisitorRequest::mutable_page() {
+inline ::Services::Page* GetVisitRecordRequest::mutable_page() {
   
   if (page_ == NULL) {
     page_ = new ::Services::Page;
   }
-  // @@protoc_insertion_point(field_mutable:Services.GetVisitorRequest.page)
+  // @@protoc_insertion_point(field_mutable:Services.GetVisitRecordRequest.page)
   return page_;
 }
-inline ::Services::Page* GetVisitorRequest::release_page() {
-  // @@protoc_insertion_point(field_release:Services.GetVisitorRequest.page)
+inline ::Services::Page* GetVisitRecordRequest::release_page() {
+  // @@protoc_insertion_point(field_release:Services.GetVisitRecordRequest.page)
   
   ::Services::Page* temp = page_;
   page_ = NULL;
   return temp;
 }
-inline void GetVisitorRequest::set_allocated_page(::Services::Page* page) {
+inline void GetVisitRecordRequest::set_allocated_page(::Services::Page* page) {
   delete page_;
   page_ = page;
   if (page) {
@@ -1252,7 +1459,7 @@ inline void GetVisitorRequest::set_allocated_page(::Services::Page* page) {
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:Services.GetVisitorRequest.page)
+  // @@protoc_insertion_point(field_set_allocated:Services.GetVisitRecordRequest.page)
 }
 
 // -------------------------------------------------------------------
@@ -1287,7 +1494,194 @@ inline void Page::set_size(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:Services.Page.size)
 }
 
+// -------------------------------------------------------------------
+
+// GetCardRequest
+
+// optional string search_text = 1;
+inline void GetCardRequest::clear_search_text() {
+  search_text_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& GetCardRequest::search_text() const {
+  // @@protoc_insertion_point(field_get:Services.GetCardRequest.search_text)
+  return search_text_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void GetCardRequest::set_search_text(const ::std::string& value) {
+  
+  search_text_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:Services.GetCardRequest.search_text)
+}
+inline void GetCardRequest::set_search_text(const char* value) {
+  
+  search_text_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:Services.GetCardRequest.search_text)
+}
+inline void GetCardRequest::set_search_text(const char* value, size_t size) {
+  
+  search_text_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:Services.GetCardRequest.search_text)
+}
+inline ::std::string* GetCardRequest::mutable_search_text() {
+  
+  // @@protoc_insertion_point(field_mutable:Services.GetCardRequest.search_text)
+  return search_text_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* GetCardRequest::release_search_text() {
+  // @@protoc_insertion_point(field_release:Services.GetCardRequest.search_text)
+  
+  return search_text_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void GetCardRequest::set_allocated_search_text(::std::string* search_text) {
+  if (search_text != NULL) {
+    
+  } else {
+    
+  }
+  search_text_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), search_text);
+  // @@protoc_insertion_point(field_set_allocated:Services.GetCardRequest.search_text)
+}
+
+// optional string unique_identifier = 2;
+inline void GetCardRequest::clear_unique_identifier() {
+  unique_identifier_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& GetCardRequest::unique_identifier() const {
+  // @@protoc_insertion_point(field_get:Services.GetCardRequest.unique_identifier)
+  return unique_identifier_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void GetCardRequest::set_unique_identifier(const ::std::string& value) {
+  
+  unique_identifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:Services.GetCardRequest.unique_identifier)
+}
+inline void GetCardRequest::set_unique_identifier(const char* value) {
+  
+  unique_identifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:Services.GetCardRequest.unique_identifier)
+}
+inline void GetCardRequest::set_unique_identifier(const char* value, size_t size) {
+  
+  unique_identifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:Services.GetCardRequest.unique_identifier)
+}
+inline ::std::string* GetCardRequest::mutable_unique_identifier() {
+  
+  // @@protoc_insertion_point(field_mutable:Services.GetCardRequest.unique_identifier)
+  return unique_identifier_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* GetCardRequest::release_unique_identifier() {
+  // @@protoc_insertion_point(field_release:Services.GetCardRequest.unique_identifier)
+  
+  return unique_identifier_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void GetCardRequest::set_allocated_unique_identifier(::std::string* unique_identifier) {
+  if (unique_identifier != NULL) {
+    
+  } else {
+    
+  }
+  unique_identifier_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), unique_identifier);
+  // @@protoc_insertion_point(field_set_allocated:Services.GetCardRequest.unique_identifier)
+}
+
+// repeated string owners = 3;
+inline int GetCardRequest::owners_size() const {
+  return owners_.size();
+}
+inline void GetCardRequest::clear_owners() {
+  owners_.Clear();
+}
+inline const ::std::string& GetCardRequest::owners(int index) const {
+  // @@protoc_insertion_point(field_get:Services.GetCardRequest.owners)
+  return owners_.Get(index);
+}
+inline ::std::string* GetCardRequest::mutable_owners(int index) {
+  // @@protoc_insertion_point(field_mutable:Services.GetCardRequest.owners)
+  return owners_.Mutable(index);
+}
+inline void GetCardRequest::set_owners(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:Services.GetCardRequest.owners)
+  owners_.Mutable(index)->assign(value);
+}
+inline void GetCardRequest::set_owners(int index, const char* value) {
+  owners_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:Services.GetCardRequest.owners)
+}
+inline void GetCardRequest::set_owners(int index, const char* value, size_t size) {
+  owners_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:Services.GetCardRequest.owners)
+}
+inline ::std::string* GetCardRequest::add_owners() {
+  // @@protoc_insertion_point(field_add_mutable:Services.GetCardRequest.owners)
+  return owners_.Add();
+}
+inline void GetCardRequest::add_owners(const ::std::string& value) {
+  owners_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:Services.GetCardRequest.owners)
+}
+inline void GetCardRequest::add_owners(const char* value) {
+  owners_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:Services.GetCardRequest.owners)
+}
+inline void GetCardRequest::add_owners(const char* value, size_t size) {
+  owners_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:Services.GetCardRequest.owners)
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+GetCardRequest::owners() const {
+  // @@protoc_insertion_point(field_list:Services.GetCardRequest.owners)
+  return owners_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+GetCardRequest::mutable_owners() {
+  // @@protoc_insertion_point(field_mutable_list:Services.GetCardRequest.owners)
+  return &owners_;
+}
+
+// optional .Services.Page page = 4;
+inline bool GetCardRequest::has_page() const {
+  return !_is_default_instance_ && page_ != NULL;
+}
+inline void GetCardRequest::clear_page() {
+  if (GetArenaNoVirtual() == NULL && page_ != NULL) delete page_;
+  page_ = NULL;
+}
+inline const ::Services::Page& GetCardRequest::page() const {
+  // @@protoc_insertion_point(field_get:Services.GetCardRequest.page)
+  return page_ != NULL ? *page_ : *default_instance_->page_;
+}
+inline ::Services::Page* GetCardRequest::mutable_page() {
+  
+  if (page_ == NULL) {
+    page_ = new ::Services::Page;
+  }
+  // @@protoc_insertion_point(field_mutable:Services.GetCardRequest.page)
+  return page_;
+}
+inline ::Services::Page* GetCardRequest::release_page() {
+  // @@protoc_insertion_point(field_release:Services.GetCardRequest.page)
+  
+  ::Services::Page* temp = page_;
+  page_ = NULL;
+  return temp;
+}
+inline void GetCardRequest::set_allocated_page(::Services::Page* page) {
+  delete page_;
+  page_ = page;
+  if (page) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:Services.GetCardRequest.page)
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

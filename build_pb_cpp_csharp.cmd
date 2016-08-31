@@ -2,7 +2,7 @@ set VS2013="C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\vcvars32.
 set VS2013_AMD64="C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\amd64\vcvars64.bat"
 
 
-set file=biometric_service/services/queries.proto
+set file=biometric_service/services/unit_service.proto
 
 
 CALL %VS2013%

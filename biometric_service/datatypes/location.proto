@@ -9,21 +9,25 @@ package DataTypes;
 
 message Location
 {
-  int64             id                = 1 ;
-  string            name              = 2 ;
-  string            description       = 3 ;    
-  string            mac_address       = 4 ; 
-
-  //CaptureDevice     capture_device     = 5 ;
-  AccessDevice      access_device      = 6 ;
-  //FingerprintDevice fingerprint_device = 7 ;
-  //IrisDevice        iris_device        = 8 ; 
+  string            id               = 1;
+  string            name             = 2;
+  string            description      = 3;    
+  string            unit_mac_address = 4; 
+  AccessDevice      access_device    = 5;
 }
 
 message Locations
 {
   repeated Location items = 1;
            int64    count = 2;
+}
+
+enum LocationState
+{
+  Unspecified_State = 0;
+  Opened     = 1;
+  Closed     = 2;
+  Failure    = 3;
 }
 
 

@@ -23,27 +23,31 @@ namespace Services {
     static QueriesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChZzZXJ2aWNlcy9xdWVyaWVzLnByb3RvEghTZXJ2aWNlcxoXZGF0YXR5cGVz",
-            "L3Zpc2l0b3IucHJvdG8ijQEKEEdldFBlcnNvblJlcXVlc3QSEwoLc2VhcmNo",
-            "X3RleHQYASABKAkSEgoKZmlyc3RfbmFtZRgCIAEoCRIRCglsYXN0X25hbWUY",
-            "AyABKAkSDAoEY2FyZBgEIAEoCRIRCglsb2NhdGlvbnMYBSADKAMSHAoEcGFn",
-            "ZRgGIAEoCzIOLlNlcnZpY2VzLlBhZ2UifwoSR2V0TG9jYXRpb25SZXF1ZXN0",
-            "EhMKC3NlYXJjaF90ZXh0GAEgASgJEgwKBG5hbWUYAiABKAkSEwoLbWFjX2Fk",
-            "ZHJlc3MYAyABKAkSEwoLZGV2aWNlX25hbWUYBCABKAkSHAoEcGFnZRgFIAEo",
-            "CzIOLlNlcnZpY2VzLlBhZ2UiywEKEUdldFZpc2l0b3JSZXF1ZXN0EhMKC3Nl",
-            "YXJjaF90ZXh0GAEgASgJEiUKBXN0YXRlGAIgASgOMhYuRGF0YVR5cGVzLkFj",
-            "Y2Vzc1N0YXRlEhEKCWxvY2F0aW9ucxgDIAMoAxIPCgdwZXJzb25zGAQgAygD",
-            "EhUKDWRhdGV0aW1lX2Zyb20YBSABKAMSEwoLZGF0ZXRpbWVfdG8YBiABKAMS",
-            "DAoEY2FyZBgHIAEoCRIcCgRwYWdlGAggASgLMg4uU2VydmljZXMuUGFnZSIj",
-            "CgRQYWdlEg0KBWluZGV4GAEgASgFEgwKBHNpemUYAiABKAVCDwoHZXguZ3Jw",
-            "Y6ICA1JUR2IGcHJvdG8z"));
+            "ChZzZXJ2aWNlcy9xdWVyaWVzLnByb3RvEghTZXJ2aWNlcxocZGF0YXR5cGVz",
+            "L3Zpc2l0X3JlY29yZC5wcm90byKNAQoQR2V0UGVyc29uUmVxdWVzdBITCgtz",
+            "ZWFyY2hfdGV4dBgBIAEoCRISCgpmaXJzdF9uYW1lGAIgASgJEhEKCWxhc3Rf",
+            "bmFtZRgDIAEoCRIMCgRjYXJkGAQgASgJEhEKCWxvY2F0aW9ucxgFIAMoCRIc",
+            "CgRwYWdlGAYgASgLMg4uU2VydmljZXMuUGFnZSJ/ChJHZXRMb2NhdGlvblJl",
+            "cXVlc3QSEwoLc2VhcmNoX3RleHQYASABKAkSDAoEbmFtZRgCIAEoCRITCgtt",
+            "YWNfYWRkcmVzcxgDIAEoCRITCgtkZXZpY2VfbmFtZRgEIAEoCRIcCgRwYWdl",
+            "GAUgASgLMg4uU2VydmljZXMuUGFnZSLPAQoVR2V0VmlzaXRSZWNvcmRSZXF1",
+            "ZXN0EhMKC3NlYXJjaF90ZXh0GAEgASgJEiUKBXN0YXRlGAIgASgOMhYuRGF0",
+            "YVR5cGVzLkFjY2Vzc1N0YXRlEhEKCWxvY2F0aW9ucxgDIAMoCRIPCgdwZXJz",
+            "b25zGAQgAygJEhUKDWRhdGV0aW1lX2Zyb20YBSABKAMSEwoLZGF0ZXRpbWVf",
+            "dG8YBiABKAMSDAoEY2FyZBgHIAEoCRIcCgRwYWdlGAggASgLMg4uU2Vydmlj",
+            "ZXMuUGFnZSIjCgRQYWdlEg0KBWluZGV4GAEgASgFEgwKBHNpemUYAiABKAUi",
+            "bgoOR2V0Q2FyZFJlcXVlc3QSEwoLc2VhcmNoX3RleHQYASABKAkSGQoRdW5p",
+            "cXVlX2lkZW50aWZpZXIYAiABKAkSDgoGb3duZXJzGAMgAygJEhwKBHBhZ2UY",
+            "BCABKAsyDi5TZXJ2aWNlcy5QYWdlQg8KB2V4LmdycGOiAgNSVEdiBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::DataTypes.VisitorReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::DataTypes.VisitRecordReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Services.GetPersonRequest), global::Services.GetPersonRequest.Parser, new[]{ "SearchText", "FirstName", "LastName", "Card", "Locations", "Page" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Services.GetLocationRequest), global::Services.GetLocationRequest.Parser, new[]{ "SearchText", "Name", "MacAddress", "DeviceName", "Page" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Services.GetVisitorRequest), global::Services.GetVisitorRequest.Parser, new[]{ "SearchText", "State", "Locations", "Persons", "DatetimeFrom", "DatetimeTo", "Card", "Page" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Services.Page), global::Services.Page.Parser, new[]{ "Index", "Size" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Services.GetVisitRecordRequest), global::Services.GetVisitRecordRequest.Parser, new[]{ "SearchText", "State", "Locations", "Persons", "DatetimeFrom", "DatetimeTo", "Card", "Page" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Services.Page), global::Services.Page.Parser, new[]{ "Index", "Size" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Services.GetCardRequest), global::Services.GetCardRequest.Parser, new[]{ "SearchText", "UniqueIdentifier", "Owners", "Page" }, null, null, null)
           }));
     }
     #endregion
@@ -127,14 +131,14 @@ namespace Services {
 
     /// <summary>Field number for the "locations" field.</summary>
     public const int LocationsFieldNumber = 5;
-    private static readonly pb::FieldCodec<long> _repeated_locations_codec
-        = pb::FieldCodec.ForInt64(42);
-    private readonly pbc::RepeatedField<long> locations_ = new pbc::RepeatedField<long>();
+    private static readonly pb::FieldCodec<string> _repeated_locations_codec
+        = pb::FieldCodec.ForString(42);
+    private readonly pbc::RepeatedField<string> locations_ = new pbc::RepeatedField<string>();
     /// <summary>
     /// TODO Photo    photo
     /// TODO Rights   rights
     /// </summary>
-    public pbc::RepeatedField<long> Locations {
+    public pbc::RepeatedField<string> Locations {
       get { return locations_; }
     }
 
@@ -276,8 +280,7 @@ namespace Services {
             Card = input.ReadString();
             break;
           }
-          case 42:
-          case 40: {
+          case 42: {
             locations_.AddEntriesFrom(input, _repeated_locations_codec);
             break;
           }
@@ -515,9 +518,9 @@ namespace Services {
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class GetVisitorRequest : pb::IMessage<GetVisitorRequest> {
-    private static readonly pb::MessageParser<GetVisitorRequest> _parser = new pb::MessageParser<GetVisitorRequest>(() => new GetVisitorRequest());
-    public static pb::MessageParser<GetVisitorRequest> Parser { get { return _parser; } }
+  public sealed partial class GetVisitRecordRequest : pb::IMessage<GetVisitRecordRequest> {
+    private static readonly pb::MessageParser<GetVisitRecordRequest> _parser = new pb::MessageParser<GetVisitRecordRequest>(() => new GetVisitRecordRequest());
+    public static pb::MessageParser<GetVisitRecordRequest> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Services.QueriesReflection.Descriptor.MessageTypes[2]; }
@@ -527,13 +530,13 @@ namespace Services {
       get { return Descriptor; }
     }
 
-    public GetVisitorRequest() {
+    public GetVisitRecordRequest() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
-    public GetVisitorRequest(GetVisitorRequest other) : this() {
+    public GetVisitRecordRequest(GetVisitRecordRequest other) : this() {
       searchText_ = other.searchText_;
       state_ = other.state_;
       locations_ = other.locations_.Clone();
@@ -544,8 +547,8 @@ namespace Services {
       Page = other.page_ != null ? other.Page.Clone() : null;
     }
 
-    public GetVisitorRequest Clone() {
-      return new GetVisitorRequest(this);
+    public GetVisitRecordRequest Clone() {
+      return new GetVisitRecordRequest(this);
     }
 
     /// <summary>Field number for the "search_text" field.</summary>
@@ -570,19 +573,19 @@ namespace Services {
 
     /// <summary>Field number for the "locations" field.</summary>
     public const int LocationsFieldNumber = 3;
-    private static readonly pb::FieldCodec<long> _repeated_locations_codec
-        = pb::FieldCodec.ForInt64(26);
-    private readonly pbc::RepeatedField<long> locations_ = new pbc::RepeatedField<long>();
-    public pbc::RepeatedField<long> Locations {
+    private static readonly pb::FieldCodec<string> _repeated_locations_codec
+        = pb::FieldCodec.ForString(26);
+    private readonly pbc::RepeatedField<string> locations_ = new pbc::RepeatedField<string>();
+    public pbc::RepeatedField<string> Locations {
       get { return locations_; }
     }
 
     /// <summary>Field number for the "persons" field.</summary>
     public const int PersonsFieldNumber = 4;
-    private static readonly pb::FieldCodec<long> _repeated_persons_codec
-        = pb::FieldCodec.ForInt64(34);
-    private readonly pbc::RepeatedField<long> persons_ = new pbc::RepeatedField<long>();
-    public pbc::RepeatedField<long> Persons {
+    private static readonly pb::FieldCodec<string> _repeated_persons_codec
+        = pb::FieldCodec.ForString(34);
+    private readonly pbc::RepeatedField<string> persons_ = new pbc::RepeatedField<string>();
+    public pbc::RepeatedField<string> Persons {
       get { return persons_; }
     }
 
@@ -627,10 +630,10 @@ namespace Services {
     }
 
     public override bool Equals(object other) {
-      return Equals(other as GetVisitorRequest);
+      return Equals(other as GetVisitRecordRequest);
     }
 
-    public bool Equals(GetVisitorRequest other) {
+    public bool Equals(GetVisitRecordRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -719,7 +722,7 @@ namespace Services {
       return size;
     }
 
-    public void MergeFrom(GetVisitorRequest other) {
+    public void MergeFrom(GetVisitRecordRequest other) {
       if (other == null) {
         return;
       }
@@ -763,13 +766,11 @@ namespace Services {
             state_ = (global::DataTypes.AccessState) input.ReadEnum();
             break;
           }
-          case 26:
-          case 24: {
+          case 26: {
             locations_.AddEntriesFrom(input, _repeated_locations_codec);
             break;
           }
-          case 34:
-          case 32: {
+          case 34: {
             persons_.AddEntriesFrom(input, _repeated_persons_codec);
             break;
           }
@@ -920,6 +921,191 @@ namespace Services {
           }
           case 16: {
             Size = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class GetCardRequest : pb::IMessage<GetCardRequest> {
+    private static readonly pb::MessageParser<GetCardRequest> _parser = new pb::MessageParser<GetCardRequest>(() => new GetCardRequest());
+    public static pb::MessageParser<GetCardRequest> Parser { get { return _parser; } }
+
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Services.QueriesReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    public GetCardRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    public GetCardRequest(GetCardRequest other) : this() {
+      searchText_ = other.searchText_;
+      uniqueIdentifier_ = other.uniqueIdentifier_;
+      owners_ = other.owners_.Clone();
+      Page = other.page_ != null ? other.Page.Clone() : null;
+    }
+
+    public GetCardRequest Clone() {
+      return new GetCardRequest(this);
+    }
+
+    /// <summary>Field number for the "search_text" field.</summary>
+    public const int SearchTextFieldNumber = 1;
+    private string searchText_ = "";
+    /// <summary>
+    /// search in name, description
+    /// </summary>
+    public string SearchText {
+      get { return searchText_; }
+      set {
+        searchText_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "unique_identifier" field.</summary>
+    public const int UniqueIdentifierFieldNumber = 2;
+    private string uniqueIdentifier_ = "";
+    public string UniqueIdentifier {
+      get { return uniqueIdentifier_; }
+      set {
+        uniqueIdentifier_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "owners" field.</summary>
+    public const int OwnersFieldNumber = 3;
+    private static readonly pb::FieldCodec<string> _repeated_owners_codec
+        = pb::FieldCodec.ForString(26);
+    private readonly pbc::RepeatedField<string> owners_ = new pbc::RepeatedField<string>();
+    public pbc::RepeatedField<string> Owners {
+      get { return owners_; }
+    }
+
+    /// <summary>Field number for the "page" field.</summary>
+    public const int PageFieldNumber = 4;
+    private global::Services.Page page_;
+    public global::Services.Page Page {
+      get { return page_; }
+      set {
+        page_ = value;
+      }
+    }
+
+    public override bool Equals(object other) {
+      return Equals(other as GetCardRequest);
+    }
+
+    public bool Equals(GetCardRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (SearchText != other.SearchText) return false;
+      if (UniqueIdentifier != other.UniqueIdentifier) return false;
+      if(!owners_.Equals(other.owners_)) return false;
+      if (!object.Equals(Page, other.Page)) return false;
+      return true;
+    }
+
+    public override int GetHashCode() {
+      int hash = 1;
+      if (SearchText.Length != 0) hash ^= SearchText.GetHashCode();
+      if (UniqueIdentifier.Length != 0) hash ^= UniqueIdentifier.GetHashCode();
+      hash ^= owners_.GetHashCode();
+      if (page_ != null) hash ^= Page.GetHashCode();
+      return hash;
+    }
+
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (SearchText.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(SearchText);
+      }
+      if (UniqueIdentifier.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(UniqueIdentifier);
+      }
+      owners_.WriteTo(output, _repeated_owners_codec);
+      if (page_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Page);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (SearchText.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(SearchText);
+      }
+      if (UniqueIdentifier.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(UniqueIdentifier);
+      }
+      size += owners_.CalculateSize(_repeated_owners_codec);
+      if (page_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Page);
+      }
+      return size;
+    }
+
+    public void MergeFrom(GetCardRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.SearchText.Length != 0) {
+        SearchText = other.SearchText;
+      }
+      if (other.UniqueIdentifier.Length != 0) {
+        UniqueIdentifier = other.UniqueIdentifier;
+      }
+      owners_.Add(other.owners_);
+      if (other.page_ != null) {
+        if (page_ == null) {
+          page_ = new global::Services.Page();
+        }
+        Page.MergeFrom(other.Page);
+      }
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            SearchText = input.ReadString();
+            break;
+          }
+          case 18: {
+            UniqueIdentifier = input.ReadString();
+            break;
+          }
+          case 26: {
+            owners_.AddEntriesFrom(input, _repeated_owners_codec);
+            break;
+          }
+          case 34: {
+            if (page_ == null) {
+              page_ = new global::Services.Page();
+            }
+            input.ReadMessage(page_);
             break;
           }
         }

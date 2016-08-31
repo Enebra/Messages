@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "datatypes/unit.proto";
+import "datatypes/location.proto";
+import "datatypes/visit_record.proto";
+
+option java_package = "ex.grpc";
+option objc_class_prefix = "RTG";
+
+package Services;
+
+service UnitService 
+{    
+  rpc OpenDoor     ( DataTypes.Location     ) returns ( google.protobuf.Empty  ) {}  
+  rpc UpdateUnits  ( DataTypes.Units        ) returns ( google.protobuf.Empty  ) {}
+  rpc UpdateActvity( DataTypes.VisitRecords ) returns ( google.protobuf.Empty  ) {}
+  //send connected devices
+}

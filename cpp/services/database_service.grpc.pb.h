@@ -46,6 +46,10 @@ class DatabaseSevice GRPC_FINAL {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncDeletePerson(::grpc::ClientContext* context, const ::DataTypes::Person& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncDeletePersonRaw(context, request, cq));
     }
+    virtual ::grpc::Status GetCard(::grpc::ClientContext* context, const ::Services::GetCardRequest& request, ::DataTypes::Cards* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::Cards>> AsyncGetCard(::grpc::ClientContext* context, const ::Services::GetCardRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::Cards>>(AsyncGetCardRaw(context, request, cq));
+    }
     virtual ::grpc::Status InsertCard(::grpc::ClientContext* context, const ::DataTypes::Card& request, ::DataTypes::Card* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::Card>> AsyncInsertCard(::grpc::ClientContext* context, const ::DataTypes::Card& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::Card>>(AsyncInsertCardRaw(context, request, cq));
@@ -74,21 +78,21 @@ class DatabaseSevice GRPC_FINAL {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncDeleteLocation(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncDeleteLocationRaw(context, request, cq));
     }
-    virtual ::grpc::Status GetVisitor(::grpc::ClientContext* context, const ::Services::GetVisitorRequest& request, ::DataTypes::Visitors* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::Visitors>> AsyncGetVisitor(::grpc::ClientContext* context, const ::Services::GetVisitorRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::Visitors>>(AsyncGetVisitorRaw(context, request, cq));
+    virtual ::grpc::Status GetVisitRecords(::grpc::ClientContext* context, const ::Services::GetVisitRecordRequest& request, ::DataTypes::VisitRecords* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::VisitRecords>> AsyncGetVisitRecords(::grpc::ClientContext* context, const ::Services::GetVisitRecordRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::VisitRecords>>(AsyncGetVisitRecordsRaw(context, request, cq));
     }
-    virtual ::grpc::Status InsertVisitor(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::DataTypes::Visitor* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::Visitor>> AsyncInsertVisitor(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::Visitor>>(AsyncInsertVisitorRaw(context, request, cq));
+    virtual ::grpc::Status InsertVisitRecord(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::DataTypes::VisitRecord* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::VisitRecord>> AsyncInsertVisitRecord(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::VisitRecord>>(AsyncInsertVisitRecordRaw(context, request, cq));
     }
-    virtual ::grpc::Status UpdateVisitor(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::google::protobuf::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncUpdateVisitor(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncUpdateVisitorRaw(context, request, cq));
+    virtual ::grpc::Status UpdateVisitRecord(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::google::protobuf::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncUpdateVisitRecord(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncUpdateVisitRecordRaw(context, request, cq));
     }
-    virtual ::grpc::Status DeleteVisitor(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::google::protobuf::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncDeleteVisitor(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncDeleteVisitorRaw(context, request, cq));
+    virtual ::grpc::Status DeleteVisitRecord(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::google::protobuf::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncDeleteVisitRecord(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncDeleteVisitRecordRaw(context, request, cq));
     }
     virtual ::grpc::Status InsertPhoto(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::DataTypes::Photo* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::Photo>> AsyncInsertPhoto(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::grpc::CompletionQueue* cq) {
@@ -98,11 +102,16 @@ class DatabaseSevice GRPC_FINAL {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncDeletePhoto(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncDeletePhotoRaw(context, request, cq));
     }
+    virtual ::grpc::Status GetConfig(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::DataTypes::UnitConfiguration* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::UnitConfiguration>> AsyncGetConfig(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::UnitConfiguration>>(AsyncGetConfigRaw(context, request, cq));
+    }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::Persons>* AsyncGetPersonRaw(::grpc::ClientContext* context, const ::Services::GetPersonRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::Person>* AsyncInsertPersonRaw(::grpc::ClientContext* context, const ::DataTypes::Person& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncUpdatePersonRaw(::grpc::ClientContext* context, const ::DataTypes::Person& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncDeletePersonRaw(::grpc::ClientContext* context, const ::DataTypes::Person& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::Cards>* AsyncGetCardRaw(::grpc::ClientContext* context, const ::Services::GetCardRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::Card>* AsyncInsertCardRaw(::grpc::ClientContext* context, const ::DataTypes::Card& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncUpdateCardRaw(::grpc::ClientContext* context, const ::DataTypes::Card& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncDeleteCardRaw(::grpc::ClientContext* context, const ::DataTypes::Card& request, ::grpc::CompletionQueue* cq) = 0;
@@ -110,12 +119,13 @@ class DatabaseSevice GRPC_FINAL {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::Location>* AsyncInsertLocationRaw(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncUpdateLocationRaw(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncDeleteLocationRaw(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::Visitors>* AsyncGetVisitorRaw(::grpc::ClientContext* context, const ::Services::GetVisitorRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::Visitor>* AsyncInsertVisitorRaw(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncUpdateVisitorRaw(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncDeleteVisitorRaw(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::VisitRecords>* AsyncGetVisitRecordsRaw(::grpc::ClientContext* context, const ::Services::GetVisitRecordRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::VisitRecord>* AsyncInsertVisitRecordRaw(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncUpdateVisitRecordRaw(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncDeleteVisitRecordRaw(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::Photo>* AsyncInsertPhotoRaw(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncDeletePhotoRaw(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::UnitConfiguration>* AsyncGetConfigRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub GRPC_FINAL : public StubInterface {
    public:
@@ -135,6 +145,10 @@ class DatabaseSevice GRPC_FINAL {
     ::grpc::Status DeletePerson(::grpc::ClientContext* context, const ::DataTypes::Person& request, ::google::protobuf::Empty* response) GRPC_OVERRIDE;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncDeletePerson(::grpc::ClientContext* context, const ::DataTypes::Person& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncDeletePersonRaw(context, request, cq));
+    }
+    ::grpc::Status GetCard(::grpc::ClientContext* context, const ::Services::GetCardRequest& request, ::DataTypes::Cards* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DataTypes::Cards>> AsyncGetCard(::grpc::ClientContext* context, const ::Services::GetCardRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DataTypes::Cards>>(AsyncGetCardRaw(context, request, cq));
     }
     ::grpc::Status InsertCard(::grpc::ClientContext* context, const ::DataTypes::Card& request, ::DataTypes::Card* response) GRPC_OVERRIDE;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DataTypes::Card>> AsyncInsertCard(::grpc::ClientContext* context, const ::DataTypes::Card& request, ::grpc::CompletionQueue* cq) {
@@ -164,21 +178,21 @@ class DatabaseSevice GRPC_FINAL {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncDeleteLocation(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncDeleteLocationRaw(context, request, cq));
     }
-    ::grpc::Status GetVisitor(::grpc::ClientContext* context, const ::Services::GetVisitorRequest& request, ::DataTypes::Visitors* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DataTypes::Visitors>> AsyncGetVisitor(::grpc::ClientContext* context, const ::Services::GetVisitorRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DataTypes::Visitors>>(AsyncGetVisitorRaw(context, request, cq));
+    ::grpc::Status GetVisitRecords(::grpc::ClientContext* context, const ::Services::GetVisitRecordRequest& request, ::DataTypes::VisitRecords* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DataTypes::VisitRecords>> AsyncGetVisitRecords(::grpc::ClientContext* context, const ::Services::GetVisitRecordRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DataTypes::VisitRecords>>(AsyncGetVisitRecordsRaw(context, request, cq));
     }
-    ::grpc::Status InsertVisitor(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::DataTypes::Visitor* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DataTypes::Visitor>> AsyncInsertVisitor(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DataTypes::Visitor>>(AsyncInsertVisitorRaw(context, request, cq));
+    ::grpc::Status InsertVisitRecord(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::DataTypes::VisitRecord* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DataTypes::VisitRecord>> AsyncInsertVisitRecord(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DataTypes::VisitRecord>>(AsyncInsertVisitRecordRaw(context, request, cq));
     }
-    ::grpc::Status UpdateVisitor(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::google::protobuf::Empty* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncUpdateVisitor(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncUpdateVisitorRaw(context, request, cq));
+    ::grpc::Status UpdateVisitRecord(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::google::protobuf::Empty* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncUpdateVisitRecord(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncUpdateVisitRecordRaw(context, request, cq));
     }
-    ::grpc::Status DeleteVisitor(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::google::protobuf::Empty* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncDeleteVisitor(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncDeleteVisitorRaw(context, request, cq));
+    ::grpc::Status DeleteVisitRecord(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::google::protobuf::Empty* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncDeleteVisitRecord(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncDeleteVisitRecordRaw(context, request, cq));
     }
     ::grpc::Status InsertPhoto(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::DataTypes::Photo* response) GRPC_OVERRIDE;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DataTypes::Photo>> AsyncInsertPhoto(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::grpc::CompletionQueue* cq) {
@@ -188,6 +202,10 @@ class DatabaseSevice GRPC_FINAL {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncDeletePhoto(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncDeletePhotoRaw(context, request, cq));
     }
+    ::grpc::Status GetConfig(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::DataTypes::UnitConfiguration* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DataTypes::UnitConfiguration>> AsyncGetConfig(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DataTypes::UnitConfiguration>>(AsyncGetConfigRaw(context, request, cq));
+    }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
@@ -195,6 +213,7 @@ class DatabaseSevice GRPC_FINAL {
     ::grpc::ClientAsyncResponseReader< ::DataTypes::Person>* AsyncInsertPersonRaw(::grpc::ClientContext* context, const ::DataTypes::Person& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncUpdatePersonRaw(::grpc::ClientContext* context, const ::DataTypes::Person& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncDeletePersonRaw(::grpc::ClientContext* context, const ::DataTypes::Person& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::DataTypes::Cards>* AsyncGetCardRaw(::grpc::ClientContext* context, const ::Services::GetCardRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     ::grpc::ClientAsyncResponseReader< ::DataTypes::Card>* AsyncInsertCardRaw(::grpc::ClientContext* context, const ::DataTypes::Card& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncUpdateCardRaw(::grpc::ClientContext* context, const ::DataTypes::Card& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncDeleteCardRaw(::grpc::ClientContext* context, const ::DataTypes::Card& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
@@ -202,16 +221,18 @@ class DatabaseSevice GRPC_FINAL {
     ::grpc::ClientAsyncResponseReader< ::DataTypes::Location>* AsyncInsertLocationRaw(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncUpdateLocationRaw(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncDeleteLocationRaw(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncResponseReader< ::DataTypes::Visitors>* AsyncGetVisitorRaw(::grpc::ClientContext* context, const ::Services::GetVisitorRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncResponseReader< ::DataTypes::Visitor>* AsyncInsertVisitorRaw(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncUpdateVisitorRaw(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncDeleteVisitorRaw(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::DataTypes::VisitRecords>* AsyncGetVisitRecordsRaw(::grpc::ClientContext* context, const ::Services::GetVisitRecordRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::DataTypes::VisitRecord>* AsyncInsertVisitRecordRaw(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncUpdateVisitRecordRaw(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncDeleteVisitRecordRaw(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     ::grpc::ClientAsyncResponseReader< ::DataTypes::Photo>* AsyncInsertPhotoRaw(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncDeletePhotoRaw(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::DataTypes::UnitConfiguration>* AsyncGetConfigRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     const ::grpc::RpcMethod rpcmethod_GetPerson_;
     const ::grpc::RpcMethod rpcmethod_InsertPerson_;
     const ::grpc::RpcMethod rpcmethod_UpdatePerson_;
     const ::grpc::RpcMethod rpcmethod_DeletePerson_;
+    const ::grpc::RpcMethod rpcmethod_GetCard_;
     const ::grpc::RpcMethod rpcmethod_InsertCard_;
     const ::grpc::RpcMethod rpcmethod_UpdateCard_;
     const ::grpc::RpcMethod rpcmethod_DeleteCard_;
@@ -219,12 +240,13 @@ class DatabaseSevice GRPC_FINAL {
     const ::grpc::RpcMethod rpcmethod_InsertLocation_;
     const ::grpc::RpcMethod rpcmethod_UpdateLocation_;
     const ::grpc::RpcMethod rpcmethod_DeleteLocation_;
-    const ::grpc::RpcMethod rpcmethod_GetVisitor_;
-    const ::grpc::RpcMethod rpcmethod_InsertVisitor_;
-    const ::grpc::RpcMethod rpcmethod_UpdateVisitor_;
-    const ::grpc::RpcMethod rpcmethod_DeleteVisitor_;
+    const ::grpc::RpcMethod rpcmethod_GetVisitRecords_;
+    const ::grpc::RpcMethod rpcmethod_InsertVisitRecord_;
+    const ::grpc::RpcMethod rpcmethod_UpdateVisitRecord_;
+    const ::grpc::RpcMethod rpcmethod_DeleteVisitRecord_;
     const ::grpc::RpcMethod rpcmethod_InsertPhoto_;
     const ::grpc::RpcMethod rpcmethod_DeletePhoto_;
+    const ::grpc::RpcMethod rpcmethod_GetConfig_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -236,6 +258,7 @@ class DatabaseSevice GRPC_FINAL {
     virtual ::grpc::Status InsertPerson(::grpc::ServerContext* context, const ::DataTypes::Person* request, ::DataTypes::Person* response);
     virtual ::grpc::Status UpdatePerson(::grpc::ServerContext* context, const ::DataTypes::Person* request, ::google::protobuf::Empty* response);
     virtual ::grpc::Status DeletePerson(::grpc::ServerContext* context, const ::DataTypes::Person* request, ::google::protobuf::Empty* response);
+    virtual ::grpc::Status GetCard(::grpc::ServerContext* context, const ::Services::GetCardRequest* request, ::DataTypes::Cards* response);
     virtual ::grpc::Status InsertCard(::grpc::ServerContext* context, const ::DataTypes::Card* request, ::DataTypes::Card* response);
     virtual ::grpc::Status UpdateCard(::grpc::ServerContext* context, const ::DataTypes::Card* request, ::google::protobuf::Empty* response);
     virtual ::grpc::Status DeleteCard(::grpc::ServerContext* context, const ::DataTypes::Card* request, ::google::protobuf::Empty* response);
@@ -243,12 +266,13 @@ class DatabaseSevice GRPC_FINAL {
     virtual ::grpc::Status InsertLocation(::grpc::ServerContext* context, const ::DataTypes::Location* request, ::DataTypes::Location* response);
     virtual ::grpc::Status UpdateLocation(::grpc::ServerContext* context, const ::DataTypes::Location* request, ::google::protobuf::Empty* response);
     virtual ::grpc::Status DeleteLocation(::grpc::ServerContext* context, const ::DataTypes::Location* request, ::google::protobuf::Empty* response);
-    virtual ::grpc::Status GetVisitor(::grpc::ServerContext* context, const ::Services::GetVisitorRequest* request, ::DataTypes::Visitors* response);
-    virtual ::grpc::Status InsertVisitor(::grpc::ServerContext* context, const ::DataTypes::Visitor* request, ::DataTypes::Visitor* response);
-    virtual ::grpc::Status UpdateVisitor(::grpc::ServerContext* context, const ::DataTypes::Visitor* request, ::google::protobuf::Empty* response);
-    virtual ::grpc::Status DeleteVisitor(::grpc::ServerContext* context, const ::DataTypes::Visitor* request, ::google::protobuf::Empty* response);
+    virtual ::grpc::Status GetVisitRecords(::grpc::ServerContext* context, const ::Services::GetVisitRecordRequest* request, ::DataTypes::VisitRecords* response);
+    virtual ::grpc::Status InsertVisitRecord(::grpc::ServerContext* context, const ::DataTypes::VisitRecord* request, ::DataTypes::VisitRecord* response);
+    virtual ::grpc::Status UpdateVisitRecord(::grpc::ServerContext* context, const ::DataTypes::VisitRecord* request, ::google::protobuf::Empty* response);
+    virtual ::grpc::Status DeleteVisitRecord(::grpc::ServerContext* context, const ::DataTypes::VisitRecord* request, ::google::protobuf::Empty* response);
     virtual ::grpc::Status InsertPhoto(::grpc::ServerContext* context, const ::DataTypes::Photo* request, ::DataTypes::Photo* response);
     virtual ::grpc::Status DeletePhoto(::grpc::ServerContext* context, const ::DataTypes::Photo* request, ::google::protobuf::Empty* response);
+    virtual ::grpc::Status GetConfig(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::DataTypes::UnitConfiguration* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_GetPerson : public BaseClass {
@@ -331,12 +355,32 @@ class DatabaseSevice GRPC_FINAL {
     }
   };
   template <class BaseClass>
+  class WithAsyncMethod_GetCard : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_GetCard() {
+      ::grpc::Service::MarkMethodAsync(4);
+    }
+    ~WithAsyncMethod_GetCard() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetCard(::grpc::ServerContext* context, const ::Services::GetCardRequest* request, ::DataTypes::Cards* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetCard(::grpc::ServerContext* context, ::Services::GetCardRequest* request, ::grpc::ServerAsyncResponseWriter< ::DataTypes::Cards>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithAsyncMethod_InsertCard : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_InsertCard() {
-      ::grpc::Service::MarkMethodAsync(4);
+      ::grpc::Service::MarkMethodAsync(5);
     }
     ~WithAsyncMethod_InsertCard() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
@@ -347,7 +391,7 @@ class DatabaseSevice GRPC_FINAL {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestInsertCard(::grpc::ServerContext* context, ::DataTypes::Card* request, ::grpc::ServerAsyncResponseWriter< ::DataTypes::Card>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -356,7 +400,7 @@ class DatabaseSevice GRPC_FINAL {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_UpdateCard() {
-      ::grpc::Service::MarkMethodAsync(5);
+      ::grpc::Service::MarkMethodAsync(6);
     }
     ~WithAsyncMethod_UpdateCard() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
@@ -367,7 +411,7 @@ class DatabaseSevice GRPC_FINAL {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUpdateCard(::grpc::ServerContext* context, ::DataTypes::Card* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -376,7 +420,7 @@ class DatabaseSevice GRPC_FINAL {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_DeleteCard() {
-      ::grpc::Service::MarkMethodAsync(6);
+      ::grpc::Service::MarkMethodAsync(7);
     }
     ~WithAsyncMethod_DeleteCard() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
@@ -387,7 +431,7 @@ class DatabaseSevice GRPC_FINAL {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestDeleteCard(::grpc::ServerContext* context, ::DataTypes::Card* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -396,7 +440,7 @@ class DatabaseSevice GRPC_FINAL {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_GetLocation() {
-      ::grpc::Service::MarkMethodAsync(7);
+      ::grpc::Service::MarkMethodAsync(8);
     }
     ~WithAsyncMethod_GetLocation() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
@@ -407,7 +451,7 @@ class DatabaseSevice GRPC_FINAL {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetLocation(::grpc::ServerContext* context, ::Services::GetLocationRequest* request, ::grpc::ServerAsyncResponseWriter< ::DataTypes::Locations>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -416,7 +460,7 @@ class DatabaseSevice GRPC_FINAL {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_InsertLocation() {
-      ::grpc::Service::MarkMethodAsync(8);
+      ::grpc::Service::MarkMethodAsync(9);
     }
     ~WithAsyncMethod_InsertLocation() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
@@ -427,7 +471,7 @@ class DatabaseSevice GRPC_FINAL {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestInsertLocation(::grpc::ServerContext* context, ::DataTypes::Location* request, ::grpc::ServerAsyncResponseWriter< ::DataTypes::Location>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -436,7 +480,7 @@ class DatabaseSevice GRPC_FINAL {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_UpdateLocation() {
-      ::grpc::Service::MarkMethodAsync(9);
+      ::grpc::Service::MarkMethodAsync(10);
     }
     ~WithAsyncMethod_UpdateLocation() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
@@ -447,7 +491,7 @@ class DatabaseSevice GRPC_FINAL {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUpdateLocation(::grpc::ServerContext* context, ::DataTypes::Location* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -456,7 +500,7 @@ class DatabaseSevice GRPC_FINAL {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_DeleteLocation() {
-      ::grpc::Service::MarkMethodAsync(10);
+      ::grpc::Service::MarkMethodAsync(11);
     }
     ~WithAsyncMethod_DeleteLocation() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
@@ -467,87 +511,87 @@ class DatabaseSevice GRPC_FINAL {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestDeleteLocation(::grpc::ServerContext* context, ::DataTypes::Location* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_GetVisitor : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithAsyncMethod_GetVisitor() {
-      ::grpc::Service::MarkMethodAsync(11);
-    }
-    ~WithAsyncMethod_GetVisitor() GRPC_OVERRIDE {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status GetVisitor(::grpc::ServerContext* context, const ::Services::GetVisitorRequest* request, ::DataTypes::Visitors* response) GRPC_FINAL GRPC_OVERRIDE {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestGetVisitor(::grpc::ServerContext* context, ::Services::GetVisitorRequest* request, ::grpc::ServerAsyncResponseWriter< ::DataTypes::Visitors>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_InsertVisitor : public BaseClass {
+  class WithAsyncMethod_GetVisitRecords : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithAsyncMethod_InsertVisitor() {
+    WithAsyncMethod_GetVisitRecords() {
       ::grpc::Service::MarkMethodAsync(12);
     }
-    ~WithAsyncMethod_InsertVisitor() GRPC_OVERRIDE {
+    ~WithAsyncMethod_GetVisitRecords() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status InsertVisitor(::grpc::ServerContext* context, const ::DataTypes::Visitor* request, ::DataTypes::Visitor* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status GetVisitRecords(::grpc::ServerContext* context, const ::Services::GetVisitRecordRequest* request, ::DataTypes::VisitRecords* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestInsertVisitor(::grpc::ServerContext* context, ::DataTypes::Visitor* request, ::grpc::ServerAsyncResponseWriter< ::DataTypes::Visitor>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetVisitRecords(::grpc::ServerContext* context, ::Services::GetVisitRecordRequest* request, ::grpc::ServerAsyncResponseWriter< ::DataTypes::VisitRecords>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_UpdateVisitor : public BaseClass {
+  class WithAsyncMethod_InsertVisitRecord : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithAsyncMethod_UpdateVisitor() {
+    WithAsyncMethod_InsertVisitRecord() {
       ::grpc::Service::MarkMethodAsync(13);
     }
-    ~WithAsyncMethod_UpdateVisitor() GRPC_OVERRIDE {
+    ~WithAsyncMethod_InsertVisitRecord() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateVisitor(::grpc::ServerContext* context, const ::DataTypes::Visitor* request, ::google::protobuf::Empty* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status InsertVisitRecord(::grpc::ServerContext* context, const ::DataTypes::VisitRecord* request, ::DataTypes::VisitRecord* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestUpdateVisitor(::grpc::ServerContext* context, ::DataTypes::Visitor* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestInsertVisitRecord(::grpc::ServerContext* context, ::DataTypes::VisitRecord* request, ::grpc::ServerAsyncResponseWriter< ::DataTypes::VisitRecord>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_DeleteVisitor : public BaseClass {
+  class WithAsyncMethod_UpdateVisitRecord : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithAsyncMethod_DeleteVisitor() {
+    WithAsyncMethod_UpdateVisitRecord() {
       ::grpc::Service::MarkMethodAsync(14);
     }
-    ~WithAsyncMethod_DeleteVisitor() GRPC_OVERRIDE {
+    ~WithAsyncMethod_UpdateVisitRecord() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteVisitor(::grpc::ServerContext* context, const ::DataTypes::Visitor* request, ::google::protobuf::Empty* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status UpdateVisitRecord(::grpc::ServerContext* context, const ::DataTypes::VisitRecord* request, ::google::protobuf::Empty* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestDeleteVisitor(::grpc::ServerContext* context, ::DataTypes::Visitor* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestUpdateVisitRecord(::grpc::ServerContext* context, ::DataTypes::VisitRecord* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_DeleteVisitRecord : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_DeleteVisitRecord() {
+      ::grpc::Service::MarkMethodAsync(15);
+    }
+    ~WithAsyncMethod_DeleteVisitRecord() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeleteVisitRecord(::grpc::ServerContext* context, const ::DataTypes::VisitRecord* request, ::google::protobuf::Empty* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestDeleteVisitRecord(::grpc::ServerContext* context, ::DataTypes::VisitRecord* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(15, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -556,7 +600,7 @@ class DatabaseSevice GRPC_FINAL {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_InsertPhoto() {
-      ::grpc::Service::MarkMethodAsync(15);
+      ::grpc::Service::MarkMethodAsync(16);
     }
     ~WithAsyncMethod_InsertPhoto() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
@@ -567,7 +611,7 @@ class DatabaseSevice GRPC_FINAL {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestInsertPhoto(::grpc::ServerContext* context, ::DataTypes::Photo* request, ::grpc::ServerAsyncResponseWriter< ::DataTypes::Photo>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(15, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -576,7 +620,7 @@ class DatabaseSevice GRPC_FINAL {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_DeletePhoto() {
-      ::grpc::Service::MarkMethodAsync(16);
+      ::grpc::Service::MarkMethodAsync(17);
     }
     ~WithAsyncMethod_DeletePhoto() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
@@ -587,10 +631,30 @@ class DatabaseSevice GRPC_FINAL {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestDeletePhoto(::grpc::ServerContext* context, ::DataTypes::Photo* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(17, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_GetPerson<WithAsyncMethod_InsertPerson<WithAsyncMethod_UpdatePerson<WithAsyncMethod_DeletePerson<WithAsyncMethod_InsertCard<WithAsyncMethod_UpdateCard<WithAsyncMethod_DeleteCard<WithAsyncMethod_GetLocation<WithAsyncMethod_InsertLocation<WithAsyncMethod_UpdateLocation<WithAsyncMethod_DeleteLocation<WithAsyncMethod_GetVisitor<WithAsyncMethod_InsertVisitor<WithAsyncMethod_UpdateVisitor<WithAsyncMethod_DeleteVisitor<WithAsyncMethod_InsertPhoto<WithAsyncMethod_DeletePhoto<Service > > > > > > > > > > > > > > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_GetConfig : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_GetConfig() {
+      ::grpc::Service::MarkMethodAsync(18);
+    }
+    ~WithAsyncMethod_GetConfig() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetConfig(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::DataTypes::UnitConfiguration* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetConfig(::grpc::ServerContext* context, ::google::protobuf::Empty* request, ::grpc::ServerAsyncResponseWriter< ::DataTypes::UnitConfiguration>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(18, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_GetPerson<WithAsyncMethod_InsertPerson<WithAsyncMethod_UpdatePerson<WithAsyncMethod_DeletePerson<WithAsyncMethod_GetCard<WithAsyncMethod_InsertCard<WithAsyncMethod_UpdateCard<WithAsyncMethod_DeleteCard<WithAsyncMethod_GetLocation<WithAsyncMethod_InsertLocation<WithAsyncMethod_UpdateLocation<WithAsyncMethod_DeleteLocation<WithAsyncMethod_GetVisitRecords<WithAsyncMethod_InsertVisitRecord<WithAsyncMethod_UpdateVisitRecord<WithAsyncMethod_DeleteVisitRecord<WithAsyncMethod_InsertPhoto<WithAsyncMethod_DeletePhoto<WithAsyncMethod_GetConfig<Service > > > > > > > > > > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class WithGenericMethod_GetPerson : public BaseClass {
    private:
@@ -660,12 +724,29 @@ class DatabaseSevice GRPC_FINAL {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_GetCard : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_GetCard() {
+      ::grpc::Service::MarkMethodGeneric(4);
+    }
+    ~WithGenericMethod_GetCard() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetCard(::grpc::ServerContext* context, const ::Services::GetCardRequest* request, ::DataTypes::Cards* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithGenericMethod_InsertCard : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_InsertCard() {
-      ::grpc::Service::MarkMethodGeneric(4);
+      ::grpc::Service::MarkMethodGeneric(5);
     }
     ~WithGenericMethod_InsertCard() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
@@ -682,7 +763,7 @@ class DatabaseSevice GRPC_FINAL {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_UpdateCard() {
-      ::grpc::Service::MarkMethodGeneric(5);
+      ::grpc::Service::MarkMethodGeneric(6);
     }
     ~WithGenericMethod_UpdateCard() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
@@ -699,7 +780,7 @@ class DatabaseSevice GRPC_FINAL {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_DeleteCard() {
-      ::grpc::Service::MarkMethodGeneric(6);
+      ::grpc::Service::MarkMethodGeneric(7);
     }
     ~WithGenericMethod_DeleteCard() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
@@ -716,7 +797,7 @@ class DatabaseSevice GRPC_FINAL {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_GetLocation() {
-      ::grpc::Service::MarkMethodGeneric(7);
+      ::grpc::Service::MarkMethodGeneric(8);
     }
     ~WithGenericMethod_GetLocation() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
@@ -733,7 +814,7 @@ class DatabaseSevice GRPC_FINAL {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_InsertLocation() {
-      ::grpc::Service::MarkMethodGeneric(8);
+      ::grpc::Service::MarkMethodGeneric(9);
     }
     ~WithGenericMethod_InsertLocation() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
@@ -750,7 +831,7 @@ class DatabaseSevice GRPC_FINAL {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_UpdateLocation() {
-      ::grpc::Service::MarkMethodGeneric(9);
+      ::grpc::Service::MarkMethodGeneric(10);
     }
     ~WithGenericMethod_UpdateLocation() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
@@ -767,7 +848,7 @@ class DatabaseSevice GRPC_FINAL {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_DeleteLocation() {
-      ::grpc::Service::MarkMethodGeneric(10);
+      ::grpc::Service::MarkMethodGeneric(11);
     }
     ~WithGenericMethod_DeleteLocation() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
@@ -779,69 +860,69 @@ class DatabaseSevice GRPC_FINAL {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_GetVisitor : public BaseClass {
+  class WithGenericMethod_GetVisitRecords : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithGenericMethod_GetVisitor() {
-      ::grpc::Service::MarkMethodGeneric(11);
-    }
-    ~WithGenericMethod_GetVisitor() GRPC_OVERRIDE {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status GetVisitor(::grpc::ServerContext* context, const ::Services::GetVisitorRequest* request, ::DataTypes::Visitors* response) GRPC_FINAL GRPC_OVERRIDE {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_InsertVisitor : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithGenericMethod_InsertVisitor() {
+    WithGenericMethod_GetVisitRecords() {
       ::grpc::Service::MarkMethodGeneric(12);
     }
-    ~WithGenericMethod_InsertVisitor() GRPC_OVERRIDE {
+    ~WithGenericMethod_GetVisitRecords() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status InsertVisitor(::grpc::ServerContext* context, const ::DataTypes::Visitor* request, ::DataTypes::Visitor* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status GetVisitRecords(::grpc::ServerContext* context, const ::Services::GetVisitRecordRequest* request, ::DataTypes::VisitRecords* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_UpdateVisitor : public BaseClass {
+  class WithGenericMethod_InsertVisitRecord : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithGenericMethod_UpdateVisitor() {
+    WithGenericMethod_InsertVisitRecord() {
       ::grpc::Service::MarkMethodGeneric(13);
     }
-    ~WithGenericMethod_UpdateVisitor() GRPC_OVERRIDE {
+    ~WithGenericMethod_InsertVisitRecord() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateVisitor(::grpc::ServerContext* context, const ::DataTypes::Visitor* request, ::google::protobuf::Empty* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status InsertVisitRecord(::grpc::ServerContext* context, const ::DataTypes::VisitRecord* request, ::DataTypes::VisitRecord* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_DeleteVisitor : public BaseClass {
+  class WithGenericMethod_UpdateVisitRecord : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithGenericMethod_DeleteVisitor() {
+    WithGenericMethod_UpdateVisitRecord() {
       ::grpc::Service::MarkMethodGeneric(14);
     }
-    ~WithGenericMethod_DeleteVisitor() GRPC_OVERRIDE {
+    ~WithGenericMethod_UpdateVisitRecord() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteVisitor(::grpc::ServerContext* context, const ::DataTypes::Visitor* request, ::google::protobuf::Empty* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status UpdateVisitRecord(::grpc::ServerContext* context, const ::DataTypes::VisitRecord* request, ::google::protobuf::Empty* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_DeleteVisitRecord : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_DeleteVisitRecord() {
+      ::grpc::Service::MarkMethodGeneric(15);
+    }
+    ~WithGenericMethod_DeleteVisitRecord() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeleteVisitRecord(::grpc::ServerContext* context, const ::DataTypes::VisitRecord* request, ::google::protobuf::Empty* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -852,7 +933,7 @@ class DatabaseSevice GRPC_FINAL {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_InsertPhoto() {
-      ::grpc::Service::MarkMethodGeneric(15);
+      ::grpc::Service::MarkMethodGeneric(16);
     }
     ~WithGenericMethod_InsertPhoto() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
@@ -869,13 +950,30 @@ class DatabaseSevice GRPC_FINAL {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_DeletePhoto() {
-      ::grpc::Service::MarkMethodGeneric(16);
+      ::grpc::Service::MarkMethodGeneric(17);
     }
     ~WithGenericMethod_DeletePhoto() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
     ::grpc::Status DeletePhoto(::grpc::ServerContext* context, const ::DataTypes::Photo* request, ::google::protobuf::Empty* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_GetConfig : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_GetConfig() {
+      ::grpc::Service::MarkMethodGeneric(18);
+    }
+    ~WithGenericMethod_GetConfig() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetConfig(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::DataTypes::UnitConfiguration* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }

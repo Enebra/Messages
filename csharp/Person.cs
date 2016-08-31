@@ -25,7 +25,7 @@ namespace DataTypes {
           string.Concat(
             "ChZkYXRhdHlwZXMvcGVyc29uLnByb3RvEglEYXRhVHlwZXMaFGRhdGF0eXBl",
             "cy9jYXJkLnByb3RvGhVkYXRhdHlwZXMvcGhvdG8ucHJvdG8ifQoGUGVyc29u",
-            "EgoKAmlkGAEgASgDEhIKCmZpcnN0X25hbWUYAiABKAkSEQoJbGFzdF9uYW1l",
+            "EgoKAmlkGAEgASgJEhIKCmZpcnN0X25hbWUYAiABKAkSEQoJbGFzdF9uYW1l",
             "GAMgASgJEiAKBnBob3RvcxgEIAMoCzIQLkRhdGFUeXBlcy5QaG90bxIeCgVj",
             "YXJkcxgFIAMoCzIPLkRhdGFUeXBlcy5DYXJkIjoKB1BlcnNvbnMSIAoFaXRl",
             "bXMYASADKAsyES5EYXRhVHlwZXMuUGVyc29uEg0KBWNvdW50GAIgASgDKjYK",
@@ -94,11 +94,11 @@ namespace DataTypes {
 
     /// <summary>Field number for the "id" field.</summary>
     public const int IdFieldNumber = 1;
-    private long id_;
-    public long Id {
+    private string id_ = "";
+    public string Id {
       get { return id_; }
       set {
-        id_ = value;
+        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -161,7 +161,7 @@ namespace DataTypes {
 
     public override int GetHashCode() {
       int hash = 1;
-      if (Id != 0L) hash ^= Id.GetHashCode();
+      if (Id.Length != 0) hash ^= Id.GetHashCode();
       if (FirstName.Length != 0) hash ^= FirstName.GetHashCode();
       if (LastName.Length != 0) hash ^= LastName.GetHashCode();
       hash ^= photos_.GetHashCode();
@@ -174,9 +174,9 @@ namespace DataTypes {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Id != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(Id);
+      if (Id.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Id);
       }
       if (FirstName.Length != 0) {
         output.WriteRawTag(18);
@@ -192,8 +192,8 @@ namespace DataTypes {
 
     public int CalculateSize() {
       int size = 0;
-      if (Id != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Id);
+      if (Id.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
       }
       if (FirstName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(FirstName);
@@ -210,7 +210,7 @@ namespace DataTypes {
       if (other == null) {
         return;
       }
-      if (other.Id != 0L) {
+      if (other.Id.Length != 0) {
         Id = other.Id;
       }
       if (other.FirstName.Length != 0) {
@@ -230,8 +230,8 @@ namespace DataTypes {
           default:
             input.SkipLastField();
             break;
-          case 8: {
-            Id = input.ReadInt64();
+          case 10: {
+            Id = input.ReadString();
             break;
           }
           case 18: {

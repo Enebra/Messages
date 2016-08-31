@@ -121,11 +121,16 @@ class Photo : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 id = 1;
+  // optional string id = 1;
   void clear_id();
   static const int kIdFieldNumber = 1;
-  ::google::protobuf::int64 id() const;
-  void set_id(::google::protobuf::int64 value);
+  const ::std::string& id() const;
+  void set_id(const ::std::string& value);
+  void set_id(const char* value);
+  void set_id(const char* value, size_t size);
+  ::std::string* mutable_id();
+  ::std::string* release_id();
+  void set_allocated_id(::std::string* id);
 
   // optional string url = 2;
   void clear_url();
@@ -156,30 +161,35 @@ class Photo : public ::google::protobuf::Message {
   ::DataTypes::Purpose purpose() const;
   void set_purpose(::DataTypes::Purpose value);
 
-  // optional .DataTypes.BiometricType biotype = 6;
-  void clear_biotype();
-  static const int kBiotypeFieldNumber = 6;
-  ::DataTypes::BiometricType biotype() const;
-  void set_biotype(::DataTypes::BiometricType value);
+  // optional .DataTypes.BiometricType biometric_type = 6;
+  void clear_biometric_type();
+  static const int kBiometricTypeFieldNumber = 6;
+  ::DataTypes::BiometricType biometric_type() const;
+  void set_biometric_type(::DataTypes::BiometricType value);
 
-  // optional int64 owner_id = 7;
+  // optional string owner_id = 7;
   void clear_owner_id();
   static const int kOwnerIdFieldNumber = 7;
-  ::google::protobuf::int64 owner_id() const;
-  void set_owner_id(::google::protobuf::int64 value);
+  const ::std::string& owner_id() const;
+  void set_owner_id(const ::std::string& value);
+  void set_owner_id(const char* value);
+  void set_owner_id(const char* value, size_t size);
+  ::std::string* mutable_owner_id();
+  ::std::string* release_owner_id();
+  void set_allocated_owner_id(::std::string* owner_id);
 
   // @@protoc_insertion_point(class_scope:DataTypes.Photo)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::google::protobuf::int64 id_;
+  ::google::protobuf::internal::ArenaStringPtr id_;
   ::google::protobuf::internal::ArenaStringPtr url_;
   ::google::protobuf::int32 width_;
   ::google::protobuf::int32 height_;
   int purpose_;
-  int biotype_;
-  ::google::protobuf::int64 owner_id_;
+  int biometric_type_;
+  ::google::protobuf::internal::ArenaStringPtr owner_id_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_datatypes_2fphoto_2eproto();
   friend void protobuf_AssignDesc_datatypes_2fphoto_2eproto();
@@ -258,12 +268,19 @@ class Photos : public ::google::protobuf::Message {
   const ::google::protobuf::RepeatedPtrField< ::DataTypes::Photo >&
       photos() const;
 
+  // optional int64 count = 2;
+  void clear_count();
+  static const int kCountFieldNumber = 2;
+  ::google::protobuf::int64 count() const;
+  void set_count(::google::protobuf::int64 value);
+
   // @@protoc_insertion_point(class_scope:DataTypes.Photos)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
   ::google::protobuf::RepeatedPtrField< ::DataTypes::Photo > photos_;
+  ::google::protobuf::int64 count_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_datatypes_2fphoto_2eproto();
   friend void protobuf_AssignDesc_datatypes_2fphoto_2eproto();
@@ -280,18 +297,48 @@ class Photos : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // Photo
 
-// optional int64 id = 1;
+// optional string id = 1;
 inline void Photo::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
+  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::google::protobuf::int64 Photo::id() const {
+inline const ::std::string& Photo::id() const {
   // @@protoc_insertion_point(field_get:DataTypes.Photo.id)
-  return id_;
+  return id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void Photo::set_id(::google::protobuf::int64 value) {
+inline void Photo::set_id(const ::std::string& value) {
   
-  id_ = value;
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:DataTypes.Photo.id)
+}
+inline void Photo::set_id(const char* value) {
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:DataTypes.Photo.id)
+}
+inline void Photo::set_id(const char* value, size_t size) {
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:DataTypes.Photo.id)
+}
+inline ::std::string* Photo::mutable_id() {
+  
+  // @@protoc_insertion_point(field_mutable:DataTypes.Photo.id)
+  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Photo::release_id() {
+  // @@protoc_insertion_point(field_release:DataTypes.Photo.id)
+  
+  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Photo::set_allocated_id(::std::string* id) {
+  if (id != NULL) {
+    
+  } else {
+    
+  }
+  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
+  // @@protoc_insertion_point(field_set_allocated:DataTypes.Photo.id)
 }
 
 // optional string url = 2;
@@ -380,32 +427,62 @@ inline void Photo::set_purpose(::DataTypes::Purpose value) {
   // @@protoc_insertion_point(field_set:DataTypes.Photo.purpose)
 }
 
-// optional .DataTypes.BiometricType biotype = 6;
-inline void Photo::clear_biotype() {
-  biotype_ = 0;
+// optional .DataTypes.BiometricType biometric_type = 6;
+inline void Photo::clear_biometric_type() {
+  biometric_type_ = 0;
 }
-inline ::DataTypes::BiometricType Photo::biotype() const {
-  // @@protoc_insertion_point(field_get:DataTypes.Photo.biotype)
-  return static_cast< ::DataTypes::BiometricType >(biotype_);
+inline ::DataTypes::BiometricType Photo::biometric_type() const {
+  // @@protoc_insertion_point(field_get:DataTypes.Photo.biometric_type)
+  return static_cast< ::DataTypes::BiometricType >(biometric_type_);
 }
-inline void Photo::set_biotype(::DataTypes::BiometricType value) {
+inline void Photo::set_biometric_type(::DataTypes::BiometricType value) {
   
-  biotype_ = value;
-  // @@protoc_insertion_point(field_set:DataTypes.Photo.biotype)
+  biometric_type_ = value;
+  // @@protoc_insertion_point(field_set:DataTypes.Photo.biometric_type)
 }
 
-// optional int64 owner_id = 7;
+// optional string owner_id = 7;
 inline void Photo::clear_owner_id() {
-  owner_id_ = GOOGLE_LONGLONG(0);
+  owner_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::google::protobuf::int64 Photo::owner_id() const {
+inline const ::std::string& Photo::owner_id() const {
   // @@protoc_insertion_point(field_get:DataTypes.Photo.owner_id)
-  return owner_id_;
+  return owner_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void Photo::set_owner_id(::google::protobuf::int64 value) {
+inline void Photo::set_owner_id(const ::std::string& value) {
   
-  owner_id_ = value;
+  owner_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:DataTypes.Photo.owner_id)
+}
+inline void Photo::set_owner_id(const char* value) {
+  
+  owner_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:DataTypes.Photo.owner_id)
+}
+inline void Photo::set_owner_id(const char* value, size_t size) {
+  
+  owner_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:DataTypes.Photo.owner_id)
+}
+inline ::std::string* Photo::mutable_owner_id() {
+  
+  // @@protoc_insertion_point(field_mutable:DataTypes.Photo.owner_id)
+  return owner_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Photo::release_owner_id() {
+  // @@protoc_insertion_point(field_release:DataTypes.Photo.owner_id)
+  
+  return owner_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Photo::set_allocated_owner_id(::std::string* owner_id) {
+  if (owner_id != NULL) {
+    
+  } else {
+    
+  }
+  owner_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), owner_id);
+  // @@protoc_insertion_point(field_set_allocated:DataTypes.Photo.owner_id)
 }
 
 // -------------------------------------------------------------------
@@ -440,6 +517,20 @@ inline const ::google::protobuf::RepeatedPtrField< ::DataTypes::Photo >&
 Photos::photos() const {
   // @@protoc_insertion_point(field_list:DataTypes.Photos.photos)
   return photos_;
+}
+
+// optional int64 count = 2;
+inline void Photos::clear_count() {
+  count_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 Photos::count() const {
+  // @@protoc_insertion_point(field_get:DataTypes.Photos.count)
+  return count_;
+}
+inline void Photos::set_count(::google::protobuf::int64 value) {
+  
+  count_ = value;
+  // @@protoc_insertion_point(field_set:DataTypes.Photos.count)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS

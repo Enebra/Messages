@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "datatypes/unit.proto";
+import "datatypes/location.proto";
+import "datatypes/visit_record.proto";
+
+option java_package = "ex.grpc";
+option objc_class_prefix = "RTG";
+
+package Services;
+
+service MasterService
+{
+  rpc Connect             ( DataTypes.ConnectedUnit     ) returns ( google.protobuf.Empty  ) {}
+  rpc Heartbeat           ( google.protobuf.Empty       ) returns ( google.protobuf.Empty  ) {}
+  rpc SendLocations       ( DataTypes.Locations         ) returns ( google.protobuf.Empty  ) {}
+  rpc SendActivity        ( DataTypes.VisitRecords      ) returns ( google.protobuf.Empty  ) {} 
+  rpc NotifyLocationState ( DataTypes.UnitLocationState ) returns ( google.protobuf.Empty  ) {}
+  rpc GetUnits            ( google.protobuf.Empty       ) returns ( DataTypes.Units        ) {}
+}

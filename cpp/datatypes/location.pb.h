@@ -26,6 +26,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "datatypes/devices.pb.h"
 // @@protoc_insertion_point(includes)
@@ -40,6 +41,29 @@ void protobuf_ShutdownFile_datatypes_2flocation_2eproto();
 class Location;
 class Locations;
 
+enum LocationState {
+  Unspecified_State = 0,
+  Opened = 1,
+  Closed = 2,
+  Failure = 3,
+  LocationState_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  LocationState_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool LocationState_IsValid(int value);
+const LocationState LocationState_MIN = Unspecified_State;
+const LocationState LocationState_MAX = Failure;
+const int LocationState_ARRAYSIZE = LocationState_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* LocationState_descriptor();
+inline const ::std::string& LocationState_Name(LocationState value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    LocationState_descriptor(), value);
+}
+inline bool LocationState_Parse(
+    const ::std::string& name, LocationState* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<LocationState>(
+    LocationState_descriptor(), name, value);
+}
 // ===================================================================
 
 class Location : public ::google::protobuf::Message {
@@ -98,11 +122,16 @@ class Location : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 id = 1;
+  // optional string id = 1;
   void clear_id();
   static const int kIdFieldNumber = 1;
-  ::google::protobuf::int64 id() const;
-  void set_id(::google::protobuf::int64 value);
+  const ::std::string& id() const;
+  void set_id(const ::std::string& value);
+  void set_id(const char* value);
+  void set_id(const char* value, size_t size);
+  ::std::string* mutable_id();
+  ::std::string* release_id();
+  void set_allocated_id(::std::string* id);
 
   // optional string name = 2;
   void clear_name();
@@ -126,21 +155,21 @@ class Location : public ::google::protobuf::Message {
   ::std::string* release_description();
   void set_allocated_description(::std::string* description);
 
-  // optional string mac_address = 4;
-  void clear_mac_address();
-  static const int kMacAddressFieldNumber = 4;
-  const ::std::string& mac_address() const;
-  void set_mac_address(const ::std::string& value);
-  void set_mac_address(const char* value);
-  void set_mac_address(const char* value, size_t size);
-  ::std::string* mutable_mac_address();
-  ::std::string* release_mac_address();
-  void set_allocated_mac_address(::std::string* mac_address);
+  // optional string unit_mac_address = 4;
+  void clear_unit_mac_address();
+  static const int kUnitMacAddressFieldNumber = 4;
+  const ::std::string& unit_mac_address() const;
+  void set_unit_mac_address(const ::std::string& value);
+  void set_unit_mac_address(const char* value);
+  void set_unit_mac_address(const char* value, size_t size);
+  ::std::string* mutable_unit_mac_address();
+  ::std::string* release_unit_mac_address();
+  void set_allocated_unit_mac_address(::std::string* unit_mac_address);
 
-  // optional .DataTypes.AccessDevice access_device = 6;
+  // optional .DataTypes.AccessDevice access_device = 5;
   bool has_access_device() const;
   void clear_access_device();
-  static const int kAccessDeviceFieldNumber = 6;
+  static const int kAccessDeviceFieldNumber = 5;
   const ::DataTypes::AccessDevice& access_device() const;
   ::DataTypes::AccessDevice* mutable_access_device();
   ::DataTypes::AccessDevice* release_access_device();
@@ -151,10 +180,10 @@ class Location : public ::google::protobuf::Message {
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::google::protobuf::int64 id_;
+  ::google::protobuf::internal::ArenaStringPtr id_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr description_;
-  ::google::protobuf::internal::ArenaStringPtr mac_address_;
+  ::google::protobuf::internal::ArenaStringPtr unit_mac_address_;
   ::DataTypes::AccessDevice* access_device_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_datatypes_2flocation_2eproto();
@@ -263,18 +292,48 @@ class Locations : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // Location
 
-// optional int64 id = 1;
+// optional string id = 1;
 inline void Location::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
+  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::google::protobuf::int64 Location::id() const {
+inline const ::std::string& Location::id() const {
   // @@protoc_insertion_point(field_get:DataTypes.Location.id)
-  return id_;
+  return id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void Location::set_id(::google::protobuf::int64 value) {
+inline void Location::set_id(const ::std::string& value) {
   
-  id_ = value;
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:DataTypes.Location.id)
+}
+inline void Location::set_id(const char* value) {
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:DataTypes.Location.id)
+}
+inline void Location::set_id(const char* value, size_t size) {
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:DataTypes.Location.id)
+}
+inline ::std::string* Location::mutable_id() {
+  
+  // @@protoc_insertion_point(field_mutable:DataTypes.Location.id)
+  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Location::release_id() {
+  // @@protoc_insertion_point(field_release:DataTypes.Location.id)
+  
+  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Location::set_allocated_id(::std::string* id) {
+  if (id != NULL) {
+    
+  } else {
+    
+  }
+  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
+  // @@protoc_insertion_point(field_set_allocated:DataTypes.Location.id)
 }
 
 // optional string name = 2;
@@ -365,51 +424,51 @@ inline void Location::set_allocated_description(::std::string* description) {
   // @@protoc_insertion_point(field_set_allocated:DataTypes.Location.description)
 }
 
-// optional string mac_address = 4;
-inline void Location::clear_mac_address() {
-  mac_address_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional string unit_mac_address = 4;
+inline void Location::clear_unit_mac_address() {
+  unit_mac_address_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& Location::mac_address() const {
-  // @@protoc_insertion_point(field_get:DataTypes.Location.mac_address)
-  return mac_address_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline const ::std::string& Location::unit_mac_address() const {
+  // @@protoc_insertion_point(field_get:DataTypes.Location.unit_mac_address)
+  return unit_mac_address_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void Location::set_mac_address(const ::std::string& value) {
+inline void Location::set_unit_mac_address(const ::std::string& value) {
   
-  mac_address_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:DataTypes.Location.mac_address)
+  unit_mac_address_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:DataTypes.Location.unit_mac_address)
 }
-inline void Location::set_mac_address(const char* value) {
+inline void Location::set_unit_mac_address(const char* value) {
   
-  mac_address_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:DataTypes.Location.mac_address)
+  unit_mac_address_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:DataTypes.Location.unit_mac_address)
 }
-inline void Location::set_mac_address(const char* value, size_t size) {
+inline void Location::set_unit_mac_address(const char* value, size_t size) {
   
-  mac_address_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  unit_mac_address_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:DataTypes.Location.mac_address)
+  // @@protoc_insertion_point(field_set_pointer:DataTypes.Location.unit_mac_address)
 }
-inline ::std::string* Location::mutable_mac_address() {
+inline ::std::string* Location::mutable_unit_mac_address() {
   
-  // @@protoc_insertion_point(field_mutable:DataTypes.Location.mac_address)
-  return mac_address_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:DataTypes.Location.unit_mac_address)
+  return unit_mac_address_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* Location::release_mac_address() {
-  // @@protoc_insertion_point(field_release:DataTypes.Location.mac_address)
+inline ::std::string* Location::release_unit_mac_address() {
+  // @@protoc_insertion_point(field_release:DataTypes.Location.unit_mac_address)
   
-  return mac_address_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return unit_mac_address_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void Location::set_allocated_mac_address(::std::string* mac_address) {
-  if (mac_address != NULL) {
+inline void Location::set_allocated_unit_mac_address(::std::string* unit_mac_address) {
+  if (unit_mac_address != NULL) {
     
   } else {
     
   }
-  mac_address_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), mac_address);
-  // @@protoc_insertion_point(field_set_allocated:DataTypes.Location.mac_address)
+  unit_mac_address_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), unit_mac_address);
+  // @@protoc_insertion_point(field_set_allocated:DataTypes.Location.unit_mac_address)
 }
 
-// optional .DataTypes.AccessDevice access_device = 6;
+// optional .DataTypes.AccessDevice access_device = 5;
 inline bool Location::has_access_device() const {
   return !_is_default_instance_ && access_device_ != NULL;
 }
@@ -502,6 +561,20 @@ inline void Locations::set_count(::google::protobuf::int64 value) {
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace DataTypes
+
+#ifndef SWIG
+namespace google {
+namespace protobuf {
+
+template <> struct is_proto_enum< ::DataTypes::LocationState> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::DataTypes::LocationState>() {
+  return ::DataTypes::LocationState_descriptor();
+}
+
+}  // namespace protobuf
+}  // namespace google
+#endif  // SWIG
 
 // @@protoc_insertion_point(global_scope)
 

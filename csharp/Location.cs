@@ -24,22 +24,34 @@ namespace DataTypes {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChhkYXRhdHlwZXMvbG9jYXRpb24ucHJvdG8SCURhdGFUeXBlcxoXZGF0YXR5",
-            "cGVzL2RldmljZXMucHJvdG8ifgoITG9jYXRpb24SCgoCaWQYASABKAMSDAoE",
-            "bmFtZRgCIAEoCRITCgtkZXNjcmlwdGlvbhgDIAEoCRITCgttYWNfYWRkcmVz",
-            "cxgEIAEoCRIuCg1hY2Nlc3NfZGV2aWNlGAYgASgLMhcuRGF0YVR5cGVzLkFj",
-            "Y2Vzc0RldmljZSI+CglMb2NhdGlvbnMSIgoFaXRlbXMYASADKAsyEy5EYXRh",
-            "VHlwZXMuTG9jYXRpb24SDQoFY291bnQYAiABKANCDwoHZXguZ3JwY6ICA1JU",
-            "R2IGcHJvdG8z"));
+            "cGVzL2RldmljZXMucHJvdG8igwEKCExvY2F0aW9uEgoKAmlkGAEgASgJEgwK",
+            "BG5hbWUYAiABKAkSEwoLZGVzY3JpcHRpb24YAyABKAkSGAoQdW5pdF9tYWNf",
+            "YWRkcmVzcxgEIAEoCRIuCg1hY2Nlc3NfZGV2aWNlGAUgASgLMhcuRGF0YVR5",
+            "cGVzLkFjY2Vzc0RldmljZSI+CglMb2NhdGlvbnMSIgoFaXRlbXMYASADKAsy",
+            "Ey5EYXRhVHlwZXMuTG9jYXRpb24SDQoFY291bnQYAiABKAMqSwoNTG9jYXRp",
+            "b25TdGF0ZRIVChFVbnNwZWNpZmllZF9TdGF0ZRAAEgoKBk9wZW5lZBABEgoK",
+            "BkNsb3NlZBACEgsKB0ZhaWx1cmUQA0IPCgdleC5ncnBjogIDUlRHYgZwcm90",
+            "bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::DataTypes.DevicesReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Location), global::DataTypes.Location.Parser, new[]{ "Id", "Name", "Description", "MacAddress", "AccessDevice" }, null, null, null),
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.LocationState), }, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Location), global::DataTypes.Location.Parser, new[]{ "Id", "Name", "Description", "UnitMacAddress", "AccessDevice" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Locations), global::DataTypes.Locations.Parser, new[]{ "Items", "Count" }, null, null, null)
           }));
     }
     #endregion
 
   }
+  #region Enums
+  public enum LocationState {
+    [pbr::OriginalName("Unspecified_State")] UnspecifiedState = 0,
+    [pbr::OriginalName("Opened")] Opened = 1,
+    [pbr::OriginalName("Closed")] Closed = 2,
+    [pbr::OriginalName("Failure")] Failure = 3,
+  }
+
+  #endregion
+
   #region Messages
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class Location : pb::IMessage<Location> {
@@ -64,7 +76,7 @@ namespace DataTypes {
       id_ = other.id_;
       name_ = other.name_;
       description_ = other.description_;
-      macAddress_ = other.macAddress_;
+      unitMacAddress_ = other.unitMacAddress_;
       AccessDevice = other.accessDevice_ != null ? other.AccessDevice.Clone() : null;
     }
 
@@ -74,11 +86,11 @@ namespace DataTypes {
 
     /// <summary>Field number for the "id" field.</summary>
     public const int IdFieldNumber = 1;
-    private long id_;
-    public long Id {
+    private string id_ = "";
+    public string Id {
       get { return id_; }
       set {
-        id_ = value;
+        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -102,22 +114,19 @@ namespace DataTypes {
       }
     }
 
-    /// <summary>Field number for the "mac_address" field.</summary>
-    public const int MacAddressFieldNumber = 4;
-    private string macAddress_ = "";
-    public string MacAddress {
-      get { return macAddress_; }
+    /// <summary>Field number for the "unit_mac_address" field.</summary>
+    public const int UnitMacAddressFieldNumber = 4;
+    private string unitMacAddress_ = "";
+    public string UnitMacAddress {
+      get { return unitMacAddress_; }
       set {
-        macAddress_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        unitMacAddress_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
     /// <summary>Field number for the "access_device" field.</summary>
-    public const int AccessDeviceFieldNumber = 6;
+    public const int AccessDeviceFieldNumber = 5;
     private global::DataTypes.AccessDevice accessDevice_;
-    /// <summary>
-    /// CaptureDevice     capture_device     = 5 ;
-    /// </summary>
     public global::DataTypes.AccessDevice AccessDevice {
       get { return accessDevice_; }
       set {
@@ -139,17 +148,17 @@ namespace DataTypes {
       if (Id != other.Id) return false;
       if (Name != other.Name) return false;
       if (Description != other.Description) return false;
-      if (MacAddress != other.MacAddress) return false;
+      if (UnitMacAddress != other.UnitMacAddress) return false;
       if (!object.Equals(AccessDevice, other.AccessDevice)) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
-      if (Id != 0L) hash ^= Id.GetHashCode();
+      if (Id.Length != 0) hash ^= Id.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Description.Length != 0) hash ^= Description.GetHashCode();
-      if (MacAddress.Length != 0) hash ^= MacAddress.GetHashCode();
+      if (UnitMacAddress.Length != 0) hash ^= UnitMacAddress.GetHashCode();
       if (accessDevice_ != null) hash ^= AccessDevice.GetHashCode();
       return hash;
     }
@@ -159,9 +168,9 @@ namespace DataTypes {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Id != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(Id);
+      if (Id.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Id);
       }
       if (Name.Length != 0) {
         output.WriteRawTag(18);
@@ -171,20 +180,20 @@ namespace DataTypes {
         output.WriteRawTag(26);
         output.WriteString(Description);
       }
-      if (MacAddress.Length != 0) {
+      if (UnitMacAddress.Length != 0) {
         output.WriteRawTag(34);
-        output.WriteString(MacAddress);
+        output.WriteString(UnitMacAddress);
       }
       if (accessDevice_ != null) {
-        output.WriteRawTag(50);
+        output.WriteRawTag(42);
         output.WriteMessage(AccessDevice);
       }
     }
 
     public int CalculateSize() {
       int size = 0;
-      if (Id != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Id);
+      if (Id.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
       }
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
@@ -192,8 +201,8 @@ namespace DataTypes {
       if (Description.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Description);
       }
-      if (MacAddress.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(MacAddress);
+      if (UnitMacAddress.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(UnitMacAddress);
       }
       if (accessDevice_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(AccessDevice);
@@ -205,7 +214,7 @@ namespace DataTypes {
       if (other == null) {
         return;
       }
-      if (other.Id != 0L) {
+      if (other.Id.Length != 0) {
         Id = other.Id;
       }
       if (other.Name.Length != 0) {
@@ -214,8 +223,8 @@ namespace DataTypes {
       if (other.Description.Length != 0) {
         Description = other.Description;
       }
-      if (other.MacAddress.Length != 0) {
-        MacAddress = other.MacAddress;
+      if (other.UnitMacAddress.Length != 0) {
+        UnitMacAddress = other.UnitMacAddress;
       }
       if (other.accessDevice_ != null) {
         if (accessDevice_ == null) {
@@ -232,8 +241,8 @@ namespace DataTypes {
           default:
             input.SkipLastField();
             break;
-          case 8: {
-            Id = input.ReadInt64();
+          case 10: {
+            Id = input.ReadString();
             break;
           }
           case 18: {
@@ -245,10 +254,10 @@ namespace DataTypes {
             break;
           }
           case 34: {
-            MacAddress = input.ReadString();
+            UnitMacAddress = input.ReadString();
             break;
           }
-          case 50: {
+          case 42: {
             if (accessDevice_ == null) {
               accessDevice_ = new global::DataTypes.AccessDevice();
             }

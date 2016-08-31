@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "datatypes/visitor.proto";
+import "datatypes/visit_record.proto";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
@@ -15,7 +15,7 @@ message GetPersonRequest
             string card           = 4;
    //TODO Photo    photo
    //TODO Rights   rights
-   repeated int64  locations      = 5;
+   repeated string locations      = 5;
             Page   page           = 6;
 }
 
@@ -28,12 +28,13 @@ message GetLocationRequest
   Page   page           = 5;
 }
 
-message GetVisitorRequest
+
+message GetVisitRecordRequest
 { 
            string                search_text    = 1;		 
            DataTypes.AccessState state          = 2;
-  repeated int64                 locations      = 3;
-  repeated int64                 persons        = 4;
+  repeated string                locations      = 3;
+  repeated string                persons        = 4;
            int64                 datetime_from  = 5;
            int64                 datetime_to    = 6;
 		   string                card           = 7;
@@ -45,4 +46,12 @@ message Page
 {
    int32 index = 1;
    int32 size  = 2;
+}
+
+message GetCardRequest
+{ 
+           string search_text       = 1; //search in name, description
+		   string unique_identifier = 2;
+  repeated string owners            = 3;
+           Page   page              = 4;
 }

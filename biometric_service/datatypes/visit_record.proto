@@ -1,7 +1,6 @@
 syntax = "proto3";
 
 import "datatypes/card.proto";
-import "datatypes/photo.proto";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
@@ -14,20 +13,20 @@ enum AccessState
   Granted   = 1;
   Denied    = 2;
 }
-message Visitor
+message VisitRecord
 {
-   int64       id           = 1;
-   int64       person_id    = 2;
-   int64       location_id  = 3;                 
+   string      id           = 1;
+   string      person_id    = 2;
+   string      location_id  = 3;                 
    int64       time         = 4;      
    Card        card         = 5;
    AccessState state        = 6; 
 }
 
-message Visitors
+message VisitRecords
 {
-  repeated Visitor items = 1;
-           int64   count = 2;
+  repeated VisitRecord items = 1;
+           int64       count = 2;
 }
 
 

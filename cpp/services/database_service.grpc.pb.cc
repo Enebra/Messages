@@ -20,6 +20,7 @@ static const char* DatabaseSevice_method_names[] = {
   "/Services.DatabaseSevice/InsertPerson",
   "/Services.DatabaseSevice/UpdatePerson",
   "/Services.DatabaseSevice/DeletePerson",
+  "/Services.DatabaseSevice/GetCard",
   "/Services.DatabaseSevice/InsertCard",
   "/Services.DatabaseSevice/UpdateCard",
   "/Services.DatabaseSevice/DeleteCard",
@@ -27,12 +28,13 @@ static const char* DatabaseSevice_method_names[] = {
   "/Services.DatabaseSevice/InsertLocation",
   "/Services.DatabaseSevice/UpdateLocation",
   "/Services.DatabaseSevice/DeleteLocation",
-  "/Services.DatabaseSevice/GetVisitor",
-  "/Services.DatabaseSevice/InsertVisitor",
-  "/Services.DatabaseSevice/UpdateVisitor",
-  "/Services.DatabaseSevice/DeleteVisitor",
+  "/Services.DatabaseSevice/GetVisitRecords",
+  "/Services.DatabaseSevice/InsertVisitRecord",
+  "/Services.DatabaseSevice/UpdateVisitRecord",
+  "/Services.DatabaseSevice/DeleteVisitRecord",
   "/Services.DatabaseSevice/InsertPhoto",
   "/Services.DatabaseSevice/DeletePhoto",
+  "/Services.DatabaseSevice/GetConfig",
 };
 
 std::unique_ptr< DatabaseSevice::Stub> DatabaseSevice::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -45,19 +47,21 @@ DatabaseSevice::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& cha
   , rpcmethod_InsertPerson_(DatabaseSevice_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_UpdatePerson_(DatabaseSevice_method_names[2], ::grpc::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_DeletePerson_(DatabaseSevice_method_names[3], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_InsertCard_(DatabaseSevice_method_names[4], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_UpdateCard_(DatabaseSevice_method_names[5], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_DeleteCard_(DatabaseSevice_method_names[6], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetLocation_(DatabaseSevice_method_names[7], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_InsertLocation_(DatabaseSevice_method_names[8], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_UpdateLocation_(DatabaseSevice_method_names[9], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_DeleteLocation_(DatabaseSevice_method_names[10], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetVisitor_(DatabaseSevice_method_names[11], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_InsertVisitor_(DatabaseSevice_method_names[12], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_UpdateVisitor_(DatabaseSevice_method_names[13], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_DeleteVisitor_(DatabaseSevice_method_names[14], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_InsertPhoto_(DatabaseSevice_method_names[15], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_DeletePhoto_(DatabaseSevice_method_names[16], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetCard_(DatabaseSevice_method_names[4], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_InsertCard_(DatabaseSevice_method_names[5], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_UpdateCard_(DatabaseSevice_method_names[6], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_DeleteCard_(DatabaseSevice_method_names[7], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetLocation_(DatabaseSevice_method_names[8], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_InsertLocation_(DatabaseSevice_method_names[9], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_UpdateLocation_(DatabaseSevice_method_names[10], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_DeleteLocation_(DatabaseSevice_method_names[11], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetVisitRecords_(DatabaseSevice_method_names[12], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_InsertVisitRecord_(DatabaseSevice_method_names[13], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_UpdateVisitRecord_(DatabaseSevice_method_names[14], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_DeleteVisitRecord_(DatabaseSevice_method_names[15], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_InsertPhoto_(DatabaseSevice_method_names[16], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_DeletePhoto_(DatabaseSevice_method_names[17], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetConfig_(DatabaseSevice_method_names[18], ::grpc::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status DatabaseSevice::Stub::GetPerson(::grpc::ClientContext* context, const ::Services::GetPersonRequest& request, ::DataTypes::Persons* response) {
@@ -90,6 +94,14 @@ DatabaseSevice::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& cha
 
 ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* DatabaseSevice::Stub::AsyncDeletePersonRaw(::grpc::ClientContext* context, const ::DataTypes::Person& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_DeletePerson_, context, request);
+}
+
+::grpc::Status DatabaseSevice::Stub::GetCard(::grpc::ClientContext* context, const ::Services::GetCardRequest& request, ::DataTypes::Cards* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_GetCard_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::DataTypes::Cards>* DatabaseSevice::Stub::AsyncGetCardRaw(::grpc::ClientContext* context, const ::Services::GetCardRequest& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::DataTypes::Cards>(channel_.get(), cq, rpcmethod_GetCard_, context, request);
 }
 
 ::grpc::Status DatabaseSevice::Stub::InsertCard(::grpc::ClientContext* context, const ::DataTypes::Card& request, ::DataTypes::Card* response) {
@@ -148,36 +160,36 @@ DatabaseSevice::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& cha
   return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_DeleteLocation_, context, request);
 }
 
-::grpc::Status DatabaseSevice::Stub::GetVisitor(::grpc::ClientContext* context, const ::Services::GetVisitorRequest& request, ::DataTypes::Visitors* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_GetVisitor_, context, request, response);
+::grpc::Status DatabaseSevice::Stub::GetVisitRecords(::grpc::ClientContext* context, const ::Services::GetVisitRecordRequest& request, ::DataTypes::VisitRecords* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_GetVisitRecords_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::DataTypes::Visitors>* DatabaseSevice::Stub::AsyncGetVisitorRaw(::grpc::ClientContext* context, const ::Services::GetVisitorRequest& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::DataTypes::Visitors>(channel_.get(), cq, rpcmethod_GetVisitor_, context, request);
+::grpc::ClientAsyncResponseReader< ::DataTypes::VisitRecords>* DatabaseSevice::Stub::AsyncGetVisitRecordsRaw(::grpc::ClientContext* context, const ::Services::GetVisitRecordRequest& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::DataTypes::VisitRecords>(channel_.get(), cq, rpcmethod_GetVisitRecords_, context, request);
 }
 
-::grpc::Status DatabaseSevice::Stub::InsertVisitor(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::DataTypes::Visitor* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_InsertVisitor_, context, request, response);
+::grpc::Status DatabaseSevice::Stub::InsertVisitRecord(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::DataTypes::VisitRecord* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_InsertVisitRecord_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::DataTypes::Visitor>* DatabaseSevice::Stub::AsyncInsertVisitorRaw(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::DataTypes::Visitor>(channel_.get(), cq, rpcmethod_InsertVisitor_, context, request);
+::grpc::ClientAsyncResponseReader< ::DataTypes::VisitRecord>* DatabaseSevice::Stub::AsyncInsertVisitRecordRaw(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::DataTypes::VisitRecord>(channel_.get(), cq, rpcmethod_InsertVisitRecord_, context, request);
 }
 
-::grpc::Status DatabaseSevice::Stub::UpdateVisitor(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::google::protobuf::Empty* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_UpdateVisitor_, context, request, response);
+::grpc::Status DatabaseSevice::Stub::UpdateVisitRecord(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::google::protobuf::Empty* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_UpdateVisitRecord_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* DatabaseSevice::Stub::AsyncUpdateVisitorRaw(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_UpdateVisitor_, context, request);
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* DatabaseSevice::Stub::AsyncUpdateVisitRecordRaw(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_UpdateVisitRecord_, context, request);
 }
 
-::grpc::Status DatabaseSevice::Stub::DeleteVisitor(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::google::protobuf::Empty* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_DeleteVisitor_, context, request, response);
+::grpc::Status DatabaseSevice::Stub::DeleteVisitRecord(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::google::protobuf::Empty* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_DeleteVisitRecord_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* DatabaseSevice::Stub::AsyncDeleteVisitorRaw(::grpc::ClientContext* context, const ::DataTypes::Visitor& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_DeleteVisitor_, context, request);
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* DatabaseSevice::Stub::AsyncDeleteVisitRecordRaw(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_DeleteVisitRecord_, context, request);
 }
 
 ::grpc::Status DatabaseSevice::Stub::InsertPhoto(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::DataTypes::Photo* response) {
@@ -194,6 +206,14 @@ DatabaseSevice::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& cha
 
 ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* DatabaseSevice::Stub::AsyncDeletePhotoRaw(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_DeletePhoto_, context, request);
+}
+
+::grpc::Status DatabaseSevice::Stub::GetConfig(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::DataTypes::UnitConfiguration* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_GetConfig_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::DataTypes::UnitConfiguration>* DatabaseSevice::Stub::AsyncGetConfigRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::DataTypes::UnitConfiguration>(channel_.get(), cq, rpcmethod_GetConfig_, context, request);
 }
 
 DatabaseSevice::Service::Service() {
@@ -221,68 +241,78 @@ DatabaseSevice::Service::Service() {
   AddMethod(new ::grpc::RpcServiceMethod(
       DatabaseSevice_method_names[4],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::DataTypes::Card, ::DataTypes::Card>(
-          std::mem_fn(&DatabaseSevice::Service::InsertCard), this)));
+      new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::Services::GetCardRequest, ::DataTypes::Cards>(
+          std::mem_fn(&DatabaseSevice::Service::GetCard), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
       DatabaseSevice_method_names[5],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::DataTypes::Card, ::google::protobuf::Empty>(
-          std::mem_fn(&DatabaseSevice::Service::UpdateCard), this)));
+      new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::DataTypes::Card, ::DataTypes::Card>(
+          std::mem_fn(&DatabaseSevice::Service::InsertCard), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
       DatabaseSevice_method_names[6],
       ::grpc::RpcMethod::NORMAL_RPC,
       new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::DataTypes::Card, ::google::protobuf::Empty>(
-          std::mem_fn(&DatabaseSevice::Service::DeleteCard), this)));
+          std::mem_fn(&DatabaseSevice::Service::UpdateCard), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
       DatabaseSevice_method_names[7],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::DataTypes::Card, ::google::protobuf::Empty>(
+          std::mem_fn(&DatabaseSevice::Service::DeleteCard), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      DatabaseSevice_method_names[8],
       ::grpc::RpcMethod::NORMAL_RPC,
       new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::Services::GetLocationRequest, ::DataTypes::Locations>(
           std::mem_fn(&DatabaseSevice::Service::GetLocation), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      DatabaseSevice_method_names[8],
+      DatabaseSevice_method_names[9],
       ::grpc::RpcMethod::NORMAL_RPC,
       new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::DataTypes::Location, ::DataTypes::Location>(
           std::mem_fn(&DatabaseSevice::Service::InsertLocation), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      DatabaseSevice_method_names[9],
+      DatabaseSevice_method_names[10],
       ::grpc::RpcMethod::NORMAL_RPC,
       new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::DataTypes::Location, ::google::protobuf::Empty>(
           std::mem_fn(&DatabaseSevice::Service::UpdateLocation), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      DatabaseSevice_method_names[10],
+      DatabaseSevice_method_names[11],
       ::grpc::RpcMethod::NORMAL_RPC,
       new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::DataTypes::Location, ::google::protobuf::Empty>(
           std::mem_fn(&DatabaseSevice::Service::DeleteLocation), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      DatabaseSevice_method_names[11],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::Services::GetVisitorRequest, ::DataTypes::Visitors>(
-          std::mem_fn(&DatabaseSevice::Service::GetVisitor), this)));
-  AddMethod(new ::grpc::RpcServiceMethod(
       DatabaseSevice_method_names[12],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::DataTypes::Visitor, ::DataTypes::Visitor>(
-          std::mem_fn(&DatabaseSevice::Service::InsertVisitor), this)));
+      new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::Services::GetVisitRecordRequest, ::DataTypes::VisitRecords>(
+          std::mem_fn(&DatabaseSevice::Service::GetVisitRecords), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
       DatabaseSevice_method_names[13],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::DataTypes::Visitor, ::google::protobuf::Empty>(
-          std::mem_fn(&DatabaseSevice::Service::UpdateVisitor), this)));
+      new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::DataTypes::VisitRecord, ::DataTypes::VisitRecord>(
+          std::mem_fn(&DatabaseSevice::Service::InsertVisitRecord), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
       DatabaseSevice_method_names[14],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::DataTypes::Visitor, ::google::protobuf::Empty>(
-          std::mem_fn(&DatabaseSevice::Service::DeleteVisitor), this)));
+      new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::DataTypes::VisitRecord, ::google::protobuf::Empty>(
+          std::mem_fn(&DatabaseSevice::Service::UpdateVisitRecord), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
       DatabaseSevice_method_names[15],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::DataTypes::VisitRecord, ::google::protobuf::Empty>(
+          std::mem_fn(&DatabaseSevice::Service::DeleteVisitRecord), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      DatabaseSevice_method_names[16],
       ::grpc::RpcMethod::NORMAL_RPC,
       new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::DataTypes::Photo, ::DataTypes::Photo>(
           std::mem_fn(&DatabaseSevice::Service::InsertPhoto), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      DatabaseSevice_method_names[16],
+      DatabaseSevice_method_names[17],
       ::grpc::RpcMethod::NORMAL_RPC,
       new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::DataTypes::Photo, ::google::protobuf::Empty>(
           std::mem_fn(&DatabaseSevice::Service::DeletePhoto), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      DatabaseSevice_method_names[18],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::google::protobuf::Empty, ::DataTypes::UnitConfiguration>(
+          std::mem_fn(&DatabaseSevice::Service::GetConfig), this)));
 }
 
 DatabaseSevice::Service::~Service() {
@@ -310,6 +340,13 @@ DatabaseSevice::Service::~Service() {
 }
 
 ::grpc::Status DatabaseSevice::Service::DeletePerson(::grpc::ServerContext* context, const ::DataTypes::Person* request, ::google::protobuf::Empty* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status DatabaseSevice::Service::GetCard(::grpc::ServerContext* context, const ::Services::GetCardRequest* request, ::DataTypes::Cards* response) {
   (void) context;
   (void) request;
   (void) response;
@@ -365,28 +402,28 @@ DatabaseSevice::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status DatabaseSevice::Service::GetVisitor(::grpc::ServerContext* context, const ::Services::GetVisitorRequest* request, ::DataTypes::Visitors* response) {
+::grpc::Status DatabaseSevice::Service::GetVisitRecords(::grpc::ServerContext* context, const ::Services::GetVisitRecordRequest* request, ::DataTypes::VisitRecords* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status DatabaseSevice::Service::InsertVisitor(::grpc::ServerContext* context, const ::DataTypes::Visitor* request, ::DataTypes::Visitor* response) {
+::grpc::Status DatabaseSevice::Service::InsertVisitRecord(::grpc::ServerContext* context, const ::DataTypes::VisitRecord* request, ::DataTypes::VisitRecord* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status DatabaseSevice::Service::UpdateVisitor(::grpc::ServerContext* context, const ::DataTypes::Visitor* request, ::google::protobuf::Empty* response) {
+::grpc::Status DatabaseSevice::Service::UpdateVisitRecord(::grpc::ServerContext* context, const ::DataTypes::VisitRecord* request, ::google::protobuf::Empty* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status DatabaseSevice::Service::DeleteVisitor(::grpc::ServerContext* context, const ::DataTypes::Visitor* request, ::google::protobuf::Empty* response) {
+::grpc::Status DatabaseSevice::Service::DeleteVisitRecord(::grpc::ServerContext* context, const ::DataTypes::VisitRecord* request, ::google::protobuf::Empty* response) {
   (void) context;
   (void) request;
   (void) response;
@@ -401,6 +438,13 @@ DatabaseSevice::Service::~Service() {
 }
 
 ::grpc::Status DatabaseSevice::Service::DeletePhoto(::grpc::ServerContext* context, const ::DataTypes::Photo* request, ::google::protobuf::Empty* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status DatabaseSevice::Service::GetConfig(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::DataTypes::UnitConfiguration* response) {
   (void) context;
   (void) request;
   (void) response;

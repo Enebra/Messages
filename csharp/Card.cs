@@ -24,7 +24,7 @@ namespace DataTypes {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChRkYXRhdHlwZXMvY2FyZC5wcm90bxIJRGF0YVR5cGVzIjMKBENhcmQSGQoR",
-            "dW5pcXVlX2lkZW50aWZpZXIYASABKAkSEAoIb3duZXJfaWQYAiABKAMiNgoF",
+            "dW5pcXVlX2lkZW50aWZpZXIYASABKAkSEAoIb3duZXJfaWQYAiABKAkiNgoF",
             "Q2FyZHMSHgoFaXRlbXMYASADKAsyDy5EYXRhVHlwZXMuQ2FyZBINCgVjb3Vu",
             "dBgCIAEoA0IPCgdleC5ncnBjogIDUlRHYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
@@ -78,11 +78,11 @@ namespace DataTypes {
 
     /// <summary>Field number for the "owner_id" field.</summary>
     public const int OwnerIdFieldNumber = 2;
-    private long ownerId_;
-    public long OwnerId {
+    private string ownerId_ = "";
+    public string OwnerId {
       get { return ownerId_; }
       set {
-        ownerId_ = value;
+        ownerId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -105,7 +105,7 @@ namespace DataTypes {
     public override int GetHashCode() {
       int hash = 1;
       if (UniqueIdentifier.Length != 0) hash ^= UniqueIdentifier.GetHashCode();
-      if (OwnerId != 0L) hash ^= OwnerId.GetHashCode();
+      if (OwnerId.Length != 0) hash ^= OwnerId.GetHashCode();
       return hash;
     }
 
@@ -118,9 +118,9 @@ namespace DataTypes {
         output.WriteRawTag(10);
         output.WriteString(UniqueIdentifier);
       }
-      if (OwnerId != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(OwnerId);
+      if (OwnerId.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(OwnerId);
       }
     }
 
@@ -129,8 +129,8 @@ namespace DataTypes {
       if (UniqueIdentifier.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(UniqueIdentifier);
       }
-      if (OwnerId != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(OwnerId);
+      if (OwnerId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(OwnerId);
       }
       return size;
     }
@@ -142,7 +142,7 @@ namespace DataTypes {
       if (other.UniqueIdentifier.Length != 0) {
         UniqueIdentifier = other.UniqueIdentifier;
       }
-      if (other.OwnerId != 0L) {
+      if (other.OwnerId.Length != 0) {
         OwnerId = other.OwnerId;
       }
     }
@@ -158,8 +158,8 @@ namespace DataTypes {
             UniqueIdentifier = input.ReadString();
             break;
           }
-          case 16: {
-            OwnerId = input.ReadInt64();
+          case 18: {
+            OwnerId = input.ReadString();
             break;
           }
         }
