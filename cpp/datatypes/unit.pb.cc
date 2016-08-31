@@ -27,6 +27,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* ConnectedUnit_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   ConnectedUnit_reflection_ = NULL;
+const ::google::protobuf::Descriptor* UpdatedUnit_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  UpdatedUnit_reflection_ = NULL;
+const ::google::protobuf::Descriptor* UpdatedUnits_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  UpdatedUnits_reflection_ = NULL;
 const ::google::protobuf::Descriptor* Units_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Units_reflection_ = NULL;
@@ -36,6 +42,7 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* UnitLocationState_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   UnitLocationState_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* UnitState_descriptor_ = NULL;
 
 }  // namespace
 
@@ -79,7 +86,38 @@ void protobuf_AssignDesc_datatypes_2funit_2eproto() {
       sizeof(ConnectedUnit),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ConnectedUnit, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ConnectedUnit, _is_default_instance_));
-  Units_descriptor_ = file->message_type(2);
+  UpdatedUnit_descriptor_ = file->message_type(2);
+  static const int UpdatedUnit_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UpdatedUnit, unit_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UpdatedUnit, state_),
+  };
+  UpdatedUnit_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      UpdatedUnit_descriptor_,
+      UpdatedUnit::default_instance_,
+      UpdatedUnit_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(UpdatedUnit),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UpdatedUnit, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UpdatedUnit, _is_default_instance_));
+  UpdatedUnits_descriptor_ = file->message_type(3);
+  static const int UpdatedUnits_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UpdatedUnits, items_),
+  };
+  UpdatedUnits_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      UpdatedUnits_descriptor_,
+      UpdatedUnits::default_instance_,
+      UpdatedUnits_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(UpdatedUnits),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UpdatedUnits, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UpdatedUnits, _is_default_instance_));
+  Units_descriptor_ = file->message_type(4);
   static const int Units_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Units, items_),
   };
@@ -94,7 +132,7 @@ void protobuf_AssignDesc_datatypes_2funit_2eproto() {
       sizeof(Units),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Units, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Units, _is_default_instance_));
-  UnitConfiguration_descriptor_ = file->message_type(3);
+  UnitConfiguration_descriptor_ = file->message_type(5);
   static const int UnitConfiguration_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnitConfiguration, master_ip_address_),
   };
@@ -109,7 +147,7 @@ void protobuf_AssignDesc_datatypes_2funit_2eproto() {
       sizeof(UnitConfiguration),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnitConfiguration, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnitConfiguration, _is_default_instance_));
-  UnitLocationState_descriptor_ = file->message_type(4);
+  UnitLocationState_descriptor_ = file->message_type(6);
   static const int UnitLocationState_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnitLocationState, state_),
   };
@@ -124,6 +162,7 @@ void protobuf_AssignDesc_datatypes_2funit_2eproto() {
       sizeof(UnitLocationState),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnitLocationState, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnitLocationState, _is_default_instance_));
+  UnitState_descriptor_ = file->enum_type(0);
 }
 
 namespace {
@@ -141,6 +180,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       ConnectedUnit_descriptor_, &ConnectedUnit::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      UpdatedUnit_descriptor_, &UpdatedUnit::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      UpdatedUnits_descriptor_, &UpdatedUnits::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       Units_descriptor_, &Units::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       UnitConfiguration_descriptor_, &UnitConfiguration::default_instance());
@@ -155,6 +198,10 @@ void protobuf_ShutdownFile_datatypes_2funit_2eproto() {
   delete Unit_reflection_;
   delete ConnectedUnit::default_instance_;
   delete ConnectedUnit_reflection_;
+  delete UpdatedUnit::default_instance_;
+  delete UpdatedUnit_reflection_;
+  delete UpdatedUnits::default_instance_;
+  delete UpdatedUnits_reflection_;
   delete Units::default_instance_;
   delete Units_reflection_;
   delete UnitConfiguration::default_instance_;
@@ -176,21 +223,30 @@ void protobuf_AddDesc_datatypes_2funit_2eproto() {
     "\0132\030.DataTypes.ConnectedUnit\022\026\n\016heartbeat"
     "_time\030\002 \001(\003\022\'\n\tlocations\030\003 \001(\0132\024.DataTyp"
     "es.Locations\"8\n\rConnectedUnit\022\022\n\nip_addr"
-    "ess\030\001 \001(\t\022\023\n\013mac_address\030\002 \001(\t\"\'\n\005Units\022"
-    "\036\n\005items\030\001 \003(\0132\017.DataTypes.Unit\".\n\021UnitC"
-    "onfiguration\022\031\n\021master_ip_address\030\001 \001(\t\""
-    "<\n\021UnitLocationState\022\'\n\005state\030\001 \001(\0162\030.Da"
-    "taTypes.LocationStateB\017\n\007ex.grpc\242\002\003RTGb\006"
-    "proto3", 406);
+    "ess\030\001 \001(\t\022\023\n\013mac_address\030\002 \001(\t\"Q\n\013Update"
+    "dUnit\022\035\n\004unit\030\001 \001(\0132\017.DataTypes.Unit\022#\n\005"
+    "state\030\002 \001(\0162\024.DataTypes.UnitState\"5\n\014Upd"
+    "atedUnits\022%\n\005items\030\001 \003(\0132\026.DataTypes.Upd"
+    "atedUnit\"\'\n\005Units\022\036\n\005items\030\001 \003(\0132\017.DataT"
+    "ypes.Unit\".\n\021UnitConfiguration\022\031\n\021master"
+    "_ip_address\030\001 \001(\t\"<\n\021UnitLocationState\022\'"
+    "\n\005state\030\001 \001(\0162\030.DataTypes.LocationState*"
+    "C\n\tUnitState\022\016\n\nNone_State\020\000\022\014\n\010Inserted"
+    "\020\001\022\013\n\007Deleted\020\002\022\013\n\007Updated\020\003B\017\n\007ex.grpc\242"
+    "\002\003RTGb\006proto3", 613);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "datatypes/unit.proto", &protobuf_RegisterTypes);
   Unit::default_instance_ = new Unit();
   ConnectedUnit::default_instance_ = new ConnectedUnit();
+  UpdatedUnit::default_instance_ = new UpdatedUnit();
+  UpdatedUnits::default_instance_ = new UpdatedUnits();
   Units::default_instance_ = new Units();
   UnitConfiguration::default_instance_ = new UnitConfiguration();
   UnitLocationState::default_instance_ = new UnitLocationState();
   Unit::default_instance_->InitAsDefaultInstance();
   ConnectedUnit::default_instance_->InitAsDefaultInstance();
+  UpdatedUnit::default_instance_->InitAsDefaultInstance();
+  UpdatedUnits::default_instance_->InitAsDefaultInstance();
   Units::default_instance_->InitAsDefaultInstance();
   UnitConfiguration::default_instance_->InitAsDefaultInstance();
   UnitLocationState::default_instance_->InitAsDefaultInstance();
@@ -203,6 +259,22 @@ struct StaticDescriptorInitializer_datatypes_2funit_2eproto {
     protobuf_AddDesc_datatypes_2funit_2eproto();
   }
 } static_descriptor_initializer_datatypes_2funit_2eproto_;
+const ::google::protobuf::EnumDescriptor* UnitState_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return UnitState_descriptor_;
+}
+bool UnitState_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 namespace {
 
@@ -984,6 +1056,576 @@ void ConnectedUnit::clear_mac_address() {
   }
   mac_address_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), mac_address);
   // @@protoc_insertion_point(field_set_allocated:DataTypes.ConnectedUnit.mac_address)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int UpdatedUnit::kUnitFieldNumber;
+const int UpdatedUnit::kStateFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+UpdatedUnit::UpdatedUnit()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:DataTypes.UpdatedUnit)
+}
+
+void UpdatedUnit::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
+  unit_ = const_cast< ::DataTypes::Unit*>(&::DataTypes::Unit::default_instance());
+}
+
+UpdatedUnit::UpdatedUnit(const UpdatedUnit& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:DataTypes.UpdatedUnit)
+}
+
+void UpdatedUnit::SharedCtor() {
+    _is_default_instance_ = false;
+  _cached_size_ = 0;
+  unit_ = NULL;
+  state_ = 0;
+}
+
+UpdatedUnit::~UpdatedUnit() {
+  // @@protoc_insertion_point(destructor:DataTypes.UpdatedUnit)
+  SharedDtor();
+}
+
+void UpdatedUnit::SharedDtor() {
+  if (this != default_instance_) {
+    delete unit_;
+  }
+}
+
+void UpdatedUnit::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* UpdatedUnit::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return UpdatedUnit_descriptor_;
+}
+
+const UpdatedUnit& UpdatedUnit::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_datatypes_2funit_2eproto();
+  return *default_instance_;
+}
+
+UpdatedUnit* UpdatedUnit::default_instance_ = NULL;
+
+UpdatedUnit* UpdatedUnit::New(::google::protobuf::Arena* arena) const {
+  UpdatedUnit* n = new UpdatedUnit;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void UpdatedUnit::Clear() {
+// @@protoc_insertion_point(message_clear_start:DataTypes.UpdatedUnit)
+  if (GetArenaNoVirtual() == NULL && unit_ != NULL) delete unit_;
+  unit_ = NULL;
+  state_ = 0;
+}
+
+bool UpdatedUnit::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:DataTypes.UpdatedUnit)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional .DataTypes.Unit unit = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_unit()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_state;
+        break;
+      }
+
+      // optional .DataTypes.UnitState state = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_state:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_state(static_cast< ::DataTypes::UnitState >(value));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:DataTypes.UpdatedUnit)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:DataTypes.UpdatedUnit)
+  return false;
+#undef DO_
+}
+
+void UpdatedUnit::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:DataTypes.UpdatedUnit)
+  // optional .DataTypes.Unit unit = 1;
+  if (this->has_unit()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, *this->unit_, output);
+  }
+
+  // optional .DataTypes.UnitState state = 2;
+  if (this->state() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      2, this->state(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:DataTypes.UpdatedUnit)
+}
+
+::google::protobuf::uint8* UpdatedUnit::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:DataTypes.UpdatedUnit)
+  // optional .DataTypes.Unit unit = 1;
+  if (this->has_unit()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, *this->unit_, target);
+  }
+
+  // optional .DataTypes.UnitState state = 2;
+  if (this->state() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      2, this->state(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:DataTypes.UpdatedUnit)
+  return target;
+}
+
+int UpdatedUnit::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:DataTypes.UpdatedUnit)
+  int total_size = 0;
+
+  // optional .DataTypes.Unit unit = 1;
+  if (this->has_unit()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->unit_);
+  }
+
+  // optional .DataTypes.UnitState state = 2;
+  if (this->state() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
+  }
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void UpdatedUnit::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:DataTypes.UpdatedUnit)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const UpdatedUnit* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const UpdatedUnit>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:DataTypes.UpdatedUnit)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:DataTypes.UpdatedUnit)
+    MergeFrom(*source);
+  }
+}
+
+void UpdatedUnit::MergeFrom(const UpdatedUnit& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:DataTypes.UpdatedUnit)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from.has_unit()) {
+    mutable_unit()->::DataTypes::Unit::MergeFrom(from.unit());
+  }
+  if (from.state() != 0) {
+    set_state(from.state());
+  }
+}
+
+void UpdatedUnit::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:DataTypes.UpdatedUnit)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void UpdatedUnit::CopyFrom(const UpdatedUnit& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:DataTypes.UpdatedUnit)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool UpdatedUnit::IsInitialized() const {
+
+  return true;
+}
+
+void UpdatedUnit::Swap(UpdatedUnit* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void UpdatedUnit::InternalSwap(UpdatedUnit* other) {
+  std::swap(unit_, other->unit_);
+  std::swap(state_, other->state_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata UpdatedUnit::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = UpdatedUnit_descriptor_;
+  metadata.reflection = UpdatedUnit_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// UpdatedUnit
+
+// optional .DataTypes.Unit unit = 1;
+bool UpdatedUnit::has_unit() const {
+  return !_is_default_instance_ && unit_ != NULL;
+}
+void UpdatedUnit::clear_unit() {
+  if (GetArenaNoVirtual() == NULL && unit_ != NULL) delete unit_;
+  unit_ = NULL;
+}
+const ::DataTypes::Unit& UpdatedUnit::unit() const {
+  // @@protoc_insertion_point(field_get:DataTypes.UpdatedUnit.unit)
+  return unit_ != NULL ? *unit_ : *default_instance_->unit_;
+}
+::DataTypes::Unit* UpdatedUnit::mutable_unit() {
+  
+  if (unit_ == NULL) {
+    unit_ = new ::DataTypes::Unit;
+  }
+  // @@protoc_insertion_point(field_mutable:DataTypes.UpdatedUnit.unit)
+  return unit_;
+}
+::DataTypes::Unit* UpdatedUnit::release_unit() {
+  // @@protoc_insertion_point(field_release:DataTypes.UpdatedUnit.unit)
+  
+  ::DataTypes::Unit* temp = unit_;
+  unit_ = NULL;
+  return temp;
+}
+void UpdatedUnit::set_allocated_unit(::DataTypes::Unit* unit) {
+  delete unit_;
+  unit_ = unit;
+  if (unit) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:DataTypes.UpdatedUnit.unit)
+}
+
+// optional .DataTypes.UnitState state = 2;
+void UpdatedUnit::clear_state() {
+  state_ = 0;
+}
+ ::DataTypes::UnitState UpdatedUnit::state() const {
+  // @@protoc_insertion_point(field_get:DataTypes.UpdatedUnit.state)
+  return static_cast< ::DataTypes::UnitState >(state_);
+}
+ void UpdatedUnit::set_state(::DataTypes::UnitState value) {
+  
+  state_ = value;
+  // @@protoc_insertion_point(field_set:DataTypes.UpdatedUnit.state)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int UpdatedUnits::kItemsFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+UpdatedUnits::UpdatedUnits()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:DataTypes.UpdatedUnits)
+}
+
+void UpdatedUnits::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
+}
+
+UpdatedUnits::UpdatedUnits(const UpdatedUnits& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:DataTypes.UpdatedUnits)
+}
+
+void UpdatedUnits::SharedCtor() {
+    _is_default_instance_ = false;
+  _cached_size_ = 0;
+}
+
+UpdatedUnits::~UpdatedUnits() {
+  // @@protoc_insertion_point(destructor:DataTypes.UpdatedUnits)
+  SharedDtor();
+}
+
+void UpdatedUnits::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void UpdatedUnits::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* UpdatedUnits::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return UpdatedUnits_descriptor_;
+}
+
+const UpdatedUnits& UpdatedUnits::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_datatypes_2funit_2eproto();
+  return *default_instance_;
+}
+
+UpdatedUnits* UpdatedUnits::default_instance_ = NULL;
+
+UpdatedUnits* UpdatedUnits::New(::google::protobuf::Arena* arena) const {
+  UpdatedUnits* n = new UpdatedUnits;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void UpdatedUnits::Clear() {
+// @@protoc_insertion_point(message_clear_start:DataTypes.UpdatedUnits)
+  items_.Clear();
+}
+
+bool UpdatedUnits::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:DataTypes.UpdatedUnits)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .DataTypes.UpdatedUnit items = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_items:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
+                input, add_items()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(10)) goto parse_loop_items;
+        input->UnsafeDecrementRecursionDepth();
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:DataTypes.UpdatedUnits)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:DataTypes.UpdatedUnits)
+  return false;
+#undef DO_
+}
+
+void UpdatedUnits::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:DataTypes.UpdatedUnits)
+  // repeated .DataTypes.UpdatedUnit items = 1;
+  for (unsigned int i = 0, n = this->items_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->items(i), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:DataTypes.UpdatedUnits)
+}
+
+::google::protobuf::uint8* UpdatedUnits::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:DataTypes.UpdatedUnits)
+  // repeated .DataTypes.UpdatedUnit items = 1;
+  for (unsigned int i = 0, n = this->items_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->items(i), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:DataTypes.UpdatedUnits)
+  return target;
+}
+
+int UpdatedUnits::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:DataTypes.UpdatedUnits)
+  int total_size = 0;
+
+  // repeated .DataTypes.UpdatedUnit items = 1;
+  total_size += 1 * this->items_size();
+  for (int i = 0; i < this->items_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->items(i));
+  }
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void UpdatedUnits::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:DataTypes.UpdatedUnits)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const UpdatedUnits* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const UpdatedUnits>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:DataTypes.UpdatedUnits)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:DataTypes.UpdatedUnits)
+    MergeFrom(*source);
+  }
+}
+
+void UpdatedUnits::MergeFrom(const UpdatedUnits& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:DataTypes.UpdatedUnits)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  items_.MergeFrom(from.items_);
+}
+
+void UpdatedUnits::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:DataTypes.UpdatedUnits)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void UpdatedUnits::CopyFrom(const UpdatedUnits& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:DataTypes.UpdatedUnits)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool UpdatedUnits::IsInitialized() const {
+
+  return true;
+}
+
+void UpdatedUnits::Swap(UpdatedUnits* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void UpdatedUnits::InternalSwap(UpdatedUnits* other) {
+  items_.UnsafeArenaSwap(&other->items_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata UpdatedUnits::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = UpdatedUnits_descriptor_;
+  metadata.reflection = UpdatedUnits_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// UpdatedUnits
+
+// repeated .DataTypes.UpdatedUnit items = 1;
+int UpdatedUnits::items_size() const {
+  return items_.size();
+}
+void UpdatedUnits::clear_items() {
+  items_.Clear();
+}
+const ::DataTypes::UpdatedUnit& UpdatedUnits::items(int index) const {
+  // @@protoc_insertion_point(field_get:DataTypes.UpdatedUnits.items)
+  return items_.Get(index);
+}
+::DataTypes::UpdatedUnit* UpdatedUnits::mutable_items(int index) {
+  // @@protoc_insertion_point(field_mutable:DataTypes.UpdatedUnits.items)
+  return items_.Mutable(index);
+}
+::DataTypes::UpdatedUnit* UpdatedUnits::add_items() {
+  // @@protoc_insertion_point(field_add:DataTypes.UpdatedUnits.items)
+  return items_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::DataTypes::UpdatedUnit >*
+UpdatedUnits::mutable_items() {
+  // @@protoc_insertion_point(field_mutable_list:DataTypes.UpdatedUnits.items)
+  return &items_;
+}
+const ::google::protobuf::RepeatedPtrField< ::DataTypes::UpdatedUnit >&
+UpdatedUnits::items() const {
+  // @@protoc_insertion_point(field_list:DataTypes.UpdatedUnits.items)
+  return items_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

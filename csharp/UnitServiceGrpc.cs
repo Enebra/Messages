@@ -14,7 +14,7 @@ namespace Services {
 
     static readonly Marshaller<global::DataTypes.Location> __Marshaller_Location = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Location.Parser.ParseFrom);
     static readonly Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_Empty = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Google.Protobuf.WellKnownTypes.Empty.Parser.ParseFrom);
-    static readonly Marshaller<global::DataTypes.Units> __Marshaller_Units = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Units.Parser.ParseFrom);
+    static readonly Marshaller<global::DataTypes.UpdatedUnits> __Marshaller_UpdatedUnits = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.UpdatedUnits.Parser.ParseFrom);
     static readonly Marshaller<global::DataTypes.VisitRecords> __Marshaller_VisitRecords = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.VisitRecords.Parser.ParseFrom);
 
     static readonly Method<global::DataTypes.Location, global::Google.Protobuf.WellKnownTypes.Empty> __Method_OpenDoor = new Method<global::DataTypes.Location, global::Google.Protobuf.WellKnownTypes.Empty>(
@@ -24,11 +24,11 @@ namespace Services {
         __Marshaller_Location,
         __Marshaller_Empty);
 
-    static readonly Method<global::DataTypes.Units, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdateUnits = new Method<global::DataTypes.Units, global::Google.Protobuf.WellKnownTypes.Empty>(
+    static readonly Method<global::DataTypes.UpdatedUnits, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdateUnits = new Method<global::DataTypes.UpdatedUnits, global::Google.Protobuf.WellKnownTypes.Empty>(
         MethodType.Unary,
         __ServiceName,
         "UpdateUnits",
-        __Marshaller_Units,
+        __Marshaller_UpdatedUnits,
         __Marshaller_Empty);
 
     static readonly Method<global::DataTypes.VisitRecords, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdateActvity = new Method<global::DataTypes.VisitRecords, global::Google.Protobuf.WellKnownTypes.Empty>(
@@ -52,7 +52,7 @@ namespace Services {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> UpdateUnits(global::DataTypes.Units request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> UpdateUnits(global::DataTypes.UpdatedUnits request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
@@ -103,19 +103,19 @@ namespace Services {
       {
         return CallInvoker.AsyncUnaryCall(__Method_OpenDoor, null, options, request);
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateUnits(global::DataTypes.Units request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateUnits(global::DataTypes.UpdatedUnits request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return UpdateUnits(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateUnits(global::DataTypes.Units request, CallOptions options)
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateUnits(global::DataTypes.UpdatedUnits request, CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_UpdateUnits, null, options, request);
       }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateUnitsAsync(global::DataTypes.Units request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateUnitsAsync(global::DataTypes.UpdatedUnits request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return UpdateUnitsAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateUnitsAsync(global::DataTypes.Units request, CallOptions options)
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateUnitsAsync(global::DataTypes.UpdatedUnits request, CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_UpdateUnits, null, options, request);
       }

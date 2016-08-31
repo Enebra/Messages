@@ -13,7 +13,7 @@ package Services;
 service UnitService 
 {    
   rpc OpenDoor     ( DataTypes.Location     ) returns ( google.protobuf.Empty  ) {}  
-  rpc UpdateUnits  ( DataTypes.Units        ) returns ( google.protobuf.Empty  ) {}
+  rpc UpdateUnits  ( DataTypes.UpdatedUnits ) returns ( google.protobuf.Empty  ) {}
   rpc UpdateActvity( DataTypes.VisitRecords ) returns ( google.protobuf.Empty  ) {}
   //send connected devices
 }

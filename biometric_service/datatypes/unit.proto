@@ -21,6 +21,17 @@ message ConnectedUnit
   string mac_address     = 2;
 }
 
+message UpdatedUnit
+{
+  Unit      unit  = 1;
+  UnitState state = 2;
+}
+
+message UpdatedUnits
+{
+  repeated UpdatedUnit items = 1;
+}
+
 message Units
 {
   repeated Unit items = 1;
@@ -34,4 +45,12 @@ message UnitConfiguration
 message UnitLocationState
 {
   DataTypes.LocationState  state  = 1;
+}
+
+enum UnitState
+{
+  None_State = 0;
+  Inserted = 1;
+  Deleted  = 2;
+  Updated  = 3;  
 }

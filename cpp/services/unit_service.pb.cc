@@ -64,13 +64,13 @@ void protobuf_AddDesc_services_2funit_5fservice_2eproto() {
     "\n\033services/unit_service.proto\022\010Services\032"
     "\033google/protobuf/empty.proto\032\024datatypes/"
     "unit.proto\032\030datatypes/location.proto\032\034da"
-    "tatypes/visit_record.proto2\307\001\n\013UnitServi"
+    "tatypes/visit_record.proto2\316\001\n\013UnitServi"
     "ce\0229\n\010OpenDoor\022\023.DataTypes.Location\032\026.go"
-    "ogle.protobuf.Empty\"\000\0229\n\013UpdateUnits\022\020.D"
-    "ataTypes.Units\032\026.google.protobuf.Empty\"\000"
-    "\022B\n\rUpdateActvity\022\027.DataTypes.VisitRecor"
-    "ds\032\026.google.protobuf.Empty\"\000B\017\n\007ex.grpc\242"
-    "\002\003RTGb\006proto3", 373);
+    "ogle.protobuf.Empty\"\000\022@\n\013UpdateUnits\022\027.D"
+    "ataTypes.UpdatedUnits\032\026.google.protobuf."
+    "Empty\"\000\022B\n\rUpdateActvity\022\027.DataTypes.Vis"
+    "itRecords\032\026.google.protobuf.Empty\"\000B\017\n\007e"
+    "x.grpc\242\002\003RTGb\006proto3", 380);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "services/unit_service.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_services_2funit_5fservice_2eproto);

@@ -28,16 +28,22 @@ namespace DataTypes {
             "cGVzLkNvbm5lY3RlZFVuaXQSFgoOaGVhcnRiZWF0X3RpbWUYAiABKAMSJwoJ",
             "bG9jYXRpb25zGAMgASgLMhQuRGF0YVR5cGVzLkxvY2F0aW9ucyI4Cg1Db25u",
             "ZWN0ZWRVbml0EhIKCmlwX2FkZHJlc3MYASABKAkSEwoLbWFjX2FkZHJlc3MY",
-            "AiABKAkiJwoFVW5pdHMSHgoFaXRlbXMYASADKAsyDy5EYXRhVHlwZXMuVW5p",
-            "dCIuChFVbml0Q29uZmlndXJhdGlvbhIZChFtYXN0ZXJfaXBfYWRkcmVzcxgB",
-            "IAEoCSI8ChFVbml0TG9jYXRpb25TdGF0ZRInCgVzdGF0ZRgBIAEoDjIYLkRh",
-            "dGFUeXBlcy5Mb2NhdGlvblN0YXRlQg8KB2V4LmdycGOiAgNSVEdiBnByb3Rv",
-            "Mw=="));
+            "AiABKAkiUQoLVXBkYXRlZFVuaXQSHQoEdW5pdBgBIAEoCzIPLkRhdGFUeXBl",
+            "cy5Vbml0EiMKBXN0YXRlGAIgASgOMhQuRGF0YVR5cGVzLlVuaXRTdGF0ZSI1",
+            "CgxVcGRhdGVkVW5pdHMSJQoFaXRlbXMYASADKAsyFi5EYXRhVHlwZXMuVXBk",
+            "YXRlZFVuaXQiJwoFVW5pdHMSHgoFaXRlbXMYASADKAsyDy5EYXRhVHlwZXMu",
+            "VW5pdCIuChFVbml0Q29uZmlndXJhdGlvbhIZChFtYXN0ZXJfaXBfYWRkcmVz",
+            "cxgBIAEoCSI8ChFVbml0TG9jYXRpb25TdGF0ZRInCgVzdGF0ZRgBIAEoDjIY",
+            "LkRhdGFUeXBlcy5Mb2NhdGlvblN0YXRlKkMKCVVuaXRTdGF0ZRIOCgpOb25l",
+            "X1N0YXRlEAASDAoISW5zZXJ0ZWQQARILCgdEZWxldGVkEAISCwoHVXBkYXRl",
+            "ZBADQg8KB2V4LmdycGOiAgNSVEdiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::DataTypes.LocationReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.UnitState), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Unit), global::DataTypes.Unit.Parser, new[]{ "Unit_", "HeartbeatTime", "Locations" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.ConnectedUnit), global::DataTypes.ConnectedUnit.Parser, new[]{ "IpAddress", "MacAddress" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.UpdatedUnit), global::DataTypes.UpdatedUnit.Parser, new[]{ "Unit", "State" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.UpdatedUnits), global::DataTypes.UpdatedUnits.Parser, new[]{ "Items" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Units), global::DataTypes.Units.Parser, new[]{ "Items" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.UnitConfiguration), global::DataTypes.UnitConfiguration.Parser, new[]{ "MasterIpAddress" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.UnitLocationState), global::DataTypes.UnitLocationState.Parser, new[]{ "State" }, null, null, null)
@@ -46,6 +52,16 @@ namespace DataTypes {
     #endregion
 
   }
+  #region Enums
+  public enum UnitState {
+    [pbr::OriginalName("None_State")] NoneState = 0,
+    [pbr::OriginalName("Inserted")] Inserted = 1,
+    [pbr::OriginalName("Deleted")] Deleted = 2,
+    [pbr::OriginalName("Updated")] Updated = 3,
+  }
+
+  #endregion
+
   #region Messages
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class Unit : pb::IMessage<Unit> {
@@ -347,12 +363,243 @@ namespace DataTypes {
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class UpdatedUnit : pb::IMessage<UpdatedUnit> {
+    private static readonly pb::MessageParser<UpdatedUnit> _parser = new pb::MessageParser<UpdatedUnit>(() => new UpdatedUnit());
+    public static pb::MessageParser<UpdatedUnit> Parser { get { return _parser; } }
+
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    public UpdatedUnit() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    public UpdatedUnit(UpdatedUnit other) : this() {
+      Unit = other.unit_ != null ? other.Unit.Clone() : null;
+      state_ = other.state_;
+    }
+
+    public UpdatedUnit Clone() {
+      return new UpdatedUnit(this);
+    }
+
+    /// <summary>Field number for the "unit" field.</summary>
+    public const int UnitFieldNumber = 1;
+    private global::DataTypes.Unit unit_;
+    public global::DataTypes.Unit Unit {
+      get { return unit_; }
+      set {
+        unit_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "state" field.</summary>
+    public const int StateFieldNumber = 2;
+    private global::DataTypes.UnitState state_ = 0;
+    public global::DataTypes.UnitState State {
+      get { return state_; }
+      set {
+        state_ = value;
+      }
+    }
+
+    public override bool Equals(object other) {
+      return Equals(other as UpdatedUnit);
+    }
+
+    public bool Equals(UpdatedUnit other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Unit, other.Unit)) return false;
+      if (State != other.State) return false;
+      return true;
+    }
+
+    public override int GetHashCode() {
+      int hash = 1;
+      if (unit_ != null) hash ^= Unit.GetHashCode();
+      if (State != 0) hash ^= State.GetHashCode();
+      return hash;
+    }
+
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (unit_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Unit);
+      }
+      if (State != 0) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) State);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (unit_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Unit);
+      }
+      if (State != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) State);
+      }
+      return size;
+    }
+
+    public void MergeFrom(UpdatedUnit other) {
+      if (other == null) {
+        return;
+      }
+      if (other.unit_ != null) {
+        if (unit_ == null) {
+          unit_ = new global::DataTypes.Unit();
+        }
+        Unit.MergeFrom(other.Unit);
+      }
+      if (other.State != 0) {
+        State = other.State;
+      }
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            if (unit_ == null) {
+              unit_ = new global::DataTypes.Unit();
+            }
+            input.ReadMessage(unit_);
+            break;
+          }
+          case 16: {
+            state_ = (global::DataTypes.UnitState) input.ReadEnum();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class UpdatedUnits : pb::IMessage<UpdatedUnits> {
+    private static readonly pb::MessageParser<UpdatedUnits> _parser = new pb::MessageParser<UpdatedUnits>(() => new UpdatedUnits());
+    public static pb::MessageParser<UpdatedUnits> Parser { get { return _parser; } }
+
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[3]; }
+    }
+
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    public UpdatedUnits() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    public UpdatedUnits(UpdatedUnits other) : this() {
+      items_ = other.items_.Clone();
+    }
+
+    public UpdatedUnits Clone() {
+      return new UpdatedUnits(this);
+    }
+
+    /// <summary>Field number for the "items" field.</summary>
+    public const int ItemsFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::DataTypes.UpdatedUnit> _repeated_items_codec
+        = pb::FieldCodec.ForMessage(10, global::DataTypes.UpdatedUnit.Parser);
+    private readonly pbc::RepeatedField<global::DataTypes.UpdatedUnit> items_ = new pbc::RepeatedField<global::DataTypes.UpdatedUnit>();
+    public pbc::RepeatedField<global::DataTypes.UpdatedUnit> Items {
+      get { return items_; }
+    }
+
+    public override bool Equals(object other) {
+      return Equals(other as UpdatedUnits);
+    }
+
+    public bool Equals(UpdatedUnits other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!items_.Equals(other.items_)) return false;
+      return true;
+    }
+
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= items_.GetHashCode();
+      return hash;
+    }
+
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      items_.WriteTo(output, _repeated_items_codec);
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      size += items_.CalculateSize(_repeated_items_codec);
+      return size;
+    }
+
+    public void MergeFrom(UpdatedUnits other) {
+      if (other == null) {
+        return;
+      }
+      items_.Add(other.items_);
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            items_.AddEntriesFrom(input, _repeated_items_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class Units : pb::IMessage<Units> {
     private static readonly pb::MessageParser<Units> _parser = new pb::MessageParser<Units>(() => new Units());
     public static pb::MessageParser<Units> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[2]; }
+      get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[4]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -447,7 +694,7 @@ namespace DataTypes {
     public static pb::MessageParser<UnitConfiguration> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[3]; }
+      get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[5]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -550,7 +797,7 @@ namespace DataTypes {
     public static pb::MessageParser<UnitLocationState> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[4]; }
+      get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[6]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {

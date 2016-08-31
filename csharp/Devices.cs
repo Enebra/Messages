@@ -23,13 +23,13 @@ namespace DataTypes {
     static DevicesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChdkYXRhdHlwZXMvZGV2aWNlcy5wcm90bxIJRGF0YVR5cGVzIiMKDEFjY2Vz",
-            "c0RldmljZRITCgtkZXZpY2VfbmFtZRgBIAEoCUIPCgdleC5ncnBjogIDUlRH",
-            "YgZwcm90bzM="));
+            "ChdkYXRhdHlwZXMvZGV2aWNlcy5wcm90bxIJRGF0YVR5cGVzIjMKDEFjY2Vz",
+            "c0RldmljZRIMCgRuYW1lGAEgASgJEhUKDXNlcmlhbF9udW1iZXIYAiABKAZC",
+            "DwoHZXguZ3JwY6ICA1JUR2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.AccessDevice), global::DataTypes.AccessDevice.Parser, new[]{ "DeviceName" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.AccessDevice), global::DataTypes.AccessDevice.Parser, new[]{ "Name", "SerialNumber" }, null, null, null)
           }));
     }
     #endregion
@@ -56,20 +56,31 @@ namespace DataTypes {
     partial void OnConstruction();
 
     public AccessDevice(AccessDevice other) : this() {
-      deviceName_ = other.deviceName_;
+      name_ = other.name_;
+      serialNumber_ = other.serialNumber_;
     }
 
     public AccessDevice Clone() {
       return new AccessDevice(this);
     }
 
-    /// <summary>Field number for the "device_name" field.</summary>
-    public const int DeviceNameFieldNumber = 1;
-    private string deviceName_ = "";
-    public string DeviceName {
-      get { return deviceName_; }
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
+    public string Name {
+      get { return name_; }
       set {
-        deviceName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "serial_number" field.</summary>
+    public const int SerialNumberFieldNumber = 2;
+    private ulong serialNumber_;
+    public ulong SerialNumber {
+      get { return serialNumber_; }
+      set {
+        serialNumber_ = value;
       }
     }
 
@@ -84,13 +95,15 @@ namespace DataTypes {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (DeviceName != other.DeviceName) return false;
+      if (Name != other.Name) return false;
+      if (SerialNumber != other.SerialNumber) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
-      if (DeviceName.Length != 0) hash ^= DeviceName.GetHashCode();
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (SerialNumber != 0UL) hash ^= SerialNumber.GetHashCode();
       return hash;
     }
 
@@ -99,16 +112,23 @@ namespace DataTypes {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (DeviceName.Length != 0) {
+      if (Name.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(DeviceName);
+        output.WriteString(Name);
+      }
+      if (SerialNumber != 0UL) {
+        output.WriteRawTag(17);
+        output.WriteFixed64(SerialNumber);
       }
     }
 
     public int CalculateSize() {
       int size = 0;
-      if (DeviceName.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(DeviceName);
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (SerialNumber != 0UL) {
+        size += 1 + 8;
       }
       return size;
     }
@@ -117,8 +137,11 @@ namespace DataTypes {
       if (other == null) {
         return;
       }
-      if (other.DeviceName.Length != 0) {
-        DeviceName = other.DeviceName;
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      if (other.SerialNumber != 0UL) {
+        SerialNumber = other.SerialNumber;
       }
     }
 
@@ -130,7 +153,11 @@ namespace DataTypes {
             input.SkipLastField();
             break;
           case 10: {
-            DeviceName = input.ReadString();
+            Name = input.ReadString();
+            break;
+          }
+          case 17: {
+            SerialNumber = input.ReadFixed64();
             break;
           }
         }

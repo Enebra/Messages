@@ -35,8 +35,9 @@ void protobuf_AssignDesc_datatypes_2fdevices_2eproto() {
       "datatypes/devices.proto");
   GOOGLE_CHECK(file != NULL);
   AccessDevice_descriptor_ = file->message_type(0);
-  static const int AccessDevice_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AccessDevice, device_name_),
+  static const int AccessDevice_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AccessDevice, name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AccessDevice, serial_number_),
   };
   AccessDevice_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -79,9 +80,9 @@ void protobuf_AddDesc_datatypes_2fdevices_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\027datatypes/devices.proto\022\tDataTypes\"#\n\014"
-    "AccessDevice\022\023\n\013device_name\030\001 \001(\tB\017\n\007ex."
-    "grpc\242\002\003RTGb\006proto3", 98);
+    "\n\027datatypes/devices.proto\022\tDataTypes\"3\n\014"
+    "AccessDevice\022\014\n\004name\030\001 \001(\t\022\025\n\rserial_num"
+    "ber\030\002 \001(\006B\017\n\007ex.grpc\242\002\003RTGb\006proto3", 114);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "datatypes/devices.proto", &protobuf_RegisterTypes);
   AccessDevice::default_instance_ = new AccessDevice();
@@ -109,7 +110,8 @@ static void MergeFromFail(int line) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int AccessDevice::kDeviceNameFieldNumber;
+const int AccessDevice::kNameFieldNumber;
+const int AccessDevice::kSerialNumberFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 AccessDevice::AccessDevice()
@@ -134,7 +136,8 @@ void AccessDevice::SharedCtor() {
     _is_default_instance_ = false;
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  device_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  serial_number_ = GOOGLE_ULONGLONG(0);
 }
 
 AccessDevice::~AccessDevice() {
@@ -143,7 +146,7 @@ AccessDevice::~AccessDevice() {
 }
 
 void AccessDevice::SharedDtor() {
-  device_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
@@ -175,7 +178,8 @@ AccessDevice* AccessDevice::New(::google::protobuf::Arena* arena) const {
 
 void AccessDevice::Clear() {
 // @@protoc_insertion_point(message_clear_start:DataTypes.AccessDevice)
-  device_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  serial_number_ = GOOGLE_ULONGLONG(0);
 }
 
 bool AccessDevice::MergePartialFromCodedStream(
@@ -188,15 +192,30 @@ bool AccessDevice::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string device_name = 1;
+      // optional string name = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_device_name()));
+                input, this->mutable_name()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->device_name().data(), this->device_name().length(),
+            this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "DataTypes.AccessDevice.device_name"));
+            "DataTypes.AccessDevice.name"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(17)) goto parse_serial_number;
+        break;
+      }
+
+      // optional fixed64 serial_number = 2;
+      case 2: {
+        if (tag == 17) {
+         parse_serial_number:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_FIXED64>(
+                 input, &serial_number_)));
+
         } else {
           goto handle_unusual;
         }
@@ -228,14 +247,19 @@ failure:
 void AccessDevice::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:DataTypes.AccessDevice)
-  // optional string device_name = 1;
-  if (this->device_name().size() > 0) {
+  // optional string name = 1;
+  if (this->name().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->device_name().data(), this->device_name().length(),
+      this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "DataTypes.AccessDevice.device_name");
+      "DataTypes.AccessDevice.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->device_name(), output);
+      1, this->name(), output);
+  }
+
+  // optional fixed64 serial_number = 2;
+  if (this->serial_number() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteFixed64(2, this->serial_number(), output);
   }
 
   // @@protoc_insertion_point(serialize_end:DataTypes.AccessDevice)
@@ -244,15 +268,20 @@ void AccessDevice::SerializeWithCachedSizes(
 ::google::protobuf::uint8* AccessDevice::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:DataTypes.AccessDevice)
-  // optional string device_name = 1;
-  if (this->device_name().size() > 0) {
+  // optional string name = 1;
+  if (this->name().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->device_name().data(), this->device_name().length(),
+      this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "DataTypes.AccessDevice.device_name");
+      "DataTypes.AccessDevice.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->device_name(), target);
+        1, this->name(), target);
+  }
+
+  // optional fixed64 serial_number = 2;
+  if (this->serial_number() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFixed64ToArray(2, this->serial_number(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:DataTypes.AccessDevice)
@@ -263,11 +292,16 @@ int AccessDevice::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:DataTypes.AccessDevice)
   int total_size = 0;
 
-  // optional string device_name = 1;
-  if (this->device_name().size() > 0) {
+  // optional string name = 1;
+  if (this->name().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->device_name());
+        this->name());
+  }
+
+  // optional fixed64 serial_number = 2;
+  if (this->serial_number() != 0) {
+    total_size += 1 + 8;
   }
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -294,9 +328,12 @@ void AccessDevice::MergeFrom(const ::google::protobuf::Message& from) {
 void AccessDevice::MergeFrom(const AccessDevice& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:DataTypes.AccessDevice)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  if (from.device_name().size() > 0) {
+  if (from.name().size() > 0) {
 
-    device_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.device_name_);
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  if (from.serial_number() != 0) {
+    set_serial_number(from.serial_number());
   }
 }
 
@@ -324,7 +361,8 @@ void AccessDevice::Swap(AccessDevice* other) {
   InternalSwap(other);
 }
 void AccessDevice::InternalSwap(AccessDevice* other) {
-  device_name_.Swap(&other->device_name_);
+  name_.Swap(&other->name_);
+  std::swap(serial_number_, other->serial_number_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -340,48 +378,62 @@ void AccessDevice::InternalSwap(AccessDevice* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // AccessDevice
 
-// optional string device_name = 1;
-void AccessDevice::clear_device_name() {
-  device_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional string name = 1;
+void AccessDevice::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& AccessDevice::device_name() const {
-  // @@protoc_insertion_point(field_get:DataTypes.AccessDevice.device_name)
-  return device_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ const ::std::string& AccessDevice::name() const {
+  // @@protoc_insertion_point(field_get:DataTypes.AccessDevice.name)
+  return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void AccessDevice::set_device_name(const ::std::string& value) {
+ void AccessDevice::set_name(const ::std::string& value) {
   
-  device_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:DataTypes.AccessDevice.device_name)
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:DataTypes.AccessDevice.name)
 }
- void AccessDevice::set_device_name(const char* value) {
+ void AccessDevice::set_name(const char* value) {
   
-  device_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:DataTypes.AccessDevice.device_name)
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:DataTypes.AccessDevice.name)
 }
- void AccessDevice::set_device_name(const char* value, size_t size) {
+ void AccessDevice::set_name(const char* value, size_t size) {
   
-  device_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:DataTypes.AccessDevice.device_name)
+  // @@protoc_insertion_point(field_set_pointer:DataTypes.AccessDevice.name)
 }
- ::std::string* AccessDevice::mutable_device_name() {
+ ::std::string* AccessDevice::mutable_name() {
   
-  // @@protoc_insertion_point(field_mutable:DataTypes.AccessDevice.device_name)
-  return device_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:DataTypes.AccessDevice.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* AccessDevice::release_device_name() {
-  // @@protoc_insertion_point(field_release:DataTypes.AccessDevice.device_name)
+ ::std::string* AccessDevice::release_name() {
+  // @@protoc_insertion_point(field_release:DataTypes.AccessDevice.name)
   
-  return device_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void AccessDevice::set_allocated_device_name(::std::string* device_name) {
-  if (device_name != NULL) {
+ void AccessDevice::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
     
   } else {
     
   }
-  device_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), device_name);
-  // @@protoc_insertion_point(field_set_allocated:DataTypes.AccessDevice.device_name)
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:DataTypes.AccessDevice.name)
+}
+
+// optional fixed64 serial_number = 2;
+void AccessDevice::clear_serial_number() {
+  serial_number_ = GOOGLE_ULONGLONG(0);
+}
+ ::google::protobuf::uint64 AccessDevice::serial_number() const {
+  // @@protoc_insertion_point(field_get:DataTypes.AccessDevice.serial_number)
+  return serial_number_;
+}
+ void AccessDevice::set_serial_number(::google::protobuf::uint64 value) {
+  
+  serial_number_ = value;
+  // @@protoc_insertion_point(field_set:DataTypes.AccessDevice.serial_number)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
