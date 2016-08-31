@@ -127,14 +127,14 @@ class Unit : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .DataTypes.ConnectedUnit unit = 1;
-  bool has_unit() const;
-  void clear_unit();
-  static const int kUnitFieldNumber = 1;
-  const ::DataTypes::ConnectedUnit& unit() const;
-  ::DataTypes::ConnectedUnit* mutable_unit();
-  ::DataTypes::ConnectedUnit* release_unit();
-  void set_allocated_unit(::DataTypes::ConnectedUnit* unit);
+  // optional .DataTypes.ConnectedUnit connected_unit = 1;
+  bool has_connected_unit() const;
+  void clear_connected_unit();
+  static const int kConnectedUnitFieldNumber = 1;
+  const ::DataTypes::ConnectedUnit& connected_unit() const;
+  ::DataTypes::ConnectedUnit* mutable_connected_unit();
+  ::DataTypes::ConnectedUnit* release_connected_unit();
+  void set_allocated_connected_unit(::DataTypes::ConnectedUnit* connected_unit);
 
   // optional int64 heartbeat_time = 2;
   void clear_heartbeat_time();
@@ -156,7 +156,7 @@ class Unit : public ::google::protobuf::Message {
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::DataTypes::ConnectedUnit* unit_;
+  ::DataTypes::ConnectedUnit* connected_unit_;
   ::google::protobuf::int64 heartbeat_time_;
   ::DataTypes::Locations* locations_;
   mutable int _cached_size_;
@@ -320,14 +320,14 @@ class UpdatedUnit : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .DataTypes.Unit unit = 1;
-  bool has_unit() const;
-  void clear_unit();
-  static const int kUnitFieldNumber = 1;
-  const ::DataTypes::Unit& unit() const;
-  ::DataTypes::Unit* mutable_unit();
-  ::DataTypes::Unit* release_unit();
-  void set_allocated_unit(::DataTypes::Unit* unit);
+  // optional .DataTypes.Unit current_unit = 1;
+  bool has_current_unit() const;
+  void clear_current_unit();
+  static const int kCurrentUnitFieldNumber = 1;
+  const ::DataTypes::Unit& current_unit() const;
+  ::DataTypes::Unit* mutable_current_unit();
+  ::DataTypes::Unit* release_current_unit();
+  void set_allocated_current_unit(::DataTypes::Unit* current_unit);
 
   // optional .DataTypes.UnitState state = 2;
   void clear_state();
@@ -340,7 +340,7 @@ class UpdatedUnit : public ::google::protobuf::Message {
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::DataTypes::Unit* unit_;
+  ::DataTypes::Unit* current_unit_;
   int state_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_datatypes_2funit_2eproto();
@@ -687,42 +687,42 @@ class UnitLocationState : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // Unit
 
-// optional .DataTypes.ConnectedUnit unit = 1;
-inline bool Unit::has_unit() const {
-  return !_is_default_instance_ && unit_ != NULL;
+// optional .DataTypes.ConnectedUnit connected_unit = 1;
+inline bool Unit::has_connected_unit() const {
+  return !_is_default_instance_ && connected_unit_ != NULL;
 }
-inline void Unit::clear_unit() {
-  if (GetArenaNoVirtual() == NULL && unit_ != NULL) delete unit_;
-  unit_ = NULL;
+inline void Unit::clear_connected_unit() {
+  if (GetArenaNoVirtual() == NULL && connected_unit_ != NULL) delete connected_unit_;
+  connected_unit_ = NULL;
 }
-inline const ::DataTypes::ConnectedUnit& Unit::unit() const {
-  // @@protoc_insertion_point(field_get:DataTypes.Unit.unit)
-  return unit_ != NULL ? *unit_ : *default_instance_->unit_;
+inline const ::DataTypes::ConnectedUnit& Unit::connected_unit() const {
+  // @@protoc_insertion_point(field_get:DataTypes.Unit.connected_unit)
+  return connected_unit_ != NULL ? *connected_unit_ : *default_instance_->connected_unit_;
 }
-inline ::DataTypes::ConnectedUnit* Unit::mutable_unit() {
+inline ::DataTypes::ConnectedUnit* Unit::mutable_connected_unit() {
   
-  if (unit_ == NULL) {
-    unit_ = new ::DataTypes::ConnectedUnit;
+  if (connected_unit_ == NULL) {
+    connected_unit_ = new ::DataTypes::ConnectedUnit;
   }
-  // @@protoc_insertion_point(field_mutable:DataTypes.Unit.unit)
-  return unit_;
+  // @@protoc_insertion_point(field_mutable:DataTypes.Unit.connected_unit)
+  return connected_unit_;
 }
-inline ::DataTypes::ConnectedUnit* Unit::release_unit() {
-  // @@protoc_insertion_point(field_release:DataTypes.Unit.unit)
+inline ::DataTypes::ConnectedUnit* Unit::release_connected_unit() {
+  // @@protoc_insertion_point(field_release:DataTypes.Unit.connected_unit)
   
-  ::DataTypes::ConnectedUnit* temp = unit_;
-  unit_ = NULL;
+  ::DataTypes::ConnectedUnit* temp = connected_unit_;
+  connected_unit_ = NULL;
   return temp;
 }
-inline void Unit::set_allocated_unit(::DataTypes::ConnectedUnit* unit) {
-  delete unit_;
-  unit_ = unit;
-  if (unit) {
+inline void Unit::set_allocated_connected_unit(::DataTypes::ConnectedUnit* connected_unit) {
+  delete connected_unit_;
+  connected_unit_ = connected_unit;
+  if (connected_unit) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:DataTypes.Unit.unit)
+  // @@protoc_insertion_point(field_set_allocated:DataTypes.Unit.connected_unit)
 }
 
 // optional int64 heartbeat_time = 2;
@@ -873,42 +873,42 @@ inline void ConnectedUnit::set_allocated_mac_address(::std::string* mac_address)
 
 // UpdatedUnit
 
-// optional .DataTypes.Unit unit = 1;
-inline bool UpdatedUnit::has_unit() const {
-  return !_is_default_instance_ && unit_ != NULL;
+// optional .DataTypes.Unit current_unit = 1;
+inline bool UpdatedUnit::has_current_unit() const {
+  return !_is_default_instance_ && current_unit_ != NULL;
 }
-inline void UpdatedUnit::clear_unit() {
-  if (GetArenaNoVirtual() == NULL && unit_ != NULL) delete unit_;
-  unit_ = NULL;
+inline void UpdatedUnit::clear_current_unit() {
+  if (GetArenaNoVirtual() == NULL && current_unit_ != NULL) delete current_unit_;
+  current_unit_ = NULL;
 }
-inline const ::DataTypes::Unit& UpdatedUnit::unit() const {
-  // @@protoc_insertion_point(field_get:DataTypes.UpdatedUnit.unit)
-  return unit_ != NULL ? *unit_ : *default_instance_->unit_;
+inline const ::DataTypes::Unit& UpdatedUnit::current_unit() const {
+  // @@protoc_insertion_point(field_get:DataTypes.UpdatedUnit.current_unit)
+  return current_unit_ != NULL ? *current_unit_ : *default_instance_->current_unit_;
 }
-inline ::DataTypes::Unit* UpdatedUnit::mutable_unit() {
+inline ::DataTypes::Unit* UpdatedUnit::mutable_current_unit() {
   
-  if (unit_ == NULL) {
-    unit_ = new ::DataTypes::Unit;
+  if (current_unit_ == NULL) {
+    current_unit_ = new ::DataTypes::Unit;
   }
-  // @@protoc_insertion_point(field_mutable:DataTypes.UpdatedUnit.unit)
-  return unit_;
+  // @@protoc_insertion_point(field_mutable:DataTypes.UpdatedUnit.current_unit)
+  return current_unit_;
 }
-inline ::DataTypes::Unit* UpdatedUnit::release_unit() {
-  // @@protoc_insertion_point(field_release:DataTypes.UpdatedUnit.unit)
+inline ::DataTypes::Unit* UpdatedUnit::release_current_unit() {
+  // @@protoc_insertion_point(field_release:DataTypes.UpdatedUnit.current_unit)
   
-  ::DataTypes::Unit* temp = unit_;
-  unit_ = NULL;
+  ::DataTypes::Unit* temp = current_unit_;
+  current_unit_ = NULL;
   return temp;
 }
-inline void UpdatedUnit::set_allocated_unit(::DataTypes::Unit* unit) {
-  delete unit_;
-  unit_ = unit;
-  if (unit) {
+inline void UpdatedUnit::set_allocated_current_unit(::DataTypes::Unit* current_unit) {
+  delete current_unit_;
+  current_unit_ = current_unit;
+  if (current_unit) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:DataTypes.UpdatedUnit.unit)
+  // @@protoc_insertion_point(field_set_allocated:DataTypes.UpdatedUnit.current_unit)
 }
 
 // optional .DataTypes.UnitState state = 2;

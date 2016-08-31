@@ -24,25 +24,26 @@ namespace DataTypes {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChRkYXRhdHlwZXMvdW5pdC5wcm90bxIJRGF0YVR5cGVzGhhkYXRhdHlwZXMv",
-            "bG9jYXRpb24ucHJvdG8ibwoEVW5pdBImCgR1bml0GAEgASgLMhguRGF0YVR5",
-            "cGVzLkNvbm5lY3RlZFVuaXQSFgoOaGVhcnRiZWF0X3RpbWUYAiABKAMSJwoJ",
-            "bG9jYXRpb25zGAMgASgLMhQuRGF0YVR5cGVzLkxvY2F0aW9ucyI4Cg1Db25u",
-            "ZWN0ZWRVbml0EhIKCmlwX2FkZHJlc3MYASABKAkSEwoLbWFjX2FkZHJlc3MY",
-            "AiABKAkiUQoLVXBkYXRlZFVuaXQSHQoEdW5pdBgBIAEoCzIPLkRhdGFUeXBl",
-            "cy5Vbml0EiMKBXN0YXRlGAIgASgOMhQuRGF0YVR5cGVzLlVuaXRTdGF0ZSI1",
-            "CgxVcGRhdGVkVW5pdHMSJQoFaXRlbXMYASADKAsyFi5EYXRhVHlwZXMuVXBk",
-            "YXRlZFVuaXQiJwoFVW5pdHMSHgoFaXRlbXMYASADKAsyDy5EYXRhVHlwZXMu",
-            "VW5pdCIuChFVbml0Q29uZmlndXJhdGlvbhIZChFtYXN0ZXJfaXBfYWRkcmVz",
-            "cxgBIAEoCSI8ChFVbml0TG9jYXRpb25TdGF0ZRInCgVzdGF0ZRgBIAEoDjIY",
-            "LkRhdGFUeXBlcy5Mb2NhdGlvblN0YXRlKkMKCVVuaXRTdGF0ZRIOCgpOb25l",
-            "X1N0YXRlEAASDAoISW5zZXJ0ZWQQARILCgdEZWxldGVkEAISCwoHVXBkYXRl",
-            "ZBADQg8KB2V4LmdycGOiAgNSVEdiBnByb3RvMw=="));
+            "bG9jYXRpb24ucHJvdG8ieQoEVW5pdBIwCg5jb25uZWN0ZWRfdW5pdBgBIAEo",
+            "CzIYLkRhdGFUeXBlcy5Db25uZWN0ZWRVbml0EhYKDmhlYXJ0YmVhdF90aW1l",
+            "GAIgASgDEicKCWxvY2F0aW9ucxgDIAEoCzIULkRhdGFUeXBlcy5Mb2NhdGlv",
+            "bnMiOAoNQ29ubmVjdGVkVW5pdBISCgppcF9hZGRyZXNzGAEgASgJEhMKC21h",
+            "Y19hZGRyZXNzGAIgASgJIlkKC1VwZGF0ZWRVbml0EiUKDGN1cnJlbnRfdW5p",
+            "dBgBIAEoCzIPLkRhdGFUeXBlcy5Vbml0EiMKBXN0YXRlGAIgASgOMhQuRGF0",
+            "YVR5cGVzLlVuaXRTdGF0ZSI1CgxVcGRhdGVkVW5pdHMSJQoFaXRlbXMYASAD",
+            "KAsyFi5EYXRhVHlwZXMuVXBkYXRlZFVuaXQiJwoFVW5pdHMSHgoFaXRlbXMY",
+            "ASADKAsyDy5EYXRhVHlwZXMuVW5pdCIuChFVbml0Q29uZmlndXJhdGlvbhIZ",
+            "ChFtYXN0ZXJfaXBfYWRkcmVzcxgBIAEoCSI8ChFVbml0TG9jYXRpb25TdGF0",
+            "ZRInCgVzdGF0ZRgBIAEoDjIYLkRhdGFUeXBlcy5Mb2NhdGlvblN0YXRlKkMK",
+            "CVVuaXRTdGF0ZRIOCgpOb25lX1N0YXRlEAASDAoISW5zZXJ0ZWQQARILCgdE",
+            "ZWxldGVkEAISCwoHVXBkYXRlZBADQg8KB2V4LmdycGOiAgNSVEdiBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::DataTypes.LocationReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.UnitState), }, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Unit), global::DataTypes.Unit.Parser, new[]{ "Unit_", "HeartbeatTime", "Locations" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Unit), global::DataTypes.Unit.Parser, new[]{ "ConnectedUnit", "HeartbeatTime", "Locations" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.ConnectedUnit), global::DataTypes.ConnectedUnit.Parser, new[]{ "IpAddress", "MacAddress" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.UpdatedUnit), global::DataTypes.UpdatedUnit.Parser, new[]{ "Unit", "State" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.UpdatedUnit), global::DataTypes.UpdatedUnit.Parser, new[]{ "CurrentUnit", "State" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.UpdatedUnits), global::DataTypes.UpdatedUnits.Parser, new[]{ "Items" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Units), global::DataTypes.Units.Parser, new[]{ "Items" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.UnitConfiguration), global::DataTypes.UnitConfiguration.Parser, new[]{ "MasterIpAddress" }, null, null, null),
@@ -83,7 +84,7 @@ namespace DataTypes {
     partial void OnConstruction();
 
     public Unit(Unit other) : this() {
-      Unit_ = other.unit_ != null ? other.Unit_.Clone() : null;
+      ConnectedUnit = other.connectedUnit_ != null ? other.ConnectedUnit.Clone() : null;
       heartbeatTime_ = other.heartbeatTime_;
       Locations = other.locations_ != null ? other.Locations.Clone() : null;
     }
@@ -92,13 +93,13 @@ namespace DataTypes {
       return new Unit(this);
     }
 
-    /// <summary>Field number for the "unit" field.</summary>
-    public const int Unit_FieldNumber = 1;
-    private global::DataTypes.ConnectedUnit unit_;
-    public global::DataTypes.ConnectedUnit Unit_ {
-      get { return unit_; }
+    /// <summary>Field number for the "connected_unit" field.</summary>
+    public const int ConnectedUnitFieldNumber = 1;
+    private global::DataTypes.ConnectedUnit connectedUnit_;
+    public global::DataTypes.ConnectedUnit ConnectedUnit {
+      get { return connectedUnit_; }
       set {
-        unit_ = value;
+        connectedUnit_ = value;
       }
     }
 
@@ -133,7 +134,7 @@ namespace DataTypes {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(Unit_, other.Unit_)) return false;
+      if (!object.Equals(ConnectedUnit, other.ConnectedUnit)) return false;
       if (HeartbeatTime != other.HeartbeatTime) return false;
       if (!object.Equals(Locations, other.Locations)) return false;
       return true;
@@ -141,7 +142,7 @@ namespace DataTypes {
 
     public override int GetHashCode() {
       int hash = 1;
-      if (unit_ != null) hash ^= Unit_.GetHashCode();
+      if (connectedUnit_ != null) hash ^= ConnectedUnit.GetHashCode();
       if (HeartbeatTime != 0L) hash ^= HeartbeatTime.GetHashCode();
       if (locations_ != null) hash ^= Locations.GetHashCode();
       return hash;
@@ -152,9 +153,9 @@ namespace DataTypes {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (unit_ != null) {
+      if (connectedUnit_ != null) {
         output.WriteRawTag(10);
-        output.WriteMessage(Unit_);
+        output.WriteMessage(ConnectedUnit);
       }
       if (HeartbeatTime != 0L) {
         output.WriteRawTag(16);
@@ -168,8 +169,8 @@ namespace DataTypes {
 
     public int CalculateSize() {
       int size = 0;
-      if (unit_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Unit_);
+      if (connectedUnit_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ConnectedUnit);
       }
       if (HeartbeatTime != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(HeartbeatTime);
@@ -184,11 +185,11 @@ namespace DataTypes {
       if (other == null) {
         return;
       }
-      if (other.unit_ != null) {
-        if (unit_ == null) {
-          unit_ = new global::DataTypes.ConnectedUnit();
+      if (other.connectedUnit_ != null) {
+        if (connectedUnit_ == null) {
+          connectedUnit_ = new global::DataTypes.ConnectedUnit();
         }
-        Unit_.MergeFrom(other.Unit_);
+        ConnectedUnit.MergeFrom(other.ConnectedUnit);
       }
       if (other.HeartbeatTime != 0L) {
         HeartbeatTime = other.HeartbeatTime;
@@ -209,10 +210,10 @@ namespace DataTypes {
             input.SkipLastField();
             break;
           case 10: {
-            if (unit_ == null) {
-              unit_ = new global::DataTypes.ConnectedUnit();
+            if (connectedUnit_ == null) {
+              connectedUnit_ = new global::DataTypes.ConnectedUnit();
             }
-            input.ReadMessage(unit_);
+            input.ReadMessage(connectedUnit_);
             break;
           }
           case 16: {
@@ -382,7 +383,7 @@ namespace DataTypes {
     partial void OnConstruction();
 
     public UpdatedUnit(UpdatedUnit other) : this() {
-      Unit = other.unit_ != null ? other.Unit.Clone() : null;
+      CurrentUnit = other.currentUnit_ != null ? other.CurrentUnit.Clone() : null;
       state_ = other.state_;
     }
 
@@ -390,13 +391,13 @@ namespace DataTypes {
       return new UpdatedUnit(this);
     }
 
-    /// <summary>Field number for the "unit" field.</summary>
-    public const int UnitFieldNumber = 1;
-    private global::DataTypes.Unit unit_;
-    public global::DataTypes.Unit Unit {
-      get { return unit_; }
+    /// <summary>Field number for the "current_unit" field.</summary>
+    public const int CurrentUnitFieldNumber = 1;
+    private global::DataTypes.Unit currentUnit_;
+    public global::DataTypes.Unit CurrentUnit {
+      get { return currentUnit_; }
       set {
-        unit_ = value;
+        currentUnit_ = value;
       }
     }
 
@@ -421,14 +422,14 @@ namespace DataTypes {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(Unit, other.Unit)) return false;
+      if (!object.Equals(CurrentUnit, other.CurrentUnit)) return false;
       if (State != other.State) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
-      if (unit_ != null) hash ^= Unit.GetHashCode();
+      if (currentUnit_ != null) hash ^= CurrentUnit.GetHashCode();
       if (State != 0) hash ^= State.GetHashCode();
       return hash;
     }
@@ -438,9 +439,9 @@ namespace DataTypes {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (unit_ != null) {
+      if (currentUnit_ != null) {
         output.WriteRawTag(10);
-        output.WriteMessage(Unit);
+        output.WriteMessage(CurrentUnit);
       }
       if (State != 0) {
         output.WriteRawTag(16);
@@ -450,8 +451,8 @@ namespace DataTypes {
 
     public int CalculateSize() {
       int size = 0;
-      if (unit_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Unit);
+      if (currentUnit_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CurrentUnit);
       }
       if (State != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) State);
@@ -463,11 +464,11 @@ namespace DataTypes {
       if (other == null) {
         return;
       }
-      if (other.unit_ != null) {
-        if (unit_ == null) {
-          unit_ = new global::DataTypes.Unit();
+      if (other.currentUnit_ != null) {
+        if (currentUnit_ == null) {
+          currentUnit_ = new global::DataTypes.Unit();
         }
-        Unit.MergeFrom(other.Unit);
+        CurrentUnit.MergeFrom(other.CurrentUnit);
       }
       if (other.State != 0) {
         State = other.State;
@@ -482,10 +483,10 @@ namespace DataTypes {
             input.SkipLastField();
             break;
           case 10: {
-            if (unit_ == null) {
-              unit_ = new global::DataTypes.Unit();
+            if (currentUnit_ == null) {
+              currentUnit_ = new global::DataTypes.Unit();
             }
-            input.ReadMessage(unit_);
+            input.ReadMessage(currentUnit_);
             break;
           }
           case 16: {

@@ -55,7 +55,7 @@ void protobuf_AssignDesc_datatypes_2funit_2eproto() {
   GOOGLE_CHECK(file != NULL);
   Unit_descriptor_ = file->message_type(0);
   static const int Unit_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Unit, unit_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Unit, connected_unit_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Unit, heartbeat_time_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Unit, locations_),
   };
@@ -88,7 +88,7 @@ void protobuf_AssignDesc_datatypes_2funit_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ConnectedUnit, _is_default_instance_));
   UpdatedUnit_descriptor_ = file->message_type(2);
   static const int UpdatedUnit_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UpdatedUnit, unit_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UpdatedUnit, current_unit_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UpdatedUnit, state_),
   };
   UpdatedUnit_reflection_ =
@@ -219,21 +219,21 @@ void protobuf_AddDesc_datatypes_2funit_2eproto() {
   ::DataTypes::protobuf_AddDesc_datatypes_2flocation_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\024datatypes/unit.proto\022\tDataTypes\032\030datat"
-    "ypes/location.proto\"o\n\004Unit\022&\n\004unit\030\001 \001("
-    "\0132\030.DataTypes.ConnectedUnit\022\026\n\016heartbeat"
-    "_time\030\002 \001(\003\022\'\n\tlocations\030\003 \001(\0132\024.DataTyp"
-    "es.Locations\"8\n\rConnectedUnit\022\022\n\nip_addr"
-    "ess\030\001 \001(\t\022\023\n\013mac_address\030\002 \001(\t\"Q\n\013Update"
-    "dUnit\022\035\n\004unit\030\001 \001(\0132\017.DataTypes.Unit\022#\n\005"
-    "state\030\002 \001(\0162\024.DataTypes.UnitState\"5\n\014Upd"
-    "atedUnits\022%\n\005items\030\001 \003(\0132\026.DataTypes.Upd"
-    "atedUnit\"\'\n\005Units\022\036\n\005items\030\001 \003(\0132\017.DataT"
-    "ypes.Unit\".\n\021UnitConfiguration\022\031\n\021master"
-    "_ip_address\030\001 \001(\t\"<\n\021UnitLocationState\022\'"
-    "\n\005state\030\001 \001(\0162\030.DataTypes.LocationState*"
-    "C\n\tUnitState\022\016\n\nNone_State\020\000\022\014\n\010Inserted"
-    "\020\001\022\013\n\007Deleted\020\002\022\013\n\007Updated\020\003B\017\n\007ex.grpc\242"
-    "\002\003RTGb\006proto3", 613);
+    "ypes/location.proto\"y\n\004Unit\0220\n\016connected"
+    "_unit\030\001 \001(\0132\030.DataTypes.ConnectedUnit\022\026\n"
+    "\016heartbeat_time\030\002 \001(\003\022\'\n\tlocations\030\003 \001(\013"
+    "2\024.DataTypes.Locations\"8\n\rConnectedUnit\022"
+    "\022\n\nip_address\030\001 \001(\t\022\023\n\013mac_address\030\002 \001(\t"
+    "\"Y\n\013UpdatedUnit\022%\n\014current_unit\030\001 \001(\0132\017."
+    "DataTypes.Unit\022#\n\005state\030\002 \001(\0162\024.DataType"
+    "s.UnitState\"5\n\014UpdatedUnits\022%\n\005items\030\001 \003"
+    "(\0132\026.DataTypes.UpdatedUnit\"\'\n\005Units\022\036\n\005i"
+    "tems\030\001 \003(\0132\017.DataTypes.Unit\".\n\021UnitConfi"
+    "guration\022\031\n\021master_ip_address\030\001 \001(\t\"<\n\021U"
+    "nitLocationState\022\'\n\005state\030\001 \001(\0162\030.DataTy"
+    "pes.LocationState*C\n\tUnitState\022\016\n\nNone_S"
+    "tate\020\000\022\014\n\010Inserted\020\001\022\013\n\007Deleted\020\002\022\013\n\007Upd"
+    "ated\020\003B\017\n\007ex.grpc\242\002\003RTGb\006proto3", 631);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "datatypes/unit.proto", &protobuf_RegisterTypes);
   Unit::default_instance_ = new Unit();
@@ -289,7 +289,7 @@ static void MergeFromFail(int line) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Unit::kUnitFieldNumber;
+const int Unit::kConnectedUnitFieldNumber;
 const int Unit::kHeartbeatTimeFieldNumber;
 const int Unit::kLocationsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -302,7 +302,7 @@ Unit::Unit()
 
 void Unit::InitAsDefaultInstance() {
   _is_default_instance_ = true;
-  unit_ = const_cast< ::DataTypes::ConnectedUnit*>(&::DataTypes::ConnectedUnit::default_instance());
+  connected_unit_ = const_cast< ::DataTypes::ConnectedUnit*>(&::DataTypes::ConnectedUnit::default_instance());
   locations_ = const_cast< ::DataTypes::Locations*>(&::DataTypes::Locations::default_instance());
 }
 
@@ -317,7 +317,7 @@ Unit::Unit(const Unit& from)
 void Unit::SharedCtor() {
     _is_default_instance_ = false;
   _cached_size_ = 0;
-  unit_ = NULL;
+  connected_unit_ = NULL;
   heartbeat_time_ = GOOGLE_LONGLONG(0);
   locations_ = NULL;
 }
@@ -329,7 +329,7 @@ Unit::~Unit() {
 
 void Unit::SharedDtor() {
   if (this != default_instance_) {
-    delete unit_;
+    delete connected_unit_;
     delete locations_;
   }
 }
@@ -361,8 +361,8 @@ Unit* Unit::New(::google::protobuf::Arena* arena) const {
 
 void Unit::Clear() {
 // @@protoc_insertion_point(message_clear_start:DataTypes.Unit)
-  if (GetArenaNoVirtual() == NULL && unit_ != NULL) delete unit_;
-  unit_ = NULL;
+  if (GetArenaNoVirtual() == NULL && connected_unit_ != NULL) delete connected_unit_;
+  connected_unit_ = NULL;
   heartbeat_time_ = GOOGLE_LONGLONG(0);
   if (GetArenaNoVirtual() == NULL && locations_ != NULL) delete locations_;
   locations_ = NULL;
@@ -378,11 +378,11 @@ bool Unit::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .DataTypes.ConnectedUnit unit = 1;
+      // optional .DataTypes.ConnectedUnit connected_unit = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_unit()));
+               input, mutable_connected_unit()));
         } else {
           goto handle_unusual;
         }
@@ -442,10 +442,10 @@ failure:
 void Unit::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:DataTypes.Unit)
-  // optional .DataTypes.ConnectedUnit unit = 1;
-  if (this->has_unit()) {
+  // optional .DataTypes.ConnectedUnit connected_unit = 1;
+  if (this->has_connected_unit()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, *this->unit_, output);
+      1, *this->connected_unit_, output);
   }
 
   // optional int64 heartbeat_time = 2;
@@ -465,11 +465,11 @@ void Unit::SerializeWithCachedSizes(
 ::google::protobuf::uint8* Unit::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:DataTypes.Unit)
-  // optional .DataTypes.ConnectedUnit unit = 1;
-  if (this->has_unit()) {
+  // optional .DataTypes.ConnectedUnit connected_unit = 1;
+  if (this->has_connected_unit()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, *this->unit_, target);
+        1, *this->connected_unit_, target);
   }
 
   // optional int64 heartbeat_time = 2;
@@ -492,11 +492,11 @@ int Unit::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:DataTypes.Unit)
   int total_size = 0;
 
-  // optional .DataTypes.ConnectedUnit unit = 1;
-  if (this->has_unit()) {
+  // optional .DataTypes.ConnectedUnit connected_unit = 1;
+  if (this->has_connected_unit()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->unit_);
+        *this->connected_unit_);
   }
 
   // optional int64 heartbeat_time = 2;
@@ -537,8 +537,8 @@ void Unit::MergeFrom(const ::google::protobuf::Message& from) {
 void Unit::MergeFrom(const Unit& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:DataTypes.Unit)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  if (from.has_unit()) {
-    mutable_unit()->::DataTypes::ConnectedUnit::MergeFrom(from.unit());
+  if (from.has_connected_unit()) {
+    mutable_connected_unit()->::DataTypes::ConnectedUnit::MergeFrom(from.connected_unit());
   }
   if (from.heartbeat_time() != 0) {
     set_heartbeat_time(from.heartbeat_time());
@@ -572,7 +572,7 @@ void Unit::Swap(Unit* other) {
   InternalSwap(other);
 }
 void Unit::InternalSwap(Unit* other) {
-  std::swap(unit_, other->unit_);
+  std::swap(connected_unit_, other->connected_unit_);
   std::swap(heartbeat_time_, other->heartbeat_time_);
   std::swap(locations_, other->locations_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -590,42 +590,42 @@ void Unit::InternalSwap(Unit* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Unit
 
-// optional .DataTypes.ConnectedUnit unit = 1;
-bool Unit::has_unit() const {
-  return !_is_default_instance_ && unit_ != NULL;
+// optional .DataTypes.ConnectedUnit connected_unit = 1;
+bool Unit::has_connected_unit() const {
+  return !_is_default_instance_ && connected_unit_ != NULL;
 }
-void Unit::clear_unit() {
-  if (GetArenaNoVirtual() == NULL && unit_ != NULL) delete unit_;
-  unit_ = NULL;
+void Unit::clear_connected_unit() {
+  if (GetArenaNoVirtual() == NULL && connected_unit_ != NULL) delete connected_unit_;
+  connected_unit_ = NULL;
 }
-const ::DataTypes::ConnectedUnit& Unit::unit() const {
-  // @@protoc_insertion_point(field_get:DataTypes.Unit.unit)
-  return unit_ != NULL ? *unit_ : *default_instance_->unit_;
+const ::DataTypes::ConnectedUnit& Unit::connected_unit() const {
+  // @@protoc_insertion_point(field_get:DataTypes.Unit.connected_unit)
+  return connected_unit_ != NULL ? *connected_unit_ : *default_instance_->connected_unit_;
 }
-::DataTypes::ConnectedUnit* Unit::mutable_unit() {
+::DataTypes::ConnectedUnit* Unit::mutable_connected_unit() {
   
-  if (unit_ == NULL) {
-    unit_ = new ::DataTypes::ConnectedUnit;
+  if (connected_unit_ == NULL) {
+    connected_unit_ = new ::DataTypes::ConnectedUnit;
   }
-  // @@protoc_insertion_point(field_mutable:DataTypes.Unit.unit)
-  return unit_;
+  // @@protoc_insertion_point(field_mutable:DataTypes.Unit.connected_unit)
+  return connected_unit_;
 }
-::DataTypes::ConnectedUnit* Unit::release_unit() {
-  // @@protoc_insertion_point(field_release:DataTypes.Unit.unit)
+::DataTypes::ConnectedUnit* Unit::release_connected_unit() {
+  // @@protoc_insertion_point(field_release:DataTypes.Unit.connected_unit)
   
-  ::DataTypes::ConnectedUnit* temp = unit_;
-  unit_ = NULL;
+  ::DataTypes::ConnectedUnit* temp = connected_unit_;
+  connected_unit_ = NULL;
   return temp;
 }
-void Unit::set_allocated_unit(::DataTypes::ConnectedUnit* unit) {
-  delete unit_;
-  unit_ = unit;
-  if (unit) {
+void Unit::set_allocated_connected_unit(::DataTypes::ConnectedUnit* connected_unit) {
+  delete connected_unit_;
+  connected_unit_ = connected_unit;
+  if (connected_unit) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:DataTypes.Unit.unit)
+  // @@protoc_insertion_point(field_set_allocated:DataTypes.Unit.connected_unit)
 }
 
 // optional int64 heartbeat_time = 2;
@@ -1063,7 +1063,7 @@ void ConnectedUnit::clear_mac_address() {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int UpdatedUnit::kUnitFieldNumber;
+const int UpdatedUnit::kCurrentUnitFieldNumber;
 const int UpdatedUnit::kStateFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -1075,7 +1075,7 @@ UpdatedUnit::UpdatedUnit()
 
 void UpdatedUnit::InitAsDefaultInstance() {
   _is_default_instance_ = true;
-  unit_ = const_cast< ::DataTypes::Unit*>(&::DataTypes::Unit::default_instance());
+  current_unit_ = const_cast< ::DataTypes::Unit*>(&::DataTypes::Unit::default_instance());
 }
 
 UpdatedUnit::UpdatedUnit(const UpdatedUnit& from)
@@ -1089,7 +1089,7 @@ UpdatedUnit::UpdatedUnit(const UpdatedUnit& from)
 void UpdatedUnit::SharedCtor() {
     _is_default_instance_ = false;
   _cached_size_ = 0;
-  unit_ = NULL;
+  current_unit_ = NULL;
   state_ = 0;
 }
 
@@ -1100,7 +1100,7 @@ UpdatedUnit::~UpdatedUnit() {
 
 void UpdatedUnit::SharedDtor() {
   if (this != default_instance_) {
-    delete unit_;
+    delete current_unit_;
   }
 }
 
@@ -1131,8 +1131,8 @@ UpdatedUnit* UpdatedUnit::New(::google::protobuf::Arena* arena) const {
 
 void UpdatedUnit::Clear() {
 // @@protoc_insertion_point(message_clear_start:DataTypes.UpdatedUnit)
-  if (GetArenaNoVirtual() == NULL && unit_ != NULL) delete unit_;
-  unit_ = NULL;
+  if (GetArenaNoVirtual() == NULL && current_unit_ != NULL) delete current_unit_;
+  current_unit_ = NULL;
   state_ = 0;
 }
 
@@ -1146,11 +1146,11 @@ bool UpdatedUnit::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .DataTypes.Unit unit = 1;
+      // optional .DataTypes.Unit current_unit = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_unit()));
+               input, mutable_current_unit()));
         } else {
           goto handle_unusual;
         }
@@ -1198,10 +1198,10 @@ failure:
 void UpdatedUnit::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:DataTypes.UpdatedUnit)
-  // optional .DataTypes.Unit unit = 1;
-  if (this->has_unit()) {
+  // optional .DataTypes.Unit current_unit = 1;
+  if (this->has_current_unit()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, *this->unit_, output);
+      1, *this->current_unit_, output);
   }
 
   // optional .DataTypes.UnitState state = 2;
@@ -1216,11 +1216,11 @@ void UpdatedUnit::SerializeWithCachedSizes(
 ::google::protobuf::uint8* UpdatedUnit::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:DataTypes.UpdatedUnit)
-  // optional .DataTypes.Unit unit = 1;
-  if (this->has_unit()) {
+  // optional .DataTypes.Unit current_unit = 1;
+  if (this->has_current_unit()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, *this->unit_, target);
+        1, *this->current_unit_, target);
   }
 
   // optional .DataTypes.UnitState state = 2;
@@ -1237,11 +1237,11 @@ int UpdatedUnit::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:DataTypes.UpdatedUnit)
   int total_size = 0;
 
-  // optional .DataTypes.Unit unit = 1;
-  if (this->has_unit()) {
+  // optional .DataTypes.Unit current_unit = 1;
+  if (this->has_current_unit()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->unit_);
+        *this->current_unit_);
   }
 
   // optional .DataTypes.UnitState state = 2;
@@ -1274,8 +1274,8 @@ void UpdatedUnit::MergeFrom(const ::google::protobuf::Message& from) {
 void UpdatedUnit::MergeFrom(const UpdatedUnit& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:DataTypes.UpdatedUnit)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  if (from.has_unit()) {
-    mutable_unit()->::DataTypes::Unit::MergeFrom(from.unit());
+  if (from.has_current_unit()) {
+    mutable_current_unit()->::DataTypes::Unit::MergeFrom(from.current_unit());
   }
   if (from.state() != 0) {
     set_state(from.state());
@@ -1306,7 +1306,7 @@ void UpdatedUnit::Swap(UpdatedUnit* other) {
   InternalSwap(other);
 }
 void UpdatedUnit::InternalSwap(UpdatedUnit* other) {
-  std::swap(unit_, other->unit_);
+  std::swap(current_unit_, other->current_unit_);
   std::swap(state_, other->state_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -1323,42 +1323,42 @@ void UpdatedUnit::InternalSwap(UpdatedUnit* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // UpdatedUnit
 
-// optional .DataTypes.Unit unit = 1;
-bool UpdatedUnit::has_unit() const {
-  return !_is_default_instance_ && unit_ != NULL;
+// optional .DataTypes.Unit current_unit = 1;
+bool UpdatedUnit::has_current_unit() const {
+  return !_is_default_instance_ && current_unit_ != NULL;
 }
-void UpdatedUnit::clear_unit() {
-  if (GetArenaNoVirtual() == NULL && unit_ != NULL) delete unit_;
-  unit_ = NULL;
+void UpdatedUnit::clear_current_unit() {
+  if (GetArenaNoVirtual() == NULL && current_unit_ != NULL) delete current_unit_;
+  current_unit_ = NULL;
 }
-const ::DataTypes::Unit& UpdatedUnit::unit() const {
-  // @@protoc_insertion_point(field_get:DataTypes.UpdatedUnit.unit)
-  return unit_ != NULL ? *unit_ : *default_instance_->unit_;
+const ::DataTypes::Unit& UpdatedUnit::current_unit() const {
+  // @@protoc_insertion_point(field_get:DataTypes.UpdatedUnit.current_unit)
+  return current_unit_ != NULL ? *current_unit_ : *default_instance_->current_unit_;
 }
-::DataTypes::Unit* UpdatedUnit::mutable_unit() {
+::DataTypes::Unit* UpdatedUnit::mutable_current_unit() {
   
-  if (unit_ == NULL) {
-    unit_ = new ::DataTypes::Unit;
+  if (current_unit_ == NULL) {
+    current_unit_ = new ::DataTypes::Unit;
   }
-  // @@protoc_insertion_point(field_mutable:DataTypes.UpdatedUnit.unit)
-  return unit_;
+  // @@protoc_insertion_point(field_mutable:DataTypes.UpdatedUnit.current_unit)
+  return current_unit_;
 }
-::DataTypes::Unit* UpdatedUnit::release_unit() {
-  // @@protoc_insertion_point(field_release:DataTypes.UpdatedUnit.unit)
+::DataTypes::Unit* UpdatedUnit::release_current_unit() {
+  // @@protoc_insertion_point(field_release:DataTypes.UpdatedUnit.current_unit)
   
-  ::DataTypes::Unit* temp = unit_;
-  unit_ = NULL;
+  ::DataTypes::Unit* temp = current_unit_;
+  current_unit_ = NULL;
   return temp;
 }
-void UpdatedUnit::set_allocated_unit(::DataTypes::Unit* unit) {
-  delete unit_;
-  unit_ = unit;
-  if (unit) {
+void UpdatedUnit::set_allocated_current_unit(::DataTypes::Unit* current_unit) {
+  delete current_unit_;
+  current_unit_ = current_unit;
+  if (current_unit) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:DataTypes.UpdatedUnit.unit)
+  // @@protoc_insertion_point(field_set_allocated:DataTypes.UpdatedUnit.current_unit)
 }
 
 // optional .DataTypes.UnitState state = 2;
