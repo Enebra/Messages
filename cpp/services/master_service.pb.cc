@@ -64,18 +64,18 @@ void protobuf_AddDesc_services_2fmaster_5fservice_2eproto() {
     "\n\035services/master_service.proto\022\010Service"
     "s\032\033google/protobuf/empty.proto\032\024datatype"
     "s/unit.proto\032\030datatypes/location.proto\032\034"
-    "datatypes/visit_record.proto2\230\003\n\rMasterS"
+    "datatypes/visit_record.proto2\232\003\n\rMasterS"
     "ervice\022=\n\007Connect\022\030.DataTypes.ConnectedU"
-    "nit\032\026.google.protobuf.Empty\"\000\022=\n\tHeartbe"
-    "at\022\026.google.protobuf.Empty\032\026.google.prot"
-    "obuf.Empty\"\000\022\?\n\rSendLocations\022\024.DataType"
-    "s.Locations\032\026.google.protobuf.Empty\"\000\022A\n"
-    "\014SendActivity\022\027.DataTypes.VisitRecords\032\026"
-    ".google.protobuf.Empty\"\000\022M\n\023NotifyLocati"
-    "onState\022\034.DataTypes.UnitLocationState\032\026."
-    "google.protobuf.Empty\"\000\0226\n\010GetUnits\022\026.go"
-    "ogle.protobuf.Empty\032\020.DataTypes.Units\"\000B"
-    "\017\n\007ex.grpc\242\002\003RTGb\006proto3", 584);
+    "nit\032\026.google.protobuf.Empty\"\000\022\?\n\tHeartbe"
+    "at\022\030.DataTypes.ConnectedUnit\032\026.google.pr"
+    "otobuf.Empty\"\000\022\?\n\rSendLocations\022\024.DataTy"
+    "pes.Locations\032\026.google.protobuf.Empty\"\000\022"
+    "A\n\014SendActivity\022\027.DataTypes.VisitRecords"
+    "\032\026.google.protobuf.Empty\"\000\022M\n\023NotifyLoca"
+    "tionState\022\034.DataTypes.UnitLocationState\032"
+    "\026.google.protobuf.Empty\"\000\0226\n\010GetUnits\022\026."
+    "google.protobuf.Empty\032\020.DataTypes.Units\""
+    "\000B\017\n\007ex.grpc\242\002\003RTGb\006proto3", 586);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "services/master_service.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_services_2fmaster_5fservice_2eproto);

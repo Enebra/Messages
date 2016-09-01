@@ -46,11 +46,11 @@ MasterService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& chan
   return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_Connect_, context, request);
 }
 
-::grpc::Status MasterService::Stub::Heartbeat(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::google::protobuf::Empty* response) {
+::grpc::Status MasterService::Stub::Heartbeat(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::google::protobuf::Empty* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_Heartbeat_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* MasterService::Stub::AsyncHeartbeatRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* MasterService::Stub::AsyncHeartbeatRaw(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_Heartbeat_, context, request);
 }
 
@@ -96,7 +96,7 @@ MasterService::Service::Service() {
   AddMethod(new ::grpc::RpcServiceMethod(
       MasterService_method_names[1],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< MasterService::Service, ::google::protobuf::Empty, ::google::protobuf::Empty>(
+      new ::grpc::RpcMethodHandler< MasterService::Service, ::DataTypes::ConnectedUnit, ::google::protobuf::Empty>(
           std::mem_fn(&MasterService::Service::Heartbeat), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
       MasterService_method_names[2],
@@ -130,7 +130,7 @@ MasterService::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status MasterService::Service::Heartbeat(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::google::protobuf::Empty* response) {
+::grpc::Status MasterService::Service::Heartbeat(::grpc::ServerContext* context, const ::DataTypes::ConnectedUnit* request, ::google::protobuf::Empty* response) {
   (void) context;
   (void) request;
   (void) response;

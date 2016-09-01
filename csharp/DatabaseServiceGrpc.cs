@@ -27,6 +27,7 @@ namespace Services {
     static readonly Marshaller<global::DataTypes.VisitRecord> __Marshaller_VisitRecord = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.VisitRecord.Parser.ParseFrom);
     static readonly Marshaller<global::DataTypes.Photo> __Marshaller_Photo = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Photo.Parser.ParseFrom);
     static readonly Marshaller<global::DataTypes.UnitConfiguration> __Marshaller_UnitConfiguration = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.UnitConfiguration.Parser.ParseFrom);
+    static readonly Marshaller<global::DataTypes.ConnectedUnit> __Marshaller_ConnectedUnit = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.ConnectedUnit.Parser.ParseFrom);
 
     static readonly Method<global::Services.GetPersonRequest, global::DataTypes.Persons> __Method_GetPerson = new Method<global::Services.GetPersonRequest, global::DataTypes.Persons>(
         MethodType.Unary,
@@ -161,6 +162,20 @@ namespace Services {
         __Marshaller_Empty,
         __Marshaller_UnitConfiguration);
 
+    static readonly Method<global::DataTypes.ConnectedUnit, global::DataTypes.UnitConfiguration> __Method_RegisterUnit = new Method<global::DataTypes.ConnectedUnit, global::DataTypes.UnitConfiguration>(
+        MethodType.Unary,
+        __ServiceName,
+        "RegisterUnit",
+        __Marshaller_ConnectedUnit,
+        __Marshaller_UnitConfiguration);
+
+    static readonly Method<global::DataTypes.ConnectedUnit, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UnregisterUnit = new Method<global::DataTypes.ConnectedUnit, global::Google.Protobuf.WellKnownTypes.Empty>(
+        MethodType.Unary,
+        __ServiceName,
+        "UnregisterUnit",
+        __Marshaller_ConnectedUnit,
+        __Marshaller_Empty);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -261,6 +276,16 @@ namespace Services {
       }
 
       public virtual global::System.Threading.Tasks.Task<global::DataTypes.UnitConfiguration> GetConfig(global::Google.Protobuf.WellKnownTypes.Empty request, ServerCallContext context)
+      {
+        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::DataTypes.UnitConfiguration> RegisterUnit(global::DataTypes.ConnectedUnit request, ServerCallContext context)
+      {
+        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> UnregisterUnit(global::DataTypes.ConnectedUnit request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
@@ -594,6 +619,38 @@ namespace Services {
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetConfig, null, options, request);
       }
+      public virtual global::DataTypes.UnitConfiguration RegisterUnit(global::DataTypes.ConnectedUnit request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return RegisterUnit(request, new CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::DataTypes.UnitConfiguration RegisterUnit(global::DataTypes.ConnectedUnit request, CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_RegisterUnit, null, options, request);
+      }
+      public virtual AsyncUnaryCall<global::DataTypes.UnitConfiguration> RegisterUnitAsync(global::DataTypes.ConnectedUnit request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return RegisterUnitAsync(request, new CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual AsyncUnaryCall<global::DataTypes.UnitConfiguration> RegisterUnitAsync(global::DataTypes.ConnectedUnit request, CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_RegisterUnit, null, options, request);
+      }
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty UnregisterUnit(global::DataTypes.ConnectedUnit request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return UnregisterUnit(request, new CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty UnregisterUnit(global::DataTypes.ConnectedUnit request, CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_UnregisterUnit, null, options, request);
+      }
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UnregisterUnitAsync(global::DataTypes.ConnectedUnit request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return UnregisterUnitAsync(request, new CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UnregisterUnitAsync(global::DataTypes.ConnectedUnit request, CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_UnregisterUnit, null, options, request);
+      }
       protected override DatabaseSeviceClient NewInstance(ClientBaseConfiguration configuration)
       {
         return new DatabaseSeviceClient(configuration);
@@ -622,7 +679,9 @@ namespace Services {
           .AddMethod(__Method_DeleteVisitRecord, serviceImpl.DeleteVisitRecord)
           .AddMethod(__Method_InsertPhoto, serviceImpl.InsertPhoto)
           .AddMethod(__Method_DeletePhoto, serviceImpl.DeletePhoto)
-          .AddMethod(__Method_GetConfig, serviceImpl.GetConfig).Build();
+          .AddMethod(__Method_GetConfig, serviceImpl.GetConfig)
+          .AddMethod(__Method_RegisterUnit, serviceImpl.RegisterUnit)
+          .AddMethod(__Method_UnregisterUnit, serviceImpl.UnregisterUnit).Build();
     }
 
   }

@@ -13,7 +13,7 @@ package Services;
 service MasterService
 {
   rpc Connect             ( DataTypes.ConnectedUnit     ) returns ( google.protobuf.Empty  ) {}
-  rpc Heartbeat           ( google.protobuf.Empty       ) returns ( google.protobuf.Empty  ) {}
+  rpc Heartbeat           ( DataTypes.ConnectedUnit     ) returns ( google.protobuf.Empty  ) {}
   rpc SendLocations       ( DataTypes.Locations         ) returns ( google.protobuf.Empty  ) {}
   rpc SendActivity        ( DataTypes.VisitRecords      ) returns ( google.protobuf.Empty  ) {} 
   rpc NotifyLocationState ( DataTypes.UnitLocationState ) returns ( google.protobuf.Empty  ) {}

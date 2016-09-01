@@ -16,28 +16,30 @@ package Services;
 
 service DatabaseSevice
 {  
-  rpc GetPerson           ( GetPersonRequest        ) returns ( DataTypes.Persons      ) {}
-  rpc InsertPerson        ( DataTypes.Person        ) returns ( DataTypes.Person       ) {}    	
-  rpc UpdatePerson        ( DataTypes.Person        ) returns ( google.protobuf.Empty  ) {}
-  rpc DeletePerson        ( DataTypes.Person        ) returns ( google.protobuf.Empty  ) {}
-					      						    
-  rpc GetCard             ( GetCardRequest          ) returns ( DataTypes.Cards        ) {}    	
-  rpc InsertCard          ( DataTypes.Card          ) returns ( DataTypes.Card         ) {}    	
-  rpc UpdateCard          ( DataTypes.Card          ) returns ( google.protobuf.Empty  ) {}
-  rpc DeleteCard          ( DataTypes.Card          ) returns ( google.protobuf.Empty  ) {}
-					      						    
-  rpc GetLocation         ( GetLocationRequest      ) returns ( DataTypes.Locations    ) {}
-  rpc InsertLocation      ( DataTypes.Location      ) returns ( DataTypes.Location     ) {}    	
-  rpc UpdateLocation      ( DataTypes.Location      ) returns ( google.protobuf.Empty  ) {}
-  rpc DeleteLocation      ( DataTypes.Location      ) returns ( google.protobuf.Empty  ) {}
+  rpc GetPerson           ( GetPersonRequest        ) returns ( DataTypes.Persons           ) {}
+  rpc InsertPerson        ( DataTypes.Person        ) returns ( DataTypes.Person            ) {}    	
+  rpc UpdatePerson        ( DataTypes.Person        ) returns ( google.protobuf.Empty       ) {}
+  rpc DeletePerson        ( DataTypes.Person        ) returns ( google.protobuf.Empty       ) {}
+					      						    								        
+  rpc GetCard             ( GetCardRequest          ) returns ( DataTypes.Cards             ) {}    	
+  rpc InsertCard          ( DataTypes.Card          ) returns ( DataTypes.Card              ) {}    	
+  rpc UpdateCard          ( DataTypes.Card          ) returns ( google.protobuf.Empty       ) {}
+  rpc DeleteCard          ( DataTypes.Card          ) returns ( google.protobuf.Empty       ) {}
+					      						    								        
+  rpc GetLocation         ( GetLocationRequest      ) returns ( DataTypes.Locations         ) {}
+  rpc InsertLocation      ( DataTypes.Location      ) returns ( DataTypes.Location          ) {}    	
+  rpc UpdateLocation      ( DataTypes.Location      ) returns ( google.protobuf.Empty       ) {}
+  rpc DeleteLocation      ( DataTypes.Location      ) returns ( google.protobuf.Empty       ) {}
+																					        
+  rpc GetVisitRecords     ( GetVisitRecordRequest   ) returns ( DataTypes.VisitRecords      ) {}
+  rpc InsertVisitRecord   ( DataTypes.VisitRecord   ) returns ( DataTypes.VisitRecord       ) {}    	
+  rpc UpdateVisitRecord   ( DataTypes.VisitRecord   ) returns ( google.protobuf.Empty       ) {}
+  rpc DeleteVisitRecord   ( DataTypes.VisitRecord   ) returns ( google.protobuf.Empty       ) {}
+																					        
+  rpc InsertPhoto         ( DataTypes.Photo         ) returns ( DataTypes.Photo             ) {}    	
+  rpc DeletePhoto         ( DataTypes.Photo         ) returns ( google.protobuf.Empty       ) {}
 
-  rpc GetVisitRecords     ( GetVisitRecordRequest   ) returns ( DataTypes.VisitRecords ) {}
-  rpc InsertVisitRecord   ( DataTypes.VisitRecord   ) returns ( DataTypes.VisitRecord  ) {}    	
-  rpc UpdateVisitRecord   ( DataTypes.VisitRecord   ) returns ( google.protobuf.Empty  ) {}
-  rpc DeleteVisitRecord   ( DataTypes.VisitRecord   ) returns ( google.protobuf.Empty  ) {}
-
-  rpc InsertPhoto         ( DataTypes.Photo  ) returns ( DataTypes.Photo        ) {}    	
-  rpc DeletePhoto         ( DataTypes.Photo  ) returns ( google.protobuf.Empty  ) {}
-
-  rpc GetConfig           ( google.protobuf.Empty ) returns ( DataTypes.UnitConfiguration  ) {}
+  rpc GetConfig           ( google.protobuf.Empty   ) returns ( DataTypes.UnitConfiguration ) {}
+  rpc RegisterUnit        ( DataTypes.ConnectedUnit ) returns ( DataTypes.UnitConfiguration ) {}
+  rpc UnregisterUnit      ( DataTypes.ConnectedUnit ) returns ( google.protobuf.Empty       ) {}
 }

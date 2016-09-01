@@ -71,7 +71,7 @@ void protobuf_AddDesc_services_2fdatabase_5fservice_2eproto() {
     "datatypes/photo.proto\032\030datatypes/locatio"
     "n.proto\032\034datatypes/visit_record.proto\032\024d"
     "atatypes/unit.proto\032\026services/queries.pr"
-    "oto2\274\t\n\016DatabaseSevice\022=\n\tGetPerson\022\032.Se"
+    "oto2\314\n\n\016DatabaseSevice\022=\n\tGetPerson\022\032.Se"
     "rvices.GetPersonRequest\032\022.DataTypes.Pers"
     "ons\"\000\0226\n\014InsertPerson\022\021.DataTypes.Person"
     "\032\021.DataTypes.Person\"\000\022;\n\014UpdatePerson\022\021."
@@ -101,8 +101,11 @@ void protobuf_AddDesc_services_2fdatabase_5fservice_2eproto() {
     "es.Photo\"\000\0229\n\013DeletePhoto\022\020.DataTypes.Ph"
     "oto\032\026.google.protobuf.Empty\"\000\022C\n\tGetConf"
     "ig\022\026.google.protobuf.Empty\032\034.DataTypes.U"
-    "nitConfiguration\"\000B\017\n\007ex.grpc\242\002\003RTGb\006pro"
-    "to3", 1483);
+    "nitConfiguration\"\000\022H\n\014RegisterUnit\022\030.Dat"
+    "aTypes.ConnectedUnit\032\034.DataTypes.UnitCon"
+    "figuration\"\000\022D\n\016UnregisterUnit\022\030.DataTyp"
+    "es.ConnectedUnit\032\026.google.protobuf.Empty"
+    "\"\000B\017\n\007ex.grpc\242\002\003RTGb\006proto3", 1627);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "services/database_service.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_services_2fdatabase_5fservice_2eproto);
