@@ -38,9 +38,9 @@ class MasterService GRPC_FINAL {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncHeartbeat(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncHeartbeatRaw(context, request, cq));
     }
-    virtual ::grpc::Status SendLocations(::grpc::ClientContext* context, const ::DataTypes::Locations& request, ::google::protobuf::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncSendLocations(::grpc::ClientContext* context, const ::DataTypes::Locations& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncSendLocationsRaw(context, request, cq));
+    virtual ::grpc::Status SendLocation(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::google::protobuf::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncSendLocation(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncSendLocationRaw(context, request, cq));
     }
     virtual ::grpc::Status SendActivity(::grpc::ClientContext* context, const ::DataTypes::VisitRecords& request, ::google::protobuf::Empty* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncSendActivity(::grpc::ClientContext* context, const ::DataTypes::VisitRecords& request, ::grpc::CompletionQueue* cq) {
@@ -57,7 +57,7 @@ class MasterService GRPC_FINAL {
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncConnectRaw(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncHeartbeatRaw(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncSendLocationsRaw(::grpc::ClientContext* context, const ::DataTypes::Locations& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncSendLocationRaw(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncSendActivityRaw(::grpc::ClientContext* context, const ::DataTypes::VisitRecords& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncNotifyLocationStateRaw(::grpc::ClientContext* context, const ::DataTypes::UnitLocationState& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::Units>* AsyncGetUnitsRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
@@ -73,9 +73,9 @@ class MasterService GRPC_FINAL {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncHeartbeat(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncHeartbeatRaw(context, request, cq));
     }
-    ::grpc::Status SendLocations(::grpc::ClientContext* context, const ::DataTypes::Locations& request, ::google::protobuf::Empty* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncSendLocations(::grpc::ClientContext* context, const ::DataTypes::Locations& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncSendLocationsRaw(context, request, cq));
+    ::grpc::Status SendLocation(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::google::protobuf::Empty* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncSendLocation(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncSendLocationRaw(context, request, cq));
     }
     ::grpc::Status SendActivity(::grpc::ClientContext* context, const ::DataTypes::VisitRecords& request, ::google::protobuf::Empty* response) GRPC_OVERRIDE;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncSendActivity(::grpc::ClientContext* context, const ::DataTypes::VisitRecords& request, ::grpc::CompletionQueue* cq) {
@@ -94,13 +94,13 @@ class MasterService GRPC_FINAL {
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncConnectRaw(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncHeartbeatRaw(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncSendLocationsRaw(::grpc::ClientContext* context, const ::DataTypes::Locations& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncSendLocationRaw(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncSendActivityRaw(::grpc::ClientContext* context, const ::DataTypes::VisitRecords& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncNotifyLocationStateRaw(::grpc::ClientContext* context, const ::DataTypes::UnitLocationState& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     ::grpc::ClientAsyncResponseReader< ::DataTypes::Units>* AsyncGetUnitsRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     const ::grpc::RpcMethod rpcmethod_Connect_;
     const ::grpc::RpcMethod rpcmethod_Heartbeat_;
-    const ::grpc::RpcMethod rpcmethod_SendLocations_;
+    const ::grpc::RpcMethod rpcmethod_SendLocation_;
     const ::grpc::RpcMethod rpcmethod_SendActivity_;
     const ::grpc::RpcMethod rpcmethod_NotifyLocationState_;
     const ::grpc::RpcMethod rpcmethod_GetUnits_;
@@ -113,7 +113,7 @@ class MasterService GRPC_FINAL {
     virtual ~Service();
     virtual ::grpc::Status Connect(::grpc::ServerContext* context, const ::DataTypes::ConnectedUnit* request, ::google::protobuf::Empty* response);
     virtual ::grpc::Status Heartbeat(::grpc::ServerContext* context, const ::DataTypes::ConnectedUnit* request, ::google::protobuf::Empty* response);
-    virtual ::grpc::Status SendLocations(::grpc::ServerContext* context, const ::DataTypes::Locations* request, ::google::protobuf::Empty* response);
+    virtual ::grpc::Status SendLocation(::grpc::ServerContext* context, const ::DataTypes::Location* request, ::google::protobuf::Empty* response);
     virtual ::grpc::Status SendActivity(::grpc::ServerContext* context, const ::DataTypes::VisitRecords* request, ::google::protobuf::Empty* response);
     virtual ::grpc::Status NotifyLocationState(::grpc::ServerContext* context, const ::DataTypes::UnitLocationState* request, ::google::protobuf::Empty* response);
     virtual ::grpc::Status GetUnits(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::DataTypes::Units* response);
@@ -159,22 +159,22 @@ class MasterService GRPC_FINAL {
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_SendLocations : public BaseClass {
+  class WithAsyncMethod_SendLocation : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithAsyncMethod_SendLocations() {
+    WithAsyncMethod_SendLocation() {
       ::grpc::Service::MarkMethodAsync(2);
     }
-    ~WithAsyncMethod_SendLocations() GRPC_OVERRIDE {
+    ~WithAsyncMethod_SendLocation() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendLocations(::grpc::ServerContext* context, const ::DataTypes::Locations* request, ::google::protobuf::Empty* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status SendLocation(::grpc::ServerContext* context, const ::DataTypes::Location* request, ::google::protobuf::Empty* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestSendLocations(::grpc::ServerContext* context, ::DataTypes::Locations* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestSendLocation(::grpc::ServerContext* context, ::DataTypes::Location* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -238,7 +238,7 @@ class MasterService GRPC_FINAL {
       ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_Connect<WithAsyncMethod_Heartbeat<WithAsyncMethod_SendLocations<WithAsyncMethod_SendActivity<WithAsyncMethod_NotifyLocationState<WithAsyncMethod_GetUnits<Service > > > > > > AsyncService;
+  typedef WithAsyncMethod_Connect<WithAsyncMethod_Heartbeat<WithAsyncMethod_SendLocation<WithAsyncMethod_SendActivity<WithAsyncMethod_NotifyLocationState<WithAsyncMethod_GetUnits<Service > > > > > > AsyncService;
   template <class BaseClass>
   class WithGenericMethod_Connect : public BaseClass {
    private:
@@ -274,18 +274,18 @@ class MasterService GRPC_FINAL {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_SendLocations : public BaseClass {
+  class WithGenericMethod_SendLocation : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithGenericMethod_SendLocations() {
+    WithGenericMethod_SendLocation() {
       ::grpc::Service::MarkMethodGeneric(2);
     }
-    ~WithGenericMethod_SendLocations() GRPC_OVERRIDE {
+    ~WithGenericMethod_SendLocation() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendLocations(::grpc::ServerContext* context, const ::DataTypes::Locations* request, ::google::protobuf::Empty* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status SendLocation(::grpc::ServerContext* context, const ::DataTypes::Location* request, ::google::protobuf::Empty* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }

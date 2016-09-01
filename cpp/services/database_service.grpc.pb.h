@@ -102,13 +102,9 @@ class DatabaseSevice GRPC_FINAL {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncDeletePhoto(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncDeletePhotoRaw(context, request, cq));
     }
-    virtual ::grpc::Status GetConfig(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::DataTypes::UnitConfiguration* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::UnitConfiguration>> AsyncGetConfig(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+    virtual ::grpc::Status GetConfig(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::DataTypes::UnitConfiguration* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::UnitConfiguration>> AsyncGetConfig(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::UnitConfiguration>>(AsyncGetConfigRaw(context, request, cq));
-    }
-    virtual ::grpc::Status RegisterUnit(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::DataTypes::UnitConfiguration* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::UnitConfiguration>> AsyncRegisterUnit(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::UnitConfiguration>>(AsyncRegisterUnitRaw(context, request, cq));
     }
     virtual ::grpc::Status UnregisterUnit(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::google::protobuf::Empty* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncUnregisterUnit(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::grpc::CompletionQueue* cq) {
@@ -133,8 +129,7 @@ class DatabaseSevice GRPC_FINAL {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncDeleteVisitRecordRaw(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::Photo>* AsyncInsertPhotoRaw(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncDeletePhotoRaw(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::UnitConfiguration>* AsyncGetConfigRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::UnitConfiguration>* AsyncRegisterUnitRaw(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::UnitConfiguration>* AsyncGetConfigRaw(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncUnregisterUnitRaw(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub GRPC_FINAL : public StubInterface {
@@ -212,13 +207,9 @@ class DatabaseSevice GRPC_FINAL {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncDeletePhoto(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncDeletePhotoRaw(context, request, cq));
     }
-    ::grpc::Status GetConfig(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::DataTypes::UnitConfiguration* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DataTypes::UnitConfiguration>> AsyncGetConfig(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+    ::grpc::Status GetConfig(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::DataTypes::UnitConfiguration* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DataTypes::UnitConfiguration>> AsyncGetConfig(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DataTypes::UnitConfiguration>>(AsyncGetConfigRaw(context, request, cq));
-    }
-    ::grpc::Status RegisterUnit(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::DataTypes::UnitConfiguration* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DataTypes::UnitConfiguration>> AsyncRegisterUnit(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DataTypes::UnitConfiguration>>(AsyncRegisterUnitRaw(context, request, cq));
     }
     ::grpc::Status UnregisterUnit(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::google::protobuf::Empty* response) GRPC_OVERRIDE;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncUnregisterUnit(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::grpc::CompletionQueue* cq) {
@@ -245,8 +236,7 @@ class DatabaseSevice GRPC_FINAL {
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncDeleteVisitRecordRaw(::grpc::ClientContext* context, const ::DataTypes::VisitRecord& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     ::grpc::ClientAsyncResponseReader< ::DataTypes::Photo>* AsyncInsertPhotoRaw(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncDeletePhotoRaw(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncResponseReader< ::DataTypes::UnitConfiguration>* AsyncGetConfigRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncResponseReader< ::DataTypes::UnitConfiguration>* AsyncRegisterUnitRaw(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::DataTypes::UnitConfiguration>* AsyncGetConfigRaw(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncUnregisterUnitRaw(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     const ::grpc::RpcMethod rpcmethod_GetPerson_;
     const ::grpc::RpcMethod rpcmethod_InsertPerson_;
@@ -267,7 +257,6 @@ class DatabaseSevice GRPC_FINAL {
     const ::grpc::RpcMethod rpcmethod_InsertPhoto_;
     const ::grpc::RpcMethod rpcmethod_DeletePhoto_;
     const ::grpc::RpcMethod rpcmethod_GetConfig_;
-    const ::grpc::RpcMethod rpcmethod_RegisterUnit_;
     const ::grpc::RpcMethod rpcmethod_UnregisterUnit_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -294,8 +283,7 @@ class DatabaseSevice GRPC_FINAL {
     virtual ::grpc::Status DeleteVisitRecord(::grpc::ServerContext* context, const ::DataTypes::VisitRecord* request, ::google::protobuf::Empty* response);
     virtual ::grpc::Status InsertPhoto(::grpc::ServerContext* context, const ::DataTypes::Photo* request, ::DataTypes::Photo* response);
     virtual ::grpc::Status DeletePhoto(::grpc::ServerContext* context, const ::DataTypes::Photo* request, ::google::protobuf::Empty* response);
-    virtual ::grpc::Status GetConfig(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::DataTypes::UnitConfiguration* response);
-    virtual ::grpc::Status RegisterUnit(::grpc::ServerContext* context, const ::DataTypes::ConnectedUnit* request, ::DataTypes::UnitConfiguration* response);
+    virtual ::grpc::Status GetConfig(::grpc::ServerContext* context, const ::DataTypes::ConnectedUnit* request, ::DataTypes::UnitConfiguration* response);
     virtual ::grpc::Status UnregisterUnit(::grpc::ServerContext* context, const ::DataTypes::ConnectedUnit* request, ::google::protobuf::Empty* response);
   };
   template <class BaseClass>
@@ -670,32 +658,12 @@ class DatabaseSevice GRPC_FINAL {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetConfig(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::DataTypes::UnitConfiguration* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status GetConfig(::grpc::ServerContext* context, const ::DataTypes::ConnectedUnit* request, ::DataTypes::UnitConfiguration* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetConfig(::grpc::ServerContext* context, ::google::protobuf::Empty* request, ::grpc::ServerAsyncResponseWriter< ::DataTypes::UnitConfiguration>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetConfig(::grpc::ServerContext* context, ::DataTypes::ConnectedUnit* request, ::grpc::ServerAsyncResponseWriter< ::DataTypes::UnitConfiguration>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(18, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_RegisterUnit : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithAsyncMethod_RegisterUnit() {
-      ::grpc::Service::MarkMethodAsync(19);
-    }
-    ~WithAsyncMethod_RegisterUnit() GRPC_OVERRIDE {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status RegisterUnit(::grpc::ServerContext* context, const ::DataTypes::ConnectedUnit* request, ::DataTypes::UnitConfiguration* response) GRPC_FINAL GRPC_OVERRIDE {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestRegisterUnit(::grpc::ServerContext* context, ::DataTypes::ConnectedUnit* request, ::grpc::ServerAsyncResponseWriter< ::DataTypes::UnitConfiguration>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(19, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -704,7 +672,7 @@ class DatabaseSevice GRPC_FINAL {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_UnregisterUnit() {
-      ::grpc::Service::MarkMethodAsync(20);
+      ::grpc::Service::MarkMethodAsync(19);
     }
     ~WithAsyncMethod_UnregisterUnit() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
@@ -715,10 +683,10 @@ class DatabaseSevice GRPC_FINAL {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUnregisterUnit(::grpc::ServerContext* context, ::DataTypes::ConnectedUnit* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(20, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(19, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_GetPerson<WithAsyncMethod_InsertPerson<WithAsyncMethod_UpdatePerson<WithAsyncMethod_DeletePerson<WithAsyncMethod_GetCard<WithAsyncMethod_InsertCard<WithAsyncMethod_UpdateCard<WithAsyncMethod_DeleteCard<WithAsyncMethod_GetLocation<WithAsyncMethod_InsertLocation<WithAsyncMethod_UpdateLocation<WithAsyncMethod_DeleteLocation<WithAsyncMethod_GetVisitRecords<WithAsyncMethod_InsertVisitRecord<WithAsyncMethod_UpdateVisitRecord<WithAsyncMethod_DeleteVisitRecord<WithAsyncMethod_InsertPhoto<WithAsyncMethod_DeletePhoto<WithAsyncMethod_GetConfig<WithAsyncMethod_RegisterUnit<WithAsyncMethod_UnregisterUnit<Service > > > > > > > > > > > > > > > > > > > > > AsyncService;
+  typedef WithAsyncMethod_GetPerson<WithAsyncMethod_InsertPerson<WithAsyncMethod_UpdatePerson<WithAsyncMethod_DeletePerson<WithAsyncMethod_GetCard<WithAsyncMethod_InsertCard<WithAsyncMethod_UpdateCard<WithAsyncMethod_DeleteCard<WithAsyncMethod_GetLocation<WithAsyncMethod_InsertLocation<WithAsyncMethod_UpdateLocation<WithAsyncMethod_DeleteLocation<WithAsyncMethod_GetVisitRecords<WithAsyncMethod_InsertVisitRecord<WithAsyncMethod_UpdateVisitRecord<WithAsyncMethod_DeleteVisitRecord<WithAsyncMethod_InsertPhoto<WithAsyncMethod_DeletePhoto<WithAsyncMethod_GetConfig<WithAsyncMethod_UnregisterUnit<Service > > > > > > > > > > > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class WithGenericMethod_GetPerson : public BaseClass {
    private:
@@ -1037,24 +1005,7 @@ class DatabaseSevice GRPC_FINAL {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetConfig(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::DataTypes::UnitConfiguration* response) GRPC_FINAL GRPC_OVERRIDE {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_RegisterUnit : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithGenericMethod_RegisterUnit() {
-      ::grpc::Service::MarkMethodGeneric(19);
-    }
-    ~WithGenericMethod_RegisterUnit() GRPC_OVERRIDE {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status RegisterUnit(::grpc::ServerContext* context, const ::DataTypes::ConnectedUnit* request, ::DataTypes::UnitConfiguration* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status GetConfig(::grpc::ServerContext* context, const ::DataTypes::ConnectedUnit* request, ::DataTypes::UnitConfiguration* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1065,7 +1016,7 @@ class DatabaseSevice GRPC_FINAL {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_UnregisterUnit() {
-      ::grpc::Service::MarkMethodGeneric(20);
+      ::grpc::Service::MarkMethodGeneric(19);
     }
     ~WithGenericMethod_UnregisterUnit() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);

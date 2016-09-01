@@ -14,7 +14,7 @@ namespace Services {
 
     static readonly Marshaller<global::DataTypes.ConnectedUnit> __Marshaller_ConnectedUnit = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.ConnectedUnit.Parser.ParseFrom);
     static readonly Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_Empty = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Google.Protobuf.WellKnownTypes.Empty.Parser.ParseFrom);
-    static readonly Marshaller<global::DataTypes.Locations> __Marshaller_Locations = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Locations.Parser.ParseFrom);
+    static readonly Marshaller<global::DataTypes.Location> __Marshaller_Location = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Location.Parser.ParseFrom);
     static readonly Marshaller<global::DataTypes.VisitRecords> __Marshaller_VisitRecords = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.VisitRecords.Parser.ParseFrom);
     static readonly Marshaller<global::DataTypes.UnitLocationState> __Marshaller_UnitLocationState = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.UnitLocationState.Parser.ParseFrom);
     static readonly Marshaller<global::DataTypes.Units> __Marshaller_Units = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Units.Parser.ParseFrom);
@@ -33,11 +33,11 @@ namespace Services {
         __Marshaller_ConnectedUnit,
         __Marshaller_Empty);
 
-    static readonly Method<global::DataTypes.Locations, global::Google.Protobuf.WellKnownTypes.Empty> __Method_SendLocations = new Method<global::DataTypes.Locations, global::Google.Protobuf.WellKnownTypes.Empty>(
+    static readonly Method<global::DataTypes.Location, global::Google.Protobuf.WellKnownTypes.Empty> __Method_SendLocation = new Method<global::DataTypes.Location, global::Google.Protobuf.WellKnownTypes.Empty>(
         MethodType.Unary,
         __ServiceName,
-        "SendLocations",
-        __Marshaller_Locations,
+        "SendLocation",
+        __Marshaller_Location,
         __Marshaller_Empty);
 
     static readonly Method<global::DataTypes.VisitRecords, global::Google.Protobuf.WellKnownTypes.Empty> __Method_SendActivity = new Method<global::DataTypes.VisitRecords, global::Google.Protobuf.WellKnownTypes.Empty>(
@@ -80,7 +80,7 @@ namespace Services {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> SendLocations(global::DataTypes.Locations request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> SendLocation(global::DataTypes.Location request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
@@ -157,21 +157,21 @@ namespace Services {
       {
         return CallInvoker.AsyncUnaryCall(__Method_Heartbeat, null, options, request);
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty SendLocations(global::DataTypes.Locations request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty SendLocation(global::DataTypes.Location request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return SendLocations(request, new CallOptions(headers, deadline, cancellationToken));
+        return SendLocation(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty SendLocations(global::DataTypes.Locations request, CallOptions options)
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty SendLocation(global::DataTypes.Location request, CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_SendLocations, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_SendLocation, null, options, request);
       }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> SendLocationsAsync(global::DataTypes.Locations request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> SendLocationAsync(global::DataTypes.Location request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return SendLocationsAsync(request, new CallOptions(headers, deadline, cancellationToken));
+        return SendLocationAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> SendLocationsAsync(global::DataTypes.Locations request, CallOptions options)
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> SendLocationAsync(global::DataTypes.Location request, CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_SendLocations, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_SendLocation, null, options, request);
       }
       public virtual global::Google.Protobuf.WellKnownTypes.Empty SendActivity(global::DataTypes.VisitRecords request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
@@ -233,7 +233,7 @@ namespace Services {
       return ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_Connect, serviceImpl.Connect)
           .AddMethod(__Method_Heartbeat, serviceImpl.Heartbeat)
-          .AddMethod(__Method_SendLocations, serviceImpl.SendLocations)
+          .AddMethod(__Method_SendLocation, serviceImpl.SendLocation)
           .AddMethod(__Method_SendActivity, serviceImpl.SendActivity)
           .AddMethod(__Method_NotifyLocationState, serviceImpl.NotifyLocationState)
           .AddMethod(__Method_GetUnits, serviceImpl.GetUnits).Build();

@@ -39,7 +39,6 @@ service DatabaseSevice
   rpc InsertPhoto         ( DataTypes.Photo         ) returns ( DataTypes.Photo             ) {}    	
   rpc DeletePhoto         ( DataTypes.Photo         ) returns ( google.protobuf.Empty       ) {}
 
-  rpc GetConfig           ( google.protobuf.Empty   ) returns ( DataTypes.UnitConfiguration ) {}
-  rpc RegisterUnit        ( DataTypes.ConnectedUnit ) returns ( DataTypes.UnitConfiguration ) {}
+  rpc GetConfig           ( DataTypes.ConnectedUnit ) returns ( DataTypes.UnitConfiguration ) {}
   rpc UnregisterUnit      ( DataTypes.ConnectedUnit ) returns ( google.protobuf.Empty       ) {}
 }

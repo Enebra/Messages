@@ -148,7 +148,8 @@ void protobuf_AssignDesc_datatypes_2funit_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnitConfiguration, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnitConfiguration, _is_default_instance_));
   UnitLocationState_descriptor_ = file->message_type(6);
-  static const int UnitLocationState_offsets_[1] = {
+  static const int UnitLocationState_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnitLocationState, location_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UnitLocationState, state_),
   };
   UnitLocationState_reflection_ =
@@ -229,11 +230,12 @@ void protobuf_AddDesc_datatypes_2funit_2eproto() {
     "s.UnitState\"5\n\014UpdatedUnits\022%\n\005items\030\001 \003"
     "(\0132\026.DataTypes.UpdatedUnit\"\'\n\005Units\022\036\n\005i"
     "tems\030\001 \003(\0132\017.DataTypes.Unit\".\n\021UnitConfi"
-    "guration\022\031\n\021master_ip_address\030\001 \001(\t\"<\n\021U"
-    "nitLocationState\022\'\n\005state\030\001 \001(\0162\030.DataTy"
-    "pes.LocationState*C\n\tUnitState\022\016\n\nNone_S"
-    "tate\020\000\022\014\n\010Inserted\020\001\022\013\n\007Deleted\020\002\022\013\n\007Upd"
-    "ated\020\003B\017\n\007ex.grpc\242\002\003RTGb\006proto3", 631);
+    "guration\022\031\n\021master_ip_address\030\001 \001(\t\"Q\n\021U"
+    "nitLocationState\022\023\n\013location_id\030\001 \001(\t\022\'\n"
+    "\005state\030\002 \001(\0162\030.DataTypes.LocationState*C"
+    "\n\tUnitState\022\016\n\nNone_State\020\000\022\014\n\010Inserted\020"
+    "\001\022\013\n\007Deleted\020\002\022\013\n\007Updated\020\003B\017\n\007ex.grpc\242\002"
+    "\003RTGb\006proto3", 652);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "datatypes/unit.proto", &protobuf_RegisterTypes);
   Unit::default_instance_ = new Unit();
@@ -2166,6 +2168,7 @@ void UnitConfiguration::clear_master_ip_address() {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int UnitLocationState::kLocationIdFieldNumber;
 const int UnitLocationState::kStateFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -2189,7 +2192,9 @@ UnitLocationState::UnitLocationState(const UnitLocationState& from)
 
 void UnitLocationState::SharedCtor() {
     _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
+  location_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   state_ = 0;
 }
 
@@ -2199,6 +2204,7 @@ UnitLocationState::~UnitLocationState() {
 }
 
 void UnitLocationState::SharedDtor() {
+  location_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
@@ -2230,6 +2236,7 @@ UnitLocationState* UnitLocationState::New(::google::protobuf::Arena* arena) cons
 
 void UnitLocationState::Clear() {
 // @@protoc_insertion_point(message_clear_start:DataTypes.UnitLocationState)
+  location_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   state_ = 0;
 }
 
@@ -2243,9 +2250,26 @@ bool UnitLocationState::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .DataTypes.LocationState state = 1;
+      // optional string location_id = 1;
       case 1: {
-        if (tag == 8) {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_location_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->location_id().data(), this->location_id().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "DataTypes.UnitLocationState.location_id"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_state;
+        break;
+      }
+
+      // optional .DataTypes.LocationState state = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_state:
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -2282,10 +2306,20 @@ failure:
 void UnitLocationState::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:DataTypes.UnitLocationState)
-  // optional .DataTypes.LocationState state = 1;
+  // optional string location_id = 1;
+  if (this->location_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->location_id().data(), this->location_id().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "DataTypes.UnitLocationState.location_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->location_id(), output);
+  }
+
+  // optional .DataTypes.LocationState state = 2;
   if (this->state() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      1, this->state(), output);
+      2, this->state(), output);
   }
 
   // @@protoc_insertion_point(serialize_end:DataTypes.UnitLocationState)
@@ -2294,10 +2328,21 @@ void UnitLocationState::SerializeWithCachedSizes(
 ::google::protobuf::uint8* UnitLocationState::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:DataTypes.UnitLocationState)
-  // optional .DataTypes.LocationState state = 1;
+  // optional string location_id = 1;
+  if (this->location_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->location_id().data(), this->location_id().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "DataTypes.UnitLocationState.location_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->location_id(), target);
+  }
+
+  // optional .DataTypes.LocationState state = 2;
   if (this->state() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      1, this->state(), target);
+      2, this->state(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:DataTypes.UnitLocationState)
@@ -2308,7 +2353,14 @@ int UnitLocationState::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:DataTypes.UnitLocationState)
   int total_size = 0;
 
-  // optional .DataTypes.LocationState state = 1;
+  // optional string location_id = 1;
+  if (this->location_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->location_id());
+  }
+
+  // optional .DataTypes.LocationState state = 2;
   if (this->state() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->state());
@@ -2338,6 +2390,10 @@ void UnitLocationState::MergeFrom(const ::google::protobuf::Message& from) {
 void UnitLocationState::MergeFrom(const UnitLocationState& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:DataTypes.UnitLocationState)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from.location_id().size() > 0) {
+
+    location_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.location_id_);
+  }
   if (from.state() != 0) {
     set_state(from.state());
   }
@@ -2367,6 +2423,7 @@ void UnitLocationState::Swap(UnitLocationState* other) {
   InternalSwap(other);
 }
 void UnitLocationState::InternalSwap(UnitLocationState* other) {
+  location_id_.Swap(&other->location_id_);
   std::swap(state_, other->state_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -2383,7 +2440,51 @@ void UnitLocationState::InternalSwap(UnitLocationState* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // UnitLocationState
 
-// optional .DataTypes.LocationState state = 1;
+// optional string location_id = 1;
+void UnitLocationState::clear_location_id() {
+  location_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& UnitLocationState::location_id() const {
+  // @@protoc_insertion_point(field_get:DataTypes.UnitLocationState.location_id)
+  return location_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void UnitLocationState::set_location_id(const ::std::string& value) {
+  
+  location_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:DataTypes.UnitLocationState.location_id)
+}
+ void UnitLocationState::set_location_id(const char* value) {
+  
+  location_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:DataTypes.UnitLocationState.location_id)
+}
+ void UnitLocationState::set_location_id(const char* value, size_t size) {
+  
+  location_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:DataTypes.UnitLocationState.location_id)
+}
+ ::std::string* UnitLocationState::mutable_location_id() {
+  
+  // @@protoc_insertion_point(field_mutable:DataTypes.UnitLocationState.location_id)
+  return location_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* UnitLocationState::release_location_id() {
+  // @@protoc_insertion_point(field_release:DataTypes.UnitLocationState.location_id)
+  
+  return location_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void UnitLocationState::set_allocated_location_id(::std::string* location_id) {
+  if (location_id != NULL) {
+    
+  } else {
+    
+  }
+  location_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), location_id);
+  // @@protoc_insertion_point(field_set_allocated:DataTypes.UnitLocationState.location_id)
+}
+
+// optional .DataTypes.LocationState state = 2;
 void UnitLocationState::clear_state() {
   state_ = 0;
 }

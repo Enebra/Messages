@@ -28,7 +28,7 @@ namespace Services {
             "LnByb3RvGhRkYXRhdHlwZXMvY2FyZC5wcm90bxoVZGF0YXR5cGVzL3Bob3Rv",
             "LnByb3RvGhhkYXRhdHlwZXMvbG9jYXRpb24ucHJvdG8aHGRhdGF0eXBlcy92",
             "aXNpdF9yZWNvcmQucHJvdG8aFGRhdGF0eXBlcy91bml0LnByb3RvGhZzZXJ2",
-            "aWNlcy9xdWVyaWVzLnByb3RvMswKCg5EYXRhYmFzZVNldmljZRI9CglHZXRQ",
+            "aWNlcy9xdWVyaWVzLnByb3RvMoQKCg5EYXRhYmFzZVNldmljZRI9CglHZXRQ",
             "ZXJzb24SGi5TZXJ2aWNlcy5HZXRQZXJzb25SZXF1ZXN0GhIuRGF0YVR5cGVz",
             "LlBlcnNvbnMiABI2CgxJbnNlcnRQZXJzb24SES5EYXRhVHlwZXMuUGVyc29u",
             "GhEuRGF0YVR5cGVzLlBlcnNvbiIAEjsKDFVwZGF0ZVBlcnNvbhIRLkRhdGFU",
@@ -53,13 +53,11 @@ namespace Services {
             "ZVZpc2l0UmVjb3JkEhYuRGF0YVR5cGVzLlZpc2l0UmVjb3JkGhYuZ29vZ2xl",
             "LnByb3RvYnVmLkVtcHR5IgASMwoLSW5zZXJ0UGhvdG8SEC5EYXRhVHlwZXMu",
             "UGhvdG8aEC5EYXRhVHlwZXMuUGhvdG8iABI5CgtEZWxldGVQaG90bxIQLkRh",
-            "dGFUeXBlcy5QaG90bxoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEkMKCUdl",
-            "dENvbmZpZxIWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRocLkRhdGFUeXBlcy5V",
-            "bml0Q29uZmlndXJhdGlvbiIAEkgKDFJlZ2lzdGVyVW5pdBIYLkRhdGFUeXBl",
-            "cy5Db25uZWN0ZWRVbml0GhwuRGF0YVR5cGVzLlVuaXRDb25maWd1cmF0aW9u",
-            "IgASRAoOVW5yZWdpc3RlclVuaXQSGC5EYXRhVHlwZXMuQ29ubmVjdGVkVW5p",
-            "dBoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAQg8KB2V4LmdycGOiAgNSVEdi",
-            "BnByb3RvMw=="));
+            "dGFUeXBlcy5QaG90bxoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEkUKCUdl",
+            "dENvbmZpZxIYLkRhdGFUeXBlcy5Db25uZWN0ZWRVbml0GhwuRGF0YVR5cGVz",
+            "LlVuaXRDb25maWd1cmF0aW9uIgASRAoOVW5yZWdpc3RlclVuaXQSGC5EYXRh",
+            "VHlwZXMuQ29ubmVjdGVkVW5pdBoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIA",
+            "Qg8KB2V4LmdycGOiAgNSVEdiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::DataTypes.PersonReflection.Descriptor, global::DataTypes.CardReflection.Descriptor, global::DataTypes.PhotoReflection.Descriptor, global::DataTypes.LocationReflection.Descriptor, global::DataTypes.VisitRecordReflection.Descriptor, global::DataTypes.UnitReflection.Descriptor, global::Services.QueriesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null));

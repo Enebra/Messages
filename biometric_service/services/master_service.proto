@@ -14,7 +14,7 @@ service MasterService
 {
   rpc Connect             ( DataTypes.ConnectedUnit     ) returns ( google.protobuf.Empty  ) {}
   rpc Heartbeat           ( DataTypes.ConnectedUnit     ) returns ( google.protobuf.Empty  ) {}
-  rpc SendLocations       ( DataTypes.Locations         ) returns ( google.protobuf.Empty  ) {}
+  rpc SendLocation        ( DataTypes.Location          ) returns ( google.protobuf.Empty  ) {}
   rpc SendActivity        ( DataTypes.VisitRecords      ) returns ( google.protobuf.Empty  ) {} 
   rpc NotifyLocationState ( DataTypes.UnitLocationState ) returns ( google.protobuf.Empty  ) {}
   rpc GetUnits            ( google.protobuf.Empty       ) returns ( DataTypes.Units        ) {}

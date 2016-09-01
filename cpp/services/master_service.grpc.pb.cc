@@ -18,7 +18,7 @@ namespace Services {
 static const char* MasterService_method_names[] = {
   "/Services.MasterService/Connect",
   "/Services.MasterService/Heartbeat",
-  "/Services.MasterService/SendLocations",
+  "/Services.MasterService/SendLocation",
   "/Services.MasterService/SendActivity",
   "/Services.MasterService/NotifyLocationState",
   "/Services.MasterService/GetUnits",
@@ -32,7 +32,7 @@ std::unique_ptr< MasterService::Stub> MasterService::NewStub(const std::shared_p
 MasterService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_Connect_(MasterService_method_names[0], ::grpc::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_Heartbeat_(MasterService_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SendLocations_(MasterService_method_names[2], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendLocation_(MasterService_method_names[2], ::grpc::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_SendActivity_(MasterService_method_names[3], ::grpc::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_NotifyLocationState_(MasterService_method_names[4], ::grpc::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetUnits_(MasterService_method_names[5], ::grpc::RpcMethod::NORMAL_RPC, channel)
@@ -54,12 +54,12 @@ MasterService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& chan
   return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_Heartbeat_, context, request);
 }
 
-::grpc::Status MasterService::Stub::SendLocations(::grpc::ClientContext* context, const ::DataTypes::Locations& request, ::google::protobuf::Empty* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_SendLocations_, context, request, response);
+::grpc::Status MasterService::Stub::SendLocation(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::google::protobuf::Empty* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_SendLocation_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* MasterService::Stub::AsyncSendLocationsRaw(::grpc::ClientContext* context, const ::DataTypes::Locations& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_SendLocations_, context, request);
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* MasterService::Stub::AsyncSendLocationRaw(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_SendLocation_, context, request);
 }
 
 ::grpc::Status MasterService::Stub::SendActivity(::grpc::ClientContext* context, const ::DataTypes::VisitRecords& request, ::google::protobuf::Empty* response) {
@@ -101,8 +101,8 @@ MasterService::Service::Service() {
   AddMethod(new ::grpc::RpcServiceMethod(
       MasterService_method_names[2],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< MasterService::Service, ::DataTypes::Locations, ::google::protobuf::Empty>(
-          std::mem_fn(&MasterService::Service::SendLocations), this)));
+      new ::grpc::RpcMethodHandler< MasterService::Service, ::DataTypes::Location, ::google::protobuf::Empty>(
+          std::mem_fn(&MasterService::Service::SendLocation), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
       MasterService_method_names[3],
       ::grpc::RpcMethod::NORMAL_RPC,
@@ -137,7 +137,7 @@ MasterService::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status MasterService::Service::SendLocations(::grpc::ServerContext* context, const ::DataTypes::Locations* request, ::google::protobuf::Empty* response) {
+::grpc::Status MasterService::Service::SendLocation(::grpc::ServerContext* context, const ::DataTypes::Location* request, ::google::protobuf::Empty* response) {
   (void) context;
   (void) request;
   (void) response;

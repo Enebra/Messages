@@ -35,7 +35,6 @@ static const char* DatabaseSevice_method_names[] = {
   "/Services.DatabaseSevice/InsertPhoto",
   "/Services.DatabaseSevice/DeletePhoto",
   "/Services.DatabaseSevice/GetConfig",
-  "/Services.DatabaseSevice/RegisterUnit",
   "/Services.DatabaseSevice/UnregisterUnit",
 };
 
@@ -64,8 +63,7 @@ DatabaseSevice::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& cha
   , rpcmethod_InsertPhoto_(DatabaseSevice_method_names[16], ::grpc::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_DeletePhoto_(DatabaseSevice_method_names[17], ::grpc::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetConfig_(DatabaseSevice_method_names[18], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_RegisterUnit_(DatabaseSevice_method_names[19], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_UnregisterUnit_(DatabaseSevice_method_names[20], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_UnregisterUnit_(DatabaseSevice_method_names[19], ::grpc::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status DatabaseSevice::Stub::GetPerson(::grpc::ClientContext* context, const ::Services::GetPersonRequest& request, ::DataTypes::Persons* response) {
@@ -212,20 +210,12 @@ DatabaseSevice::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& cha
   return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_DeletePhoto_, context, request);
 }
 
-::grpc::Status DatabaseSevice::Stub::GetConfig(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::DataTypes::UnitConfiguration* response) {
+::grpc::Status DatabaseSevice::Stub::GetConfig(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::DataTypes::UnitConfiguration* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_GetConfig_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::DataTypes::UnitConfiguration>* DatabaseSevice::Stub::AsyncGetConfigRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::DataTypes::UnitConfiguration>* DatabaseSevice::Stub::AsyncGetConfigRaw(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::DataTypes::UnitConfiguration>(channel_.get(), cq, rpcmethod_GetConfig_, context, request);
-}
-
-::grpc::Status DatabaseSevice::Stub::RegisterUnit(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::DataTypes::UnitConfiguration* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_RegisterUnit_, context, request, response);
-}
-
-::grpc::ClientAsyncResponseReader< ::DataTypes::UnitConfiguration>* DatabaseSevice::Stub::AsyncRegisterUnitRaw(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::DataTypes::UnitConfiguration>(channel_.get(), cq, rpcmethod_RegisterUnit_, context, request);
 }
 
 ::grpc::Status DatabaseSevice::Stub::UnregisterUnit(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::google::protobuf::Empty* response) {
@@ -331,15 +321,10 @@ DatabaseSevice::Service::Service() {
   AddMethod(new ::grpc::RpcServiceMethod(
       DatabaseSevice_method_names[18],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::google::protobuf::Empty, ::DataTypes::UnitConfiguration>(
+      new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::DataTypes::ConnectedUnit, ::DataTypes::UnitConfiguration>(
           std::mem_fn(&DatabaseSevice::Service::GetConfig), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
       DatabaseSevice_method_names[19],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::DataTypes::ConnectedUnit, ::DataTypes::UnitConfiguration>(
-          std::mem_fn(&DatabaseSevice::Service::RegisterUnit), this)));
-  AddMethod(new ::grpc::RpcServiceMethod(
-      DatabaseSevice_method_names[20],
       ::grpc::RpcMethod::NORMAL_RPC,
       new ::grpc::RpcMethodHandler< DatabaseSevice::Service, ::DataTypes::ConnectedUnit, ::google::protobuf::Empty>(
           std::mem_fn(&DatabaseSevice::Service::UnregisterUnit), this)));
@@ -474,14 +459,7 @@ DatabaseSevice::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status DatabaseSevice::Service::GetConfig(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::DataTypes::UnitConfiguration* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-::grpc::Status DatabaseSevice::Service::RegisterUnit(::grpc::ServerContext* context, const ::DataTypes::ConnectedUnit* request, ::DataTypes::UnitConfiguration* response) {
+::grpc::Status DatabaseSevice::Service::GetConfig(::grpc::ServerContext* context, const ::DataTypes::ConnectedUnit* request, ::DataTypes::UnitConfiguration* response) {
   (void) context;
   (void) request;
   (void) response;

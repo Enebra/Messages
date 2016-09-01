@@ -659,9 +659,20 @@ class UnitLocationState : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .DataTypes.LocationState state = 1;
+  // optional string location_id = 1;
+  void clear_location_id();
+  static const int kLocationIdFieldNumber = 1;
+  const ::std::string& location_id() const;
+  void set_location_id(const ::std::string& value);
+  void set_location_id(const char* value);
+  void set_location_id(const char* value, size_t size);
+  ::std::string* mutable_location_id();
+  ::std::string* release_location_id();
+  void set_allocated_location_id(::std::string* location_id);
+
+  // optional .DataTypes.LocationState state = 2;
   void clear_state();
-  static const int kStateFieldNumber = 1;
+  static const int kStateFieldNumber = 2;
   ::DataTypes::LocationState state() const;
   void set_state(::DataTypes::LocationState value);
 
@@ -670,6 +681,7 @@ class UnitLocationState : public ::google::protobuf::Message {
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
+  ::google::protobuf::internal::ArenaStringPtr location_id_;
   int state_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_datatypes_2funit_2eproto();
@@ -1045,7 +1057,51 @@ inline void UnitConfiguration::set_allocated_master_ip_address(::std::string* ma
 
 // UnitLocationState
 
-// optional .DataTypes.LocationState state = 1;
+// optional string location_id = 1;
+inline void UnitLocationState::clear_location_id() {
+  location_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& UnitLocationState::location_id() const {
+  // @@protoc_insertion_point(field_get:DataTypes.UnitLocationState.location_id)
+  return location_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void UnitLocationState::set_location_id(const ::std::string& value) {
+  
+  location_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:DataTypes.UnitLocationState.location_id)
+}
+inline void UnitLocationState::set_location_id(const char* value) {
+  
+  location_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:DataTypes.UnitLocationState.location_id)
+}
+inline void UnitLocationState::set_location_id(const char* value, size_t size) {
+  
+  location_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:DataTypes.UnitLocationState.location_id)
+}
+inline ::std::string* UnitLocationState::mutable_location_id() {
+  
+  // @@protoc_insertion_point(field_mutable:DataTypes.UnitLocationState.location_id)
+  return location_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* UnitLocationState::release_location_id() {
+  // @@protoc_insertion_point(field_release:DataTypes.UnitLocationState.location_id)
+  
+  return location_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void UnitLocationState::set_allocated_location_id(::std::string* location_id) {
+  if (location_id != NULL) {
+    
+  } else {
+    
+  }
+  location_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), location_id);
+  // @@protoc_insertion_point(field_set_allocated:DataTypes.UnitLocationState.location_id)
+}
+
+// optional .DataTypes.LocationState state = 2;
 inline void UnitLocationState::clear_state() {
   state_ = 0;
 }

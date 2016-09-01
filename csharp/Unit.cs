@@ -33,11 +33,11 @@ namespace DataTypes {
             "YVR5cGVzLlVuaXRTdGF0ZSI1CgxVcGRhdGVkVW5pdHMSJQoFaXRlbXMYASAD",
             "KAsyFi5EYXRhVHlwZXMuVXBkYXRlZFVuaXQiJwoFVW5pdHMSHgoFaXRlbXMY",
             "ASADKAsyDy5EYXRhVHlwZXMuVW5pdCIuChFVbml0Q29uZmlndXJhdGlvbhIZ",
-            "ChFtYXN0ZXJfaXBfYWRkcmVzcxgBIAEoCSI8ChFVbml0TG9jYXRpb25TdGF0",
-            "ZRInCgVzdGF0ZRgBIAEoDjIYLkRhdGFUeXBlcy5Mb2NhdGlvblN0YXRlKkMK",
-            "CVVuaXRTdGF0ZRIOCgpOb25lX1N0YXRlEAASDAoISW5zZXJ0ZWQQARILCgdE",
-            "ZWxldGVkEAISCwoHVXBkYXRlZBADQg8KB2V4LmdycGOiAgNSVEdiBnByb3Rv",
-            "Mw=="));
+            "ChFtYXN0ZXJfaXBfYWRkcmVzcxgBIAEoCSJRChFVbml0TG9jYXRpb25TdGF0",
+            "ZRITCgtsb2NhdGlvbl9pZBgBIAEoCRInCgVzdGF0ZRgCIAEoDjIYLkRhdGFU",
+            "eXBlcy5Mb2NhdGlvblN0YXRlKkMKCVVuaXRTdGF0ZRIOCgpOb25lX1N0YXRl",
+            "EAASDAoISW5zZXJ0ZWQQARILCgdEZWxldGVkEAISCwoHVXBkYXRlZBADQg8K",
+            "B2V4LmdycGOiAgNSVEdiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::DataTypes.LocationReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.UnitState), }, new pbr::GeneratedClrTypeInfo[] {
@@ -47,7 +47,7 @@ namespace DataTypes {
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.UpdatedUnits), global::DataTypes.UpdatedUnits.Parser, new[]{ "Items" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Units), global::DataTypes.Units.Parser, new[]{ "Items" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.UnitConfiguration), global::DataTypes.UnitConfiguration.Parser, new[]{ "MasterIpAddress" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.UnitLocationState), global::DataTypes.UnitLocationState.Parser, new[]{ "State" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.UnitLocationState), global::DataTypes.UnitLocationState.Parser, new[]{ "LocationId", "State" }, null, null, null)
           }));
     }
     #endregion
@@ -812,6 +812,7 @@ namespace DataTypes {
     partial void OnConstruction();
 
     public UnitLocationState(UnitLocationState other) : this() {
+      locationId_ = other.locationId_;
       state_ = other.state_;
     }
 
@@ -819,8 +820,18 @@ namespace DataTypes {
       return new UnitLocationState(this);
     }
 
+    /// <summary>Field number for the "location_id" field.</summary>
+    public const int LocationIdFieldNumber = 1;
+    private string locationId_ = "";
+    public string LocationId {
+      get { return locationId_; }
+      set {
+        locationId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "state" field.</summary>
-    public const int StateFieldNumber = 1;
+    public const int StateFieldNumber = 2;
     private global::DataTypes.LocationState state_ = 0;
     public global::DataTypes.LocationState State {
       get { return state_; }
@@ -840,12 +851,14 @@ namespace DataTypes {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (LocationId != other.LocationId) return false;
       if (State != other.State) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
+      if (LocationId.Length != 0) hash ^= LocationId.GetHashCode();
       if (State != 0) hash ^= State.GetHashCode();
       return hash;
     }
@@ -855,14 +868,21 @@ namespace DataTypes {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
+      if (LocationId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(LocationId);
+      }
       if (State != 0) {
-        output.WriteRawTag(8);
+        output.WriteRawTag(16);
         output.WriteEnum((int) State);
       }
     }
 
     public int CalculateSize() {
       int size = 0;
+      if (LocationId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(LocationId);
+      }
       if (State != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) State);
       }
@@ -872,6 +892,9 @@ namespace DataTypes {
     public void MergeFrom(UnitLocationState other) {
       if (other == null) {
         return;
+      }
+      if (other.LocationId.Length != 0) {
+        LocationId = other.LocationId;
       }
       if (other.State != 0) {
         State = other.State;
@@ -885,7 +908,11 @@ namespace DataTypes {
           default:
             input.SkipLastField();
             break;
-          case 8: {
+          case 10: {
+            LocationId = input.ReadString();
+            break;
+          }
+          case 16: {
             state_ = (global::DataTypes.LocationState) input.ReadEnum();
             break;
           }
