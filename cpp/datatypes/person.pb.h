@@ -30,6 +30,7 @@
 #include <google/protobuf/unknown_field_set.h>
 #include "datatypes/card.pb.h"
 #include "datatypes/photo.pb.h"
+#include "datatypes/data.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace DataTypes {
@@ -146,16 +147,14 @@ class Person : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional string id = 1;
+  // optional .DataTypes.Key id = 1;
+  bool has_id() const;
   void clear_id();
   static const int kIdFieldNumber = 1;
-  const ::std::string& id() const;
-  void set_id(const ::std::string& value);
-  void set_id(const char* value);
-  void set_id(const char* value, size_t size);
-  ::std::string* mutable_id();
-  ::std::string* release_id();
-  void set_allocated_id(::std::string* id);
+  const ::DataTypes::Key& id() const;
+  ::DataTypes::Key* mutable_id();
+  ::DataTypes::Key* release_id();
+  void set_allocated_id(::DataTypes::Key* id);
 
   // optional string first_name = 2;
   void clear_first_name();
@@ -208,7 +207,7 @@ class Person : public ::google::protobuf::Message {
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::google::protobuf::internal::ArenaStringPtr id_;
+  ::DataTypes::Key* id_;
   ::google::protobuf::internal::ArenaStringPtr first_name_;
   ::google::protobuf::internal::ArenaStringPtr last_name_;
   ::google::protobuf::RepeatedPtrField< ::DataTypes::Photo > photos_;
@@ -320,47 +319,41 @@ class Persons : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // Person
 
-// optional string id = 1;
+// optional .DataTypes.Key id = 1;
+inline bool Person::has_id() const {
+  return !_is_default_instance_ && id_ != NULL;
+}
 inline void Person::clear_id() {
-  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && id_ != NULL) delete id_;
+  id_ = NULL;
 }
-inline const ::std::string& Person::id() const {
+inline const ::DataTypes::Key& Person::id() const {
   // @@protoc_insertion_point(field_get:DataTypes.Person.id)
-  return id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return id_ != NULL ? *id_ : *default_instance_->id_;
 }
-inline void Person::set_id(const ::std::string& value) {
+inline ::DataTypes::Key* Person::mutable_id() {
   
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:DataTypes.Person.id)
-}
-inline void Person::set_id(const char* value) {
-  
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:DataTypes.Person.id)
-}
-inline void Person::set_id(const char* value, size_t size) {
-  
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:DataTypes.Person.id)
-}
-inline ::std::string* Person::mutable_id() {
-  
+  if (id_ == NULL) {
+    id_ = new ::DataTypes::Key;
+  }
   // @@protoc_insertion_point(field_mutable:DataTypes.Person.id)
-  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return id_;
 }
-inline ::std::string* Person::release_id() {
+inline ::DataTypes::Key* Person::release_id() {
   // @@protoc_insertion_point(field_release:DataTypes.Person.id)
   
-  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::DataTypes::Key* temp = id_;
+  id_ = NULL;
+  return temp;
 }
-inline void Person::set_allocated_id(::std::string* id) {
-  if (id != NULL) {
+inline void Person::set_allocated_id(::DataTypes::Key* id) {
+  delete id_;
+  id_ = id;
+  if (id) {
     
   } else {
     
   }
-  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
   // @@protoc_insertion_point(field_set_allocated:DataTypes.Person.id)
 }
 

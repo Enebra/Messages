@@ -47,7 +47,7 @@ class UpdatedUnit;
 class UpdatedUnits;
 
 enum UnitState {
-  None_State = 0,
+  None_ = 0,
   Inserted = 1,
   Deleted = 2,
   Updated = 3,
@@ -55,7 +55,7 @@ enum UnitState {
   UnitState_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool UnitState_IsValid(int value);
-const UnitState UnitState_MIN = None_State;
+const UnitState UnitState_MIN = None_;
 const UnitState UnitState_MAX = Updated;
 const int UnitState_ARRAYSIZE = UnitState_MAX + 1;
 

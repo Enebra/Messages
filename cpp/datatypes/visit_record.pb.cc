@@ -109,17 +109,19 @@ void protobuf_AddDesc_datatypes_2fvisit_5frecord_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::DataTypes::protobuf_AddDesc_datatypes_2fcard_2eproto();
+  ::DataTypes::protobuf_AddDesc_datatypes_2fdata_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\034datatypes/visit_record.proto\022\tDataType"
-    "s\032\024datatypes/card.proto\"\225\001\n\013VisitRecord\022"
-    "\n\n\002id\030\001 \001(\t\022\021\n\tperson_id\030\002 \001(\t\022\023\n\013locati"
-    "on_id\030\003 \001(\t\022\014\n\004time\030\004 \001(\003\022\035\n\004card\030\005 \001(\0132"
-    "\017.DataTypes.Card\022%\n\005state\030\006 \001(\0162\026.DataTy"
-    "pes.AccessState\"D\n\014VisitRecords\022%\n\005items"
-    "\030\001 \003(\0132\026.DataTypes.VisitRecord\022\r\n\005count\030"
-    "\002 \001(\003*5\n\013AccessState\022\r\n\tNoneState\020\000\022\013\n\007G"
-    "ranted\020\001\022\n\n\006Denied\020\002B\017\n\007ex.grpc\242\002\003RTGb\006p"
-    "roto3", 365);
+    "s\032\024datatypes/card.proto\032\024datatypes/data."
+    "proto\"\305\001\n\013VisitRecord\022\032\n\002id\030\001 \001(\0132\016.Data"
+    "Types.Key\022!\n\tperson_id\030\002 \001(\0132\016.DataTypes"
+    ".Key\022#\n\013location_id\030\003 \001(\0132\016.DataTypes.Ke"
+    "y\022\014\n\004time\030\004 \001(\003\022\035\n\004card\030\005 \001(\0132\017.DataType"
+    "s.Card\022%\n\005state\030\006 \001(\0162\026.DataTypes.Access"
+    "State\"D\n\014VisitRecords\022%\n\005items\030\001 \003(\0132\026.D"
+    "ataTypes.VisitRecord\022\r\n\005count\030\002 \001(\003*5\n\013A"
+    "ccessState\022\r\n\tNoneState\020\000\022\013\n\007Granted\020\001\022\n"
+    "\n\006Denied\020\002B\017\n\007ex.grpc\242\002\003RTGb\006proto3", 435);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "datatypes/visit_record.proto", &protobuf_RegisterTypes);
   VisitRecord::default_instance_ = new VisitRecord();
@@ -180,6 +182,9 @@ VisitRecord::VisitRecord()
 
 void VisitRecord::InitAsDefaultInstance() {
   _is_default_instance_ = true;
+  id_ = const_cast< ::DataTypes::Key*>(&::DataTypes::Key::default_instance());
+  person_id_ = const_cast< ::DataTypes::Key*>(&::DataTypes::Key::default_instance());
+  location_id_ = const_cast< ::DataTypes::Key*>(&::DataTypes::Key::default_instance());
   card_ = const_cast< ::DataTypes::Card*>(&::DataTypes::Card::default_instance());
 }
 
@@ -193,11 +198,10 @@ VisitRecord::VisitRecord(const VisitRecord& from)
 
 void VisitRecord::SharedCtor() {
     _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  person_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  location_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  id_ = NULL;
+  person_id_ = NULL;
+  location_id_ = NULL;
   time_ = GOOGLE_LONGLONG(0);
   card_ = NULL;
   state_ = 0;
@@ -209,10 +213,10 @@ VisitRecord::~VisitRecord() {
 }
 
 void VisitRecord::SharedDtor() {
-  id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  person_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  location_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
+    delete id_;
+    delete person_id_;
+    delete location_id_;
     delete card_;
   }
 }
@@ -244,9 +248,12 @@ VisitRecord* VisitRecord::New(::google::protobuf::Arena* arena) const {
 
 void VisitRecord::Clear() {
 // @@protoc_insertion_point(message_clear_start:DataTypes.VisitRecord)
-  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  person_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  location_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && id_ != NULL) delete id_;
+  id_ = NULL;
+  if (GetArenaNoVirtual() == NULL && person_id_ != NULL) delete person_id_;
+  person_id_ = NULL;
+  if (GetArenaNoVirtual() == NULL && location_id_ != NULL) delete location_id_;
+  location_id_ = NULL;
   time_ = GOOGLE_LONGLONG(0);
   if (GetArenaNoVirtual() == NULL && card_ != NULL) delete card_;
   card_ = NULL;
@@ -263,15 +270,11 @@ bool VisitRecord::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string id = 1;
+      // optional .DataTypes.Key id = 1;
       case 1: {
         if (tag == 10) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_id()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->id().data(), this->id().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "DataTypes.VisitRecord.id"));
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_id()));
         } else {
           goto handle_unusual;
         }
@@ -279,16 +282,12 @@ bool VisitRecord::MergePartialFromCodedStream(
         break;
       }
 
-      // optional string person_id = 2;
+      // optional .DataTypes.Key person_id = 2;
       case 2: {
         if (tag == 18) {
          parse_person_id:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_person_id()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->person_id().data(), this->person_id().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "DataTypes.VisitRecord.person_id"));
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_person_id()));
         } else {
           goto handle_unusual;
         }
@@ -296,16 +295,12 @@ bool VisitRecord::MergePartialFromCodedStream(
         break;
       }
 
-      // optional string location_id = 3;
+      // optional .DataTypes.Key location_id = 3;
       case 3: {
         if (tag == 26) {
          parse_location_id:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_location_id()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->location_id().data(), this->location_id().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "DataTypes.VisitRecord.location_id"));
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_location_id()));
         } else {
           goto handle_unusual;
         }
@@ -381,34 +376,22 @@ failure:
 void VisitRecord::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:DataTypes.VisitRecord)
-  // optional string id = 1;
-  if (this->id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->id().data(), this->id().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "DataTypes.VisitRecord.id");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->id(), output);
+  // optional .DataTypes.Key id = 1;
+  if (this->has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, *this->id_, output);
   }
 
-  // optional string person_id = 2;
-  if (this->person_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->person_id().data(), this->person_id().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "DataTypes.VisitRecord.person_id");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->person_id(), output);
+  // optional .DataTypes.Key person_id = 2;
+  if (this->has_person_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, *this->person_id_, output);
   }
 
-  // optional string location_id = 3;
-  if (this->location_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->location_id().data(), this->location_id().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "DataTypes.VisitRecord.location_id");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->location_id(), output);
+  // optional .DataTypes.Key location_id = 3;
+  if (this->has_location_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, *this->location_id_, output);
   }
 
   // optional int64 time = 4;
@@ -434,37 +417,25 @@ void VisitRecord::SerializeWithCachedSizes(
 ::google::protobuf::uint8* VisitRecord::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:DataTypes.VisitRecord)
-  // optional string id = 1;
-  if (this->id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->id().data(), this->id().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "DataTypes.VisitRecord.id");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->id(), target);
+  // optional .DataTypes.Key id = 1;
+  if (this->has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, *this->id_, target);
   }
 
-  // optional string person_id = 2;
-  if (this->person_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->person_id().data(), this->person_id().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "DataTypes.VisitRecord.person_id");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->person_id(), target);
+  // optional .DataTypes.Key person_id = 2;
+  if (this->has_person_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, *this->person_id_, target);
   }
 
-  // optional string location_id = 3;
-  if (this->location_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->location_id().data(), this->location_id().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "DataTypes.VisitRecord.location_id");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->location_id(), target);
+  // optional .DataTypes.Key location_id = 3;
+  if (this->has_location_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, *this->location_id_, target);
   }
 
   // optional int64 time = 4;
@@ -493,25 +464,25 @@ int VisitRecord::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:DataTypes.VisitRecord)
   int total_size = 0;
 
-  // optional string id = 1;
-  if (this->id().size() > 0) {
+  // optional .DataTypes.Key id = 1;
+  if (this->has_id()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->id());
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->id_);
   }
 
-  // optional string person_id = 2;
-  if (this->person_id().size() > 0) {
+  // optional .DataTypes.Key person_id = 2;
+  if (this->has_person_id()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->person_id());
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->person_id_);
   }
 
-  // optional string location_id = 3;
-  if (this->location_id().size() > 0) {
+  // optional .DataTypes.Key location_id = 3;
+  if (this->has_location_id()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->location_id());
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->location_id_);
   }
 
   // optional int64 time = 4;
@@ -558,17 +529,14 @@ void VisitRecord::MergeFrom(const ::google::protobuf::Message& from) {
 void VisitRecord::MergeFrom(const VisitRecord& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:DataTypes.VisitRecord)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  if (from.id().size() > 0) {
-
-    id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.id_);
+  if (from.has_id()) {
+    mutable_id()->::DataTypes::Key::MergeFrom(from.id());
   }
-  if (from.person_id().size() > 0) {
-
-    person_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.person_id_);
+  if (from.has_person_id()) {
+    mutable_person_id()->::DataTypes::Key::MergeFrom(from.person_id());
   }
-  if (from.location_id().size() > 0) {
-
-    location_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.location_id_);
+  if (from.has_location_id()) {
+    mutable_location_id()->::DataTypes::Key::MergeFrom(from.location_id());
   }
   if (from.time() != 0) {
     set_time(from.time());
@@ -605,9 +573,9 @@ void VisitRecord::Swap(VisitRecord* other) {
   InternalSwap(other);
 }
 void VisitRecord::InternalSwap(VisitRecord* other) {
-  id_.Swap(&other->id_);
-  person_id_.Swap(&other->person_id_);
-  location_id_.Swap(&other->location_id_);
+  std::swap(id_, other->id_);
+  std::swap(person_id_, other->person_id_);
+  std::swap(location_id_, other->location_id_);
   std::swap(time_, other->time_);
   std::swap(card_, other->card_);
   std::swap(state_, other->state_);
@@ -626,135 +594,117 @@ void VisitRecord::InternalSwap(VisitRecord* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // VisitRecord
 
-// optional string id = 1;
+// optional .DataTypes.Key id = 1;
+bool VisitRecord::has_id() const {
+  return !_is_default_instance_ && id_ != NULL;
+}
 void VisitRecord::clear_id() {
-  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && id_ != NULL) delete id_;
+  id_ = NULL;
 }
- const ::std::string& VisitRecord::id() const {
+const ::DataTypes::Key& VisitRecord::id() const {
   // @@protoc_insertion_point(field_get:DataTypes.VisitRecord.id)
-  return id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return id_ != NULL ? *id_ : *default_instance_->id_;
 }
- void VisitRecord::set_id(const ::std::string& value) {
+::DataTypes::Key* VisitRecord::mutable_id() {
   
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:DataTypes.VisitRecord.id)
-}
- void VisitRecord::set_id(const char* value) {
-  
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:DataTypes.VisitRecord.id)
-}
- void VisitRecord::set_id(const char* value, size_t size) {
-  
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:DataTypes.VisitRecord.id)
-}
- ::std::string* VisitRecord::mutable_id() {
-  
+  if (id_ == NULL) {
+    id_ = new ::DataTypes::Key;
+  }
   // @@protoc_insertion_point(field_mutable:DataTypes.VisitRecord.id)
-  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return id_;
 }
- ::std::string* VisitRecord::release_id() {
+::DataTypes::Key* VisitRecord::release_id() {
   // @@protoc_insertion_point(field_release:DataTypes.VisitRecord.id)
   
-  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::DataTypes::Key* temp = id_;
+  id_ = NULL;
+  return temp;
 }
- void VisitRecord::set_allocated_id(::std::string* id) {
-  if (id != NULL) {
+void VisitRecord::set_allocated_id(::DataTypes::Key* id) {
+  delete id_;
+  id_ = id;
+  if (id) {
     
   } else {
     
   }
-  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
   // @@protoc_insertion_point(field_set_allocated:DataTypes.VisitRecord.id)
 }
 
-// optional string person_id = 2;
+// optional .DataTypes.Key person_id = 2;
+bool VisitRecord::has_person_id() const {
+  return !_is_default_instance_ && person_id_ != NULL;
+}
 void VisitRecord::clear_person_id() {
-  person_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && person_id_ != NULL) delete person_id_;
+  person_id_ = NULL;
 }
- const ::std::string& VisitRecord::person_id() const {
+const ::DataTypes::Key& VisitRecord::person_id() const {
   // @@protoc_insertion_point(field_get:DataTypes.VisitRecord.person_id)
-  return person_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return person_id_ != NULL ? *person_id_ : *default_instance_->person_id_;
 }
- void VisitRecord::set_person_id(const ::std::string& value) {
+::DataTypes::Key* VisitRecord::mutable_person_id() {
   
-  person_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:DataTypes.VisitRecord.person_id)
-}
- void VisitRecord::set_person_id(const char* value) {
-  
-  person_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:DataTypes.VisitRecord.person_id)
-}
- void VisitRecord::set_person_id(const char* value, size_t size) {
-  
-  person_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:DataTypes.VisitRecord.person_id)
-}
- ::std::string* VisitRecord::mutable_person_id() {
-  
+  if (person_id_ == NULL) {
+    person_id_ = new ::DataTypes::Key;
+  }
   // @@protoc_insertion_point(field_mutable:DataTypes.VisitRecord.person_id)
-  return person_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return person_id_;
 }
- ::std::string* VisitRecord::release_person_id() {
+::DataTypes::Key* VisitRecord::release_person_id() {
   // @@protoc_insertion_point(field_release:DataTypes.VisitRecord.person_id)
   
-  return person_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::DataTypes::Key* temp = person_id_;
+  person_id_ = NULL;
+  return temp;
 }
- void VisitRecord::set_allocated_person_id(::std::string* person_id) {
-  if (person_id != NULL) {
+void VisitRecord::set_allocated_person_id(::DataTypes::Key* person_id) {
+  delete person_id_;
+  person_id_ = person_id;
+  if (person_id) {
     
   } else {
     
   }
-  person_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), person_id);
   // @@protoc_insertion_point(field_set_allocated:DataTypes.VisitRecord.person_id)
 }
 
-// optional string location_id = 3;
+// optional .DataTypes.Key location_id = 3;
+bool VisitRecord::has_location_id() const {
+  return !_is_default_instance_ && location_id_ != NULL;
+}
 void VisitRecord::clear_location_id() {
-  location_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && location_id_ != NULL) delete location_id_;
+  location_id_ = NULL;
 }
- const ::std::string& VisitRecord::location_id() const {
+const ::DataTypes::Key& VisitRecord::location_id() const {
   // @@protoc_insertion_point(field_get:DataTypes.VisitRecord.location_id)
-  return location_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return location_id_ != NULL ? *location_id_ : *default_instance_->location_id_;
 }
- void VisitRecord::set_location_id(const ::std::string& value) {
+::DataTypes::Key* VisitRecord::mutable_location_id() {
   
-  location_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:DataTypes.VisitRecord.location_id)
-}
- void VisitRecord::set_location_id(const char* value) {
-  
-  location_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:DataTypes.VisitRecord.location_id)
-}
- void VisitRecord::set_location_id(const char* value, size_t size) {
-  
-  location_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:DataTypes.VisitRecord.location_id)
-}
- ::std::string* VisitRecord::mutable_location_id() {
-  
+  if (location_id_ == NULL) {
+    location_id_ = new ::DataTypes::Key;
+  }
   // @@protoc_insertion_point(field_mutable:DataTypes.VisitRecord.location_id)
-  return location_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return location_id_;
 }
- ::std::string* VisitRecord::release_location_id() {
+::DataTypes::Key* VisitRecord::release_location_id() {
   // @@protoc_insertion_point(field_release:DataTypes.VisitRecord.location_id)
   
-  return location_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::DataTypes::Key* temp = location_id_;
+  location_id_ = NULL;
+  return temp;
 }
- void VisitRecord::set_allocated_location_id(::std::string* location_id) {
-  if (location_id != NULL) {
+void VisitRecord::set_allocated_location_id(::DataTypes::Key* location_id) {
+  delete location_id_;
+  location_id_ = location_id;
+  if (location_id) {
     
   } else {
     
   }
-  location_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), location_id);
   // @@protoc_insertion_point(field_set_allocated:DataTypes.VisitRecord.location_id)
 }
 

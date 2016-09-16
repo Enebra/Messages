@@ -34,10 +34,9 @@ namespace DataTypes {
             "KAsyFi5EYXRhVHlwZXMuVXBkYXRlZFVuaXQiJwoFVW5pdHMSHgoFaXRlbXMY",
             "ASADKAsyDy5EYXRhVHlwZXMuVW5pdCIuChFVbml0Q29uZmlndXJhdGlvbhIZ",
             "ChFtYXN0ZXJfaXBfYWRkcmVzcxgBIAEoCSI8ChFVbml0TG9jYXRpb25TdGF0",
-            "ZRInCgVzdGF0ZRgBIAEoDjIYLkRhdGFUeXBlcy5Mb2NhdGlvblN0YXRlKkMK",
-            "CVVuaXRTdGF0ZRIOCgpOb25lX1N0YXRlEAASDAoISW5zZXJ0ZWQQARILCgdE",
-            "ZWxldGVkEAISCwoHVXBkYXRlZBADQg8KB2V4LmdycGOiAgNSVEdiBnByb3Rv",
-            "Mw=="));
+            "ZRInCgVzdGF0ZRgBIAEoDjIYLkRhdGFUeXBlcy5Mb2NhdGlvblN0YXRlKj4K",
+            "CVVuaXRTdGF0ZRIJCgVOb25lXxAAEgwKCEluc2VydGVkEAESCwoHRGVsZXRl",
+            "ZBACEgsKB1VwZGF0ZWQQA0IPCgdleC5ncnBjogIDUlRHYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::DataTypes.LocationReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.UnitState), }, new pbr::GeneratedClrTypeInfo[] {
@@ -55,7 +54,7 @@ namespace DataTypes {
   }
   #region Enums
   public enum UnitState {
-    [pbr::OriginalName("None_State")] NoneState = 0,
+    [pbr::OriginalName("None_")] None = 0,
     [pbr::OriginalName("Inserted")] Inserted = 1,
     [pbr::OriginalName("Deleted")] Deleted = 2,
     [pbr::OriginalName("Updated")] Updated = 3,

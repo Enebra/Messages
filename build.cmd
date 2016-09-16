@@ -5,7 +5,26 @@ if /i "%1" NEQ "" goto Generate
 echo Generating grpc files...
 echo.
 
-for %%f in (biometric_service\services\*) do (
+for  %%f in (biometric_service\services\*) do (
+
+echo Processing  %%f
+echo.
+
+::  cpp
+protoc --grpc_out=.\cpp --plugin=protoc-gen-grpc=grpc_cpp_plugin.exe %%f --proto_path biometric_service
+protoc --cpp_out=.\cpp %%f --proto_path biometric_service
+
+:: csharp
+protoc --grpc_out=.\csharp --plugin=protoc-gen-grpc=grpc_csharp_plugin.exe %%f --proto_path biometric_service
+protoc --csharp_out=.\csharp %%f --proto_path biometric_service
+
+:: go
+protoc --go_out=plugins=grpc:golang %%f --proto_path biometric_service
+
+echo.
+)
+
+for  %%f in (biometric_service\datatypes\*) do (
 
 echo Processing  %%f
 echo.

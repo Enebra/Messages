@@ -24,38 +24,39 @@ namespace DataTypes {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChpkYXRhdHlwZXMvYmlvbWV0cmljcy5wcm90bxIJRGF0YVR5cGVzGhhkYXRh",
-            "dHlwZXMvZ2VvbWV0cnkucHJvdG8iNQoFRmFjZXMSLAoFRmFjZXMYASADKAsy",
-            "HS5EYXRhVHlwZXMuRmFjZUNoYXJhY3RlcmlzdGljInYKEkZhY2VDaGFyYWN0",
-            "ZXJpc3RpYxIKCgJpZBgBIAEoAxIbCgNib3gYAiABKAsyDi5EYXRhVHlwZXMu",
-            "Qm94EhIKCmNvbmZpZGVuY2UYAyABKAISEQoJcGVyc29uX2lkGAQgASgDEhAK",
-            "CHBob3RvX2lkGAUgASgDIicKBU1hdGNoEg8KB2ZhY2VfaWQYAiABKAMSDQoF",
-            "bWF0Y2gYAyABKAIiPQoHTWF0Y2hlcxIPCgdmYWNlX2lkGAEgASgDEiEKB21h",
-            "dGNoZXMYAiADKAsyEC5EYXRhVHlwZXMuTWF0Y2gqUwoNQmlvbWV0cmljVHlw",
-            "ZRISCg5VbnNwZWNpZmllZEJpbxAAEgoKBkZhY2lhbBABEg8KC0ZpbmdlcnBy",
-            "aW50EAISCAoESXJpcxADEgcKA0FsbBAEKj0KB0V5ZVR5cGUSEwoPVW5zcGVj",
-            "aWZpZWRfRXllEAASCAoETGVmdBABEgkKBVJpZ2h0EAISCAoEQm90aBADKr0B",
-            "CgZGaW5nZXISFgoSVW5zcGVjaWZpZWRfRmluZ2VyEAASDgoKUmlnaHRUaHVt",
-            "YhABEg0KCUxlZnRUaHVtYhACEg4KClJpZ2h0SW5kZXgQAxINCglMZWZ0SW5k",
-            "ZXgQBBIPCgtSaWdodE1pZGRsZRAFEg4KCkxlZnRNaWRkbGUQBhINCglSaWdo",
-            "dFJpbmcQBxIMCghMZWZ0UmluZxAIEg8KC1JpZ2h0TGl0dGxlEAkSDgoKTGVm",
-            "dExpdHRsZRAKKo4FChtGYWNpYWxJc29Db21wbGlhbmNlVGVtcGxhdGUSGwoX",
-            "VW5zcGVjaWZpZWRfSXNvVGVtcGxhdGUQABIWChJPbmx5T25lRmFjZVZpc2li",
-            "bGUQARIcChhnb29kVmVydGljYWxGYWNlUG9zaXRpb24QAhIcChhob3Jpem9u",
-            "dGFsbHlDZW50ZXJlZEZhY2UQAxIPCgt3aWR0aE9mSGVhZBAEEhAKDGxlbmd0",
-            "aE9mSGVhZBAFEhsKF3dpZHRoT2ZIZWFkQmVzdFByYWN0aWNlEAYSHAoYbGVu",
-            "Z3RoT2ZIZWFkQmVzdFByYWN0aWNlEAcSDgoKcmVzb2x1dGlvbhAIEhoKFnJl",
-            "c29sdXRpb25CZXN0UHJhY3RpY2UQCRIiCh5pbWFnZVdpZHRoVG9IZWlnaHRC",
-            "ZXN0UHJhY3RpY2UQChIQCgxnb29kRXhwb3N1cmUQCxIYChRnb29kR3JheVNj",
-            "YWxlUHJvZmlsZRAMEhgKFGhhc05hdHVyYWxTa2luQ29sb3VyEA0SDgoKbm9I",
-            "b3RTcG90cxAOEiMKH2lzQmFja2dyb3VuZFVuaWZvcm1CZXN0UHJhY3RpY2UQ",
-            "DxINCglpc0Zyb250YWwQEBIZChVpc0Zyb250YWxCZXN0UHJhY3RpY2UQERIV",
-            "ChFpc0xpZ2h0aW5nVW5pZm9ybRASEhgKFGV5ZXNPcGVuQmVzdFByYWN0aWNl",
-            "EBMSHwobZXllc0dhemVGcm9udGFsQmVzdFByYWN0aWNlEBQSGgoWZXllc05v",
-            "dFJlZEJlc3RQcmFjdGljZRAVEhMKD25vVGludGVkR2xhc3NlcxAWEgsKB2lz",
-            "U2hhcnAQFxIbChdtb3V0aENsb3NlZEJlc3RQcmFjdGljZRAYQg8KB2V4Lmdy",
-            "cGOiAgNSVEdiBnByb3RvMw=="));
+            "dHlwZXMvZ2VvbWV0cnkucHJvdG8aFGRhdGF0eXBlcy9kYXRhLnByb3RvIjUK",
+            "BUZhY2VzEiwKBUZhY2VzGAEgAygLMh0uRGF0YVR5cGVzLkZhY2VDaGFyYWN0",
+            "ZXJpc3RpYyKGAQoSRmFjZUNoYXJhY3RlcmlzdGljEhoKAmlkGAEgASgLMg4u",
+            "RGF0YVR5cGVzLktleRIbCgNib3gYAiABKAsyDi5EYXRhVHlwZXMuQm94EhIK",
+            "CmNvbmZpZGVuY2UYAyABKAISEQoJcGVyc29uX2lkGAQgASgDEhAKCHBob3Rv",
+            "X2lkGAUgASgDIjcKBU1hdGNoEh8KB2ZhY2VfaWQYAiABKAsyDi5EYXRhVHlw",
+            "ZXMuS2V5Eg0KBW1hdGNoGAMgASgCIk0KB01hdGNoZXMSHwoHZmFjZV9pZBgB",
+            "IAEoCzIOLkRhdGFUeXBlcy5LZXkSIQoHbWF0Y2hlcxgCIAMoCzIQLkRhdGFU",
+            "eXBlcy5NYXRjaCpTCg1CaW9tZXRyaWNUeXBlEhIKDlVuc3BlY2lmaWVkQmlv",
+            "EAASCgoGRmFjaWFsEAESDwoLRmluZ2VycHJpbnQQAhIICgRJcmlzEAMSBwoD",
+            "QWxsEAQqPQoHRXllVHlwZRITCg9VbnNwZWNpZmllZF9FeWUQABIICgRMZWZ0",
+            "EAESCQoFUmlnaHQQAhIICgRCb3RoEAMqvQEKBkZpbmdlchIWChJVbnNwZWNp",
+            "ZmllZF9GaW5nZXIQABIOCgpSaWdodFRodW1iEAESDQoJTGVmdFRodW1iEAIS",
+            "DgoKUmlnaHRJbmRleBADEg0KCUxlZnRJbmRleBAEEg8KC1JpZ2h0TWlkZGxl",
+            "EAUSDgoKTGVmdE1pZGRsZRAGEg0KCVJpZ2h0UmluZxAHEgwKCExlZnRSaW5n",
+            "EAgSDwoLUmlnaHRMaXR0bGUQCRIOCgpMZWZ0TGl0dGxlEAoqjgUKG0ZhY2lh",
+            "bElzb0NvbXBsaWFuY2VUZW1wbGF0ZRIbChdVbnNwZWNpZmllZF9Jc29UZW1w",
+            "bGF0ZRAAEhYKEk9ubHlPbmVGYWNlVmlzaWJsZRABEhwKGGdvb2RWZXJ0aWNh",
+            "bEZhY2VQb3NpdGlvbhACEhwKGGhvcml6b250YWxseUNlbnRlcmVkRmFjZRAD",
+            "Eg8KC3dpZHRoT2ZIZWFkEAQSEAoMbGVuZ3RoT2ZIZWFkEAUSGwoXd2lkdGhP",
+            "ZkhlYWRCZXN0UHJhY3RpY2UQBhIcChhsZW5ndGhPZkhlYWRCZXN0UHJhY3Rp",
+            "Y2UQBxIOCgpyZXNvbHV0aW9uEAgSGgoWcmVzb2x1dGlvbkJlc3RQcmFjdGlj",
+            "ZRAJEiIKHmltYWdlV2lkdGhUb0hlaWdodEJlc3RQcmFjdGljZRAKEhAKDGdv",
+            "b2RFeHBvc3VyZRALEhgKFGdvb2RHcmF5U2NhbGVQcm9maWxlEAwSGAoUaGFz",
+            "TmF0dXJhbFNraW5Db2xvdXIQDRIOCgpub0hvdFNwb3RzEA4SIwofaXNCYWNr",
+            "Z3JvdW5kVW5pZm9ybUJlc3RQcmFjdGljZRAPEg0KCWlzRnJvbnRhbBAQEhkK",
+            "FWlzRnJvbnRhbEJlc3RQcmFjdGljZRAREhUKEWlzTGlnaHRpbmdVbmlmb3Jt",
+            "EBISGAoUZXllc09wZW5CZXN0UHJhY3RpY2UQExIfChtleWVzR2F6ZUZyb250",
+            "YWxCZXN0UHJhY3RpY2UQFBIaChZleWVzTm90UmVkQmVzdFByYWN0aWNlEBUS",
+            "EwoPbm9UaW50ZWRHbGFzc2VzEBYSCwoHaXNTaGFycBAXEhsKF21vdXRoQ2xv",
+            "c2VkQmVzdFByYWN0aWNlEBhCDwoHZXguZ3JwY6ICA1JUR2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::DataTypes.GeometryReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::DataTypes.GeometryReflection.Descriptor, global::DataTypes.DataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.BiometricType), typeof(global::DataTypes.EyeType), typeof(global::DataTypes.Finger), typeof(global::DataTypes.FacialIsoComplianceTemplate), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Faces), global::DataTypes.Faces.Parser, new[]{ "Faces_" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.FaceCharacteristic), global::DataTypes.FaceCharacteristic.Parser, new[]{ "Id", "Box", "Confidence", "PersonId", "PhotoId" }, null, null, null),
@@ -242,7 +243,7 @@ namespace DataTypes {
     partial void OnConstruction();
 
     public FaceCharacteristic(FaceCharacteristic other) : this() {
-      id_ = other.id_;
+      Id = other.id_ != null ? other.Id.Clone() : null;
       Box = other.box_ != null ? other.Box.Clone() : null;
       confidence_ = other.confidence_;
       personId_ = other.personId_;
@@ -255,8 +256,8 @@ namespace DataTypes {
 
     /// <summary>Field number for the "id" field.</summary>
     public const int IdFieldNumber = 1;
-    private long id_;
-    public long Id {
+    private global::DataTypes.Key id_;
+    public global::DataTypes.Key Id {
       get { return id_; }
       set {
         id_ = value;
@@ -314,7 +315,7 @@ namespace DataTypes {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Id != other.Id) return false;
+      if (!object.Equals(Id, other.Id)) return false;
       if (!object.Equals(Box, other.Box)) return false;
       if (Confidence != other.Confidence) return false;
       if (PersonId != other.PersonId) return false;
@@ -324,7 +325,7 @@ namespace DataTypes {
 
     public override int GetHashCode() {
       int hash = 1;
-      if (Id != 0L) hash ^= Id.GetHashCode();
+      if (id_ != null) hash ^= Id.GetHashCode();
       if (box_ != null) hash ^= Box.GetHashCode();
       if (Confidence != 0F) hash ^= Confidence.GetHashCode();
       if (PersonId != 0L) hash ^= PersonId.GetHashCode();
@@ -337,9 +338,9 @@ namespace DataTypes {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Id != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(Id);
+      if (id_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Id);
       }
       if (box_ != null) {
         output.WriteRawTag(18);
@@ -361,8 +362,8 @@ namespace DataTypes {
 
     public int CalculateSize() {
       int size = 0;
-      if (Id != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Id);
+      if (id_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Id);
       }
       if (box_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Box);
@@ -383,8 +384,11 @@ namespace DataTypes {
       if (other == null) {
         return;
       }
-      if (other.Id != 0L) {
-        Id = other.Id;
+      if (other.id_ != null) {
+        if (id_ == null) {
+          id_ = new global::DataTypes.Key();
+        }
+        Id.MergeFrom(other.Id);
       }
       if (other.box_ != null) {
         if (box_ == null) {
@@ -410,8 +414,11 @@ namespace DataTypes {
           default:
             input.SkipLastField();
             break;
-          case 8: {
-            Id = input.ReadInt64();
+          case 10: {
+            if (id_ == null) {
+              id_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(id_);
             break;
           }
           case 18: {
@@ -459,7 +466,7 @@ namespace DataTypes {
     partial void OnConstruction();
 
     public Match(Match other) : this() {
-      faceId_ = other.faceId_;
+      FaceId = other.faceId_ != null ? other.FaceId.Clone() : null;
       match_ = other.match_;
     }
 
@@ -469,8 +476,8 @@ namespace DataTypes {
 
     /// <summary>Field number for the "face_id" field.</summary>
     public const int FaceIdFieldNumber = 2;
-    private long faceId_;
-    public long FaceId {
+    private global::DataTypes.Key faceId_;
+    public global::DataTypes.Key FaceId {
       get { return faceId_; }
       set {
         faceId_ = value;
@@ -498,14 +505,14 @@ namespace DataTypes {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (FaceId != other.FaceId) return false;
+      if (!object.Equals(FaceId, other.FaceId)) return false;
       if (Match_ != other.Match_) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
-      if (FaceId != 0L) hash ^= FaceId.GetHashCode();
+      if (faceId_ != null) hash ^= FaceId.GetHashCode();
       if (Match_ != 0F) hash ^= Match_.GetHashCode();
       return hash;
     }
@@ -515,9 +522,9 @@ namespace DataTypes {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (FaceId != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(FaceId);
+      if (faceId_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(FaceId);
       }
       if (Match_ != 0F) {
         output.WriteRawTag(29);
@@ -527,8 +534,8 @@ namespace DataTypes {
 
     public int CalculateSize() {
       int size = 0;
-      if (FaceId != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(FaceId);
+      if (faceId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(FaceId);
       }
       if (Match_ != 0F) {
         size += 1 + 4;
@@ -540,8 +547,11 @@ namespace DataTypes {
       if (other == null) {
         return;
       }
-      if (other.FaceId != 0L) {
-        FaceId = other.FaceId;
+      if (other.faceId_ != null) {
+        if (faceId_ == null) {
+          faceId_ = new global::DataTypes.Key();
+        }
+        FaceId.MergeFrom(other.FaceId);
       }
       if (other.Match_ != 0F) {
         Match_ = other.Match_;
@@ -555,8 +565,11 @@ namespace DataTypes {
           default:
             input.SkipLastField();
             break;
-          case 16: {
-            FaceId = input.ReadInt64();
+          case 18: {
+            if (faceId_ == null) {
+              faceId_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(faceId_);
             break;
           }
           case 29: {
@@ -589,7 +602,7 @@ namespace DataTypes {
     partial void OnConstruction();
 
     public Matches(Matches other) : this() {
-      faceId_ = other.faceId_;
+      FaceId = other.faceId_ != null ? other.FaceId.Clone() : null;
       matches_ = other.matches_.Clone();
     }
 
@@ -599,8 +612,8 @@ namespace DataTypes {
 
     /// <summary>Field number for the "face_id" field.</summary>
     public const int FaceIdFieldNumber = 1;
-    private long faceId_;
-    public long FaceId {
+    private global::DataTypes.Key faceId_;
+    public global::DataTypes.Key FaceId {
       get { return faceId_; }
       set {
         faceId_ = value;
@@ -627,14 +640,14 @@ namespace DataTypes {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (FaceId != other.FaceId) return false;
+      if (!object.Equals(FaceId, other.FaceId)) return false;
       if(!matches_.Equals(other.matches_)) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
-      if (FaceId != 0L) hash ^= FaceId.GetHashCode();
+      if (faceId_ != null) hash ^= FaceId.GetHashCode();
       hash ^= matches_.GetHashCode();
       return hash;
     }
@@ -644,17 +657,17 @@ namespace DataTypes {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (FaceId != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(FaceId);
+      if (faceId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(FaceId);
       }
       matches_.WriteTo(output, _repeated_matches_codec);
     }
 
     public int CalculateSize() {
       int size = 0;
-      if (FaceId != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(FaceId);
+      if (faceId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(FaceId);
       }
       size += matches_.CalculateSize(_repeated_matches_codec);
       return size;
@@ -664,8 +677,11 @@ namespace DataTypes {
       if (other == null) {
         return;
       }
-      if (other.FaceId != 0L) {
-        FaceId = other.FaceId;
+      if (other.faceId_ != null) {
+        if (faceId_ == null) {
+          faceId_ = new global::DataTypes.Key();
+        }
+        FaceId.MergeFrom(other.FaceId);
       }
       matches_.Add(other.matches_);
     }
@@ -677,8 +693,11 @@ namespace DataTypes {
           default:
             input.SkipLastField();
             break;
-          case 8: {
-            FaceId = input.ReadInt64();
+          case 10: {
+            if (faceId_ == null) {
+              faceId_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(faceId_);
             break;
           }
           case 18: {

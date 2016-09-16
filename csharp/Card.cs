@@ -23,12 +23,13 @@ namespace DataTypes {
     static CardReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChRkYXRhdHlwZXMvY2FyZC5wcm90bxIJRGF0YVR5cGVzIjMKBENhcmQSGQoR",
-            "dW5pcXVlX2lkZW50aWZpZXIYASABKAkSEAoIb3duZXJfaWQYAiABKAkiNgoF",
-            "Q2FyZHMSHgoFaXRlbXMYASADKAsyDy5EYXRhVHlwZXMuQ2FyZBINCgVjb3Vu",
-            "dBgCIAEoA0IPCgdleC5ncnBjogIDUlRHYgZwcm90bzM="));
+            "ChRkYXRhdHlwZXMvY2FyZC5wcm90bxIJRGF0YVR5cGVzGhRkYXRhdHlwZXMv",
+            "ZGF0YS5wcm90byJTCgRDYXJkEikKEXVuaXF1ZV9pZGVudGlmaWVyGAEgASgL",
+            "Mg4uRGF0YVR5cGVzLktleRIgCghvd25lcl9pZBgCIAEoCzIOLkRhdGFUeXBl",
+            "cy5LZXkiNgoFQ2FyZHMSHgoFaXRlbXMYASADKAsyDy5EYXRhVHlwZXMuQ2Fy",
+            "ZBINCgVjb3VudBgCIAEoA0IPCgdleC5ncnBjogIDUlRHYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { },
+          new pbr::FileDescriptor[] { global::DataTypes.DataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Card), global::DataTypes.Card.Parser, new[]{ "UniqueIdentifier", "OwnerId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Cards), global::DataTypes.Cards.Parser, new[]{ "Items", "Count" }, null, null, null)
@@ -58,8 +59,8 @@ namespace DataTypes {
     partial void OnConstruction();
 
     public Card(Card other) : this() {
-      uniqueIdentifier_ = other.uniqueIdentifier_;
-      ownerId_ = other.ownerId_;
+      UniqueIdentifier = other.uniqueIdentifier_ != null ? other.UniqueIdentifier.Clone() : null;
+      OwnerId = other.ownerId_ != null ? other.OwnerId.Clone() : null;
     }
 
     public Card Clone() {
@@ -68,21 +69,21 @@ namespace DataTypes {
 
     /// <summary>Field number for the "unique_identifier" field.</summary>
     public const int UniqueIdentifierFieldNumber = 1;
-    private string uniqueIdentifier_ = "";
-    public string UniqueIdentifier {
+    private global::DataTypes.Key uniqueIdentifier_;
+    public global::DataTypes.Key UniqueIdentifier {
       get { return uniqueIdentifier_; }
       set {
-        uniqueIdentifier_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        uniqueIdentifier_ = value;
       }
     }
 
     /// <summary>Field number for the "owner_id" field.</summary>
     public const int OwnerIdFieldNumber = 2;
-    private string ownerId_ = "";
-    public string OwnerId {
+    private global::DataTypes.Key ownerId_;
+    public global::DataTypes.Key OwnerId {
       get { return ownerId_; }
       set {
-        ownerId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        ownerId_ = value;
       }
     }
 
@@ -97,15 +98,15 @@ namespace DataTypes {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (UniqueIdentifier != other.UniqueIdentifier) return false;
-      if (OwnerId != other.OwnerId) return false;
+      if (!object.Equals(UniqueIdentifier, other.UniqueIdentifier)) return false;
+      if (!object.Equals(OwnerId, other.OwnerId)) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
-      if (UniqueIdentifier.Length != 0) hash ^= UniqueIdentifier.GetHashCode();
-      if (OwnerId.Length != 0) hash ^= OwnerId.GetHashCode();
+      if (uniqueIdentifier_ != null) hash ^= UniqueIdentifier.GetHashCode();
+      if (ownerId_ != null) hash ^= OwnerId.GetHashCode();
       return hash;
     }
 
@@ -114,23 +115,23 @@ namespace DataTypes {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (UniqueIdentifier.Length != 0) {
+      if (uniqueIdentifier_ != null) {
         output.WriteRawTag(10);
-        output.WriteString(UniqueIdentifier);
+        output.WriteMessage(UniqueIdentifier);
       }
-      if (OwnerId.Length != 0) {
+      if (ownerId_ != null) {
         output.WriteRawTag(18);
-        output.WriteString(OwnerId);
+        output.WriteMessage(OwnerId);
       }
     }
 
     public int CalculateSize() {
       int size = 0;
-      if (UniqueIdentifier.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(UniqueIdentifier);
+      if (uniqueIdentifier_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(UniqueIdentifier);
       }
-      if (OwnerId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(OwnerId);
+      if (ownerId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(OwnerId);
       }
       return size;
     }
@@ -139,11 +140,17 @@ namespace DataTypes {
       if (other == null) {
         return;
       }
-      if (other.UniqueIdentifier.Length != 0) {
-        UniqueIdentifier = other.UniqueIdentifier;
+      if (other.uniqueIdentifier_ != null) {
+        if (uniqueIdentifier_ == null) {
+          uniqueIdentifier_ = new global::DataTypes.Key();
+        }
+        UniqueIdentifier.MergeFrom(other.UniqueIdentifier);
       }
-      if (other.OwnerId.Length != 0) {
-        OwnerId = other.OwnerId;
+      if (other.ownerId_ != null) {
+        if (ownerId_ == null) {
+          ownerId_ = new global::DataTypes.Key();
+        }
+        OwnerId.MergeFrom(other.OwnerId);
       }
     }
 
@@ -155,11 +162,17 @@ namespace DataTypes {
             input.SkipLastField();
             break;
           case 10: {
-            UniqueIdentifier = input.ReadString();
+            if (uniqueIdentifier_ == null) {
+              uniqueIdentifier_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(uniqueIdentifier_);
             break;
           }
           case 18: {
-            OwnerId = input.ReadString();
+            if (ownerId_ == null) {
+              ownerId_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(ownerId_);
             break;
           }
         }

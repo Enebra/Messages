@@ -24,17 +24,18 @@ namespace DataTypes {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChZkYXRhdHlwZXMvcGVyc29uLnByb3RvEglEYXRhVHlwZXMaFGRhdGF0eXBl",
-            "cy9jYXJkLnByb3RvGhVkYXRhdHlwZXMvcGhvdG8ucHJvdG8ifQoGUGVyc29u",
-            "EgoKAmlkGAEgASgJEhIKCmZpcnN0X25hbWUYAiABKAkSEQoJbGFzdF9uYW1l",
-            "GAMgASgJEiAKBnBob3RvcxgEIAMoCzIQLkRhdGFUeXBlcy5QaG90bxIeCgVj",
-            "YXJkcxgFIAMoCzIPLkRhdGFUeXBlcy5DYXJkIjoKB1BlcnNvbnMSIAoFaXRl",
-            "bXMYASADKAsyES5EYXRhVHlwZXMuUGVyc29uEg0KBWNvdW50GAIgASgDKjYK",
-            "BkdlbmRlchIWChJHZW5kZXJfVW5zcGVjaWZpZWQQABIICgRNYWxlEAESCgoG",
-            "RmVtYWxlEAIqVwoGUmlnaHRzEhYKElJpZ2h0c19VbnNwZWNpZmllZBAAEgoK",
-            "BkN1c3RvbRABEgwKCE9wZXJhdG9yEAISCwoHTWFuYWdlchADEg4KClN1cGVy",
-            "dmlzb3IQBEIPCgdleC5ncnBjogIDUlRHYgZwcm90bzM="));
+            "cy9jYXJkLnByb3RvGhVkYXRhdHlwZXMvcGhvdG8ucHJvdG8aFGRhdGF0eXBl",
+            "cy9kYXRhLnByb3RvIo0BCgZQZXJzb24SGgoCaWQYASABKAsyDi5EYXRhVHlw",
+            "ZXMuS2V5EhIKCmZpcnN0X25hbWUYAiABKAkSEQoJbGFzdF9uYW1lGAMgASgJ",
+            "EiAKBnBob3RvcxgEIAMoCzIQLkRhdGFUeXBlcy5QaG90bxIeCgVjYXJkcxgF",
+            "IAMoCzIPLkRhdGFUeXBlcy5DYXJkIjoKB1BlcnNvbnMSIAoFaXRlbXMYASAD",
+            "KAsyES5EYXRhVHlwZXMuUGVyc29uEg0KBWNvdW50GAIgASgDKjYKBkdlbmRl",
+            "chIWChJHZW5kZXJfVW5zcGVjaWZpZWQQABIICgRNYWxlEAESCgoGRmVtYWxl",
+            "EAIqVwoGUmlnaHRzEhYKElJpZ2h0c19VbnNwZWNpZmllZBAAEgoKBkN1c3Rv",
+            "bRABEgwKCE9wZXJhdG9yEAISCwoHTWFuYWdlchADEg4KClN1cGVydmlzb3IQ",
+            "BEIPCgdleC5ncnBjogIDUlRHYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::DataTypes.CardReflection.Descriptor, global::DataTypes.PhotoReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::DataTypes.CardReflection.Descriptor, global::DataTypes.PhotoReflection.Descriptor, global::DataTypes.DataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.Gender), typeof(global::DataTypes.Rights), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Person), global::DataTypes.Person.Parser, new[]{ "Id", "FirstName", "LastName", "Photos", "Cards" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Persons), global::DataTypes.Persons.Parser, new[]{ "Items", "Count" }, null, null, null)
@@ -81,7 +82,7 @@ namespace DataTypes {
     partial void OnConstruction();
 
     public Person(Person other) : this() {
-      id_ = other.id_;
+      Id = other.id_ != null ? other.Id.Clone() : null;
       firstName_ = other.firstName_;
       lastName_ = other.lastName_;
       photos_ = other.photos_.Clone();
@@ -94,11 +95,11 @@ namespace DataTypes {
 
     /// <summary>Field number for the "id" field.</summary>
     public const int IdFieldNumber = 1;
-    private string id_ = "";
-    public string Id {
+    private global::DataTypes.Key id_;
+    public global::DataTypes.Key Id {
       get { return id_; }
       set {
-        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        id_ = value;
       }
     }
 
@@ -151,7 +152,7 @@ namespace DataTypes {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Id != other.Id) return false;
+      if (!object.Equals(Id, other.Id)) return false;
       if (FirstName != other.FirstName) return false;
       if (LastName != other.LastName) return false;
       if(!photos_.Equals(other.photos_)) return false;
@@ -161,7 +162,7 @@ namespace DataTypes {
 
     public override int GetHashCode() {
       int hash = 1;
-      if (Id.Length != 0) hash ^= Id.GetHashCode();
+      if (id_ != null) hash ^= Id.GetHashCode();
       if (FirstName.Length != 0) hash ^= FirstName.GetHashCode();
       if (LastName.Length != 0) hash ^= LastName.GetHashCode();
       hash ^= photos_.GetHashCode();
@@ -174,9 +175,9 @@ namespace DataTypes {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Id.Length != 0) {
+      if (id_ != null) {
         output.WriteRawTag(10);
-        output.WriteString(Id);
+        output.WriteMessage(Id);
       }
       if (FirstName.Length != 0) {
         output.WriteRawTag(18);
@@ -192,8 +193,8 @@ namespace DataTypes {
 
     public int CalculateSize() {
       int size = 0;
-      if (Id.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
+      if (id_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Id);
       }
       if (FirstName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(FirstName);
@@ -210,8 +211,11 @@ namespace DataTypes {
       if (other == null) {
         return;
       }
-      if (other.Id.Length != 0) {
-        Id = other.Id;
+      if (other.id_ != null) {
+        if (id_ == null) {
+          id_ = new global::DataTypes.Key();
+        }
+        Id.MergeFrom(other.Id);
       }
       if (other.FirstName.Length != 0) {
         FirstName = other.FirstName;
@@ -231,7 +235,10 @@ namespace DataTypes {
             input.SkipLastField();
             break;
           case 10: {
-            Id = input.ReadString();
+            if (id_ == null) {
+              id_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(id_);
             break;
           }
           case 18: {

@@ -102,12 +102,14 @@ void protobuf_AddDesc_datatypes_2fcard_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
+  ::DataTypes::protobuf_AddDesc_datatypes_2fdata_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\024datatypes/card.proto\022\tDataTypes\"3\n\004Car"
-    "d\022\031\n\021unique_identifier\030\001 \001(\t\022\020\n\010owner_id"
-    "\030\002 \001(\t\"6\n\005Cards\022\036\n\005items\030\001 \003(\0132\017.DataTyp"
-    "es.Card\022\r\n\005count\030\002 \001(\003B\017\n\007ex.grpc\242\002\003RTGb"
-    "\006proto3", 167);
+    "\n\024datatypes/card.proto\022\tDataTypes\032\024datat"
+    "ypes/data.proto\"S\n\004Card\022)\n\021unique_identi"
+    "fier\030\001 \001(\0132\016.DataTypes.Key\022 \n\010owner_id\030\002"
+    " \001(\0132\016.DataTypes.Key\"6\n\005Cards\022\036\n\005items\030\001"
+    " \003(\0132\017.DataTypes.Card\022\r\n\005count\030\002 \001(\003B\017\n\007"
+    "ex.grpc\242\002\003RTGb\006proto3", 221);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "datatypes/card.proto", &protobuf_RegisterTypes);
   Card::default_instance_ = new Card();
@@ -149,6 +151,8 @@ Card::Card()
 
 void Card::InitAsDefaultInstance() {
   _is_default_instance_ = true;
+  unique_identifier_ = const_cast< ::DataTypes::Key*>(&::DataTypes::Key::default_instance());
+  owner_id_ = const_cast< ::DataTypes::Key*>(&::DataTypes::Key::default_instance());
 }
 
 Card::Card(const Card& from)
@@ -161,10 +165,9 @@ Card::Card(const Card& from)
 
 void Card::SharedCtor() {
     _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  unique_identifier_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  owner_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  unique_identifier_ = NULL;
+  owner_id_ = NULL;
 }
 
 Card::~Card() {
@@ -173,9 +176,9 @@ Card::~Card() {
 }
 
 void Card::SharedDtor() {
-  unique_identifier_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  owner_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
+    delete unique_identifier_;
+    delete owner_id_;
   }
 }
 
@@ -206,8 +209,10 @@ Card* Card::New(::google::protobuf::Arena* arena) const {
 
 void Card::Clear() {
 // @@protoc_insertion_point(message_clear_start:DataTypes.Card)
-  unique_identifier_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  owner_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && unique_identifier_ != NULL) delete unique_identifier_;
+  unique_identifier_ = NULL;
+  if (GetArenaNoVirtual() == NULL && owner_id_ != NULL) delete owner_id_;
+  owner_id_ = NULL;
 }
 
 bool Card::MergePartialFromCodedStream(
@@ -220,15 +225,11 @@ bool Card::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string unique_identifier = 1;
+      // optional .DataTypes.Key unique_identifier = 1;
       case 1: {
         if (tag == 10) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_unique_identifier()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->unique_identifier().data(), this->unique_identifier().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "DataTypes.Card.unique_identifier"));
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_unique_identifier()));
         } else {
           goto handle_unusual;
         }
@@ -236,16 +237,12 @@ bool Card::MergePartialFromCodedStream(
         break;
       }
 
-      // optional string owner_id = 2;
+      // optional .DataTypes.Key owner_id = 2;
       case 2: {
         if (tag == 18) {
          parse_owner_id:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_owner_id()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->owner_id().data(), this->owner_id().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "DataTypes.Card.owner_id"));
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_owner_id()));
         } else {
           goto handle_unusual;
         }
@@ -277,24 +274,16 @@ failure:
 void Card::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:DataTypes.Card)
-  // optional string unique_identifier = 1;
-  if (this->unique_identifier().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->unique_identifier().data(), this->unique_identifier().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "DataTypes.Card.unique_identifier");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->unique_identifier(), output);
+  // optional .DataTypes.Key unique_identifier = 1;
+  if (this->has_unique_identifier()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, *this->unique_identifier_, output);
   }
 
-  // optional string owner_id = 2;
-  if (this->owner_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->owner_id().data(), this->owner_id().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "DataTypes.Card.owner_id");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->owner_id(), output);
+  // optional .DataTypes.Key owner_id = 2;
+  if (this->has_owner_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, *this->owner_id_, output);
   }
 
   // @@protoc_insertion_point(serialize_end:DataTypes.Card)
@@ -303,26 +292,18 @@ void Card::SerializeWithCachedSizes(
 ::google::protobuf::uint8* Card::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:DataTypes.Card)
-  // optional string unique_identifier = 1;
-  if (this->unique_identifier().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->unique_identifier().data(), this->unique_identifier().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "DataTypes.Card.unique_identifier");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->unique_identifier(), target);
+  // optional .DataTypes.Key unique_identifier = 1;
+  if (this->has_unique_identifier()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, *this->unique_identifier_, target);
   }
 
-  // optional string owner_id = 2;
-  if (this->owner_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->owner_id().data(), this->owner_id().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "DataTypes.Card.owner_id");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->owner_id(), target);
+  // optional .DataTypes.Key owner_id = 2;
+  if (this->has_owner_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, *this->owner_id_, target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:DataTypes.Card)
@@ -333,18 +314,18 @@ int Card::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:DataTypes.Card)
   int total_size = 0;
 
-  // optional string unique_identifier = 1;
-  if (this->unique_identifier().size() > 0) {
+  // optional .DataTypes.Key unique_identifier = 1;
+  if (this->has_unique_identifier()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->unique_identifier());
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->unique_identifier_);
   }
 
-  // optional string owner_id = 2;
-  if (this->owner_id().size() > 0) {
+  // optional .DataTypes.Key owner_id = 2;
+  if (this->has_owner_id()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->owner_id());
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->owner_id_);
   }
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -371,13 +352,11 @@ void Card::MergeFrom(const ::google::protobuf::Message& from) {
 void Card::MergeFrom(const Card& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:DataTypes.Card)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  if (from.unique_identifier().size() > 0) {
-
-    unique_identifier_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.unique_identifier_);
+  if (from.has_unique_identifier()) {
+    mutable_unique_identifier()->::DataTypes::Key::MergeFrom(from.unique_identifier());
   }
-  if (from.owner_id().size() > 0) {
-
-    owner_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.owner_id_);
+  if (from.has_owner_id()) {
+    mutable_owner_id()->::DataTypes::Key::MergeFrom(from.owner_id());
   }
 }
 
@@ -405,8 +384,8 @@ void Card::Swap(Card* other) {
   InternalSwap(other);
 }
 void Card::InternalSwap(Card* other) {
-  unique_identifier_.Swap(&other->unique_identifier_);
-  owner_id_.Swap(&other->owner_id_);
+  std::swap(unique_identifier_, other->unique_identifier_);
+  std::swap(owner_id_, other->owner_id_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -422,91 +401,79 @@ void Card::InternalSwap(Card* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Card
 
-// optional string unique_identifier = 1;
+// optional .DataTypes.Key unique_identifier = 1;
+bool Card::has_unique_identifier() const {
+  return !_is_default_instance_ && unique_identifier_ != NULL;
+}
 void Card::clear_unique_identifier() {
-  unique_identifier_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && unique_identifier_ != NULL) delete unique_identifier_;
+  unique_identifier_ = NULL;
 }
- const ::std::string& Card::unique_identifier() const {
+const ::DataTypes::Key& Card::unique_identifier() const {
   // @@protoc_insertion_point(field_get:DataTypes.Card.unique_identifier)
-  return unique_identifier_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return unique_identifier_ != NULL ? *unique_identifier_ : *default_instance_->unique_identifier_;
 }
- void Card::set_unique_identifier(const ::std::string& value) {
+::DataTypes::Key* Card::mutable_unique_identifier() {
   
-  unique_identifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:DataTypes.Card.unique_identifier)
-}
- void Card::set_unique_identifier(const char* value) {
-  
-  unique_identifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:DataTypes.Card.unique_identifier)
-}
- void Card::set_unique_identifier(const char* value, size_t size) {
-  
-  unique_identifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:DataTypes.Card.unique_identifier)
-}
- ::std::string* Card::mutable_unique_identifier() {
-  
+  if (unique_identifier_ == NULL) {
+    unique_identifier_ = new ::DataTypes::Key;
+  }
   // @@protoc_insertion_point(field_mutable:DataTypes.Card.unique_identifier)
-  return unique_identifier_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return unique_identifier_;
 }
- ::std::string* Card::release_unique_identifier() {
+::DataTypes::Key* Card::release_unique_identifier() {
   // @@protoc_insertion_point(field_release:DataTypes.Card.unique_identifier)
   
-  return unique_identifier_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::DataTypes::Key* temp = unique_identifier_;
+  unique_identifier_ = NULL;
+  return temp;
 }
- void Card::set_allocated_unique_identifier(::std::string* unique_identifier) {
-  if (unique_identifier != NULL) {
+void Card::set_allocated_unique_identifier(::DataTypes::Key* unique_identifier) {
+  delete unique_identifier_;
+  unique_identifier_ = unique_identifier;
+  if (unique_identifier) {
     
   } else {
     
   }
-  unique_identifier_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), unique_identifier);
   // @@protoc_insertion_point(field_set_allocated:DataTypes.Card.unique_identifier)
 }
 
-// optional string owner_id = 2;
+// optional .DataTypes.Key owner_id = 2;
+bool Card::has_owner_id() const {
+  return !_is_default_instance_ && owner_id_ != NULL;
+}
 void Card::clear_owner_id() {
-  owner_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && owner_id_ != NULL) delete owner_id_;
+  owner_id_ = NULL;
 }
- const ::std::string& Card::owner_id() const {
+const ::DataTypes::Key& Card::owner_id() const {
   // @@protoc_insertion_point(field_get:DataTypes.Card.owner_id)
-  return owner_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return owner_id_ != NULL ? *owner_id_ : *default_instance_->owner_id_;
 }
- void Card::set_owner_id(const ::std::string& value) {
+::DataTypes::Key* Card::mutable_owner_id() {
   
-  owner_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:DataTypes.Card.owner_id)
-}
- void Card::set_owner_id(const char* value) {
-  
-  owner_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:DataTypes.Card.owner_id)
-}
- void Card::set_owner_id(const char* value, size_t size) {
-  
-  owner_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:DataTypes.Card.owner_id)
-}
- ::std::string* Card::mutable_owner_id() {
-  
+  if (owner_id_ == NULL) {
+    owner_id_ = new ::DataTypes::Key;
+  }
   // @@protoc_insertion_point(field_mutable:DataTypes.Card.owner_id)
-  return owner_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return owner_id_;
 }
- ::std::string* Card::release_owner_id() {
+::DataTypes::Key* Card::release_owner_id() {
   // @@protoc_insertion_point(field_release:DataTypes.Card.owner_id)
   
-  return owner_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::DataTypes::Key* temp = owner_id_;
+  owner_id_ = NULL;
+  return temp;
 }
- void Card::set_allocated_owner_id(::std::string* owner_id) {
-  if (owner_id != NULL) {
+void Card::set_allocated_owner_id(::DataTypes::Key* owner_id) {
+  delete owner_id_;
+  owner_id_ = owner_id;
+  if (owner_id) {
     
   } else {
     
   }
-  owner_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), owner_id);
   // @@protoc_insertion_point(field_set_allocated:DataTypes.Card.owner_id)
 }
 

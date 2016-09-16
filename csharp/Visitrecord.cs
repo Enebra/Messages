@@ -24,16 +24,17 @@ namespace DataTypes {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChxkYXRhdHlwZXMvdmlzaXRfcmVjb3JkLnByb3RvEglEYXRhVHlwZXMaFGRh",
-            "dGF0eXBlcy9jYXJkLnByb3RvIpUBCgtWaXNpdFJlY29yZBIKCgJpZBgBIAEo",
-            "CRIRCglwZXJzb25faWQYAiABKAkSEwoLbG9jYXRpb25faWQYAyABKAkSDAoE",
-            "dGltZRgEIAEoAxIdCgRjYXJkGAUgASgLMg8uRGF0YVR5cGVzLkNhcmQSJQoF",
-            "c3RhdGUYBiABKA4yFi5EYXRhVHlwZXMuQWNjZXNzU3RhdGUiRAoMVmlzaXRS",
-            "ZWNvcmRzEiUKBWl0ZW1zGAEgAygLMhYuRGF0YVR5cGVzLlZpc2l0UmVjb3Jk",
-            "Eg0KBWNvdW50GAIgASgDKjUKC0FjY2Vzc1N0YXRlEg0KCU5vbmVTdGF0ZRAA",
-            "EgsKB0dyYW50ZWQQARIKCgZEZW5pZWQQAkIPCgdleC5ncnBjogIDUlRHYgZw",
-            "cm90bzM="));
+            "dGF0eXBlcy9jYXJkLnByb3RvGhRkYXRhdHlwZXMvZGF0YS5wcm90byLFAQoL",
+            "VmlzaXRSZWNvcmQSGgoCaWQYASABKAsyDi5EYXRhVHlwZXMuS2V5EiEKCXBl",
+            "cnNvbl9pZBgCIAEoCzIOLkRhdGFUeXBlcy5LZXkSIwoLbG9jYXRpb25faWQY",
+            "AyABKAsyDi5EYXRhVHlwZXMuS2V5EgwKBHRpbWUYBCABKAMSHQoEY2FyZBgF",
+            "IAEoCzIPLkRhdGFUeXBlcy5DYXJkEiUKBXN0YXRlGAYgASgOMhYuRGF0YVR5",
+            "cGVzLkFjY2Vzc1N0YXRlIkQKDFZpc2l0UmVjb3JkcxIlCgVpdGVtcxgBIAMo",
+            "CzIWLkRhdGFUeXBlcy5WaXNpdFJlY29yZBINCgVjb3VudBgCIAEoAyo1CgtB",
+            "Y2Nlc3NTdGF0ZRINCglOb25lU3RhdGUQABILCgdHcmFudGVkEAESCgoGRGVu",
+            "aWVkEAJCDwoHZXguZ3JwY6ICA1JUR2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::DataTypes.CardReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::DataTypes.CardReflection.Descriptor, global::DataTypes.DataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.AccessState), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.VisitRecord), global::DataTypes.VisitRecord.Parser, new[]{ "Id", "PersonId", "LocationId", "Time", "Card", "State" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.VisitRecords), global::DataTypes.VisitRecords.Parser, new[]{ "Items", "Count" }, null, null, null)
@@ -72,9 +73,9 @@ namespace DataTypes {
     partial void OnConstruction();
 
     public VisitRecord(VisitRecord other) : this() {
-      id_ = other.id_;
-      personId_ = other.personId_;
-      locationId_ = other.locationId_;
+      Id = other.id_ != null ? other.Id.Clone() : null;
+      PersonId = other.personId_ != null ? other.PersonId.Clone() : null;
+      LocationId = other.locationId_ != null ? other.LocationId.Clone() : null;
       time_ = other.time_;
       Card = other.card_ != null ? other.Card.Clone() : null;
       state_ = other.state_;
@@ -86,31 +87,31 @@ namespace DataTypes {
 
     /// <summary>Field number for the "id" field.</summary>
     public const int IdFieldNumber = 1;
-    private string id_ = "";
-    public string Id {
+    private global::DataTypes.Key id_;
+    public global::DataTypes.Key Id {
       get { return id_; }
       set {
-        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        id_ = value;
       }
     }
 
     /// <summary>Field number for the "person_id" field.</summary>
     public const int PersonIdFieldNumber = 2;
-    private string personId_ = "";
-    public string PersonId {
+    private global::DataTypes.Key personId_;
+    public global::DataTypes.Key PersonId {
       get { return personId_; }
       set {
-        personId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        personId_ = value;
       }
     }
 
     /// <summary>Field number for the "location_id" field.</summary>
     public const int LocationIdFieldNumber = 3;
-    private string locationId_ = "";
-    public string LocationId {
+    private global::DataTypes.Key locationId_;
+    public global::DataTypes.Key LocationId {
       get { return locationId_; }
       set {
-        locationId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        locationId_ = value;
       }
     }
 
@@ -155,9 +156,9 @@ namespace DataTypes {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Id != other.Id) return false;
-      if (PersonId != other.PersonId) return false;
-      if (LocationId != other.LocationId) return false;
+      if (!object.Equals(Id, other.Id)) return false;
+      if (!object.Equals(PersonId, other.PersonId)) return false;
+      if (!object.Equals(LocationId, other.LocationId)) return false;
       if (Time != other.Time) return false;
       if (!object.Equals(Card, other.Card)) return false;
       if (State != other.State) return false;
@@ -166,9 +167,9 @@ namespace DataTypes {
 
     public override int GetHashCode() {
       int hash = 1;
-      if (Id.Length != 0) hash ^= Id.GetHashCode();
-      if (PersonId.Length != 0) hash ^= PersonId.GetHashCode();
-      if (LocationId.Length != 0) hash ^= LocationId.GetHashCode();
+      if (id_ != null) hash ^= Id.GetHashCode();
+      if (personId_ != null) hash ^= PersonId.GetHashCode();
+      if (locationId_ != null) hash ^= LocationId.GetHashCode();
       if (Time != 0L) hash ^= Time.GetHashCode();
       if (card_ != null) hash ^= Card.GetHashCode();
       if (State != 0) hash ^= State.GetHashCode();
@@ -180,17 +181,17 @@ namespace DataTypes {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Id.Length != 0) {
+      if (id_ != null) {
         output.WriteRawTag(10);
-        output.WriteString(Id);
+        output.WriteMessage(Id);
       }
-      if (PersonId.Length != 0) {
+      if (personId_ != null) {
         output.WriteRawTag(18);
-        output.WriteString(PersonId);
+        output.WriteMessage(PersonId);
       }
-      if (LocationId.Length != 0) {
+      if (locationId_ != null) {
         output.WriteRawTag(26);
-        output.WriteString(LocationId);
+        output.WriteMessage(LocationId);
       }
       if (Time != 0L) {
         output.WriteRawTag(32);
@@ -208,14 +209,14 @@ namespace DataTypes {
 
     public int CalculateSize() {
       int size = 0;
-      if (Id.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
+      if (id_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Id);
       }
-      if (PersonId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(PersonId);
+      if (personId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(PersonId);
       }
-      if (LocationId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(LocationId);
+      if (locationId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(LocationId);
       }
       if (Time != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Time);
@@ -233,14 +234,23 @@ namespace DataTypes {
       if (other == null) {
         return;
       }
-      if (other.Id.Length != 0) {
-        Id = other.Id;
+      if (other.id_ != null) {
+        if (id_ == null) {
+          id_ = new global::DataTypes.Key();
+        }
+        Id.MergeFrom(other.Id);
       }
-      if (other.PersonId.Length != 0) {
-        PersonId = other.PersonId;
+      if (other.personId_ != null) {
+        if (personId_ == null) {
+          personId_ = new global::DataTypes.Key();
+        }
+        PersonId.MergeFrom(other.PersonId);
       }
-      if (other.LocationId.Length != 0) {
-        LocationId = other.LocationId;
+      if (other.locationId_ != null) {
+        if (locationId_ == null) {
+          locationId_ = new global::DataTypes.Key();
+        }
+        LocationId.MergeFrom(other.LocationId);
       }
       if (other.Time != 0L) {
         Time = other.Time;
@@ -264,15 +274,24 @@ namespace DataTypes {
             input.SkipLastField();
             break;
           case 10: {
-            Id = input.ReadString();
+            if (id_ == null) {
+              id_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(id_);
             break;
           }
           case 18: {
-            PersonId = input.ReadString();
+            if (personId_ == null) {
+              personId_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(personId_);
             break;
           }
           case 26: {
-            LocationId = input.ReadString();
+            if (locationId_ == null) {
+              locationId_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(locationId_);
             break;
           }
           case 32: {

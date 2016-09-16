@@ -29,6 +29,7 @@
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "datatypes/geometry.pb.h"
+#include "datatypes/data.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace DataTypes {
@@ -306,11 +307,14 @@ class FaceCharacteristic : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 id = 1;
+  // optional .DataTypes.Key id = 1;
+  bool has_id() const;
   void clear_id();
   static const int kIdFieldNumber = 1;
-  ::google::protobuf::int64 id() const;
-  void set_id(::google::protobuf::int64 value);
+  const ::DataTypes::Key& id() const;
+  ::DataTypes::Key* mutable_id();
+  ::DataTypes::Key* release_id();
+  void set_allocated_id(::DataTypes::Key* id);
 
   // optional .DataTypes.Box box = 2;
   bool has_box() const;
@@ -344,7 +348,7 @@ class FaceCharacteristic : public ::google::protobuf::Message {
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::google::protobuf::int64 id_;
+  ::DataTypes::Key* id_;
   ::DataTypes::Box* box_;
   ::google::protobuf::int64 person_id_;
   ::google::protobuf::int64 photo_id_;
@@ -415,11 +419,14 @@ class Match : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 face_id = 2;
+  // optional .DataTypes.Key face_id = 2;
+  bool has_face_id() const;
   void clear_face_id();
   static const int kFaceIdFieldNumber = 2;
-  ::google::protobuf::int64 face_id() const;
-  void set_face_id(::google::protobuf::int64 value);
+  const ::DataTypes::Key& face_id() const;
+  ::DataTypes::Key* mutable_face_id();
+  ::DataTypes::Key* release_face_id();
+  void set_allocated_face_id(::DataTypes::Key* face_id);
 
   // optional float match = 3;
   void clear_match();
@@ -432,7 +439,7 @@ class Match : public ::google::protobuf::Message {
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::google::protobuf::int64 face_id_;
+  ::DataTypes::Key* face_id_;
   float match_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_datatypes_2fbiometrics_2eproto();
@@ -500,11 +507,14 @@ class Matches : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 face_id = 1;
+  // optional .DataTypes.Key face_id = 1;
+  bool has_face_id() const;
   void clear_face_id();
   static const int kFaceIdFieldNumber = 1;
-  ::google::protobuf::int64 face_id() const;
-  void set_face_id(::google::protobuf::int64 value);
+  const ::DataTypes::Key& face_id() const;
+  ::DataTypes::Key* mutable_face_id();
+  ::DataTypes::Key* release_face_id();
+  void set_allocated_face_id(::DataTypes::Key* face_id);
 
   // repeated .DataTypes.Match matches = 2;
   int matches_size() const;
@@ -523,7 +533,7 @@ class Matches : public ::google::protobuf::Message {
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::google::protobuf::int64 face_id_;
+  ::DataTypes::Key* face_id_;
   ::google::protobuf::RepeatedPtrField< ::DataTypes::Match > matches_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_datatypes_2fbiometrics_2eproto();
@@ -575,18 +585,42 @@ Faces::faces() const {
 
 // FaceCharacteristic
 
-// optional int64 id = 1;
-inline void FaceCharacteristic::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
+// optional .DataTypes.Key id = 1;
+inline bool FaceCharacteristic::has_id() const {
+  return !_is_default_instance_ && id_ != NULL;
 }
-inline ::google::protobuf::int64 FaceCharacteristic::id() const {
+inline void FaceCharacteristic::clear_id() {
+  if (GetArenaNoVirtual() == NULL && id_ != NULL) delete id_;
+  id_ = NULL;
+}
+inline const ::DataTypes::Key& FaceCharacteristic::id() const {
   // @@protoc_insertion_point(field_get:DataTypes.FaceCharacteristic.id)
+  return id_ != NULL ? *id_ : *default_instance_->id_;
+}
+inline ::DataTypes::Key* FaceCharacteristic::mutable_id() {
+  
+  if (id_ == NULL) {
+    id_ = new ::DataTypes::Key;
+  }
+  // @@protoc_insertion_point(field_mutable:DataTypes.FaceCharacteristic.id)
   return id_;
 }
-inline void FaceCharacteristic::set_id(::google::protobuf::int64 value) {
+inline ::DataTypes::Key* FaceCharacteristic::release_id() {
+  // @@protoc_insertion_point(field_release:DataTypes.FaceCharacteristic.id)
   
-  id_ = value;
-  // @@protoc_insertion_point(field_set:DataTypes.FaceCharacteristic.id)
+  ::DataTypes::Key* temp = id_;
+  id_ = NULL;
+  return temp;
+}
+inline void FaceCharacteristic::set_allocated_id(::DataTypes::Key* id) {
+  delete id_;
+  id_ = id;
+  if (id) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:DataTypes.FaceCharacteristic.id)
 }
 
 // optional .DataTypes.Box box = 2;
@@ -673,18 +707,42 @@ inline void FaceCharacteristic::set_photo_id(::google::protobuf::int64 value) {
 
 // Match
 
-// optional int64 face_id = 2;
-inline void Match::clear_face_id() {
-  face_id_ = GOOGLE_LONGLONG(0);
+// optional .DataTypes.Key face_id = 2;
+inline bool Match::has_face_id() const {
+  return !_is_default_instance_ && face_id_ != NULL;
 }
-inline ::google::protobuf::int64 Match::face_id() const {
+inline void Match::clear_face_id() {
+  if (GetArenaNoVirtual() == NULL && face_id_ != NULL) delete face_id_;
+  face_id_ = NULL;
+}
+inline const ::DataTypes::Key& Match::face_id() const {
   // @@protoc_insertion_point(field_get:DataTypes.Match.face_id)
+  return face_id_ != NULL ? *face_id_ : *default_instance_->face_id_;
+}
+inline ::DataTypes::Key* Match::mutable_face_id() {
+  
+  if (face_id_ == NULL) {
+    face_id_ = new ::DataTypes::Key;
+  }
+  // @@protoc_insertion_point(field_mutable:DataTypes.Match.face_id)
   return face_id_;
 }
-inline void Match::set_face_id(::google::protobuf::int64 value) {
+inline ::DataTypes::Key* Match::release_face_id() {
+  // @@protoc_insertion_point(field_release:DataTypes.Match.face_id)
   
-  face_id_ = value;
-  // @@protoc_insertion_point(field_set:DataTypes.Match.face_id)
+  ::DataTypes::Key* temp = face_id_;
+  face_id_ = NULL;
+  return temp;
+}
+inline void Match::set_allocated_face_id(::DataTypes::Key* face_id) {
+  delete face_id_;
+  face_id_ = face_id;
+  if (face_id) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:DataTypes.Match.face_id)
 }
 
 // optional float match = 3;
@@ -705,18 +763,42 @@ inline void Match::set_match(float value) {
 
 // Matches
 
-// optional int64 face_id = 1;
-inline void Matches::clear_face_id() {
-  face_id_ = GOOGLE_LONGLONG(0);
+// optional .DataTypes.Key face_id = 1;
+inline bool Matches::has_face_id() const {
+  return !_is_default_instance_ && face_id_ != NULL;
 }
-inline ::google::protobuf::int64 Matches::face_id() const {
+inline void Matches::clear_face_id() {
+  if (GetArenaNoVirtual() == NULL && face_id_ != NULL) delete face_id_;
+  face_id_ = NULL;
+}
+inline const ::DataTypes::Key& Matches::face_id() const {
   // @@protoc_insertion_point(field_get:DataTypes.Matches.face_id)
+  return face_id_ != NULL ? *face_id_ : *default_instance_->face_id_;
+}
+inline ::DataTypes::Key* Matches::mutable_face_id() {
+  
+  if (face_id_ == NULL) {
+    face_id_ = new ::DataTypes::Key;
+  }
+  // @@protoc_insertion_point(field_mutable:DataTypes.Matches.face_id)
   return face_id_;
 }
-inline void Matches::set_face_id(::google::protobuf::int64 value) {
+inline ::DataTypes::Key* Matches::release_face_id() {
+  // @@protoc_insertion_point(field_release:DataTypes.Matches.face_id)
   
-  face_id_ = value;
-  // @@protoc_insertion_point(field_set:DataTypes.Matches.face_id)
+  ::DataTypes::Key* temp = face_id_;
+  face_id_ = NULL;
+  return temp;
+}
+inline void Matches::set_allocated_face_id(::DataTypes::Key* face_id) {
+  delete face_id_;
+  face_id_ = face_id;
+  if (face_id) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:DataTypes.Matches.face_id)
 }
 
 // repeated .DataTypes.Match matches = 2;

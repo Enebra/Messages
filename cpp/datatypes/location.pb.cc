@@ -108,17 +108,18 @@ void protobuf_AddDesc_datatypes_2flocation_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::DataTypes::protobuf_AddDesc_datatypes_2fdevices_2eproto();
+  ::DataTypes::protobuf_AddDesc_datatypes_2fdata_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\030datatypes/location.proto\022\tDataTypes\032\027d"
-    "atatypes/devices.proto\"\203\001\n\010Location\022\n\n\002i"
-    "d\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001"
-    "(\t\022\030\n\020unit_mac_address\030\004 \001(\t\022.\n\raccess_d"
-    "evice\030\005 \001(\0132\027.DataTypes.AccessDevice\">\n\t"
-    "Locations\022\"\n\005items\030\001 \003(\0132\023.DataTypes.Loc"
-    "ation\022\r\n\005count\030\002 \001(\003*K\n\rLocationState\022\025\n"
-    "\021Unspecified_State\020\000\022\n\n\006Opened\020\001\022\n\n\006Clos"
-    "ed\020\002\022\013\n\007Failure\020\003B\017\n\007ex.grpc\242\002\003RTGb\006prot"
-    "o3", 362);
+    "atatypes/devices.proto\032\024datatypes/data.p"
+    "roto\"\223\001\n\010Location\022\032\n\002id\030\001 \001(\0132\016.DataType"
+    "s.Key\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t"
+    "\022\030\n\020unit_mac_address\030\004 \001(\t\022.\n\raccess_dev"
+    "ice\030\005 \001(\0132\027.DataTypes.AccessDevice\">\n\tLo"
+    "cations\022\"\n\005items\030\001 \003(\0132\023.DataTypes.Locat"
+    "ion\022\r\n\005count\030\002 \001(\003*K\n\rLocationState\022\025\n\021U"
+    "nspecified_State\020\000\022\n\n\006Opened\020\001\022\n\n\006Closed"
+    "\020\002\022\013\n\007Failure\020\003B\017\n\007ex.grpc\242\002\003RTGb\006proto3", 400);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "datatypes/location.proto", &protobuf_RegisterTypes);
   Location::default_instance_ = new Location();
@@ -179,6 +180,7 @@ Location::Location()
 
 void Location::InitAsDefaultInstance() {
   _is_default_instance_ = true;
+  id_ = const_cast< ::DataTypes::Key*>(&::DataTypes::Key::default_instance());
   access_device_ = const_cast< ::DataTypes::AccessDevice*>(&::DataTypes::AccessDevice::default_instance());
 }
 
@@ -194,7 +196,7 @@ void Location::SharedCtor() {
     _is_default_instance_ = false;
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  id_ = NULL;
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   unit_mac_address_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -207,11 +209,11 @@ Location::~Location() {
 }
 
 void Location::SharedDtor() {
-  id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   description_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   unit_mac_address_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
+    delete id_;
     delete access_device_;
   }
 }
@@ -243,7 +245,8 @@ Location* Location::New(::google::protobuf::Arena* arena) const {
 
 void Location::Clear() {
 // @@protoc_insertion_point(message_clear_start:DataTypes.Location)
-  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && id_ != NULL) delete id_;
+  id_ = NULL;
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   unit_mac_address_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -261,15 +264,11 @@ bool Location::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string id = 1;
+      // optional .DataTypes.Key id = 1;
       case 1: {
         if (tag == 10) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_id()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->id().data(), this->id().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "DataTypes.Location.id"));
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_id()));
         } else {
           goto handle_unusual;
         }
@@ -365,14 +364,10 @@ failure:
 void Location::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:DataTypes.Location)
-  // optional string id = 1;
-  if (this->id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->id().data(), this->id().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "DataTypes.Location.id");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->id(), output);
+  // optional .DataTypes.Key id = 1;
+  if (this->has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, *this->id_, output);
   }
 
   // optional string name = 2;
@@ -417,15 +412,11 @@ void Location::SerializeWithCachedSizes(
 ::google::protobuf::uint8* Location::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:DataTypes.Location)
-  // optional string id = 1;
-  if (this->id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->id().data(), this->id().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "DataTypes.Location.id");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->id(), target);
+  // optional .DataTypes.Key id = 1;
+  if (this->has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, *this->id_, target);
   }
 
   // optional string name = 2;
@@ -476,11 +467,11 @@ int Location::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:DataTypes.Location)
   int total_size = 0;
 
-  // optional string id = 1;
-  if (this->id().size() > 0) {
+  // optional .DataTypes.Key id = 1;
+  if (this->has_id()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->id());
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->id_);
   }
 
   // optional string name = 2;
@@ -535,9 +526,8 @@ void Location::MergeFrom(const ::google::protobuf::Message& from) {
 void Location::MergeFrom(const Location& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:DataTypes.Location)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  if (from.id().size() > 0) {
-
-    id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.id_);
+  if (from.has_id()) {
+    mutable_id()->::DataTypes::Key::MergeFrom(from.id());
   }
   if (from.name().size() > 0) {
 
@@ -580,7 +570,7 @@ void Location::Swap(Location* other) {
   InternalSwap(other);
 }
 void Location::InternalSwap(Location* other) {
-  id_.Swap(&other->id_);
+  std::swap(id_, other->id_);
   name_.Swap(&other->name_);
   description_.Swap(&other->description_);
   unit_mac_address_.Swap(&other->unit_mac_address_);
@@ -600,47 +590,41 @@ void Location::InternalSwap(Location* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Location
 
-// optional string id = 1;
+// optional .DataTypes.Key id = 1;
+bool Location::has_id() const {
+  return !_is_default_instance_ && id_ != NULL;
+}
 void Location::clear_id() {
-  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && id_ != NULL) delete id_;
+  id_ = NULL;
 }
- const ::std::string& Location::id() const {
+const ::DataTypes::Key& Location::id() const {
   // @@protoc_insertion_point(field_get:DataTypes.Location.id)
-  return id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return id_ != NULL ? *id_ : *default_instance_->id_;
 }
- void Location::set_id(const ::std::string& value) {
+::DataTypes::Key* Location::mutable_id() {
   
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:DataTypes.Location.id)
-}
- void Location::set_id(const char* value) {
-  
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:DataTypes.Location.id)
-}
- void Location::set_id(const char* value, size_t size) {
-  
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:DataTypes.Location.id)
-}
- ::std::string* Location::mutable_id() {
-  
+  if (id_ == NULL) {
+    id_ = new ::DataTypes::Key;
+  }
   // @@protoc_insertion_point(field_mutable:DataTypes.Location.id)
-  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return id_;
 }
- ::std::string* Location::release_id() {
+::DataTypes::Key* Location::release_id() {
   // @@protoc_insertion_point(field_release:DataTypes.Location.id)
   
-  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::DataTypes::Key* temp = id_;
+  id_ = NULL;
+  return temp;
 }
- void Location::set_allocated_id(::std::string* id) {
-  if (id != NULL) {
+void Location::set_allocated_id(::DataTypes::Key* id) {
+  delete id_;
+  id_ = id;
+  if (id) {
     
   } else {
     
   }
-  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
   // @@protoc_insertion_point(field_set_allocated:DataTypes.Location.id)
 }
 

@@ -29,6 +29,7 @@
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "datatypes/devices.pb.h"
+#include "datatypes/data.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace DataTypes {
@@ -122,16 +123,14 @@ class Location : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional string id = 1;
+  // optional .DataTypes.Key id = 1;
+  bool has_id() const;
   void clear_id();
   static const int kIdFieldNumber = 1;
-  const ::std::string& id() const;
-  void set_id(const ::std::string& value);
-  void set_id(const char* value);
-  void set_id(const char* value, size_t size);
-  ::std::string* mutable_id();
-  ::std::string* release_id();
-  void set_allocated_id(::std::string* id);
+  const ::DataTypes::Key& id() const;
+  ::DataTypes::Key* mutable_id();
+  ::DataTypes::Key* release_id();
+  void set_allocated_id(::DataTypes::Key* id);
 
   // optional string name = 2;
   void clear_name();
@@ -180,7 +179,7 @@ class Location : public ::google::protobuf::Message {
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::google::protobuf::internal::ArenaStringPtr id_;
+  ::DataTypes::Key* id_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr description_;
   ::google::protobuf::internal::ArenaStringPtr unit_mac_address_;
@@ -292,47 +291,41 @@ class Locations : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // Location
 
-// optional string id = 1;
+// optional .DataTypes.Key id = 1;
+inline bool Location::has_id() const {
+  return !_is_default_instance_ && id_ != NULL;
+}
 inline void Location::clear_id() {
-  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && id_ != NULL) delete id_;
+  id_ = NULL;
 }
-inline const ::std::string& Location::id() const {
+inline const ::DataTypes::Key& Location::id() const {
   // @@protoc_insertion_point(field_get:DataTypes.Location.id)
-  return id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return id_ != NULL ? *id_ : *default_instance_->id_;
 }
-inline void Location::set_id(const ::std::string& value) {
+inline ::DataTypes::Key* Location::mutable_id() {
   
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:DataTypes.Location.id)
-}
-inline void Location::set_id(const char* value) {
-  
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:DataTypes.Location.id)
-}
-inline void Location::set_id(const char* value, size_t size) {
-  
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:DataTypes.Location.id)
-}
-inline ::std::string* Location::mutable_id() {
-  
+  if (id_ == NULL) {
+    id_ = new ::DataTypes::Key;
+  }
   // @@protoc_insertion_point(field_mutable:DataTypes.Location.id)
-  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return id_;
 }
-inline ::std::string* Location::release_id() {
+inline ::DataTypes::Key* Location::release_id() {
   // @@protoc_insertion_point(field_release:DataTypes.Location.id)
   
-  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::DataTypes::Key* temp = id_;
+  id_ = NULL;
+  return temp;
 }
-inline void Location::set_allocated_id(::std::string* id) {
-  if (id != NULL) {
+inline void Location::set_allocated_id(::DataTypes::Key* id) {
+  delete id_;
+  id_ = id;
+  if (id) {
     
   } else {
     
   }
-  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
   // @@protoc_insertion_point(field_set_allocated:DataTypes.Location.id)
 }
 
