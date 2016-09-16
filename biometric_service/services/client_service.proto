@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "datatypes/unit.proto";
+import "datatypes/location.proto";
+import "datatypes/devices.proto";
+import "datatypes/visit_record.proto";
+
+option java_package = "ex.grpc";
+option objc_class_prefix = "RTG";
+
+package Services;
+
+service ClientService
+{  
+  rpc UpdateVisitRecords ( DataTypes.VisitRecords ) returns ( google.protobuf.Empty ) {}
+  rpc UpdateUnits        ( DataTypes.UpdatedUnits ) returns ( google.protobuf.Empty ) {}
+  rpc UpdateLocation     ( DataTypes.Location     ) returns ( google.protobuf.Empty ) {}
+  rpc PushUpdates        ( DeviceUpdate           ) returns ( google.protobuf.Empty ) {}
+}
+
+

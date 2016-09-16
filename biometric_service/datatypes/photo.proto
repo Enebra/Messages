@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 import "datatypes/biometrics.proto";
+import "datatypes/data.proto";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
@@ -9,13 +10,13 @@ package DataTypes;
 
 message Photo
 {
-  string          id              = 1;  
+  Key             id              = 1;  
   string          url             = 2;   
   int32           width           = 3;
   int32           height          = 4;
   Purpose         purpose         = 5;
   BiometricType   biometric_type  = 6;
-  string           owner_id       = 7;
+  Key           owner_id       = 7;
 }
 
 enum Purpose

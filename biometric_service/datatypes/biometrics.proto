@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 import "datatypes/geometry.proto";
+import "datatypes/data.proto";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
@@ -14,7 +15,7 @@ message Faces
 
 message FaceCharacteristic
 {  
-  int64    id          = 1;
+  Key    id          = 1;
   Box      box         = 2;  
   float    confidence  = 3;  
   int64    person_id   = 4;
@@ -24,13 +25,13 @@ message FaceCharacteristic
 
 message Match
 { 
-  int64 face_id = 2;
+  Key face_id = 2;
   float match   = 3;
 }
 
 message Matches
 {
-           int64 face_id = 1;
+           Key face_id = 1;
   repeated Match matches = 2;
 }
 

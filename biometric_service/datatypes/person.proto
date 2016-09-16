@@ -2,6 +2,7 @@ syntax = "proto3";
 
 import "datatypes/card.proto";
 import "datatypes/photo.proto";
+import "datatypes/data.proto";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
@@ -26,7 +27,7 @@ enum Rights
 
 message Person
 {
-           string              id         = 1;
+           Key              id         = 1;
            string              first_name = 2;
            string              last_name  = 3;                 
   repeated Photo               photos     = 4;      

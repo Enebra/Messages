@@ -8,7 +8,7 @@ option objc_class_prefix = "RTG";
 
 package Services;
 
-service BiometricFacialSevice
+service BiometricFacialService
 {  
   rpc Acquire         ( DataTypes.Photo     ) returns ( DataTypes.Faces            ) {} 
   rpc CreatePopulation( DataTypes.Photos    ) returns ( PopulationCreationResponse ) {}

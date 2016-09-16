@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "datatypes/data.proto";
+
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
 
@@ -7,8 +9,8 @@ package DataTypes;
 
 message Card
 { 
-  string  unique_identifier = 1;  
-  string  owner_id          = 2;    
+  Key  unique_identifier = 1;  
+  Key  owner_id          = 2;    
 }
 
 

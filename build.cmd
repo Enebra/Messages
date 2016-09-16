@@ -7,7 +7,7 @@ set file=biometric_service/services/database_service.proto
 
 CALL %VS2013%
 
-cd  D:\development\Messages\Messages
+cd  C:\Users\Yaroslav\Documents\Software projects\Bioskynet\Messages
 
 protoc --grpc_out=.\cpp --plugin=protoc-gen-grpc=grpc_cpp_plugin.exe %file% --proto_path biometric_service
 protoc --cpp_out=.\cpp %file% --proto_path biometric_service
@@ -17,3 +17,17 @@ call protoc --csharp_out=.\csharp %file% --proto_path biometric_service
 
 pause
 
+:://---------------------------------------------------------------------
+
+::db service
+
+:: cpp
+protoc --grpc_out=.\cpp --plugin=protoc-gen-grpc=grpc_cpp_plugin.exe %file% --proto_path biometric_service
+protoc --cpp_out=.\cpp %file% --proto_path biometric_service
+
+:: csharp
+protoc --grpc_out=.\csharp --plugin=protoc-gen-grpc=grpc_csharp_plugin.exe %file% --proto_path biometric_service
+protoc --csharp_out=.\csharp %file% --proto_path biometric_service
+
+:: go
+protoc --go_out=plugins=grpc:golang %file% --proto_path biometric_service

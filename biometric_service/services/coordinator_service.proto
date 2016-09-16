@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "datatypes/unit.proto";
+import "datatypes/location.proto";
+import "datatypes/visit_record.proto";
+import "datatypes/data.proto";
+
+option java_package = "ex.grpc";
+option objc_class_prefix = "RTG";
+
+package Services;
+
+service CoordinatorService
+{
+  rpc Connect                ( DataTypes.ConnectedUnit     ) returns ( google.protobuf.Empty  ) {}
+  rpc Heartbeat              ( DataTypes.HeartbeatMessage  ) returns ( google.protobuf.Empty  ) {}
+  rpc GetUnits               ( google.protobuf.Empty       ) returns ( DataTypes.Units        ) {}
+  rpc Subscribe              ( DataTypes.ConnectedUnit     ) returns ( google.protobuf.Empty  ) {}
+  rpc Unsubscribe            ( DataTypes.ConnectedUnit     ) returns ( google.protobuf.Empty  ) {}
+  rpc Get                    ( DataTypes.MessageBytes      ) returns ( MessageBytes           ) {}
+  rpc Commit                 ( DataTypes.MessageBytes      ) returns ( MessageBytes           ) {}
+  rpc PushUpdates            ( DataTypes.DeviceUpdate      ) returns ( google.protobuf.Empty  ) {}
+}
+
+enum ServiceType
+{
+  None_Type = 0;
+  Facial = 1;
+  AppUnit = 2;
+  Unit = 3; 
+}
+
+message HeartbeatMessage
+{
+  string service_id = 1;
+}
