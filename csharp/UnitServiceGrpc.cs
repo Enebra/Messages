@@ -14,8 +14,7 @@ namespace Services {
 
     static readonly Marshaller<global::DataTypes.Location> __Marshaller_Location = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Location.Parser.ParseFrom);
     static readonly Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_Empty = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Google.Protobuf.WellKnownTypes.Empty.Parser.ParseFrom);
-    static readonly Marshaller<global::DataTypes.UpdatedUnits> __Marshaller_UpdatedUnits = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.UpdatedUnits.Parser.ParseFrom);
-    static readonly Marshaller<global::DataTypes.VisitRecords> __Marshaller_VisitRecords = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.VisitRecords.Parser.ParseFrom);
+    static readonly Marshaller<global::Services.FrameBytes> __Marshaller_FrameBytes = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.FrameBytes.Parser.ParseFrom);
 
     static readonly Method<global::DataTypes.Location, global::Google.Protobuf.WellKnownTypes.Empty> __Method_OpenDoor = new Method<global::DataTypes.Location, global::Google.Protobuf.WellKnownTypes.Empty>(
         MethodType.Unary,
@@ -24,18 +23,18 @@ namespace Services {
         __Marshaller_Location,
         __Marshaller_Empty);
 
-    static readonly Method<global::DataTypes.UpdatedUnits, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdateUnits = new Method<global::DataTypes.UpdatedUnits, global::Google.Protobuf.WellKnownTypes.Empty>(
-        MethodType.Unary,
+    static readonly Method<global::DataTypes.Location, global::Services.FrameBytes> __Method_GetVideoStream = new Method<global::DataTypes.Location, global::Services.FrameBytes>(
+        MethodType.ServerStreaming,
         __ServiceName,
-        "UpdateUnits",
-        __Marshaller_UpdatedUnits,
-        __Marshaller_Empty);
+        "GetVideoStream",
+        __Marshaller_Location,
+        __Marshaller_FrameBytes);
 
-    static readonly Method<global::DataTypes.VisitRecords, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdateActvity = new Method<global::DataTypes.VisitRecords, global::Google.Protobuf.WellKnownTypes.Empty>(
+    static readonly Method<global::DataTypes.Location, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdateLocation = new Method<global::DataTypes.Location, global::Google.Protobuf.WellKnownTypes.Empty>(
         MethodType.Unary,
         __ServiceName,
-        "UpdateActvity",
-        __Marshaller_VisitRecords,
+        "UpdateLocation",
+        __Marshaller_Location,
         __Marshaller_Empty);
 
     /// <summary>Service descriptor</summary>
@@ -52,12 +51,12 @@ namespace Services {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> UpdateUnits(global::DataTypes.UpdatedUnits request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task GetVideoStream(global::DataTypes.Location request, IServerStreamWriter<global::Services.FrameBytes> responseStream, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> UpdateActvity(global::DataTypes.VisitRecords request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> UpdateLocation(global::DataTypes.Location request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
@@ -103,37 +102,29 @@ namespace Services {
       {
         return CallInvoker.AsyncUnaryCall(__Method_OpenDoor, null, options, request);
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateUnits(global::DataTypes.UpdatedUnits request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual AsyncServerStreamingCall<global::Services.FrameBytes> GetVideoStream(global::DataTypes.Location request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return UpdateUnits(request, new CallOptions(headers, deadline, cancellationToken));
+        return GetVideoStream(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateUnits(global::DataTypes.UpdatedUnits request, CallOptions options)
+      public virtual AsyncServerStreamingCall<global::Services.FrameBytes> GetVideoStream(global::DataTypes.Location request, CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_UpdateUnits, null, options, request);
+        return CallInvoker.AsyncServerStreamingCall(__Method_GetVideoStream, null, options, request);
       }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateUnitsAsync(global::DataTypes.UpdatedUnits request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateLocation(global::DataTypes.Location request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return UpdateUnitsAsync(request, new CallOptions(headers, deadline, cancellationToken));
+        return UpdateLocation(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateUnitsAsync(global::DataTypes.UpdatedUnits request, CallOptions options)
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateLocation(global::DataTypes.Location request, CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_UpdateUnits, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_UpdateLocation, null, options, request);
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateActvity(global::DataTypes.VisitRecords request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateLocationAsync(global::DataTypes.Location request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return UpdateActvity(request, new CallOptions(headers, deadline, cancellationToken));
+        return UpdateLocationAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateActvity(global::DataTypes.VisitRecords request, CallOptions options)
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateLocationAsync(global::DataTypes.Location request, CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_UpdateActvity, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateActvityAsync(global::DataTypes.VisitRecords request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return UpdateActvityAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateActvityAsync(global::DataTypes.VisitRecords request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_UpdateActvity, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_UpdateLocation, null, options, request);
       }
       protected override UnitServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -146,8 +137,8 @@ namespace Services {
     {
       return ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_OpenDoor, serviceImpl.OpenDoor)
-          .AddMethod(__Method_UpdateUnits, serviceImpl.UpdateUnits)
-          .AddMethod(__Method_UpdateActvity, serviceImpl.UpdateActvity).Build();
+          .AddMethod(__Method_GetVideoStream, serviceImpl.GetVideoStream)
+          .AddMethod(__Method_UpdateLocation, serviceImpl.UpdateLocation).Build();
     }
 
   }

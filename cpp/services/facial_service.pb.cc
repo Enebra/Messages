@@ -164,15 +164,15 @@ void protobuf_AddDesc_services_2ffacial_5fservice_2eproto() {
     "hoto\022\025\n\rpopulation_id\030\002 \001(\003\"Z\n\022FaceSearc"
     "hResponse\022\037\n\005faces\030\001 \003(\0132\020.DataTypes.Fac"
     "es\022#\n\007matches\030\002 \003(\0132\022.DataTypes.Matches2"
-    "\247\002\n\025BiometricFacialSevice\022/\n\007Acquire\022\020.D"
-    "ataTypes.Photo\032\020.DataTypes.Faces\"\000\022M\n\020Cr"
-    "eatePopulation\022\021.DataTypes.Photos\032$.Serv"
-    "ices.PopulationCreationResponse\"\000\022D\n\006Ver"
-    "ify\022\032.Services.VerificationData\032\034.Servic"
-    "es.FaceSearchResponse\"\000\022H\n\010Identify\022\034.Se"
-    "rvices.IdentificationData\032\034.Services.Fac"
-    "eSearchResponse\"\000B\017\n\007ex.grpc\242\002\003RTGb\006prot"
-    "o3", 802);
+    "\250\002\n\026BiometricFacialService\022/\n\007Acquire\022\020."
+    "DataTypes.Photo\032\020.DataTypes.Faces\"\000\022M\n\020C"
+    "reatePopulation\022\021.DataTypes.Photos\032$.Ser"
+    "vices.PopulationCreationResponse\"\000\022D\n\006Ve"
+    "rify\022\032.Services.VerificationData\032\034.Servi"
+    "ces.FaceSearchResponse\"\000\022H\n\010Identify\022\034.S"
+    "ervices.IdentificationData\032\034.Services.Fa"
+    "ceSearchResponse\"\000B\017\n\007ex.grpc\242\002\003RTGb\006pro"
+    "to3", 803);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "services/facial_service.proto", &protobuf_RegisterTypes);
   PopulationCreationResponse::default_instance_ = new PopulationCreationResponse();

@@ -16,7 +16,7 @@ service ClientService
   rpc UpdateVisitRecords ( DataTypes.VisitRecords ) returns ( google.protobuf.Empty ) {}
   rpc UpdateUnits        ( DataTypes.UpdatedUnits ) returns ( google.protobuf.Empty ) {}
   rpc UpdateLocation     ( DataTypes.Location     ) returns ( google.protobuf.Empty ) {}
-  rpc PushUpdates        ( DeviceUpdate           ) returns ( google.protobuf.Empty ) {}
+  rpc PushUpdates        ( DataTypes.DeviceUpdate ) returns ( google.protobuf.Empty ) {}
 }
 
 
