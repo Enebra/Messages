@@ -1,33 +1,51 @@
-set VS2013="C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\vcvars32.bat"
-set VS2013_AMD64="C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\amd64\vcvars64.bat"
+@ECHO OFF
 
+if /i "%1" NEQ "" goto Generate
 
-set file=biometric_service/services/database_service.proto
+echo Generating grpc files...
+echo.
 
+for %%f in (biometric_service\services\*) do (
 
-CALL %VS2013%
+echo Processing  %%f
+echo.
 
-cd  C:\Users\Yaroslav\Documents\Software projects\Bioskynet\Messages
-
-protoc --grpc_out=.\cpp --plugin=protoc-gen-grpc=grpc_cpp_plugin.exe %file% --proto_path biometric_service
-protoc --cpp_out=.\cpp %file% --proto_path biometric_service
-
-call protoc --grpc_out=.\csharp --plugin=protoc-gen-grpc=grpc_csharp_plugin.exe %file% --proto_path biometric_service
-call protoc --csharp_out=.\csharp %file% --proto_path biometric_service
-
-pause
-
-:://---------------------------------------------------------------------
-
-::db service
-
-:: cpp
-protoc --grpc_out=.\cpp --plugin=protoc-gen-grpc=grpc_cpp_plugin.exe %file% --proto_path biometric_service
-protoc --cpp_out=.\cpp %file% --proto_path biometric_service
+::  cpp
+protoc --grpc_out=.\cpp --plugin=protoc-gen-grpc=grpc_cpp_plugin.exe %%f --proto_path biometric_service
+protoc --cpp_out=.\cpp %%f --proto_path biometric_service
 
 :: csharp
-protoc --grpc_out=.\csharp --plugin=protoc-gen-grpc=grpc_csharp_plugin.exe %file% --proto_path biometric_service
-protoc --csharp_out=.\csharp %file% --proto_path biometric_service
+protoc --grpc_out=.\csharp --plugin=protoc-gen-grpc=grpc_csharp_plugin.exe %%f --proto_path biometric_service
+protoc --csharp_out=.\csharp %%f --proto_path biometric_service
 
 :: go
-protoc --go_out=plugins=grpc:golang %file% --proto_path biometric_service
+protoc --go_out=plugins=grpc:golang %%f --proto_path biometric_service
+
+echo.
+)
+
+echo Done
+exit /b 0
+
+:Generate
+
+if not exist %1 (
+    echo File "%1" doesn`t exist
+    exit /b 100
+)
+
+echo Processing  %1 ...
+echo.
+::  cpp
+protoc --grpc_out=.\cpp --plugin=protoc-gen-grpc=grpc_cpp_plugin.exe %1 --proto_path biometric_service
+protoc --cpp_out=.\cpp %1 --proto_path biometric_service
+
+:: csharp
+protoc --grpc_out=.\csharp --plugin=protoc-gen-grpc=grpc_csharp_plugin.exe %1 --proto_path biometric_service
+protoc --csharp_out=.\csharp %1 --proto_path biometric_service
+
+:: go
+protoc --go_out=plugins=grpc:golang %1 --proto_path biometric_service 
+
+echo Done
+exit /b 0
