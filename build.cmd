@@ -19,7 +19,7 @@ protoc --grpc_out=.\csharp --plugin=protoc-gen-grpc=grpc_csharp_plugin.exe %%f -
 protoc --csharp_out=.\csharp %%f --proto_path biometric_service
 
 :: go
-protoc --go_out=plugins=grpc:golang %%f --proto_path biometric_service
+REM ::protoc --go_out=plugins=grpc:golang %%f --proto_path biometric_service
 
 echo.
 )
@@ -38,10 +38,11 @@ protoc --grpc_out=.\csharp --plugin=protoc-gen-grpc=grpc_csharp_plugin.exe %%f -
 protoc --csharp_out=.\csharp %%f --proto_path biometric_service
 
 :: go
-protoc --go_out=plugins=grpc:golang %%f --proto_path biometric_service
+REM ::protoc --go_out=plugins=grpc:golang %%f --proto_path biometric_service
 
 echo.
 )
+protoc --go_out=plugins=grpc:GoGrpc GoGrpc\biometric_service.proto --proto_path GoGrpc
 
 echo Done
 exit /b 0
@@ -64,7 +65,7 @@ protoc --grpc_out=.\csharp --plugin=protoc-gen-grpc=grpc_csharp_plugin.exe %1 --
 protoc --csharp_out=.\csharp %1 --proto_path biometric_service
 
 :: go
-protoc --go_out=plugins=grpc:golang %1 --proto_path biometric_service 
+REM ::protoc --go_out=plugins=grpc:GoGrpc GoGrpc\biometric_service.proto --proto_path GoGrpc
 
 echo Done
 exit /b 0
