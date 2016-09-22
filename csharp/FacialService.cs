@@ -40,7 +40,9 @@ namespace Services {
             "c2UiABJECgZWZXJpZnkSGi5TZXJ2aWNlcy5WZXJpZmljYXRpb25EYXRhGhwu",
             "U2VydmljZXMuRmFjZVNlYXJjaFJlc3BvbnNlIgASSAoISWRlbnRpZnkSHC5T",
             "ZXJ2aWNlcy5JZGVudGlmaWNhdGlvbkRhdGEaHC5TZXJ2aWNlcy5GYWNlU2Vh",
-            "cmNoUmVzcG9uc2UiAEIPCgdleC5ncnBjogIDUlRHYgZwcm90bzM="));
+            "cmNoUmVzcG9uc2UiAEJRCgdleC5ncnBjWkBnaXRodWIuY29tL0VuZWJyYS9T",
+            "ZXJ2aWNlQ29vcmRpbmF0b3IvZ3JwYy9zZXJ2aWNlcy9mYWNpYWxzZXJ2aWNl",
+            "ogIDUlRHYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::DataTypes.PhotoReflection.Descriptor, global::DataTypes.BiometricsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {

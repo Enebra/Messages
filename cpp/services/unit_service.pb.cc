@@ -89,7 +89,9 @@ void protobuf_AddDesc_services_2funit_5fservice_2eproto() {
     "\"\000\022\?\n\016GetVideoStream\022\023.DataTypes.Locatio"
     "n\032\024.Services.FrameBytes\"\0000\001\022\?\n\016UpdateLoc"
     "ation\022\023.DataTypes.Location\032\026.google.prot"
-    "obuf.Empty\"\000B\017\n\007ex.grpc\242\002\003RTGb\006proto3", 357);
+    "obuf.Empty\"\000BO\n\007ex.grpcZ>github.com/Eneb"
+    "ra/ServiceCoordinator/grpc/services/unit"
+    "service\242\002\003RTGb\006proto3", 421);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "services/unit_service.proto", &protobuf_RegisterTypes);
   FrameBytes::default_instance_ = new FrameBytes();

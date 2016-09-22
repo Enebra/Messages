@@ -119,7 +119,9 @@ void protobuf_AddDesc_datatypes_2flocation_2eproto() {
     "cations\022\"\n\005items\030\001 \003(\0132\023.DataTypes.Locat"
     "ion\022\r\n\005count\030\002 \001(\003*K\n\rLocationState\022\025\n\021U"
     "nspecified_State\020\000\022\n\n\006Opened\020\001\022\n\n\006Closed"
-    "\020\002\022\013\n\007Failure\020\003B\017\n\007ex.grpc\242\002\003RTGb\006proto3", 400);
+    "\020\002\022\013\n\007Failure\020\003BM\n\007ex.grpcZ<github.com/E"
+    "nebra/ServiceCoordinator/grpc/datatypes/"
+    "location\242\002\003RTGb\006proto3", 462);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "datatypes/location.proto", &protobuf_RegisterTypes);
   Location::default_instance_ = new Location();

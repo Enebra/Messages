@@ -2,6 +2,7 @@ syntax = "proto3";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
+option go_package = "github.com/Enebra/ServiceCoordinator/grpc/datatypes/data";
 
 package DataTypes;
 

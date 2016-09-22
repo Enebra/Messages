@@ -33,7 +33,8 @@ namespace DataTypes {
             "chIWChJHZW5kZXJfVW5zcGVjaWZpZWQQABIICgRNYWxlEAESCgoGRmVtYWxl",
             "EAIqVwoGUmlnaHRzEhYKElJpZ2h0c19VbnNwZWNpZmllZBAAEgoKBkN1c3Rv",
             "bRABEgwKCE9wZXJhdG9yEAISCwoHTWFuYWdlchADEg4KClN1cGVydmlzb3IQ",
-            "BEIPCgdleC5ncnBjogIDUlRHYgZwcm90bzM="));
+            "BEJLCgdleC5ncnBjWjpnaXRodWIuY29tL0VuZWJyYS9TZXJ2aWNlQ29vcmRp",
+            "bmF0b3IvZ3JwYy9kYXRhdHlwZXMvcGVyc29uogIDUlRHYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::DataTypes.CardReflection.Descriptor, global::DataTypes.PhotoReflection.Descriptor, global::DataTypes.DataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.Gender), typeof(global::DataTypes.Rights), }, new pbr::GeneratedClrTypeInfo[] {

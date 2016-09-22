@@ -6,10 +6,11 @@ import "datatypes/photo.proto";
 import "datatypes/location.proto";
 import "datatypes/visit_record.proto";
 import "datatypes/data.proto";
-import "services/queries.proto";
+import "datatypes/queries.proto";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
+option go_package = "github.com/Enebra/ServiceCoordinator/grpc/services/databaseservice";
 
 package Services;
 
@@ -30,10 +31,10 @@ message GetRequest
 {
   oneof request_type
   {
-    GetPersonRequest      person_request        = 1;
-    GetCardRequest        card_request          = 2;
-    GetLocationRequest    location_request      = 3;
-    GetVisitRecordRequest visit_record_request  = 4;
+    DataTypes.GetPersonRequest      person_request        = 1;
+    DataTypes.GetCardRequest        card_request          = 2;
+    DataTypes.GetLocationRequest    location_request      = 3;
+    DataTypes.GetVisitRecordRequest visit_record_request  = 4;
   }
 }
 

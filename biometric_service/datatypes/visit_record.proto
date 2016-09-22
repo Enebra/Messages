@@ -2,6 +2,7 @@ syntax = "proto3";
 
 import "datatypes/card.proto";
 import "datatypes/data.proto";
+option go_package = "github.com/Enebra/ServiceCoordinator/grpc/datatypes/visitrecord";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";

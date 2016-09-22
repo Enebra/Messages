@@ -171,8 +171,9 @@ void protobuf_AddDesc_services_2ffacial_5fservice_2eproto() {
     "rify\022\032.Services.VerificationData\032\034.Servi"
     "ces.FaceSearchResponse\"\000\022H\n\010Identify\022\034.S"
     "ervices.IdentificationData\032\034.Services.Fa"
-    "ceSearchResponse\"\000B\017\n\007ex.grpc\242\002\003RTGb\006pro"
-    "to3", 803);
+    "ceSearchResponse\"\000BQ\n\007ex.grpcZ@github.co"
+    "m/Enebra/ServiceCoordinator/grpc/service"
+    "s/facialservice\242\002\003RTGb\006proto3", 869);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "services/facial_service.proto", &protobuf_RegisterTypes);
   PopulationCreationResponse::default_instance_ = new PopulationCreationResponse();

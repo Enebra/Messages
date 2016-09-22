@@ -196,7 +196,9 @@ void protobuf_AddDesc_datatypes_2fbiometrics_2eproto() {
     "actice\020\023\022\037\n\033eyesGazeFrontalBestPractice\020"
     "\024\022\032\n\026eyesNotRedBestPractice\020\025\022\023\n\017noTinte"
     "dGlasses\020\026\022\013\n\007isSharp\020\027\022\033\n\027mouthClosedBe"
-    "stPractice\020\030B\017\n\007ex.grpc\242\002\003RTGb\006proto3", 1437);
+    "stPractice\020\030BO\n\007ex.grpcZ>github.com/Eneb"
+    "ra/ServiceCoordinator/grpc/datatypes/bio"
+    "metrics\242\002\003RTGb\006proto3", 1501);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "datatypes/biometrics.proto", &protobuf_RegisterTypes);
   Faces::default_instance_ = new Faces();

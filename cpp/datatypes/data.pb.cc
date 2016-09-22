@@ -119,8 +119,9 @@ void protobuf_AddDesc_datatypes_2fdata_2eproto() {
     "\016\n\004guid\030\002 \001(\tH\000B\t\n\007id_type*p\n\010DataType\022\014"
     "\n\010NoneType\020\000\022\022\n\016GetRequestType\020\001\022\023\n\017GetR"
     "esponseType\020\002\022\025\n\021CommitRequestType\020\003\022\026\n\022"
-    "CommitResponseType\020\004B\017\n\007ex.grpc\242\002\003RTGb\006p"
-    "roto3", 285);
+    "CommitResponseType\020\004BI\n\007ex.grpcZ8github."
+    "com/Enebra/ServiceCoordinator/grpc/datat"
+    "ypes/data\242\002\003RTGb\006proto3", 343);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "datatypes/data.proto", &protobuf_RegisterTypes);
   MessageBytes::default_instance_ = new MessageBytes();

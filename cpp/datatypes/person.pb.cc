@@ -124,7 +124,9 @@ void protobuf_AddDesc_datatypes_2fperson_2eproto() {
     "Gender_Unspecified\020\000\022\010\n\004Male\020\001\022\n\n\006Female"
     "\020\002*W\n\006Rights\022\026\n\022Rights_Unspecified\020\000\022\n\n\006"
     "Custom\020\001\022\014\n\010Operator\020\002\022\013\n\007Manager\020\003\022\016\n\nS"
-    "upervisor\020\004B\017\n\007ex.grpc\242\002\003RTGb\006proto3", 476);
+    "upervisor\020\004BK\n\007ex.grpcZ:github.com/Enebr"
+    "a/ServiceCoordinator/grpc/datatypes/pers"
+    "on\242\002\003RTGb\006proto3", 536);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "datatypes/person.proto", &protobuf_RegisterTypes);
   Person::default_instance_ = new Person();

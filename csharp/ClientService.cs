@@ -33,7 +33,9 @@ namespace Services {
             "cm90b2J1Zi5FbXB0eSIAEj8KDlVwZGF0ZUxvY2F0aW9uEhMuRGF0YVR5cGVz",
             "LkxvY2F0aW9uGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASQAoLUHVzaFVw",
             "ZGF0ZXMSFy5EYXRhVHlwZXMuRGV2aWNlVXBkYXRlGhYuZ29vZ2xlLnByb3Rv",
-            "YnVmLkVtcHR5IgBCDwoHZXguZ3JwY6ICA1JUR2IGcHJvdG8z"));
+            "YnVmLkVtcHR5IgBCUQoHZXguZ3JwY1pAZ2l0aHViLmNvbS9FbmVicmEvU2Vy",
+            "dmljZUNvb3JkaW5hdG9yL2dycGMvc2VydmljZXMvY2xpZW50c2VydmljZaIC",
+            "A1JUR2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::DataTypes.UnitReflection.Descriptor, global::DataTypes.LocationReflection.Descriptor, global::DataTypes.DevicesReflection.Descriptor, global::DataTypes.VisitRecordReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null));

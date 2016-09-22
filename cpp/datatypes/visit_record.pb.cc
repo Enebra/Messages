@@ -121,7 +121,9 @@ void protobuf_AddDesc_datatypes_2fvisit_5frecord_2eproto() {
     "State\"D\n\014VisitRecords\022%\n\005items\030\001 \003(\0132\026.D"
     "ataTypes.VisitRecord\022\r\n\005count\030\002 \001(\003*5\n\013A"
     "ccessState\022\r\n\tNoneState\020\000\022\013\n\007Granted\020\001\022\n"
-    "\n\006Denied\020\002B\017\n\007ex.grpc\242\002\003RTGb\006proto3", 435);
+    "\n\006Denied\020\002BP\n\007ex.grpcZ\?github.com/Enebra"
+    "/ServiceCoordinator/grpc/datatypes/visit"
+    "record\242\002\003RTGb\006proto3", 500);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "datatypes/visit_record.proto", &protobuf_RegisterTypes);
   VisitRecord::default_instance_ = new VisitRecord();

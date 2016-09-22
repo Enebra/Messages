@@ -31,7 +31,9 @@ namespace DataTypes {
             "ZXNzRGV2aWNlIj4KCUxvY2F0aW9ucxIiCgVpdGVtcxgBIAMoCzITLkRhdGFU",
             "eXBlcy5Mb2NhdGlvbhINCgVjb3VudBgCIAEoAypLCg1Mb2NhdGlvblN0YXRl",
             "EhUKEVVuc3BlY2lmaWVkX1N0YXRlEAASCgoGT3BlbmVkEAESCgoGQ2xvc2Vk",
-            "EAISCwoHRmFpbHVyZRADQg8KB2V4LmdycGOiAgNSVEdiBnByb3RvMw=="));
+            "EAISCwoHRmFpbHVyZRADQk0KB2V4LmdycGNaPGdpdGh1Yi5jb20vRW5lYnJh",
+            "L1NlcnZpY2VDb29yZGluYXRvci9ncnBjL2RhdGF0eXBlcy9sb2NhdGlvbqIC",
+            "A1JUR2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::DataTypes.DevicesReflection.Descriptor, global::DataTypes.DataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.LocationState), }, new pbr::GeneratedClrTypeInfo[] {

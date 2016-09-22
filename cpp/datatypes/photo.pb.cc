@@ -122,7 +122,9 @@ void protobuf_AddDesc_datatypes_2fphoto_2eproto() {
     "pes.Key\"9\n\006Photos\022 \n\006photos\030\001 \003(\0132\020.Data"
     "Types.Photo\022\r\n\005count\030\002 \001(\003*9\n\007Purpose\022\017\n"
     "\013NonePurpose\020\000\022\r\n\tThumbnail\020\001\022\016\n\nPopulat"
-    "ion\020\002B\017\n\007ex.grpc\242\002\003RTGb\006proto3", 430);
+    "ion\020\002BJ\n\007ex.grpcZ9github.com/Enebra/Serv"
+    "iceCoordinator/grpc/datatypes/photo\242\002\003RT"
+    "Gb\006proto3", 489);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "datatypes/photo.proto", &protobuf_RegisterTypes);
   Photo::default_instance_ = new Photo();

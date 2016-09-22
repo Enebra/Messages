@@ -28,8 +28,9 @@ namespace DataTypes {
             "RGF0YVR5cGUiLgoDS2V5EgwKAmlkGAEgASgDSAASDgoEZ3VpZBgCIAEoCUgA",
             "QgkKB2lkX3R5cGUqcAoIRGF0YVR5cGUSDAoITm9uZVR5cGUQABISCg5HZXRS",
             "ZXF1ZXN0VHlwZRABEhMKD0dldFJlc3BvbnNlVHlwZRACEhUKEUNvbW1pdFJl",
-            "cXVlc3RUeXBlEAMSFgoSQ29tbWl0UmVzcG9uc2VUeXBlEARCDwoHZXguZ3Jw",
-            "Y6ICA1JUR2IGcHJvdG8z"));
+            "cXVlc3RUeXBlEAMSFgoSQ29tbWl0UmVzcG9uc2VUeXBlEARCSQoHZXguZ3Jw",
+            "Y1o4Z2l0aHViLmNvbS9FbmVicmEvU2VydmljZUNvb3JkaW5hdG9yL2dycGMv",
+            "ZGF0YXR5cGVzL2RhdGGiAgNSVEdiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.DataType), }, new pbr::GeneratedClrTypeInfo[] {

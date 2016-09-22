@@ -27,33 +27,35 @@ namespace Services {
             "ZGF0YXR5cGVzL3BlcnNvbi5wcm90bxoUZGF0YXR5cGVzL2NhcmQucHJvdG8a",
             "FWRhdGF0eXBlcy9waG90by5wcm90bxoYZGF0YXR5cGVzL2xvY2F0aW9uLnBy",
             "b3RvGhxkYXRhdHlwZXMvdmlzaXRfcmVjb3JkLnByb3RvGhRkYXRhdHlwZXMv",
-            "ZGF0YS5wcm90bxoWc2VydmljZXMvcXVlcmllcy5wcm90byI/CgtHZXRSZXNw",
-            "b25zZRIhCgVpdGVtcxgBIAEoCzISLlNlcnZpY2VzLkVudGl0aWVzEg0KBWNv",
-            "dW50GAIgASgDIv8BCgpHZXRSZXF1ZXN0EjQKDnBlcnNvbl9yZXF1ZXN0GAEg",
-            "ASgLMhouU2VydmljZXMuR2V0UGVyc29uUmVxdWVzdEgAEjAKDGNhcmRfcmVx",
-            "dWVzdBgCIAEoCzIYLlNlcnZpY2VzLkdldENhcmRSZXF1ZXN0SAASOAoQbG9j",
-            "YXRpb25fcmVxdWVzdBgDIAEoCzIcLlNlcnZpY2VzLkdldExvY2F0aW9uUmVx",
-            "dWVzdEgAEj8KFHZpc2l0X3JlY29yZF9yZXF1ZXN0GAQgASgLMh8uU2Vydmlj",
-            "ZXMuR2V0VmlzaXRSZWNvcmRSZXF1ZXN0SABCDgoMcmVxdWVzdF90eXBlIjYK",
-            "DUNvbW1pdFJlcXVlc3QSJQoJbXV0YXRpb25zGAEgAygLMhIuU2VydmljZXMu",
-            "TXV0YXRpb24iRAoOQ29tbWl0UmVzcG9uc2USMgoQbXV0YXRpb25fcmVzdWx0",
-            "cxgBIAMoCzIYLlNlcnZpY2VzLk11dGF0aW9uUmVzdWx0IjwKDk11dGF0aW9u",
-            "UmVzdWx0EhsKA2tleRgBIAEoCzIOLkRhdGFUeXBlcy5LZXkSDQoFZXJyb3IY",
-            "AiABKAkigQEKCE11dGF0aW9uEiIKBmluc2VydBgBIAEoCzIQLlNlcnZpY2Vz",
-            "LkVudGl0eUgAEiIKBnVwZGF0ZRgCIAEoCzIQLlNlcnZpY2VzLkVudGl0eUgA",
-            "EiAKBmRlbGV0ZRgDIAEoCzIOLkRhdGFUeXBlcy5LZXlIAEILCglvcGVyYXRp",
-            "b24i2AEKBkVudGl0eRIfCgRjYXJkGAEgASgLMg8uRGF0YVR5cGVzLkNhcmRI",
-            "ABIjCgZwZXJzb24YAiABKAsyES5EYXRhVHlwZXMuUGVyc29uSAASLgoMdmlz",
-            "aXRfcmVjb3JkGAMgASgLMhYuRGF0YVR5cGVzLlZpc2l0UmVjb3JkSAASJwoI",
-            "bG9jYXRpb24YBCABKAsyEy5EYXRhVHlwZXMuTG9jYXRpb25IABIhCgVQaG90",
-            "bxgFIAEoCzIQLkRhdGFUeXBlcy5QaG90b0gAQgwKCnZhbHVlX3R5cGUiKwoI",
-            "RW50aXRpZXMSHwoFaXRlbXMYASADKAsyEC5TZXJ2aWNlcy5FbnRpdHkyigEK",
-            "D0RhdGFiYXNlU2VydmljZRI5CgNHZXQSFy5EYXRhVHlwZXMuTWVzc2FnZUJ5",
-            "dGVzGhcuRGF0YVR5cGVzLk1lc3NhZ2VCeXRlcyIAEjwKBkNvbW1pdBIXLkRh",
-            "dGFUeXBlcy5NZXNzYWdlQnl0ZXMaFy5EYXRhVHlwZXMuTWVzc2FnZUJ5dGVz",
-            "IgBCDwoHZXguZ3JwY6ICA1JUR2IGcHJvdG8z"));
+            "ZGF0YS5wcm90bxoXZGF0YXR5cGVzL3F1ZXJpZXMucHJvdG8iPwoLR2V0UmVz",
+            "cG9uc2USIQoFaXRlbXMYASABKAsyEi5TZXJ2aWNlcy5FbnRpdGllcxINCgVj",
+            "b3VudBgCIAEoAyKDAgoKR2V0UmVxdWVzdBI1Cg5wZXJzb25fcmVxdWVzdBgB",
+            "IAEoCzIbLkRhdGFUeXBlcy5HZXRQZXJzb25SZXF1ZXN0SAASMQoMY2FyZF9y",
+            "ZXF1ZXN0GAIgASgLMhkuRGF0YVR5cGVzLkdldENhcmRSZXF1ZXN0SAASOQoQ",
+            "bG9jYXRpb25fcmVxdWVzdBgDIAEoCzIdLkRhdGFUeXBlcy5HZXRMb2NhdGlv",
+            "blJlcXVlc3RIABJAChR2aXNpdF9yZWNvcmRfcmVxdWVzdBgEIAEoCzIgLkRh",
+            "dGFUeXBlcy5HZXRWaXNpdFJlY29yZFJlcXVlc3RIAEIOCgxyZXF1ZXN0X3R5",
+            "cGUiNgoNQ29tbWl0UmVxdWVzdBIlCgltdXRhdGlvbnMYASADKAsyEi5TZXJ2",
+            "aWNlcy5NdXRhdGlvbiJECg5Db21taXRSZXNwb25zZRIyChBtdXRhdGlvbl9y",
+            "ZXN1bHRzGAEgAygLMhguU2VydmljZXMuTXV0YXRpb25SZXN1bHQiPAoOTXV0",
+            "YXRpb25SZXN1bHQSGwoDa2V5GAEgASgLMg4uRGF0YVR5cGVzLktleRINCgVl",
+            "cnJvchgCIAEoCSKBAQoITXV0YXRpb24SIgoGaW5zZXJ0GAEgASgLMhAuU2Vy",
+            "dmljZXMuRW50aXR5SAASIgoGdXBkYXRlGAIgASgLMhAuU2VydmljZXMuRW50",
+            "aXR5SAASIAoGZGVsZXRlGAMgASgLMg4uRGF0YVR5cGVzLktleUgAQgsKCW9w",
+            "ZXJhdGlvbiLYAQoGRW50aXR5Eh8KBGNhcmQYASABKAsyDy5EYXRhVHlwZXMu",
+            "Q2FyZEgAEiMKBnBlcnNvbhgCIAEoCzIRLkRhdGFUeXBlcy5QZXJzb25IABIu",
+            "Cgx2aXNpdF9yZWNvcmQYAyABKAsyFi5EYXRhVHlwZXMuVmlzaXRSZWNvcmRI",
+            "ABInCghsb2NhdGlvbhgEIAEoCzITLkRhdGFUeXBlcy5Mb2NhdGlvbkgAEiEK",
+            "BVBob3RvGAUgASgLMhAuRGF0YVR5cGVzLlBob3RvSABCDAoKdmFsdWVfdHlw",
+            "ZSIrCghFbnRpdGllcxIfCgVpdGVtcxgBIAMoCzIQLlNlcnZpY2VzLkVudGl0",
+            "eTKKAQoPRGF0YWJhc2VTZXJ2aWNlEjkKA0dldBIXLkRhdGFUeXBlcy5NZXNz",
+            "YWdlQnl0ZXMaFy5EYXRhVHlwZXMuTWVzc2FnZUJ5dGVzIgASPAoGQ29tbWl0",
+            "EhcuRGF0YVR5cGVzLk1lc3NhZ2VCeXRlcxoXLkRhdGFUeXBlcy5NZXNzYWdl",
+            "Qnl0ZXMiAEJTCgdleC5ncnBjWkJnaXRodWIuY29tL0VuZWJyYS9TZXJ2aWNl",
+            "Q29vcmRpbmF0b3IvZ3JwYy9zZXJ2aWNlcy9kYXRhYmFzZXNlcnZpY2WiAgNS",
+            "VEdiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::DataTypes.PersonReflection.Descriptor, global::DataTypes.CardReflection.Descriptor, global::DataTypes.PhotoReflection.Descriptor, global::DataTypes.LocationReflection.Descriptor, global::DataTypes.VisitRecordReflection.Descriptor, global::DataTypes.DataReflection.Descriptor, global::Services.QueriesReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::DataTypes.PersonReflection.Descriptor, global::DataTypes.CardReflection.Descriptor, global::DataTypes.PhotoReflection.Descriptor, global::DataTypes.LocationReflection.Descriptor, global::DataTypes.VisitRecordReflection.Descriptor, global::DataTypes.DataReflection.Descriptor, global::DataTypes.QueriesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Services.GetResponse), global::Services.GetResponse.Parser, new[]{ "Items", "Count" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Services.GetRequest), global::Services.GetRequest.Parser, new[]{ "PersonRequest", "CardRequest", "LocationRequest", "VisitRecordRequest" }, new[]{ "RequestType" }, null, null),
@@ -248,8 +250,8 @@ namespace Services {
 
     /// <summary>Field number for the "person_request" field.</summary>
     public const int PersonRequestFieldNumber = 1;
-    public global::Services.GetPersonRequest PersonRequest {
-      get { return requestTypeCase_ == RequestTypeOneofCase.PersonRequest ? (global::Services.GetPersonRequest) requestType_ : null; }
+    public global::DataTypes.GetPersonRequest PersonRequest {
+      get { return requestTypeCase_ == RequestTypeOneofCase.PersonRequest ? (global::DataTypes.GetPersonRequest) requestType_ : null; }
       set {
         requestType_ = value;
         requestTypeCase_ = value == null ? RequestTypeOneofCase.None : RequestTypeOneofCase.PersonRequest;
@@ -258,8 +260,8 @@ namespace Services {
 
     /// <summary>Field number for the "card_request" field.</summary>
     public const int CardRequestFieldNumber = 2;
-    public global::Services.GetCardRequest CardRequest {
-      get { return requestTypeCase_ == RequestTypeOneofCase.CardRequest ? (global::Services.GetCardRequest) requestType_ : null; }
+    public global::DataTypes.GetCardRequest CardRequest {
+      get { return requestTypeCase_ == RequestTypeOneofCase.CardRequest ? (global::DataTypes.GetCardRequest) requestType_ : null; }
       set {
         requestType_ = value;
         requestTypeCase_ = value == null ? RequestTypeOneofCase.None : RequestTypeOneofCase.CardRequest;
@@ -268,8 +270,8 @@ namespace Services {
 
     /// <summary>Field number for the "location_request" field.</summary>
     public const int LocationRequestFieldNumber = 3;
-    public global::Services.GetLocationRequest LocationRequest {
-      get { return requestTypeCase_ == RequestTypeOneofCase.LocationRequest ? (global::Services.GetLocationRequest) requestType_ : null; }
+    public global::DataTypes.GetLocationRequest LocationRequest {
+      get { return requestTypeCase_ == RequestTypeOneofCase.LocationRequest ? (global::DataTypes.GetLocationRequest) requestType_ : null; }
       set {
         requestType_ = value;
         requestTypeCase_ = value == null ? RequestTypeOneofCase.None : RequestTypeOneofCase.LocationRequest;
@@ -278,8 +280,8 @@ namespace Services {
 
     /// <summary>Field number for the "visit_record_request" field.</summary>
     public const int VisitRecordRequestFieldNumber = 4;
-    public global::Services.GetVisitRecordRequest VisitRecordRequest {
-      get { return requestTypeCase_ == RequestTypeOneofCase.VisitRecordRequest ? (global::Services.GetVisitRecordRequest) requestType_ : null; }
+    public global::DataTypes.GetVisitRecordRequest VisitRecordRequest {
+      get { return requestTypeCase_ == RequestTypeOneofCase.VisitRecordRequest ? (global::DataTypes.GetVisitRecordRequest) requestType_ : null; }
       set {
         requestType_ = value;
         requestTypeCase_ = value == null ? RequestTypeOneofCase.None : RequestTypeOneofCase.VisitRecordRequest;
@@ -403,7 +405,7 @@ namespace Services {
             input.SkipLastField();
             break;
           case 10: {
-            global::Services.GetPersonRequest subBuilder = new global::Services.GetPersonRequest();
+            global::DataTypes.GetPersonRequest subBuilder = new global::DataTypes.GetPersonRequest();
             if (requestTypeCase_ == RequestTypeOneofCase.PersonRequest) {
               subBuilder.MergeFrom(PersonRequest);
             }
@@ -412,7 +414,7 @@ namespace Services {
             break;
           }
           case 18: {
-            global::Services.GetCardRequest subBuilder = new global::Services.GetCardRequest();
+            global::DataTypes.GetCardRequest subBuilder = new global::DataTypes.GetCardRequest();
             if (requestTypeCase_ == RequestTypeOneofCase.CardRequest) {
               subBuilder.MergeFrom(CardRequest);
             }
@@ -421,7 +423,7 @@ namespace Services {
             break;
           }
           case 26: {
-            global::Services.GetLocationRequest subBuilder = new global::Services.GetLocationRequest();
+            global::DataTypes.GetLocationRequest subBuilder = new global::DataTypes.GetLocationRequest();
             if (requestTypeCase_ == RequestTypeOneofCase.LocationRequest) {
               subBuilder.MergeFrom(LocationRequest);
             }
@@ -430,7 +432,7 @@ namespace Services {
             break;
           }
           case 34: {
-            global::Services.GetVisitRecordRequest subBuilder = new global::Services.GetVisitRecordRequest();
+            global::DataTypes.GetVisitRecordRequest subBuilder = new global::DataTypes.GetVisitRecordRequest();
             if (requestTypeCase_ == RequestTypeOneofCase.VisitRecordRequest) {
               subBuilder.MergeFrom(VisitRecordRequest);
             }

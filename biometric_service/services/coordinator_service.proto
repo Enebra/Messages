@@ -7,6 +7,7 @@ import "datatypes/devices.proto";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
+option go_package = "github.com/Enebra/ServiceCoordinator/grpc/services/coordinatorservice";
 
 package Services;
 

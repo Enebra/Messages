@@ -233,7 +233,9 @@ void protobuf_AddDesc_datatypes_2funit_2eproto() {
     "nitLocationState\022\'\n\005state\030\001 \001(\0162\030.DataTy"
     "pes.LocationState*>\n\tUnitState\022\t\n\005None_\020"
     "\000\022\014\n\010Inserted\020\001\022\013\n\007Deleted\020\002\022\013\n\007Updated\020"
-    "\003B\017\n\007ex.grpc\242\002\003RTGb\006proto3", 626);
+    "\003BI\n\007ex.grpcZ8github.com/Enebra/ServiceC"
+    "oordinator/grpc/datatypes/unit\242\002\003RTGb\006pr"
+    "oto3", 684);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "datatypes/unit.proto", &protobuf_RegisterTypes);
   Unit::default_instance_ = new Unit();

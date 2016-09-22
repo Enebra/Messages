@@ -32,7 +32,9 @@ namespace DataTypes {
             "cGVzLkFjY2Vzc1N0YXRlIkQKDFZpc2l0UmVjb3JkcxIlCgVpdGVtcxgBIAMo",
             "CzIWLkRhdGFUeXBlcy5WaXNpdFJlY29yZBINCgVjb3VudBgCIAEoAyo1CgtB",
             "Y2Nlc3NTdGF0ZRINCglOb25lU3RhdGUQABILCgdHcmFudGVkEAESCgoGRGVu",
-            "aWVkEAJCDwoHZXguZ3JwY6ICA1JUR2IGcHJvdG8z"));
+            "aWVkEAJCUAoHZXguZ3JwY1o/Z2l0aHViLmNvbS9FbmVicmEvU2VydmljZUNv",
+            "b3JkaW5hdG9yL2dycGMvZGF0YXR5cGVzL3Zpc2l0cmVjb3JkogIDUlRHYgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::DataTypes.CardReflection.Descriptor, global::DataTypes.DataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.AccessState), }, new pbr::GeneratedClrTypeInfo[] {

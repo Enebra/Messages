@@ -73,8 +73,9 @@ void protobuf_AddDesc_services_2fclient_5fservice_2eproto() {
     "uf.Empty\"\000\022\?\n\016UpdateLocation\022\023.DataTypes"
     ".Location\032\026.google.protobuf.Empty\"\000\022@\n\013P"
     "ushUpdates\022\027.DataTypes.DeviceUpdate\032\026.go"
-    "ogle.protobuf.Empty\"\000B\017\n\007ex.grpc\242\002\003RTGb\006"
-    "proto3", 486);
+    "ogle.protobuf.Empty\"\000BQ\n\007ex.grpcZ@github"
+    ".com/Enebra/ServiceCoordinator/grpc/serv"
+    "ices/clientservice\242\002\003RTGb\006proto3", 552);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "services/client_service.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_services_2fclient_5fservice_2eproto);

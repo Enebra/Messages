@@ -108,8 +108,9 @@ void protobuf_AddDesc_datatypes_2fcard_2eproto() {
     "ypes/data.proto\"S\n\004Card\022)\n\021unique_identi"
     "fier\030\001 \001(\0132\016.DataTypes.Key\022 \n\010owner_id\030\002"
     " \001(\0132\016.DataTypes.Key\"6\n\005Cards\022\036\n\005items\030\001"
-    " \003(\0132\017.DataTypes.Card\022\r\n\005count\030\002 \001(\003B\017\n\007"
-    "ex.grpc\242\002\003RTGb\006proto3", 221);
+    " \003(\0132\017.DataTypes.Card\022\r\n\005count\030\002 \001(\003BI\n\007"
+    "ex.grpcZ8github.com/Enebra/ServiceCoordi"
+    "nator/grpc/datatypes/card\242\002\003RTGb\006proto3", 279);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "datatypes/card.proto", &protobuf_RegisterTypes);
   Card::default_instance_ = new Card();

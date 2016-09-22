@@ -265,8 +265,9 @@ void protobuf_AddDesc_datatypes_2fdevices_2eproto() {
     "\r\n\tNone_Type\020\000\022\016\n\nCardReader\020\001\022\013\n\007Captur"
     "e\020\002*`\n\013DeviceState\022\016\n\nNone_State\020\000\022\n\n\006Ac"
     "tive\020\001\022\021\n\rStoppedByUser\020\002\022\n\n\006Paused\020\003\022\013\n"
-    "\007Stopped\020\004\022\t\n\005Error\020\005B\017\n\007ex.grpc\242\002\003RTGb\006"
-    "proto3", 1006);
+    "\007Stopped\020\004\022\t\n\005Error\020\005BL\n\007ex.grpcZ;github"
+    ".com/Enebra/ServiceCoordinator/grpc/data"
+    "types/devices\242\002\003RTGb\006proto3", 1067);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "datatypes/devices.proto", &protobuf_RegisterTypes);
   AccessDevice::default_instance_ = new AccessDevice();

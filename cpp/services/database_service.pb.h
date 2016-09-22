@@ -33,7 +33,7 @@
 #include "datatypes/location.pb.h"
 #include "datatypes/visit_record.pb.h"
 #include "datatypes/data.pb.h"
-#include "services/queries.pb.h"
+#include "datatypes/queries.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace Services {
@@ -206,41 +206,41 @@ class GetRequest : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .Services.GetPersonRequest person_request = 1;
+  // optional .DataTypes.GetPersonRequest person_request = 1;
   bool has_person_request() const;
   void clear_person_request();
   static const int kPersonRequestFieldNumber = 1;
-  const ::Services::GetPersonRequest& person_request() const;
-  ::Services::GetPersonRequest* mutable_person_request();
-  ::Services::GetPersonRequest* release_person_request();
-  void set_allocated_person_request(::Services::GetPersonRequest* person_request);
+  const ::DataTypes::GetPersonRequest& person_request() const;
+  ::DataTypes::GetPersonRequest* mutable_person_request();
+  ::DataTypes::GetPersonRequest* release_person_request();
+  void set_allocated_person_request(::DataTypes::GetPersonRequest* person_request);
 
-  // optional .Services.GetCardRequest card_request = 2;
+  // optional .DataTypes.GetCardRequest card_request = 2;
   bool has_card_request() const;
   void clear_card_request();
   static const int kCardRequestFieldNumber = 2;
-  const ::Services::GetCardRequest& card_request() const;
-  ::Services::GetCardRequest* mutable_card_request();
-  ::Services::GetCardRequest* release_card_request();
-  void set_allocated_card_request(::Services::GetCardRequest* card_request);
+  const ::DataTypes::GetCardRequest& card_request() const;
+  ::DataTypes::GetCardRequest* mutable_card_request();
+  ::DataTypes::GetCardRequest* release_card_request();
+  void set_allocated_card_request(::DataTypes::GetCardRequest* card_request);
 
-  // optional .Services.GetLocationRequest location_request = 3;
+  // optional .DataTypes.GetLocationRequest location_request = 3;
   bool has_location_request() const;
   void clear_location_request();
   static const int kLocationRequestFieldNumber = 3;
-  const ::Services::GetLocationRequest& location_request() const;
-  ::Services::GetLocationRequest* mutable_location_request();
-  ::Services::GetLocationRequest* release_location_request();
-  void set_allocated_location_request(::Services::GetLocationRequest* location_request);
+  const ::DataTypes::GetLocationRequest& location_request() const;
+  ::DataTypes::GetLocationRequest* mutable_location_request();
+  ::DataTypes::GetLocationRequest* release_location_request();
+  void set_allocated_location_request(::DataTypes::GetLocationRequest* location_request);
 
-  // optional .Services.GetVisitRecordRequest visit_record_request = 4;
+  // optional .DataTypes.GetVisitRecordRequest visit_record_request = 4;
   bool has_visit_record_request() const;
   void clear_visit_record_request();
   static const int kVisitRecordRequestFieldNumber = 4;
-  const ::Services::GetVisitRecordRequest& visit_record_request() const;
-  ::Services::GetVisitRecordRequest* mutable_visit_record_request();
-  ::Services::GetVisitRecordRequest* release_visit_record_request();
-  void set_allocated_visit_record_request(::Services::GetVisitRecordRequest* visit_record_request);
+  const ::DataTypes::GetVisitRecordRequest& visit_record_request() const;
+  ::DataTypes::GetVisitRecordRequest* mutable_visit_record_request();
+  ::DataTypes::GetVisitRecordRequest* release_visit_record_request();
+  void set_allocated_visit_record_request(::DataTypes::GetVisitRecordRequest* visit_record_request);
 
   RequestTypeCase request_type_case() const;
   // @@protoc_insertion_point(class_scope:Services.GetRequest)
@@ -258,10 +258,10 @@ class GetRequest : public ::google::protobuf::Message {
   bool _is_default_instance_;
   union RequestTypeUnion {
     RequestTypeUnion() {}
-    ::Services::GetPersonRequest* person_request_;
-    ::Services::GetCardRequest* card_request_;
-    ::Services::GetLocationRequest* location_request_;
-    ::Services::GetVisitRecordRequest* visit_record_request_;
+    ::DataTypes::GetPersonRequest* person_request_;
+    ::DataTypes::GetCardRequest* card_request_;
+    ::DataTypes::GetLocationRequest* location_request_;
+    ::DataTypes::GetVisitRecordRequest* visit_record_request_;
   } request_type_;
   mutable int _cached_size_;
   ::google::protobuf::uint32 _oneof_case_[1];
@@ -948,7 +948,7 @@ inline void GetResponse::set_count(::google::protobuf::int64 value) {
 
 // GetRequest
 
-// optional .Services.GetPersonRequest person_request = 1;
+// optional .DataTypes.GetPersonRequest person_request = 1;
 inline bool GetRequest::has_person_request() const {
   return request_type_case() == kPersonRequest;
 }
@@ -961,33 +961,33 @@ inline void GetRequest::clear_person_request() {
     clear_has_request_type();
   }
 }
-inline  const ::Services::GetPersonRequest& GetRequest::person_request() const {
+inline  const ::DataTypes::GetPersonRequest& GetRequest::person_request() const {
   // @@protoc_insertion_point(field_get:Services.GetRequest.person_request)
   return has_person_request()
       ? *request_type_.person_request_
-      : ::Services::GetPersonRequest::default_instance();
+      : ::DataTypes::GetPersonRequest::default_instance();
 }
-inline ::Services::GetPersonRequest* GetRequest::mutable_person_request() {
+inline ::DataTypes::GetPersonRequest* GetRequest::mutable_person_request() {
   if (!has_person_request()) {
     clear_request_type();
     set_has_person_request();
-    request_type_.person_request_ = new ::Services::GetPersonRequest;
+    request_type_.person_request_ = new ::DataTypes::GetPersonRequest;
   }
   // @@protoc_insertion_point(field_mutable:Services.GetRequest.person_request)
   return request_type_.person_request_;
 }
-inline ::Services::GetPersonRequest* GetRequest::release_person_request() {
+inline ::DataTypes::GetPersonRequest* GetRequest::release_person_request() {
   // @@protoc_insertion_point(field_release:Services.GetRequest.person_request)
   if (has_person_request()) {
     clear_has_request_type();
-    ::Services::GetPersonRequest* temp = request_type_.person_request_;
+    ::DataTypes::GetPersonRequest* temp = request_type_.person_request_;
     request_type_.person_request_ = NULL;
     return temp;
   } else {
     return NULL;
   }
 }
-inline void GetRequest::set_allocated_person_request(::Services::GetPersonRequest* person_request) {
+inline void GetRequest::set_allocated_person_request(::DataTypes::GetPersonRequest* person_request) {
   clear_request_type();
   if (person_request) {
     set_has_person_request();
@@ -996,7 +996,7 @@ inline void GetRequest::set_allocated_person_request(::Services::GetPersonReques
   // @@protoc_insertion_point(field_set_allocated:Services.GetRequest.person_request)
 }
 
-// optional .Services.GetCardRequest card_request = 2;
+// optional .DataTypes.GetCardRequest card_request = 2;
 inline bool GetRequest::has_card_request() const {
   return request_type_case() == kCardRequest;
 }
@@ -1009,33 +1009,33 @@ inline void GetRequest::clear_card_request() {
     clear_has_request_type();
   }
 }
-inline  const ::Services::GetCardRequest& GetRequest::card_request() const {
+inline  const ::DataTypes::GetCardRequest& GetRequest::card_request() const {
   // @@protoc_insertion_point(field_get:Services.GetRequest.card_request)
   return has_card_request()
       ? *request_type_.card_request_
-      : ::Services::GetCardRequest::default_instance();
+      : ::DataTypes::GetCardRequest::default_instance();
 }
-inline ::Services::GetCardRequest* GetRequest::mutable_card_request() {
+inline ::DataTypes::GetCardRequest* GetRequest::mutable_card_request() {
   if (!has_card_request()) {
     clear_request_type();
     set_has_card_request();
-    request_type_.card_request_ = new ::Services::GetCardRequest;
+    request_type_.card_request_ = new ::DataTypes::GetCardRequest;
   }
   // @@protoc_insertion_point(field_mutable:Services.GetRequest.card_request)
   return request_type_.card_request_;
 }
-inline ::Services::GetCardRequest* GetRequest::release_card_request() {
+inline ::DataTypes::GetCardRequest* GetRequest::release_card_request() {
   // @@protoc_insertion_point(field_release:Services.GetRequest.card_request)
   if (has_card_request()) {
     clear_has_request_type();
-    ::Services::GetCardRequest* temp = request_type_.card_request_;
+    ::DataTypes::GetCardRequest* temp = request_type_.card_request_;
     request_type_.card_request_ = NULL;
     return temp;
   } else {
     return NULL;
   }
 }
-inline void GetRequest::set_allocated_card_request(::Services::GetCardRequest* card_request) {
+inline void GetRequest::set_allocated_card_request(::DataTypes::GetCardRequest* card_request) {
   clear_request_type();
   if (card_request) {
     set_has_card_request();
@@ -1044,7 +1044,7 @@ inline void GetRequest::set_allocated_card_request(::Services::GetCardRequest* c
   // @@protoc_insertion_point(field_set_allocated:Services.GetRequest.card_request)
 }
 
-// optional .Services.GetLocationRequest location_request = 3;
+// optional .DataTypes.GetLocationRequest location_request = 3;
 inline bool GetRequest::has_location_request() const {
   return request_type_case() == kLocationRequest;
 }
@@ -1057,33 +1057,33 @@ inline void GetRequest::clear_location_request() {
     clear_has_request_type();
   }
 }
-inline  const ::Services::GetLocationRequest& GetRequest::location_request() const {
+inline  const ::DataTypes::GetLocationRequest& GetRequest::location_request() const {
   // @@protoc_insertion_point(field_get:Services.GetRequest.location_request)
   return has_location_request()
       ? *request_type_.location_request_
-      : ::Services::GetLocationRequest::default_instance();
+      : ::DataTypes::GetLocationRequest::default_instance();
 }
-inline ::Services::GetLocationRequest* GetRequest::mutable_location_request() {
+inline ::DataTypes::GetLocationRequest* GetRequest::mutable_location_request() {
   if (!has_location_request()) {
     clear_request_type();
     set_has_location_request();
-    request_type_.location_request_ = new ::Services::GetLocationRequest;
+    request_type_.location_request_ = new ::DataTypes::GetLocationRequest;
   }
   // @@protoc_insertion_point(field_mutable:Services.GetRequest.location_request)
   return request_type_.location_request_;
 }
-inline ::Services::GetLocationRequest* GetRequest::release_location_request() {
+inline ::DataTypes::GetLocationRequest* GetRequest::release_location_request() {
   // @@protoc_insertion_point(field_release:Services.GetRequest.location_request)
   if (has_location_request()) {
     clear_has_request_type();
-    ::Services::GetLocationRequest* temp = request_type_.location_request_;
+    ::DataTypes::GetLocationRequest* temp = request_type_.location_request_;
     request_type_.location_request_ = NULL;
     return temp;
   } else {
     return NULL;
   }
 }
-inline void GetRequest::set_allocated_location_request(::Services::GetLocationRequest* location_request) {
+inline void GetRequest::set_allocated_location_request(::DataTypes::GetLocationRequest* location_request) {
   clear_request_type();
   if (location_request) {
     set_has_location_request();
@@ -1092,7 +1092,7 @@ inline void GetRequest::set_allocated_location_request(::Services::GetLocationRe
   // @@protoc_insertion_point(field_set_allocated:Services.GetRequest.location_request)
 }
 
-// optional .Services.GetVisitRecordRequest visit_record_request = 4;
+// optional .DataTypes.GetVisitRecordRequest visit_record_request = 4;
 inline bool GetRequest::has_visit_record_request() const {
   return request_type_case() == kVisitRecordRequest;
 }
@@ -1105,33 +1105,33 @@ inline void GetRequest::clear_visit_record_request() {
     clear_has_request_type();
   }
 }
-inline  const ::Services::GetVisitRecordRequest& GetRequest::visit_record_request() const {
+inline  const ::DataTypes::GetVisitRecordRequest& GetRequest::visit_record_request() const {
   // @@protoc_insertion_point(field_get:Services.GetRequest.visit_record_request)
   return has_visit_record_request()
       ? *request_type_.visit_record_request_
-      : ::Services::GetVisitRecordRequest::default_instance();
+      : ::DataTypes::GetVisitRecordRequest::default_instance();
 }
-inline ::Services::GetVisitRecordRequest* GetRequest::mutable_visit_record_request() {
+inline ::DataTypes::GetVisitRecordRequest* GetRequest::mutable_visit_record_request() {
   if (!has_visit_record_request()) {
     clear_request_type();
     set_has_visit_record_request();
-    request_type_.visit_record_request_ = new ::Services::GetVisitRecordRequest;
+    request_type_.visit_record_request_ = new ::DataTypes::GetVisitRecordRequest;
   }
   // @@protoc_insertion_point(field_mutable:Services.GetRequest.visit_record_request)
   return request_type_.visit_record_request_;
 }
-inline ::Services::GetVisitRecordRequest* GetRequest::release_visit_record_request() {
+inline ::DataTypes::GetVisitRecordRequest* GetRequest::release_visit_record_request() {
   // @@protoc_insertion_point(field_release:Services.GetRequest.visit_record_request)
   if (has_visit_record_request()) {
     clear_has_request_type();
-    ::Services::GetVisitRecordRequest* temp = request_type_.visit_record_request_;
+    ::DataTypes::GetVisitRecordRequest* temp = request_type_.visit_record_request_;
     request_type_.visit_record_request_ = NULL;
     return temp;
   } else {
     return NULL;
   }
 }
-inline void GetRequest::set_allocated_visit_record_request(::Services::GetVisitRecordRequest* visit_record_request) {
+inline void GetRequest::set_allocated_visit_record_request(::DataTypes::GetVisitRecordRequest* visit_record_request) {
   clear_request_type();
   if (visit_record_request) {
     set_has_visit_record_request();

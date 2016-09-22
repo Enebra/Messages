@@ -54,7 +54,9 @@ namespace DataTypes {
             "EBISGAoUZXllc09wZW5CZXN0UHJhY3RpY2UQExIfChtleWVzR2F6ZUZyb250",
             "YWxCZXN0UHJhY3RpY2UQFBIaChZleWVzTm90UmVkQmVzdFByYWN0aWNlEBUS",
             "EwoPbm9UaW50ZWRHbGFzc2VzEBYSCwoHaXNTaGFycBAXEhsKF21vdXRoQ2xv",
-            "c2VkQmVzdFByYWN0aWNlEBhCDwoHZXguZ3JwY6ICA1JUR2IGcHJvdG8z"));
+            "c2VkQmVzdFByYWN0aWNlEBhCTwoHZXguZ3JwY1o+Z2l0aHViLmNvbS9FbmVi",
+            "cmEvU2VydmljZUNvb3JkaW5hdG9yL2dycGMvZGF0YXR5cGVzL2Jpb21ldHJp",
+            "Y3OiAgNSVEdiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::DataTypes.GeometryReflection.Descriptor, global::DataTypes.DataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.BiometricType), typeof(global::DataTypes.EyeType), typeof(global::DataTypes.Finger), typeof(global::DataTypes.FacialIsoComplianceTemplate), }, new pbr::GeneratedClrTypeInfo[] {

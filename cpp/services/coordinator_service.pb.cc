@@ -104,8 +104,9 @@ void protobuf_AddDesc_services_2fcoordinator_5fservice_2eproto() {
     "geBytes\"\000\022<\n\006Commit\022\027.DataTypes.MessageB"
     "ytes\032\027.DataTypes.MessageBytes\"\000\022@\n\013PushU"
     "pdates\022\027.DataTypes.DeviceUpdate\032\026.google"
-    ".protobuf.Empty\"\000B\017\n\007ex.grpc\242\002\003RTGb\006prot"
-    "o3", 802);
+    ".protobuf.Empty\"\000BV\n\007ex.grpcZEgithub.com"
+    "/Enebra/ServiceCoordinator/grpc/services"
+    "/coordinatorservice\242\002\003RTGb\006proto3", 873);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "services/coordinator_service.proto", &protobuf_RegisterTypes);
   HeartbeatMessage::default_instance_ = new HeartbeatMessage();
