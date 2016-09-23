@@ -1,44 +1,83 @@
 syntax = "proto3";
 
-import "google/protobuf/empty.proto";
 import "datatypes/person.proto";
 import "datatypes/card.proto";
 import "datatypes/photo.proto";
 import "datatypes/location.proto";
 import "datatypes/visit_record.proto";
-import "datatypes/unit.proto";
-import "services/queries.proto";
+import "datatypes/data.proto";
+import "datatypes/queries.proto";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
+option go_package = "github.com/Enebra/ServiceCoordinator/grpc/services/databaseservice";
 
 package Services;
 
-service DatabaseSevice
-{  
-  rpc GetPerson           ( GetPersonRequest        ) returns ( DataTypes.Persons           ) {}
-  rpc InsertPerson        ( DataTypes.Person        ) returns ( DataTypes.Person            ) {}    	
-  rpc UpdatePerson        ( DataTypes.Person        ) returns ( google.protobuf.Empty       ) {}
-  rpc DeletePerson        ( DataTypes.Person        ) returns ( google.protobuf.Empty       ) {}
-					      						    								        
-  rpc GetCard             ( GetCardRequest          ) returns ( DataTypes.Cards             ) {}    	
-  rpc InsertCard          ( DataTypes.Card          ) returns ( DataTypes.Card              ) {}    	
-  rpc UpdateCard          ( DataTypes.Card          ) returns ( google.protobuf.Empty       ) {}
-  rpc DeleteCard          ( DataTypes.Card          ) returns ( google.protobuf.Empty       ) {}
-					      						    								        
-  rpc GetLocation         ( GetLocationRequest      ) returns ( DataTypes.Locations         ) {}
-  rpc InsertLocation      ( DataTypes.Location      ) returns ( DataTypes.Location          ) {}    	
-  rpc UpdateLocation      ( DataTypes.Location      ) returns ( google.protobuf.Empty       ) {}
-  rpc DeleteLocation      ( DataTypes.Location      ) returns ( google.protobuf.Empty       ) {}
-																					        
-  rpc GetVisitRecords     ( GetVisitRecordRequest   ) returns ( DataTypes.VisitRecords      ) {}
-  rpc InsertVisitRecord   ( DataTypes.VisitRecord   ) returns ( DataTypes.VisitRecord       ) {}    	
-  rpc UpdateVisitRecord   ( DataTypes.VisitRecord   ) returns ( google.protobuf.Empty       ) {}
-  rpc DeleteVisitRecord   ( DataTypes.VisitRecord   ) returns ( google.protobuf.Empty       ) {}
-																					        
-  rpc InsertPhoto         ( DataTypes.Photo         ) returns ( DataTypes.Photo             ) {}    	
-  rpc DeletePhoto         ( DataTypes.Photo         ) returns ( google.protobuf.Empty       ) {}
 
-  rpc GetConfig           ( DataTypes.ConnectedUnit ) returns ( DataTypes.UnitConfiguration ) {}
-  rpc UnregisterUnit      ( DataTypes.ConnectedUnit ) returns ( google.protobuf.Empty       ) {}
+service DatabaseService
+{
+   rpc Get    ( DataTypes.MessageBytes ) returns ( DataTypes.MessageBytes ) {}
+   rpc Commit ( DataTypes.MessageBytes ) returns ( DataTypes.MessageBytes ) {}
+}
+
+message GetResponse
+{
+  Entities items = 1;
+  int64    count = 2;
+}
+
+message GetRequest
+{
+  oneof request_type
+  {
+    DataTypes.GetPersonRequest      person_request        = 1;
+    DataTypes.GetCardRequest        card_request          = 2;
+    DataTypes.GetLocationRequest    location_request      = 3;
+    DataTypes.GetVisitRecordRequest visit_record_request  = 4;
+  }
+}
+
+message CommitRequest 
+{
+  repeated Mutation mutations = 1;
+}
+
+message CommitResponse
+{
+  repeated MutationResult mutation_results = 1;
+}
+
+message MutationResult
+{
+  DataTypes.Key key = 1;
+  string error = 2;
+
+}
+
+message Mutation 
+{
+ oneof operation 
+ {  
+    Entity insert = 1;    
+    Entity update = 2;
+    DataTypes.Key delete    = 3;
+  }
+}
+
+message Entity
+{
+  oneof value_type
+  {
+    DataTypes.Card        card         = 1;
+    DataTypes.Person      person       = 2;
+    DataTypes.VisitRecord visit_record = 3;
+    DataTypes.Location    location     = 4;
+    DataTypes.Photo       Photo        = 5;
+  }
+}
+
+message Entities
+{
+  repeated Entity items = 1;
 }

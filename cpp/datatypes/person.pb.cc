@@ -111,18 +111,22 @@ void protobuf_AddDesc_datatypes_2fperson_2eproto() {
 
   ::DataTypes::protobuf_AddDesc_datatypes_2fcard_2eproto();
   ::DataTypes::protobuf_AddDesc_datatypes_2fphoto_2eproto();
+  ::DataTypes::protobuf_AddDesc_datatypes_2fdata_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\026datatypes/person.proto\022\tDataTypes\032\024dat"
     "atypes/card.proto\032\025datatypes/photo.proto"
-    "\"}\n\006Person\022\n\n\002id\030\001 \001(\t\022\022\n\nfirst_name\030\002 \001"
-    "(\t\022\021\n\tlast_name\030\003 \001(\t\022 \n\006photos\030\004 \003(\0132\020."
-    "DataTypes.Photo\022\036\n\005cards\030\005 \003(\0132\017.DataTyp"
-    "es.Card\":\n\007Persons\022 \n\005items\030\001 \003(\0132\021.Data"
-    "Types.Person\022\r\n\005count\030\002 \001(\003*6\n\006Gender\022\026\n"
-    "\022Gender_Unspecified\020\000\022\010\n\004Male\020\001\022\n\n\006Femal"
-    "e\020\002*W\n\006Rights\022\026\n\022Rights_Unspecified\020\000\022\n\n"
-    "\006Custom\020\001\022\014\n\010Operator\020\002\022\013\n\007Manager\020\003\022\016\n\n"
-    "Supervisor\020\004B\017\n\007ex.grpc\242\002\003RTGb\006proto3", 437);
+    "\032\024datatypes/data.proto\"\215\001\n\006Person\022\032\n\002id\030"
+    "\001 \001(\0132\016.DataTypes.Key\022\022\n\nfirst_name\030\002 \001("
+    "\t\022\021\n\tlast_name\030\003 \001(\t\022 \n\006photos\030\004 \003(\0132\020.D"
+    "ataTypes.Photo\022\036\n\005cards\030\005 \003(\0132\017.DataType"
+    "s.Card\":\n\007Persons\022 \n\005items\030\001 \003(\0132\021.DataT"
+    "ypes.Person\022\r\n\005count\030\002 \001(\003*6\n\006Gender\022\026\n\022"
+    "Gender_Unspecified\020\000\022\010\n\004Male\020\001\022\n\n\006Female"
+    "\020\002*W\n\006Rights\022\026\n\022Rights_Unspecified\020\000\022\n\n\006"
+    "Custom\020\001\022\014\n\010Operator\020\002\022\013\n\007Manager\020\003\022\016\n\nS"
+    "upervisor\020\004BK\n\007ex.grpcZ:github.com/Enebr"
+    "a/ServiceCoordinator/grpc/datatypes/pers"
+    "on\242\002\003RTGb\006proto3", 536);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "datatypes/person.proto", &protobuf_RegisterTypes);
   Person::default_instance_ = new Person();
@@ -199,6 +203,7 @@ Person::Person()
 
 void Person::InitAsDefaultInstance() {
   _is_default_instance_ = true;
+  id_ = const_cast< ::DataTypes::Key*>(&::DataTypes::Key::default_instance());
 }
 
 Person::Person(const Person& from)
@@ -213,7 +218,7 @@ void Person::SharedCtor() {
     _is_default_instance_ = false;
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  id_ = NULL;
   first_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   last_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -224,10 +229,10 @@ Person::~Person() {
 }
 
 void Person::SharedDtor() {
-  id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   first_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   last_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
+    delete id_;
   }
 }
 
@@ -258,7 +263,8 @@ Person* Person::New(::google::protobuf::Arena* arena) const {
 
 void Person::Clear() {
 // @@protoc_insertion_point(message_clear_start:DataTypes.Person)
-  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && id_ != NULL) delete id_;
+  id_ = NULL;
   first_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   last_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   photos_.Clear();
@@ -275,15 +281,11 @@ bool Person::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string id = 1;
+      // optional .DataTypes.Key id = 1;
       case 1: {
         if (tag == 10) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_id()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->id().data(), this->id().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "DataTypes.Person.id"));
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_id()));
         } else {
           goto handle_unusual;
         }
@@ -382,14 +384,10 @@ failure:
 void Person::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:DataTypes.Person)
-  // optional string id = 1;
-  if (this->id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->id().data(), this->id().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "DataTypes.Person.id");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->id(), output);
+  // optional .DataTypes.Key id = 1;
+  if (this->has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, *this->id_, output);
   }
 
   // optional string first_name = 2;
@@ -430,15 +428,11 @@ void Person::SerializeWithCachedSizes(
 ::google::protobuf::uint8* Person::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:DataTypes.Person)
-  // optional string id = 1;
-  if (this->id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->id().data(), this->id().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "DataTypes.Person.id");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->id(), target);
+  // optional .DataTypes.Key id = 1;
+  if (this->has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, *this->id_, target);
   }
 
   // optional string first_name = 2;
@@ -485,11 +479,11 @@ int Person::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:DataTypes.Person)
   int total_size = 0;
 
-  // optional string id = 1;
-  if (this->id().size() > 0) {
+  // optional .DataTypes.Key id = 1;
+  if (this->has_id()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->id());
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->id_);
   }
 
   // optional string first_name = 2;
@@ -548,9 +542,8 @@ void Person::MergeFrom(const Person& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   photos_.MergeFrom(from.photos_);
   cards_.MergeFrom(from.cards_);
-  if (from.id().size() > 0) {
-
-    id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.id_);
+  if (from.has_id()) {
+    mutable_id()->::DataTypes::Key::MergeFrom(from.id());
   }
   if (from.first_name().size() > 0) {
 
@@ -586,7 +579,7 @@ void Person::Swap(Person* other) {
   InternalSwap(other);
 }
 void Person::InternalSwap(Person* other) {
-  id_.Swap(&other->id_);
+  std::swap(id_, other->id_);
   first_name_.Swap(&other->first_name_);
   last_name_.Swap(&other->last_name_);
   photos_.UnsafeArenaSwap(&other->photos_);
@@ -606,47 +599,41 @@ void Person::InternalSwap(Person* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Person
 
-// optional string id = 1;
+// optional .DataTypes.Key id = 1;
+bool Person::has_id() const {
+  return !_is_default_instance_ && id_ != NULL;
+}
 void Person::clear_id() {
-  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && id_ != NULL) delete id_;
+  id_ = NULL;
 }
- const ::std::string& Person::id() const {
+const ::DataTypes::Key& Person::id() const {
   // @@protoc_insertion_point(field_get:DataTypes.Person.id)
-  return id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return id_ != NULL ? *id_ : *default_instance_->id_;
 }
- void Person::set_id(const ::std::string& value) {
+::DataTypes::Key* Person::mutable_id() {
   
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:DataTypes.Person.id)
-}
- void Person::set_id(const char* value) {
-  
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:DataTypes.Person.id)
-}
- void Person::set_id(const char* value, size_t size) {
-  
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:DataTypes.Person.id)
-}
- ::std::string* Person::mutable_id() {
-  
+  if (id_ == NULL) {
+    id_ = new ::DataTypes::Key;
+  }
   // @@protoc_insertion_point(field_mutable:DataTypes.Person.id)
-  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return id_;
 }
- ::std::string* Person::release_id() {
+::DataTypes::Key* Person::release_id() {
   // @@protoc_insertion_point(field_release:DataTypes.Person.id)
   
-  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::DataTypes::Key* temp = id_;
+  id_ = NULL;
+  return temp;
 }
- void Person::set_allocated_id(::std::string* id) {
-  if (id != NULL) {
+void Person::set_allocated_id(::DataTypes::Key* id) {
+  delete id_;
+  id_ = id;
+  if (id) {
     
   } else {
     
   }
-  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
   // @@protoc_insertion_point(field_set_allocated:DataTypes.Person.id)
 }
 

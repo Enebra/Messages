@@ -24,16 +24,18 @@ namespace DataTypes {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChVkYXRhdHlwZXMvcGhvdG8ucHJvdG8SCURhdGFUeXBlcxoaZGF0YXR5cGVz",
-            "L2Jpb21ldHJpY3MucHJvdG8iqAEKBVBob3RvEgoKAmlkGAEgASgJEgsKA3Vy",
-            "bBgCIAEoCRINCgV3aWR0aBgDIAEoBRIOCgZoZWlnaHQYBCABKAUSIwoHcHVy",
-            "cG9zZRgFIAEoDjISLkRhdGFUeXBlcy5QdXJwb3NlEjAKDmJpb21ldHJpY190",
-            "eXBlGAYgASgOMhguRGF0YVR5cGVzLkJpb21ldHJpY1R5cGUSEAoIb3duZXJf",
-            "aWQYByABKAkiOQoGUGhvdG9zEiAKBnBob3RvcxgBIAMoCzIQLkRhdGFUeXBl",
-            "cy5QaG90bxINCgVjb3VudBgCIAEoAyo5CgdQdXJwb3NlEg8KC05vbmVQdXJw",
-            "b3NlEAASDQoJVGh1bWJuYWlsEAESDgoKUG9wdWxhdGlvbhACQg8KB2V4Lmdy",
-            "cGOiAgNSVEdiBnByb3RvMw=="));
+            "L2Jpb21ldHJpY3MucHJvdG8aFGRhdGF0eXBlcy9kYXRhLnByb3RvIsgBCgVQ",
+            "aG90bxIaCgJpZBgBIAEoCzIOLkRhdGFUeXBlcy5LZXkSCwoDdXJsGAIgASgJ",
+            "Eg0KBXdpZHRoGAMgASgFEg4KBmhlaWdodBgEIAEoBRIjCgdwdXJwb3NlGAUg",
+            "ASgOMhIuRGF0YVR5cGVzLlB1cnBvc2USMAoOYmlvbWV0cmljX3R5cGUYBiAB",
+            "KA4yGC5EYXRhVHlwZXMuQmlvbWV0cmljVHlwZRIgCghvd25lcl9pZBgHIAEo",
+            "CzIOLkRhdGFUeXBlcy5LZXkiOQoGUGhvdG9zEiAKBnBob3RvcxgBIAMoCzIQ",
+            "LkRhdGFUeXBlcy5QaG90bxINCgVjb3VudBgCIAEoAyo5CgdQdXJwb3NlEg8K",
+            "C05vbmVQdXJwb3NlEAASDQoJVGh1bWJuYWlsEAESDgoKUG9wdWxhdGlvbhAC",
+            "QkoKB2V4LmdycGNaOWdpdGh1Yi5jb20vRW5lYnJhL1NlcnZpY2VDb29yZGlu",
+            "YXRvci9ncnBjL2RhdGF0eXBlcy9waG90b6ICA1JUR2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::DataTypes.BiometricsReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::DataTypes.BiometricsReflection.Descriptor, global::DataTypes.DataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.Purpose), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Photo), global::DataTypes.Photo.Parser, new[]{ "Id", "Url", "Width", "Height", "Purpose", "BiometricType", "OwnerId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Photos), global::DataTypes.Photos.Parser, new[]{ "Photos_", "Count" }, null, null, null)
@@ -72,13 +74,13 @@ namespace DataTypes {
     partial void OnConstruction();
 
     public Photo(Photo other) : this() {
-      id_ = other.id_;
+      Id = other.id_ != null ? other.Id.Clone() : null;
       url_ = other.url_;
       width_ = other.width_;
       height_ = other.height_;
       purpose_ = other.purpose_;
       biometricType_ = other.biometricType_;
-      ownerId_ = other.ownerId_;
+      OwnerId = other.ownerId_ != null ? other.OwnerId.Clone() : null;
     }
 
     public Photo Clone() {
@@ -87,11 +89,11 @@ namespace DataTypes {
 
     /// <summary>Field number for the "id" field.</summary>
     public const int IdFieldNumber = 1;
-    private string id_ = "";
-    public string Id {
+    private global::DataTypes.Key id_;
+    public global::DataTypes.Key Id {
       get { return id_; }
       set {
-        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        id_ = value;
       }
     }
 
@@ -147,11 +149,11 @@ namespace DataTypes {
 
     /// <summary>Field number for the "owner_id" field.</summary>
     public const int OwnerIdFieldNumber = 7;
-    private string ownerId_ = "";
-    public string OwnerId {
+    private global::DataTypes.Key ownerId_;
+    public global::DataTypes.Key OwnerId {
       get { return ownerId_; }
       set {
-        ownerId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        ownerId_ = value;
       }
     }
 
@@ -166,25 +168,25 @@ namespace DataTypes {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Id != other.Id) return false;
+      if (!object.Equals(Id, other.Id)) return false;
       if (Url != other.Url) return false;
       if (Width != other.Width) return false;
       if (Height != other.Height) return false;
       if (Purpose != other.Purpose) return false;
       if (BiometricType != other.BiometricType) return false;
-      if (OwnerId != other.OwnerId) return false;
+      if (!object.Equals(OwnerId, other.OwnerId)) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
-      if (Id.Length != 0) hash ^= Id.GetHashCode();
+      if (id_ != null) hash ^= Id.GetHashCode();
       if (Url.Length != 0) hash ^= Url.GetHashCode();
       if (Width != 0) hash ^= Width.GetHashCode();
       if (Height != 0) hash ^= Height.GetHashCode();
       if (Purpose != 0) hash ^= Purpose.GetHashCode();
       if (BiometricType != 0) hash ^= BiometricType.GetHashCode();
-      if (OwnerId.Length != 0) hash ^= OwnerId.GetHashCode();
+      if (ownerId_ != null) hash ^= OwnerId.GetHashCode();
       return hash;
     }
 
@@ -193,9 +195,9 @@ namespace DataTypes {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Id.Length != 0) {
+      if (id_ != null) {
         output.WriteRawTag(10);
-        output.WriteString(Id);
+        output.WriteMessage(Id);
       }
       if (Url.Length != 0) {
         output.WriteRawTag(18);
@@ -217,16 +219,16 @@ namespace DataTypes {
         output.WriteRawTag(48);
         output.WriteEnum((int) BiometricType);
       }
-      if (OwnerId.Length != 0) {
+      if (ownerId_ != null) {
         output.WriteRawTag(58);
-        output.WriteString(OwnerId);
+        output.WriteMessage(OwnerId);
       }
     }
 
     public int CalculateSize() {
       int size = 0;
-      if (Id.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
+      if (id_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Id);
       }
       if (Url.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Url);
@@ -243,8 +245,8 @@ namespace DataTypes {
       if (BiometricType != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) BiometricType);
       }
-      if (OwnerId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(OwnerId);
+      if (ownerId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(OwnerId);
       }
       return size;
     }
@@ -253,8 +255,11 @@ namespace DataTypes {
       if (other == null) {
         return;
       }
-      if (other.Id.Length != 0) {
-        Id = other.Id;
+      if (other.id_ != null) {
+        if (id_ == null) {
+          id_ = new global::DataTypes.Key();
+        }
+        Id.MergeFrom(other.Id);
       }
       if (other.Url.Length != 0) {
         Url = other.Url;
@@ -271,8 +276,11 @@ namespace DataTypes {
       if (other.BiometricType != 0) {
         BiometricType = other.BiometricType;
       }
-      if (other.OwnerId.Length != 0) {
-        OwnerId = other.OwnerId;
+      if (other.ownerId_ != null) {
+        if (ownerId_ == null) {
+          ownerId_ = new global::DataTypes.Key();
+        }
+        OwnerId.MergeFrom(other.OwnerId);
       }
     }
 
@@ -284,7 +292,10 @@ namespace DataTypes {
             input.SkipLastField();
             break;
           case 10: {
-            Id = input.ReadString();
+            if (id_ == null) {
+              id_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(id_);
             break;
           }
           case 18: {
@@ -308,7 +319,10 @@ namespace DataTypes {
             break;
           }
           case 58: {
-            OwnerId = input.ReadString();
+            if (ownerId_ == null) {
+              ownerId_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(ownerId_);
             break;
           }
         }

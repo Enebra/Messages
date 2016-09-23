@@ -25,7 +25,7 @@ class ServerContext;
 
 namespace Services {
 
-class BiometricFacialSevice GRPC_FINAL {
+class BiometricFacialService GRPC_FINAL {
  public:
   class StubInterface {
    public:

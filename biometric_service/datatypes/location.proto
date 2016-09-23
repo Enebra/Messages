@@ -1,19 +1,21 @@
 syntax = "proto3";
 
 import "datatypes/devices.proto";
+import "datatypes/data.proto";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
+option go_package = "github.com/Enebra/ServiceCoordinator/grpc/datatypes/location";
 
 package DataTypes;
 
 message Location
 {
-  string            id               = 1;
+  DataTypes.Key            id               = 1;
   string            name             = 2;
   string            description      = 3;    
   string            unit_mac_address = 4; 
-  AccessDevice      access_device    = 5;
+  DataTypes.AccessDevice      access_device    = 5;
 }
 
 message Locations

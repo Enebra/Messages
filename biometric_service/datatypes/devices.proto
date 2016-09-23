@@ -1,7 +1,10 @@
 syntax = "proto3";
 
+import "datatypes/data.proto";
+
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
+option go_package = "github.com/Enebra/ServiceCoordinator/grpc/datatypes/devices";
 
 package DataTypes;
 
@@ -11,5 +14,65 @@ message AccessDevice
   fixed64 serial_number  = 2;  
 }
 
+enum DeviceType 
+{
+  None_Type  = 0;
+  CardReader = 1;
+  Capture     = 2;
+}
+
+enum DeviceState 
+{
+  None_State    = 0;
+  Active        = 1;
+  StoppedByUser = 2;
+  Paused        = 3;
+  Stopped       = 4;
+  Error         = 5;
+}
+
+message DeviceUpdate
+{
+  oneof update
+  {
+    ConnectedDevices   connected_devices = 1;
+    DeviceStateMessage device_state_msg  = 2;
+  }
+}
+
+message ConnectedDevices{
+  DataTypes.Key        location_id    = 1;
+  repeated   Device devices = 2;
+}
+
+message Device
+{
+  DeviceType device_type    = 1;
+  string device_names       = 2;
+}
+
+//To notify about device update
+message DeviceStateMessage 
+{
+   oneof msg
+   {
+       GenericDeviceStateMsg  generic_device_state_msg = 1;
+       AccessDeviceStateMsg   access_device_state_msg  = 2;
+   }
+}
+
+message GenericDeviceStateMsg{
+  Key location_id   = 1;
+  DeviceType type   = 2;
+  DeviceState state = 3;
+  string message    = 4;
+}
+
+// Notify on door state
+message AccessDeviceStateMsg
+{
+    Key  location_id = 1;
+    bool opened      = 2;
+}
 
 

@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_package = "ex.grpc";
+option objc_class_prefix = "RTG";
+option go_package = "github.com/Enebra/ServiceCoordinator/grpc/datatypes/data";
+
+package DataTypes;
+
+message MessageBytes
+{
+  bytes data = 1;
+  DataType type = 2;
+}
+
+enum DataType
+{
+  NoneType = 0;
+  GetRequestType = 1;
+  GetResponseType = 2;
+  CommitRequestType = 3;
+  CommitResponseType = 4;
+}
+
+message Key 
+{    
+    oneof id_type 
+    {  
+      int64  id = 1;
+      string guid = 2;
+    }
+}

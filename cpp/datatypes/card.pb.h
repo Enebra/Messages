@@ -27,6 +27,7 @@
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/unknown_field_set.h>
+#include "datatypes/data.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace DataTypes {
@@ -97,35 +98,31 @@ class Card : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional string unique_identifier = 1;
+  // optional .DataTypes.Key unique_identifier = 1;
+  bool has_unique_identifier() const;
   void clear_unique_identifier();
   static const int kUniqueIdentifierFieldNumber = 1;
-  const ::std::string& unique_identifier() const;
-  void set_unique_identifier(const ::std::string& value);
-  void set_unique_identifier(const char* value);
-  void set_unique_identifier(const char* value, size_t size);
-  ::std::string* mutable_unique_identifier();
-  ::std::string* release_unique_identifier();
-  void set_allocated_unique_identifier(::std::string* unique_identifier);
+  const ::DataTypes::Key& unique_identifier() const;
+  ::DataTypes::Key* mutable_unique_identifier();
+  ::DataTypes::Key* release_unique_identifier();
+  void set_allocated_unique_identifier(::DataTypes::Key* unique_identifier);
 
-  // optional string owner_id = 2;
+  // optional .DataTypes.Key owner_id = 2;
+  bool has_owner_id() const;
   void clear_owner_id();
   static const int kOwnerIdFieldNumber = 2;
-  const ::std::string& owner_id() const;
-  void set_owner_id(const ::std::string& value);
-  void set_owner_id(const char* value);
-  void set_owner_id(const char* value, size_t size);
-  ::std::string* mutable_owner_id();
-  ::std::string* release_owner_id();
-  void set_allocated_owner_id(::std::string* owner_id);
+  const ::DataTypes::Key& owner_id() const;
+  ::DataTypes::Key* mutable_owner_id();
+  ::DataTypes::Key* release_owner_id();
+  void set_allocated_owner_id(::DataTypes::Key* owner_id);
 
   // @@protoc_insertion_point(class_scope:DataTypes.Card)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::google::protobuf::internal::ArenaStringPtr unique_identifier_;
-  ::google::protobuf::internal::ArenaStringPtr owner_id_;
+  ::DataTypes::Key* unique_identifier_;
+  ::DataTypes::Key* owner_id_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_datatypes_2fcard_2eproto();
   friend void protobuf_AssignDesc_datatypes_2fcard_2eproto();
@@ -233,91 +230,79 @@ class Cards : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // Card
 
-// optional string unique_identifier = 1;
+// optional .DataTypes.Key unique_identifier = 1;
+inline bool Card::has_unique_identifier() const {
+  return !_is_default_instance_ && unique_identifier_ != NULL;
+}
 inline void Card::clear_unique_identifier() {
-  unique_identifier_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && unique_identifier_ != NULL) delete unique_identifier_;
+  unique_identifier_ = NULL;
 }
-inline const ::std::string& Card::unique_identifier() const {
+inline const ::DataTypes::Key& Card::unique_identifier() const {
   // @@protoc_insertion_point(field_get:DataTypes.Card.unique_identifier)
-  return unique_identifier_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return unique_identifier_ != NULL ? *unique_identifier_ : *default_instance_->unique_identifier_;
 }
-inline void Card::set_unique_identifier(const ::std::string& value) {
+inline ::DataTypes::Key* Card::mutable_unique_identifier() {
   
-  unique_identifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:DataTypes.Card.unique_identifier)
-}
-inline void Card::set_unique_identifier(const char* value) {
-  
-  unique_identifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:DataTypes.Card.unique_identifier)
-}
-inline void Card::set_unique_identifier(const char* value, size_t size) {
-  
-  unique_identifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:DataTypes.Card.unique_identifier)
-}
-inline ::std::string* Card::mutable_unique_identifier() {
-  
+  if (unique_identifier_ == NULL) {
+    unique_identifier_ = new ::DataTypes::Key;
+  }
   // @@protoc_insertion_point(field_mutable:DataTypes.Card.unique_identifier)
-  return unique_identifier_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return unique_identifier_;
 }
-inline ::std::string* Card::release_unique_identifier() {
+inline ::DataTypes::Key* Card::release_unique_identifier() {
   // @@protoc_insertion_point(field_release:DataTypes.Card.unique_identifier)
   
-  return unique_identifier_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::DataTypes::Key* temp = unique_identifier_;
+  unique_identifier_ = NULL;
+  return temp;
 }
-inline void Card::set_allocated_unique_identifier(::std::string* unique_identifier) {
-  if (unique_identifier != NULL) {
+inline void Card::set_allocated_unique_identifier(::DataTypes::Key* unique_identifier) {
+  delete unique_identifier_;
+  unique_identifier_ = unique_identifier;
+  if (unique_identifier) {
     
   } else {
     
   }
-  unique_identifier_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), unique_identifier);
   // @@protoc_insertion_point(field_set_allocated:DataTypes.Card.unique_identifier)
 }
 
-// optional string owner_id = 2;
+// optional .DataTypes.Key owner_id = 2;
+inline bool Card::has_owner_id() const {
+  return !_is_default_instance_ && owner_id_ != NULL;
+}
 inline void Card::clear_owner_id() {
-  owner_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && owner_id_ != NULL) delete owner_id_;
+  owner_id_ = NULL;
 }
-inline const ::std::string& Card::owner_id() const {
+inline const ::DataTypes::Key& Card::owner_id() const {
   // @@protoc_insertion_point(field_get:DataTypes.Card.owner_id)
-  return owner_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return owner_id_ != NULL ? *owner_id_ : *default_instance_->owner_id_;
 }
-inline void Card::set_owner_id(const ::std::string& value) {
+inline ::DataTypes::Key* Card::mutable_owner_id() {
   
-  owner_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:DataTypes.Card.owner_id)
-}
-inline void Card::set_owner_id(const char* value) {
-  
-  owner_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:DataTypes.Card.owner_id)
-}
-inline void Card::set_owner_id(const char* value, size_t size) {
-  
-  owner_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:DataTypes.Card.owner_id)
-}
-inline ::std::string* Card::mutable_owner_id() {
-  
+  if (owner_id_ == NULL) {
+    owner_id_ = new ::DataTypes::Key;
+  }
   // @@protoc_insertion_point(field_mutable:DataTypes.Card.owner_id)
-  return owner_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return owner_id_;
 }
-inline ::std::string* Card::release_owner_id() {
+inline ::DataTypes::Key* Card::release_owner_id() {
   // @@protoc_insertion_point(field_release:DataTypes.Card.owner_id)
   
-  return owner_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::DataTypes::Key* temp = owner_id_;
+  owner_id_ = NULL;
+  return temp;
 }
-inline void Card::set_allocated_owner_id(::std::string* owner_id) {
-  if (owner_id != NULL) {
+inline void Card::set_allocated_owner_id(::DataTypes::Key* owner_id) {
+  delete owner_id_;
+  owner_id_ = owner_id;
+  if (owner_id) {
     
   } else {
     
   }
-  owner_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), owner_id);
   // @@protoc_insertion_point(field_set_allocated:DataTypes.Card.owner_id)
 }
 

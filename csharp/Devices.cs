@@ -23,18 +23,63 @@ namespace DataTypes {
     static DevicesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChdkYXRhdHlwZXMvZGV2aWNlcy5wcm90bxIJRGF0YVR5cGVzIjMKDEFjY2Vz",
-            "c0RldmljZRIMCgRuYW1lGAEgASgJEhUKDXNlcmlhbF9udW1iZXIYAiABKAZC",
-            "DwoHZXguZ3JwY6ICA1JUR2IGcHJvdG8z"));
+            "ChdkYXRhdHlwZXMvZGV2aWNlcy5wcm90bxIJRGF0YVR5cGVzGhRkYXRhdHlw",
+            "ZXMvZGF0YS5wcm90byIzCgxBY2Nlc3NEZXZpY2USDAoEbmFtZRgBIAEoCRIV",
+            "Cg1zZXJpYWxfbnVtYmVyGAIgASgGIo0BCgxEZXZpY2VVcGRhdGUSOAoRY29u",
+            "bmVjdGVkX2RldmljZXMYASABKAsyGy5EYXRhVHlwZXMuQ29ubmVjdGVkRGV2",
+            "aWNlc0gAEjkKEGRldmljZV9zdGF0ZV9tc2cYAiABKAsyHS5EYXRhVHlwZXMu",
+            "RGV2aWNlU3RhdGVNZXNzYWdlSABCCAoGdXBkYXRlIlsKEENvbm5lY3RlZERl",
+            "dmljZXMSIwoLbG9jYXRpb25faWQYASABKAsyDi5EYXRhVHlwZXMuS2V5EiIK",
+            "B2RldmljZXMYAiADKAsyES5EYXRhVHlwZXMuRGV2aWNlIkoKBkRldmljZRIq",
+            "CgtkZXZpY2VfdHlwZRgBIAEoDjIVLkRhdGFUeXBlcy5EZXZpY2VUeXBlEhQK",
+            "DGRldmljZV9uYW1lcxgCIAEoCSKlAQoSRGV2aWNlU3RhdGVNZXNzYWdlEkQK",
+            "GGdlbmVyaWNfZGV2aWNlX3N0YXRlX21zZxgBIAEoCzIgLkRhdGFUeXBlcy5H",
+            "ZW5lcmljRGV2aWNlU3RhdGVNc2dIABJCChdhY2Nlc3NfZGV2aWNlX3N0YXRl",
+            "X21zZxgCIAEoCzIfLkRhdGFUeXBlcy5BY2Nlc3NEZXZpY2VTdGF0ZU1zZ0gA",
+            "QgUKA21zZyKZAQoVR2VuZXJpY0RldmljZVN0YXRlTXNnEiMKC2xvY2F0aW9u",
+            "X2lkGAEgASgLMg4uRGF0YVR5cGVzLktleRIjCgR0eXBlGAIgASgOMhUuRGF0",
+            "YVR5cGVzLkRldmljZVR5cGUSJQoFc3RhdGUYAyABKA4yFi5EYXRhVHlwZXMu",
+            "RGV2aWNlU3RhdGUSDwoHbWVzc2FnZRgEIAEoCSJLChRBY2Nlc3NEZXZpY2VT",
+            "dGF0ZU1zZxIjCgtsb2NhdGlvbl9pZBgBIAEoCzIOLkRhdGFUeXBlcy5LZXkS",
+            "DgoGb3BlbmVkGAIgASgIKjgKCkRldmljZVR5cGUSDQoJTm9uZV9UeXBlEAAS",
+            "DgoKQ2FyZFJlYWRlchABEgsKB0NhcHR1cmUQAipgCgtEZXZpY2VTdGF0ZRIO",
+            "CgpOb25lX1N0YXRlEAASCgoGQWN0aXZlEAESEQoNU3RvcHBlZEJ5VXNlchAC",
+            "EgoKBlBhdXNlZBADEgsKB1N0b3BwZWQQBBIJCgVFcnJvchAFQkwKB2V4Lmdy",
+            "cGNaO2dpdGh1Yi5jb20vRW5lYnJhL1NlcnZpY2VDb29yZGluYXRvci9ncnBj",
+            "L2RhdGF0eXBlcy9kZXZpY2VzogIDUlRHYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.AccessDevice), global::DataTypes.AccessDevice.Parser, new[]{ "Name", "SerialNumber" }, null, null, null)
+          new pbr::FileDescriptor[] { global::DataTypes.DataReflection.Descriptor, },
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.DeviceType), typeof(global::DataTypes.DeviceState), }, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.AccessDevice), global::DataTypes.AccessDevice.Parser, new[]{ "Name", "SerialNumber" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.DeviceUpdate), global::DataTypes.DeviceUpdate.Parser, new[]{ "ConnectedDevices", "DeviceStateMsg" }, new[]{ "Update" }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.ConnectedDevices), global::DataTypes.ConnectedDevices.Parser, new[]{ "LocationId", "Devices" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Device), global::DataTypes.Device.Parser, new[]{ "DeviceType", "DeviceNames" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.DeviceStateMessage), global::DataTypes.DeviceStateMessage.Parser, new[]{ "GenericDeviceStateMsg", "AccessDeviceStateMsg" }, new[]{ "Msg" }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.GenericDeviceStateMsg), global::DataTypes.GenericDeviceStateMsg.Parser, new[]{ "LocationId", "Type", "State", "Message" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.AccessDeviceStateMsg), global::DataTypes.AccessDeviceStateMsg.Parser, new[]{ "LocationId", "Opened" }, null, null, null)
           }));
     }
     #endregion
 
   }
+  #region Enums
+  public enum DeviceType {
+    [pbr::OriginalName("None_Type")] NoneType = 0,
+    [pbr::OriginalName("CardReader")] CardReader = 1,
+    [pbr::OriginalName("Capture")] Capture = 2,
+  }
+
+  public enum DeviceState {
+    [pbr::OriginalName("None_State")] NoneState = 0,
+    [pbr::OriginalName("Active")] Active = 1,
+    [pbr::OriginalName("StoppedByUser")] StoppedByUser = 2,
+    [pbr::OriginalName("Paused")] Paused = 3,
+    [pbr::OriginalName("Stopped")] Stopped = 4,
+    [pbr::OriginalName("Error")] Error = 5,
+  }
+
+  #endregion
+
   #region Messages
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class AccessDevice : pb::IMessage<AccessDevice> {
@@ -158,6 +203,934 @@ namespace DataTypes {
           }
           case 17: {
             SerialNumber = input.ReadFixed64();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class DeviceUpdate : pb::IMessage<DeviceUpdate> {
+    private static readonly pb::MessageParser<DeviceUpdate> _parser = new pb::MessageParser<DeviceUpdate>(() => new DeviceUpdate());
+    public static pb::MessageParser<DeviceUpdate> Parser { get { return _parser; } }
+
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DataTypes.DevicesReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    public DeviceUpdate() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    public DeviceUpdate(DeviceUpdate other) : this() {
+      switch (other.UpdateCase) {
+        case UpdateOneofCase.ConnectedDevices:
+          ConnectedDevices = other.ConnectedDevices.Clone();
+          break;
+        case UpdateOneofCase.DeviceStateMsg:
+          DeviceStateMsg = other.DeviceStateMsg.Clone();
+          break;
+      }
+
+    }
+
+    public DeviceUpdate Clone() {
+      return new DeviceUpdate(this);
+    }
+
+    /// <summary>Field number for the "connected_devices" field.</summary>
+    public const int ConnectedDevicesFieldNumber = 1;
+    public global::DataTypes.ConnectedDevices ConnectedDevices {
+      get { return updateCase_ == UpdateOneofCase.ConnectedDevices ? (global::DataTypes.ConnectedDevices) update_ : null; }
+      set {
+        update_ = value;
+        updateCase_ = value == null ? UpdateOneofCase.None : UpdateOneofCase.ConnectedDevices;
+      }
+    }
+
+    /// <summary>Field number for the "device_state_msg" field.</summary>
+    public const int DeviceStateMsgFieldNumber = 2;
+    public global::DataTypes.DeviceStateMessage DeviceStateMsg {
+      get { return updateCase_ == UpdateOneofCase.DeviceStateMsg ? (global::DataTypes.DeviceStateMessage) update_ : null; }
+      set {
+        update_ = value;
+        updateCase_ = value == null ? UpdateOneofCase.None : UpdateOneofCase.DeviceStateMsg;
+      }
+    }
+
+    private object update_;
+    /// <summary>Enum of possible cases for the "update" oneof.</summary>
+    public enum UpdateOneofCase {
+      None = 0,
+      ConnectedDevices = 1,
+      DeviceStateMsg = 2,
+    }
+    private UpdateOneofCase updateCase_ = UpdateOneofCase.None;
+    public UpdateOneofCase UpdateCase {
+      get { return updateCase_; }
+    }
+
+    public void ClearUpdate() {
+      updateCase_ = UpdateOneofCase.None;
+      update_ = null;
+    }
+
+    public override bool Equals(object other) {
+      return Equals(other as DeviceUpdate);
+    }
+
+    public bool Equals(DeviceUpdate other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(ConnectedDevices, other.ConnectedDevices)) return false;
+      if (!object.Equals(DeviceStateMsg, other.DeviceStateMsg)) return false;
+      if (UpdateCase != other.UpdateCase) return false;
+      return true;
+    }
+
+    public override int GetHashCode() {
+      int hash = 1;
+      if (updateCase_ == UpdateOneofCase.ConnectedDevices) hash ^= ConnectedDevices.GetHashCode();
+      if (updateCase_ == UpdateOneofCase.DeviceStateMsg) hash ^= DeviceStateMsg.GetHashCode();
+      hash ^= (int) updateCase_;
+      return hash;
+    }
+
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (updateCase_ == UpdateOneofCase.ConnectedDevices) {
+        output.WriteRawTag(10);
+        output.WriteMessage(ConnectedDevices);
+      }
+      if (updateCase_ == UpdateOneofCase.DeviceStateMsg) {
+        output.WriteRawTag(18);
+        output.WriteMessage(DeviceStateMsg);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (updateCase_ == UpdateOneofCase.ConnectedDevices) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ConnectedDevices);
+      }
+      if (updateCase_ == UpdateOneofCase.DeviceStateMsg) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DeviceStateMsg);
+      }
+      return size;
+    }
+
+    public void MergeFrom(DeviceUpdate other) {
+      if (other == null) {
+        return;
+      }
+      switch (other.UpdateCase) {
+        case UpdateOneofCase.ConnectedDevices:
+          ConnectedDevices = other.ConnectedDevices;
+          break;
+        case UpdateOneofCase.DeviceStateMsg:
+          DeviceStateMsg = other.DeviceStateMsg;
+          break;
+      }
+
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            global::DataTypes.ConnectedDevices subBuilder = new global::DataTypes.ConnectedDevices();
+            if (updateCase_ == UpdateOneofCase.ConnectedDevices) {
+              subBuilder.MergeFrom(ConnectedDevices);
+            }
+            input.ReadMessage(subBuilder);
+            ConnectedDevices = subBuilder;
+            break;
+          }
+          case 18: {
+            global::DataTypes.DeviceStateMessage subBuilder = new global::DataTypes.DeviceStateMessage();
+            if (updateCase_ == UpdateOneofCase.DeviceStateMsg) {
+              subBuilder.MergeFrom(DeviceStateMsg);
+            }
+            input.ReadMessage(subBuilder);
+            DeviceStateMsg = subBuilder;
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class ConnectedDevices : pb::IMessage<ConnectedDevices> {
+    private static readonly pb::MessageParser<ConnectedDevices> _parser = new pb::MessageParser<ConnectedDevices>(() => new ConnectedDevices());
+    public static pb::MessageParser<ConnectedDevices> Parser { get { return _parser; } }
+
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DataTypes.DevicesReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    public ConnectedDevices() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    public ConnectedDevices(ConnectedDevices other) : this() {
+      LocationId = other.locationId_ != null ? other.LocationId.Clone() : null;
+      devices_ = other.devices_.Clone();
+    }
+
+    public ConnectedDevices Clone() {
+      return new ConnectedDevices(this);
+    }
+
+    /// <summary>Field number for the "location_id" field.</summary>
+    public const int LocationIdFieldNumber = 1;
+    private global::DataTypes.Key locationId_;
+    public global::DataTypes.Key LocationId {
+      get { return locationId_; }
+      set {
+        locationId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "devices" field.</summary>
+    public const int DevicesFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::DataTypes.Device> _repeated_devices_codec
+        = pb::FieldCodec.ForMessage(18, global::DataTypes.Device.Parser);
+    private readonly pbc::RepeatedField<global::DataTypes.Device> devices_ = new pbc::RepeatedField<global::DataTypes.Device>();
+    public pbc::RepeatedField<global::DataTypes.Device> Devices {
+      get { return devices_; }
+    }
+
+    public override bool Equals(object other) {
+      return Equals(other as ConnectedDevices);
+    }
+
+    public bool Equals(ConnectedDevices other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(LocationId, other.LocationId)) return false;
+      if(!devices_.Equals(other.devices_)) return false;
+      return true;
+    }
+
+    public override int GetHashCode() {
+      int hash = 1;
+      if (locationId_ != null) hash ^= LocationId.GetHashCode();
+      hash ^= devices_.GetHashCode();
+      return hash;
+    }
+
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (locationId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(LocationId);
+      }
+      devices_.WriteTo(output, _repeated_devices_codec);
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (locationId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(LocationId);
+      }
+      size += devices_.CalculateSize(_repeated_devices_codec);
+      return size;
+    }
+
+    public void MergeFrom(ConnectedDevices other) {
+      if (other == null) {
+        return;
+      }
+      if (other.locationId_ != null) {
+        if (locationId_ == null) {
+          locationId_ = new global::DataTypes.Key();
+        }
+        LocationId.MergeFrom(other.LocationId);
+      }
+      devices_.Add(other.devices_);
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            if (locationId_ == null) {
+              locationId_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(locationId_);
+            break;
+          }
+          case 18: {
+            devices_.AddEntriesFrom(input, _repeated_devices_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class Device : pb::IMessage<Device> {
+    private static readonly pb::MessageParser<Device> _parser = new pb::MessageParser<Device>(() => new Device());
+    public static pb::MessageParser<Device> Parser { get { return _parser; } }
+
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DataTypes.DevicesReflection.Descriptor.MessageTypes[3]; }
+    }
+
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    public Device() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    public Device(Device other) : this() {
+      deviceType_ = other.deviceType_;
+      deviceNames_ = other.deviceNames_;
+    }
+
+    public Device Clone() {
+      return new Device(this);
+    }
+
+    /// <summary>Field number for the "device_type" field.</summary>
+    public const int DeviceTypeFieldNumber = 1;
+    private global::DataTypes.DeviceType deviceType_ = 0;
+    public global::DataTypes.DeviceType DeviceType {
+      get { return deviceType_; }
+      set {
+        deviceType_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "device_names" field.</summary>
+    public const int DeviceNamesFieldNumber = 2;
+    private string deviceNames_ = "";
+    public string DeviceNames {
+      get { return deviceNames_; }
+      set {
+        deviceNames_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    public override bool Equals(object other) {
+      return Equals(other as Device);
+    }
+
+    public bool Equals(Device other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (DeviceType != other.DeviceType) return false;
+      if (DeviceNames != other.DeviceNames) return false;
+      return true;
+    }
+
+    public override int GetHashCode() {
+      int hash = 1;
+      if (DeviceType != 0) hash ^= DeviceType.GetHashCode();
+      if (DeviceNames.Length != 0) hash ^= DeviceNames.GetHashCode();
+      return hash;
+    }
+
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (DeviceType != 0) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) DeviceType);
+      }
+      if (DeviceNames.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(DeviceNames);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (DeviceType != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) DeviceType);
+      }
+      if (DeviceNames.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(DeviceNames);
+      }
+      return size;
+    }
+
+    public void MergeFrom(Device other) {
+      if (other == null) {
+        return;
+      }
+      if (other.DeviceType != 0) {
+        DeviceType = other.DeviceType;
+      }
+      if (other.DeviceNames.Length != 0) {
+        DeviceNames = other.DeviceNames;
+      }
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            deviceType_ = (global::DataTypes.DeviceType) input.ReadEnum();
+            break;
+          }
+          case 18: {
+            DeviceNames = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  /// To notify about device update
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class DeviceStateMessage : pb::IMessage<DeviceStateMessage> {
+    private static readonly pb::MessageParser<DeviceStateMessage> _parser = new pb::MessageParser<DeviceStateMessage>(() => new DeviceStateMessage());
+    public static pb::MessageParser<DeviceStateMessage> Parser { get { return _parser; } }
+
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DataTypes.DevicesReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    public DeviceStateMessage() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    public DeviceStateMessage(DeviceStateMessage other) : this() {
+      switch (other.MsgCase) {
+        case MsgOneofCase.GenericDeviceStateMsg:
+          GenericDeviceStateMsg = other.GenericDeviceStateMsg.Clone();
+          break;
+        case MsgOneofCase.AccessDeviceStateMsg:
+          AccessDeviceStateMsg = other.AccessDeviceStateMsg.Clone();
+          break;
+      }
+
+    }
+
+    public DeviceStateMessage Clone() {
+      return new DeviceStateMessage(this);
+    }
+
+    /// <summary>Field number for the "generic_device_state_msg" field.</summary>
+    public const int GenericDeviceStateMsgFieldNumber = 1;
+    public global::DataTypes.GenericDeviceStateMsg GenericDeviceStateMsg {
+      get { return msgCase_ == MsgOneofCase.GenericDeviceStateMsg ? (global::DataTypes.GenericDeviceStateMsg) msg_ : null; }
+      set {
+        msg_ = value;
+        msgCase_ = value == null ? MsgOneofCase.None : MsgOneofCase.GenericDeviceStateMsg;
+      }
+    }
+
+    /// <summary>Field number for the "access_device_state_msg" field.</summary>
+    public const int AccessDeviceStateMsgFieldNumber = 2;
+    public global::DataTypes.AccessDeviceStateMsg AccessDeviceStateMsg {
+      get { return msgCase_ == MsgOneofCase.AccessDeviceStateMsg ? (global::DataTypes.AccessDeviceStateMsg) msg_ : null; }
+      set {
+        msg_ = value;
+        msgCase_ = value == null ? MsgOneofCase.None : MsgOneofCase.AccessDeviceStateMsg;
+      }
+    }
+
+    private object msg_;
+    /// <summary>Enum of possible cases for the "msg" oneof.</summary>
+    public enum MsgOneofCase {
+      None = 0,
+      GenericDeviceStateMsg = 1,
+      AccessDeviceStateMsg = 2,
+    }
+    private MsgOneofCase msgCase_ = MsgOneofCase.None;
+    public MsgOneofCase MsgCase {
+      get { return msgCase_; }
+    }
+
+    public void ClearMsg() {
+      msgCase_ = MsgOneofCase.None;
+      msg_ = null;
+    }
+
+    public override bool Equals(object other) {
+      return Equals(other as DeviceStateMessage);
+    }
+
+    public bool Equals(DeviceStateMessage other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(GenericDeviceStateMsg, other.GenericDeviceStateMsg)) return false;
+      if (!object.Equals(AccessDeviceStateMsg, other.AccessDeviceStateMsg)) return false;
+      if (MsgCase != other.MsgCase) return false;
+      return true;
+    }
+
+    public override int GetHashCode() {
+      int hash = 1;
+      if (msgCase_ == MsgOneofCase.GenericDeviceStateMsg) hash ^= GenericDeviceStateMsg.GetHashCode();
+      if (msgCase_ == MsgOneofCase.AccessDeviceStateMsg) hash ^= AccessDeviceStateMsg.GetHashCode();
+      hash ^= (int) msgCase_;
+      return hash;
+    }
+
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (msgCase_ == MsgOneofCase.GenericDeviceStateMsg) {
+        output.WriteRawTag(10);
+        output.WriteMessage(GenericDeviceStateMsg);
+      }
+      if (msgCase_ == MsgOneofCase.AccessDeviceStateMsg) {
+        output.WriteRawTag(18);
+        output.WriteMessage(AccessDeviceStateMsg);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (msgCase_ == MsgOneofCase.GenericDeviceStateMsg) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(GenericDeviceStateMsg);
+      }
+      if (msgCase_ == MsgOneofCase.AccessDeviceStateMsg) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(AccessDeviceStateMsg);
+      }
+      return size;
+    }
+
+    public void MergeFrom(DeviceStateMessage other) {
+      if (other == null) {
+        return;
+      }
+      switch (other.MsgCase) {
+        case MsgOneofCase.GenericDeviceStateMsg:
+          GenericDeviceStateMsg = other.GenericDeviceStateMsg;
+          break;
+        case MsgOneofCase.AccessDeviceStateMsg:
+          AccessDeviceStateMsg = other.AccessDeviceStateMsg;
+          break;
+      }
+
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            global::DataTypes.GenericDeviceStateMsg subBuilder = new global::DataTypes.GenericDeviceStateMsg();
+            if (msgCase_ == MsgOneofCase.GenericDeviceStateMsg) {
+              subBuilder.MergeFrom(GenericDeviceStateMsg);
+            }
+            input.ReadMessage(subBuilder);
+            GenericDeviceStateMsg = subBuilder;
+            break;
+          }
+          case 18: {
+            global::DataTypes.AccessDeviceStateMsg subBuilder = new global::DataTypes.AccessDeviceStateMsg();
+            if (msgCase_ == MsgOneofCase.AccessDeviceStateMsg) {
+              subBuilder.MergeFrom(AccessDeviceStateMsg);
+            }
+            input.ReadMessage(subBuilder);
+            AccessDeviceStateMsg = subBuilder;
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class GenericDeviceStateMsg : pb::IMessage<GenericDeviceStateMsg> {
+    private static readonly pb::MessageParser<GenericDeviceStateMsg> _parser = new pb::MessageParser<GenericDeviceStateMsg>(() => new GenericDeviceStateMsg());
+    public static pb::MessageParser<GenericDeviceStateMsg> Parser { get { return _parser; } }
+
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DataTypes.DevicesReflection.Descriptor.MessageTypes[5]; }
+    }
+
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    public GenericDeviceStateMsg() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    public GenericDeviceStateMsg(GenericDeviceStateMsg other) : this() {
+      LocationId = other.locationId_ != null ? other.LocationId.Clone() : null;
+      type_ = other.type_;
+      state_ = other.state_;
+      message_ = other.message_;
+    }
+
+    public GenericDeviceStateMsg Clone() {
+      return new GenericDeviceStateMsg(this);
+    }
+
+    /// <summary>Field number for the "location_id" field.</summary>
+    public const int LocationIdFieldNumber = 1;
+    private global::DataTypes.Key locationId_;
+    public global::DataTypes.Key LocationId {
+      get { return locationId_; }
+      set {
+        locationId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "type" field.</summary>
+    public const int TypeFieldNumber = 2;
+    private global::DataTypes.DeviceType type_ = 0;
+    public global::DataTypes.DeviceType Type {
+      get { return type_; }
+      set {
+        type_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "state" field.</summary>
+    public const int StateFieldNumber = 3;
+    private global::DataTypes.DeviceState state_ = 0;
+    public global::DataTypes.DeviceState State {
+      get { return state_; }
+      set {
+        state_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "message" field.</summary>
+    public const int MessageFieldNumber = 4;
+    private string message_ = "";
+    public string Message {
+      get { return message_; }
+      set {
+        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    public override bool Equals(object other) {
+      return Equals(other as GenericDeviceStateMsg);
+    }
+
+    public bool Equals(GenericDeviceStateMsg other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(LocationId, other.LocationId)) return false;
+      if (Type != other.Type) return false;
+      if (State != other.State) return false;
+      if (Message != other.Message) return false;
+      return true;
+    }
+
+    public override int GetHashCode() {
+      int hash = 1;
+      if (locationId_ != null) hash ^= LocationId.GetHashCode();
+      if (Type != 0) hash ^= Type.GetHashCode();
+      if (State != 0) hash ^= State.GetHashCode();
+      if (Message.Length != 0) hash ^= Message.GetHashCode();
+      return hash;
+    }
+
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (locationId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(LocationId);
+      }
+      if (Type != 0) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) Type);
+      }
+      if (State != 0) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) State);
+      }
+      if (Message.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Message);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (locationId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(LocationId);
+      }
+      if (Type != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
+      }
+      if (State != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) State);
+      }
+      if (Message.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
+      }
+      return size;
+    }
+
+    public void MergeFrom(GenericDeviceStateMsg other) {
+      if (other == null) {
+        return;
+      }
+      if (other.locationId_ != null) {
+        if (locationId_ == null) {
+          locationId_ = new global::DataTypes.Key();
+        }
+        LocationId.MergeFrom(other.LocationId);
+      }
+      if (other.Type != 0) {
+        Type = other.Type;
+      }
+      if (other.State != 0) {
+        State = other.State;
+      }
+      if (other.Message.Length != 0) {
+        Message = other.Message;
+      }
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            if (locationId_ == null) {
+              locationId_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(locationId_);
+            break;
+          }
+          case 16: {
+            type_ = (global::DataTypes.DeviceType) input.ReadEnum();
+            break;
+          }
+          case 24: {
+            state_ = (global::DataTypes.DeviceState) input.ReadEnum();
+            break;
+          }
+          case 34: {
+            Message = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  ///  Notify on door state
+  /// </summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class AccessDeviceStateMsg : pb::IMessage<AccessDeviceStateMsg> {
+    private static readonly pb::MessageParser<AccessDeviceStateMsg> _parser = new pb::MessageParser<AccessDeviceStateMsg>(() => new AccessDeviceStateMsg());
+    public static pb::MessageParser<AccessDeviceStateMsg> Parser { get { return _parser; } }
+
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DataTypes.DevicesReflection.Descriptor.MessageTypes[6]; }
+    }
+
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    public AccessDeviceStateMsg() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    public AccessDeviceStateMsg(AccessDeviceStateMsg other) : this() {
+      LocationId = other.locationId_ != null ? other.LocationId.Clone() : null;
+      opened_ = other.opened_;
+    }
+
+    public AccessDeviceStateMsg Clone() {
+      return new AccessDeviceStateMsg(this);
+    }
+
+    /// <summary>Field number for the "location_id" field.</summary>
+    public const int LocationIdFieldNumber = 1;
+    private global::DataTypes.Key locationId_;
+    public global::DataTypes.Key LocationId {
+      get { return locationId_; }
+      set {
+        locationId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "opened" field.</summary>
+    public const int OpenedFieldNumber = 2;
+    private bool opened_;
+    public bool Opened {
+      get { return opened_; }
+      set {
+        opened_ = value;
+      }
+    }
+
+    public override bool Equals(object other) {
+      return Equals(other as AccessDeviceStateMsg);
+    }
+
+    public bool Equals(AccessDeviceStateMsg other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(LocationId, other.LocationId)) return false;
+      if (Opened != other.Opened) return false;
+      return true;
+    }
+
+    public override int GetHashCode() {
+      int hash = 1;
+      if (locationId_ != null) hash ^= LocationId.GetHashCode();
+      if (Opened != false) hash ^= Opened.GetHashCode();
+      return hash;
+    }
+
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (locationId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(LocationId);
+      }
+      if (Opened != false) {
+        output.WriteRawTag(16);
+        output.WriteBool(Opened);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (locationId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(LocationId);
+      }
+      if (Opened != false) {
+        size += 1 + 1;
+      }
+      return size;
+    }
+
+    public void MergeFrom(AccessDeviceStateMsg other) {
+      if (other == null) {
+        return;
+      }
+      if (other.locationId_ != null) {
+        if (locationId_ == null) {
+          locationId_ = new global::DataTypes.Key();
+        }
+        LocationId.MergeFrom(other.LocationId);
+      }
+      if (other.Opened != false) {
+        Opened = other.Opened;
+      }
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            if (locationId_ == null) {
+              locationId_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(locationId_);
+            break;
+          }
+          case 16: {
+            Opened = input.ReadBool();
             break;
           }
         }

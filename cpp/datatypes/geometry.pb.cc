@@ -107,8 +107,9 @@ void protobuf_AddDesc_datatypes_2fgeometry_2eproto() {
     "\n\030datatypes/geometry.proto\022\tDataTypes\" \n"
     "\010Position\022\t\n\001x\030\001 \001(\005\022\t\n\001y\030\002 \001(\005\"H\n\003Box\022\""
     "\n\005begin\030\001 \001(\0132\023.DataTypes.Position\022\r\n\005wi"
-    "dth\030\002 \001(\005\022\016\n\006height\030\003 \001(\005B\017\n\007ex.grpc\242\002\003R"
-    "TGb\006proto3", 170);
+    "dth\030\002 \001(\005\022\016\n\006height\030\003 \001(\005BM\n\007ex.grpcZ<gi"
+    "thub.com/Enebra/ServiceCoordinator/grpc/"
+    "datatypes/geometry\242\002\003RTGb\006proto3", 232);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "datatypes/geometry.proto", &protobuf_RegisterTypes);
   Position::default_instance_ = new Position();

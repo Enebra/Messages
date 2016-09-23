@@ -8,166 +8,25 @@ using System.Threading.Tasks;
 using Grpc.Core;
 
 namespace Services {
-  public static class DatabaseSevice
+  public static class DatabaseService
   {
-    static readonly string __ServiceName = "Services.DatabaseSevice";
+    static readonly string __ServiceName = "Services.DatabaseService";
 
-    static readonly Marshaller<global::Services.GetPersonRequest> __Marshaller_GetPersonRequest = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.GetPersonRequest.Parser.ParseFrom);
-    static readonly Marshaller<global::DataTypes.Persons> __Marshaller_Persons = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Persons.Parser.ParseFrom);
-    static readonly Marshaller<global::DataTypes.Person> __Marshaller_Person = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Person.Parser.ParseFrom);
-    static readonly Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_Empty = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Google.Protobuf.WellKnownTypes.Empty.Parser.ParseFrom);
-    static readonly Marshaller<global::Services.GetCardRequest> __Marshaller_GetCardRequest = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.GetCardRequest.Parser.ParseFrom);
-    static readonly Marshaller<global::DataTypes.Cards> __Marshaller_Cards = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Cards.Parser.ParseFrom);
-    static readonly Marshaller<global::DataTypes.Card> __Marshaller_Card = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Card.Parser.ParseFrom);
-    static readonly Marshaller<global::Services.GetLocationRequest> __Marshaller_GetLocationRequest = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.GetLocationRequest.Parser.ParseFrom);
-    static readonly Marshaller<global::DataTypes.Locations> __Marshaller_Locations = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Locations.Parser.ParseFrom);
-    static readonly Marshaller<global::DataTypes.Location> __Marshaller_Location = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Location.Parser.ParseFrom);
-    static readonly Marshaller<global::Services.GetVisitRecordRequest> __Marshaller_GetVisitRecordRequest = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.GetVisitRecordRequest.Parser.ParseFrom);
-    static readonly Marshaller<global::DataTypes.VisitRecords> __Marshaller_VisitRecords = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.VisitRecords.Parser.ParseFrom);
-    static readonly Marshaller<global::DataTypes.VisitRecord> __Marshaller_VisitRecord = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.VisitRecord.Parser.ParseFrom);
-    static readonly Marshaller<global::DataTypes.Photo> __Marshaller_Photo = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Photo.Parser.ParseFrom);
-    static readonly Marshaller<global::DataTypes.ConnectedUnit> __Marshaller_ConnectedUnit = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.ConnectedUnit.Parser.ParseFrom);
-    static readonly Marshaller<global::DataTypes.UnitConfiguration> __Marshaller_UnitConfiguration = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.UnitConfiguration.Parser.ParseFrom);
+    static readonly Marshaller<global::DataTypes.MessageBytes> __Marshaller_MessageBytes = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.MessageBytes.Parser.ParseFrom);
 
-    static readonly Method<global::Services.GetPersonRequest, global::DataTypes.Persons> __Method_GetPerson = new Method<global::Services.GetPersonRequest, global::DataTypes.Persons>(
+    static readonly Method<global::DataTypes.MessageBytes, global::DataTypes.MessageBytes> __Method_Get = new Method<global::DataTypes.MessageBytes, global::DataTypes.MessageBytes>(
         MethodType.Unary,
         __ServiceName,
-        "GetPerson",
-        __Marshaller_GetPersonRequest,
-        __Marshaller_Persons);
+        "Get",
+        __Marshaller_MessageBytes,
+        __Marshaller_MessageBytes);
 
-    static readonly Method<global::DataTypes.Person, global::DataTypes.Person> __Method_InsertPerson = new Method<global::DataTypes.Person, global::DataTypes.Person>(
+    static readonly Method<global::DataTypes.MessageBytes, global::DataTypes.MessageBytes> __Method_Commit = new Method<global::DataTypes.MessageBytes, global::DataTypes.MessageBytes>(
         MethodType.Unary,
         __ServiceName,
-        "InsertPerson",
-        __Marshaller_Person,
-        __Marshaller_Person);
-
-    static readonly Method<global::DataTypes.Person, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdatePerson = new Method<global::DataTypes.Person, global::Google.Protobuf.WellKnownTypes.Empty>(
-        MethodType.Unary,
-        __ServiceName,
-        "UpdatePerson",
-        __Marshaller_Person,
-        __Marshaller_Empty);
-
-    static readonly Method<global::DataTypes.Person, global::Google.Protobuf.WellKnownTypes.Empty> __Method_DeletePerson = new Method<global::DataTypes.Person, global::Google.Protobuf.WellKnownTypes.Empty>(
-        MethodType.Unary,
-        __ServiceName,
-        "DeletePerson",
-        __Marshaller_Person,
-        __Marshaller_Empty);
-
-    static readonly Method<global::Services.GetCardRequest, global::DataTypes.Cards> __Method_GetCard = new Method<global::Services.GetCardRequest, global::DataTypes.Cards>(
-        MethodType.Unary,
-        __ServiceName,
-        "GetCard",
-        __Marshaller_GetCardRequest,
-        __Marshaller_Cards);
-
-    static readonly Method<global::DataTypes.Card, global::DataTypes.Card> __Method_InsertCard = new Method<global::DataTypes.Card, global::DataTypes.Card>(
-        MethodType.Unary,
-        __ServiceName,
-        "InsertCard",
-        __Marshaller_Card,
-        __Marshaller_Card);
-
-    static readonly Method<global::DataTypes.Card, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdateCard = new Method<global::DataTypes.Card, global::Google.Protobuf.WellKnownTypes.Empty>(
-        MethodType.Unary,
-        __ServiceName,
-        "UpdateCard",
-        __Marshaller_Card,
-        __Marshaller_Empty);
-
-    static readonly Method<global::DataTypes.Card, global::Google.Protobuf.WellKnownTypes.Empty> __Method_DeleteCard = new Method<global::DataTypes.Card, global::Google.Protobuf.WellKnownTypes.Empty>(
-        MethodType.Unary,
-        __ServiceName,
-        "DeleteCard",
-        __Marshaller_Card,
-        __Marshaller_Empty);
-
-    static readonly Method<global::Services.GetLocationRequest, global::DataTypes.Locations> __Method_GetLocation = new Method<global::Services.GetLocationRequest, global::DataTypes.Locations>(
-        MethodType.Unary,
-        __ServiceName,
-        "GetLocation",
-        __Marshaller_GetLocationRequest,
-        __Marshaller_Locations);
-
-    static readonly Method<global::DataTypes.Location, global::DataTypes.Location> __Method_InsertLocation = new Method<global::DataTypes.Location, global::DataTypes.Location>(
-        MethodType.Unary,
-        __ServiceName,
-        "InsertLocation",
-        __Marshaller_Location,
-        __Marshaller_Location);
-
-    static readonly Method<global::DataTypes.Location, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdateLocation = new Method<global::DataTypes.Location, global::Google.Protobuf.WellKnownTypes.Empty>(
-        MethodType.Unary,
-        __ServiceName,
-        "UpdateLocation",
-        __Marshaller_Location,
-        __Marshaller_Empty);
-
-    static readonly Method<global::DataTypes.Location, global::Google.Protobuf.WellKnownTypes.Empty> __Method_DeleteLocation = new Method<global::DataTypes.Location, global::Google.Protobuf.WellKnownTypes.Empty>(
-        MethodType.Unary,
-        __ServiceName,
-        "DeleteLocation",
-        __Marshaller_Location,
-        __Marshaller_Empty);
-
-    static readonly Method<global::Services.GetVisitRecordRequest, global::DataTypes.VisitRecords> __Method_GetVisitRecords = new Method<global::Services.GetVisitRecordRequest, global::DataTypes.VisitRecords>(
-        MethodType.Unary,
-        __ServiceName,
-        "GetVisitRecords",
-        __Marshaller_GetVisitRecordRequest,
-        __Marshaller_VisitRecords);
-
-    static readonly Method<global::DataTypes.VisitRecord, global::DataTypes.VisitRecord> __Method_InsertVisitRecord = new Method<global::DataTypes.VisitRecord, global::DataTypes.VisitRecord>(
-        MethodType.Unary,
-        __ServiceName,
-        "InsertVisitRecord",
-        __Marshaller_VisitRecord,
-        __Marshaller_VisitRecord);
-
-    static readonly Method<global::DataTypes.VisitRecord, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdateVisitRecord = new Method<global::DataTypes.VisitRecord, global::Google.Protobuf.WellKnownTypes.Empty>(
-        MethodType.Unary,
-        __ServiceName,
-        "UpdateVisitRecord",
-        __Marshaller_VisitRecord,
-        __Marshaller_Empty);
-
-    static readonly Method<global::DataTypes.VisitRecord, global::Google.Protobuf.WellKnownTypes.Empty> __Method_DeleteVisitRecord = new Method<global::DataTypes.VisitRecord, global::Google.Protobuf.WellKnownTypes.Empty>(
-        MethodType.Unary,
-        __ServiceName,
-        "DeleteVisitRecord",
-        __Marshaller_VisitRecord,
-        __Marshaller_Empty);
-
-    static readonly Method<global::DataTypes.Photo, global::DataTypes.Photo> __Method_InsertPhoto = new Method<global::DataTypes.Photo, global::DataTypes.Photo>(
-        MethodType.Unary,
-        __ServiceName,
-        "InsertPhoto",
-        __Marshaller_Photo,
-        __Marshaller_Photo);
-
-    static readonly Method<global::DataTypes.Photo, global::Google.Protobuf.WellKnownTypes.Empty> __Method_DeletePhoto = new Method<global::DataTypes.Photo, global::Google.Protobuf.WellKnownTypes.Empty>(
-        MethodType.Unary,
-        __ServiceName,
-        "DeletePhoto",
-        __Marshaller_Photo,
-        __Marshaller_Empty);
-
-    static readonly Method<global::DataTypes.ConnectedUnit, global::DataTypes.UnitConfiguration> __Method_GetConfig = new Method<global::DataTypes.ConnectedUnit, global::DataTypes.UnitConfiguration>(
-        MethodType.Unary,
-        __ServiceName,
-        "GetConfig",
-        __Marshaller_ConnectedUnit,
-        __Marshaller_UnitConfiguration);
-
-    static readonly Method<global::DataTypes.ConnectedUnit, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UnregisterUnit = new Method<global::DataTypes.ConnectedUnit, global::Google.Protobuf.WellKnownTypes.Empty>(
-        MethodType.Unary,
-        __ServiceName,
-        "UnregisterUnit",
-        __Marshaller_ConnectedUnit,
-        __Marshaller_Empty);
+        "Commit",
+        __Marshaller_MessageBytes,
+        __Marshaller_MessageBytes);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -175,484 +34,88 @@ namespace Services {
       get { return global::Services.DatabaseServiceReflection.Descriptor.Services[0]; }
     }
 
-    /// <summary>Base class for server-side implementations of DatabaseSevice</summary>
-    public abstract class DatabaseSeviceBase
+    /// <summary>Base class for server-side implementations of DatabaseService</summary>
+    public abstract class DatabaseServiceBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::DataTypes.Persons> GetPerson(global::Services.GetPersonRequest request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::DataTypes.MessageBytes> Get(global::DataTypes.MessageBytes request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::DataTypes.Person> InsertPerson(global::DataTypes.Person request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> UpdatePerson(global::DataTypes.Person request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> DeletePerson(global::DataTypes.Person request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::DataTypes.Cards> GetCard(global::Services.GetCardRequest request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::DataTypes.Card> InsertCard(global::DataTypes.Card request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> UpdateCard(global::DataTypes.Card request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> DeleteCard(global::DataTypes.Card request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::DataTypes.Locations> GetLocation(global::Services.GetLocationRequest request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::DataTypes.Location> InsertLocation(global::DataTypes.Location request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> UpdateLocation(global::DataTypes.Location request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> DeleteLocation(global::DataTypes.Location request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::DataTypes.VisitRecords> GetVisitRecords(global::Services.GetVisitRecordRequest request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::DataTypes.VisitRecord> InsertVisitRecord(global::DataTypes.VisitRecord request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> UpdateVisitRecord(global::DataTypes.VisitRecord request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> DeleteVisitRecord(global::DataTypes.VisitRecord request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::DataTypes.Photo> InsertPhoto(global::DataTypes.Photo request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> DeletePhoto(global::DataTypes.Photo request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::DataTypes.UnitConfiguration> GetConfig(global::DataTypes.ConnectedUnit request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> UnregisterUnit(global::DataTypes.ConnectedUnit request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::DataTypes.MessageBytes> Commit(global::DataTypes.MessageBytes request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
 
     }
 
-    /// <summary>Client for DatabaseSevice</summary>
-    public class DatabaseSeviceClient : ClientBase<DatabaseSeviceClient>
+    /// <summary>Client for DatabaseService</summary>
+    public class DatabaseServiceClient : ClientBase<DatabaseServiceClient>
     {
-      /// <summary>Creates a new client for DatabaseSevice</summary>
+      /// <summary>Creates a new client for DatabaseService</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
-      public DatabaseSeviceClient(Channel channel) : base(channel)
+      public DatabaseServiceClient(Channel channel) : base(channel)
       {
       }
-      /// <summary>Creates a new client for DatabaseSevice that uses a custom <c>CallInvoker</c>.</summary>
+      /// <summary>Creates a new client for DatabaseService that uses a custom <c>CallInvoker</c>.</summary>
       /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
-      public DatabaseSeviceClient(CallInvoker callInvoker) : base(callInvoker)
+      public DatabaseServiceClient(CallInvoker callInvoker) : base(callInvoker)
       {
       }
       /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
-      protected DatabaseSeviceClient() : base()
+      protected DatabaseServiceClient() : base()
       {
       }
       /// <summary>Protected constructor to allow creation of configured clients.</summary>
       /// <param name="configuration">The client configuration.</param>
-      protected DatabaseSeviceClient(ClientBaseConfiguration configuration) : base(configuration)
+      protected DatabaseServiceClient(ClientBaseConfiguration configuration) : base(configuration)
       {
       }
 
-      public virtual global::DataTypes.Persons GetPerson(global::Services.GetPersonRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::DataTypes.MessageBytes Get(global::DataTypes.MessageBytes request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return GetPerson(request, new CallOptions(headers, deadline, cancellationToken));
+        return Get(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::DataTypes.Persons GetPerson(global::Services.GetPersonRequest request, CallOptions options)
+      public virtual global::DataTypes.MessageBytes Get(global::DataTypes.MessageBytes request, CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_GetPerson, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_Get, null, options, request);
       }
-      public virtual AsyncUnaryCall<global::DataTypes.Persons> GetPersonAsync(global::Services.GetPersonRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual AsyncUnaryCall<global::DataTypes.MessageBytes> GetAsync(global::DataTypes.MessageBytes request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return GetPersonAsync(request, new CallOptions(headers, deadline, cancellationToken));
+        return GetAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncUnaryCall<global::DataTypes.Persons> GetPersonAsync(global::Services.GetPersonRequest request, CallOptions options)
+      public virtual AsyncUnaryCall<global::DataTypes.MessageBytes> GetAsync(global::DataTypes.MessageBytes request, CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_GetPerson, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_Get, null, options, request);
       }
-      public virtual global::DataTypes.Person InsertPerson(global::DataTypes.Person request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::DataTypes.MessageBytes Commit(global::DataTypes.MessageBytes request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return InsertPerson(request, new CallOptions(headers, deadline, cancellationToken));
+        return Commit(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::DataTypes.Person InsertPerson(global::DataTypes.Person request, CallOptions options)
+      public virtual global::DataTypes.MessageBytes Commit(global::DataTypes.MessageBytes request, CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_InsertPerson, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_Commit, null, options, request);
       }
-      public virtual AsyncUnaryCall<global::DataTypes.Person> InsertPersonAsync(global::DataTypes.Person request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual AsyncUnaryCall<global::DataTypes.MessageBytes> CommitAsync(global::DataTypes.MessageBytes request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return InsertPersonAsync(request, new CallOptions(headers, deadline, cancellationToken));
+        return CommitAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncUnaryCall<global::DataTypes.Person> InsertPersonAsync(global::DataTypes.Person request, CallOptions options)
+      public virtual AsyncUnaryCall<global::DataTypes.MessageBytes> CommitAsync(global::DataTypes.MessageBytes request, CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_InsertPerson, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_Commit, null, options, request);
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdatePerson(global::DataTypes.Person request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      protected override DatabaseServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
-        return UpdatePerson(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdatePerson(global::DataTypes.Person request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_UpdatePerson, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdatePersonAsync(global::DataTypes.Person request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return UpdatePersonAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdatePersonAsync(global::DataTypes.Person request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_UpdatePerson, null, options, request);
-      }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty DeletePerson(global::DataTypes.Person request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return DeletePerson(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty DeletePerson(global::DataTypes.Person request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_DeletePerson, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeletePersonAsync(global::DataTypes.Person request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return DeletePersonAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeletePersonAsync(global::DataTypes.Person request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_DeletePerson, null, options, request);
-      }
-      public virtual global::DataTypes.Cards GetCard(global::Services.GetCardRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return GetCard(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::DataTypes.Cards GetCard(global::Services.GetCardRequest request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_GetCard, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::DataTypes.Cards> GetCardAsync(global::Services.GetCardRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return GetCardAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::DataTypes.Cards> GetCardAsync(global::Services.GetCardRequest request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_GetCard, null, options, request);
-      }
-      public virtual global::DataTypes.Card InsertCard(global::DataTypes.Card request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return InsertCard(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::DataTypes.Card InsertCard(global::DataTypes.Card request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_InsertCard, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::DataTypes.Card> InsertCardAsync(global::DataTypes.Card request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return InsertCardAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::DataTypes.Card> InsertCardAsync(global::DataTypes.Card request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_InsertCard, null, options, request);
-      }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateCard(global::DataTypes.Card request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return UpdateCard(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateCard(global::DataTypes.Card request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_UpdateCard, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateCardAsync(global::DataTypes.Card request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return UpdateCardAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateCardAsync(global::DataTypes.Card request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_UpdateCard, null, options, request);
-      }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty DeleteCard(global::DataTypes.Card request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return DeleteCard(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty DeleteCard(global::DataTypes.Card request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_DeleteCard, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeleteCardAsync(global::DataTypes.Card request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return DeleteCardAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeleteCardAsync(global::DataTypes.Card request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_DeleteCard, null, options, request);
-      }
-      public virtual global::DataTypes.Locations GetLocation(global::Services.GetLocationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return GetLocation(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::DataTypes.Locations GetLocation(global::Services.GetLocationRequest request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_GetLocation, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::DataTypes.Locations> GetLocationAsync(global::Services.GetLocationRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return GetLocationAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::DataTypes.Locations> GetLocationAsync(global::Services.GetLocationRequest request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_GetLocation, null, options, request);
-      }
-      public virtual global::DataTypes.Location InsertLocation(global::DataTypes.Location request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return InsertLocation(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::DataTypes.Location InsertLocation(global::DataTypes.Location request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_InsertLocation, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::DataTypes.Location> InsertLocationAsync(global::DataTypes.Location request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return InsertLocationAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::DataTypes.Location> InsertLocationAsync(global::DataTypes.Location request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_InsertLocation, null, options, request);
-      }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateLocation(global::DataTypes.Location request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return UpdateLocation(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateLocation(global::DataTypes.Location request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_UpdateLocation, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateLocationAsync(global::DataTypes.Location request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return UpdateLocationAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateLocationAsync(global::DataTypes.Location request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_UpdateLocation, null, options, request);
-      }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty DeleteLocation(global::DataTypes.Location request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return DeleteLocation(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty DeleteLocation(global::DataTypes.Location request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_DeleteLocation, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeleteLocationAsync(global::DataTypes.Location request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return DeleteLocationAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeleteLocationAsync(global::DataTypes.Location request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_DeleteLocation, null, options, request);
-      }
-      public virtual global::DataTypes.VisitRecords GetVisitRecords(global::Services.GetVisitRecordRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return GetVisitRecords(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::DataTypes.VisitRecords GetVisitRecords(global::Services.GetVisitRecordRequest request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_GetVisitRecords, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::DataTypes.VisitRecords> GetVisitRecordsAsync(global::Services.GetVisitRecordRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return GetVisitRecordsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::DataTypes.VisitRecords> GetVisitRecordsAsync(global::Services.GetVisitRecordRequest request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_GetVisitRecords, null, options, request);
-      }
-      public virtual global::DataTypes.VisitRecord InsertVisitRecord(global::DataTypes.VisitRecord request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return InsertVisitRecord(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::DataTypes.VisitRecord InsertVisitRecord(global::DataTypes.VisitRecord request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_InsertVisitRecord, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::DataTypes.VisitRecord> InsertVisitRecordAsync(global::DataTypes.VisitRecord request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return InsertVisitRecordAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::DataTypes.VisitRecord> InsertVisitRecordAsync(global::DataTypes.VisitRecord request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_InsertVisitRecord, null, options, request);
-      }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateVisitRecord(global::DataTypes.VisitRecord request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return UpdateVisitRecord(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateVisitRecord(global::DataTypes.VisitRecord request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_UpdateVisitRecord, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateVisitRecordAsync(global::DataTypes.VisitRecord request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return UpdateVisitRecordAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateVisitRecordAsync(global::DataTypes.VisitRecord request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_UpdateVisitRecord, null, options, request);
-      }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty DeleteVisitRecord(global::DataTypes.VisitRecord request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return DeleteVisitRecord(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty DeleteVisitRecord(global::DataTypes.VisitRecord request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_DeleteVisitRecord, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeleteVisitRecordAsync(global::DataTypes.VisitRecord request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return DeleteVisitRecordAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeleteVisitRecordAsync(global::DataTypes.VisitRecord request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_DeleteVisitRecord, null, options, request);
-      }
-      public virtual global::DataTypes.Photo InsertPhoto(global::DataTypes.Photo request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return InsertPhoto(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::DataTypes.Photo InsertPhoto(global::DataTypes.Photo request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_InsertPhoto, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::DataTypes.Photo> InsertPhotoAsync(global::DataTypes.Photo request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return InsertPhotoAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::DataTypes.Photo> InsertPhotoAsync(global::DataTypes.Photo request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_InsertPhoto, null, options, request);
-      }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty DeletePhoto(global::DataTypes.Photo request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return DeletePhoto(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty DeletePhoto(global::DataTypes.Photo request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_DeletePhoto, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeletePhotoAsync(global::DataTypes.Photo request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return DeletePhotoAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeletePhotoAsync(global::DataTypes.Photo request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_DeletePhoto, null, options, request);
-      }
-      public virtual global::DataTypes.UnitConfiguration GetConfig(global::DataTypes.ConnectedUnit request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return GetConfig(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::DataTypes.UnitConfiguration GetConfig(global::DataTypes.ConnectedUnit request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_GetConfig, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::DataTypes.UnitConfiguration> GetConfigAsync(global::DataTypes.ConnectedUnit request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return GetConfigAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::DataTypes.UnitConfiguration> GetConfigAsync(global::DataTypes.ConnectedUnit request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_GetConfig, null, options, request);
-      }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty UnregisterUnit(global::DataTypes.ConnectedUnit request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return UnregisterUnit(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty UnregisterUnit(global::DataTypes.ConnectedUnit request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_UnregisterUnit, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UnregisterUnitAsync(global::DataTypes.ConnectedUnit request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return UnregisterUnitAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UnregisterUnitAsync(global::DataTypes.ConnectedUnit request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_UnregisterUnit, null, options, request);
-      }
-      protected override DatabaseSeviceClient NewInstance(ClientBaseConfiguration configuration)
-      {
-        return new DatabaseSeviceClient(configuration);
+        return new DatabaseServiceClient(configuration);
       }
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
-    public static ServerServiceDefinition BindService(DatabaseSeviceBase serviceImpl)
+    public static ServerServiceDefinition BindService(DatabaseServiceBase serviceImpl)
     {
       return ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_GetPerson, serviceImpl.GetPerson)
-          .AddMethod(__Method_InsertPerson, serviceImpl.InsertPerson)
-          .AddMethod(__Method_UpdatePerson, serviceImpl.UpdatePerson)
-          .AddMethod(__Method_DeletePerson, serviceImpl.DeletePerson)
-          .AddMethod(__Method_GetCard, serviceImpl.GetCard)
-          .AddMethod(__Method_InsertCard, serviceImpl.InsertCard)
-          .AddMethod(__Method_UpdateCard, serviceImpl.UpdateCard)
-          .AddMethod(__Method_DeleteCard, serviceImpl.DeleteCard)
-          .AddMethod(__Method_GetLocation, serviceImpl.GetLocation)
-          .AddMethod(__Method_InsertLocation, serviceImpl.InsertLocation)
-          .AddMethod(__Method_UpdateLocation, serviceImpl.UpdateLocation)
-          .AddMethod(__Method_DeleteLocation, serviceImpl.DeleteLocation)
-          .AddMethod(__Method_GetVisitRecords, serviceImpl.GetVisitRecords)
-          .AddMethod(__Method_InsertVisitRecord, serviceImpl.InsertVisitRecord)
-          .AddMethod(__Method_UpdateVisitRecord, serviceImpl.UpdateVisitRecord)
-          .AddMethod(__Method_DeleteVisitRecord, serviceImpl.DeleteVisitRecord)
-          .AddMethod(__Method_InsertPhoto, serviceImpl.InsertPhoto)
-          .AddMethod(__Method_DeletePhoto, serviceImpl.DeletePhoto)
-          .AddMethod(__Method_GetConfig, serviceImpl.GetConfig)
-          .AddMethod(__Method_UnregisterUnit, serviceImpl.UnregisterUnit).Build();
+          .AddMethod(__Method_Get, serviceImpl.Get)
+          .AddMethod(__Method_Commit, serviceImpl.Commit).Build();
     }
 
   }

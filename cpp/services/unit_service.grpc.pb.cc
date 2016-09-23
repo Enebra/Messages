@@ -17,8 +17,8 @@ namespace Services {
 
 static const char* UnitService_method_names[] = {
   "/Services.UnitService/OpenDoor",
-  "/Services.UnitService/UpdateUnits",
-  "/Services.UnitService/UpdateActvity",
+  "/Services.UnitService/GetVideoStream",
+  "/Services.UnitService/UpdateLocation",
 };
 
 std::unique_ptr< UnitService::Stub> UnitService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -28,8 +28,8 @@ std::unique_ptr< UnitService::Stub> UnitService::NewStub(const std::shared_ptr< 
 
 UnitService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_OpenDoor_(UnitService_method_names[0], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_UpdateUnits_(UnitService_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_UpdateActvity_(UnitService_method_names[2], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetVideoStream_(UnitService_method_names[1], ::grpc::RpcMethod::SERVER_STREAMING, channel)
+  , rpcmethod_UpdateLocation_(UnitService_method_names[2], ::grpc::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status UnitService::Stub::OpenDoor(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::google::protobuf::Empty* response) {
@@ -40,20 +40,20 @@ UnitService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channe
   return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_OpenDoor_, context, request);
 }
 
-::grpc::Status UnitService::Stub::UpdateUnits(::grpc::ClientContext* context, const ::DataTypes::UpdatedUnits& request, ::google::protobuf::Empty* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_UpdateUnits_, context, request, response);
+::grpc::ClientReader< ::Services::FrameBytes>* UnitService::Stub::GetVideoStreamRaw(::grpc::ClientContext* context, const ::DataTypes::Location& request) {
+  return new ::grpc::ClientReader< ::Services::FrameBytes>(channel_.get(), rpcmethod_GetVideoStream_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* UnitService::Stub::AsyncUpdateUnitsRaw(::grpc::ClientContext* context, const ::DataTypes::UpdatedUnits& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_UpdateUnits_, context, request);
+::grpc::ClientAsyncReader< ::Services::FrameBytes>* UnitService::Stub::AsyncGetVideoStreamRaw(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::grpc::CompletionQueue* cq, void* tag) {
+  return new ::grpc::ClientAsyncReader< ::Services::FrameBytes>(channel_.get(), cq, rpcmethod_GetVideoStream_, context, request, tag);
 }
 
-::grpc::Status UnitService::Stub::UpdateActvity(::grpc::ClientContext* context, const ::DataTypes::VisitRecords& request, ::google::protobuf::Empty* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_UpdateActvity_, context, request, response);
+::grpc::Status UnitService::Stub::UpdateLocation(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::google::protobuf::Empty* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_UpdateLocation_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* UnitService::Stub::AsyncUpdateActvityRaw(::grpc::ClientContext* context, const ::DataTypes::VisitRecords& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_UpdateActvity_, context, request);
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* UnitService::Stub::AsyncUpdateLocationRaw(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_UpdateLocation_, context, request);
 }
 
 UnitService::Service::Service() {
@@ -65,14 +65,14 @@ UnitService::Service::Service() {
           std::mem_fn(&UnitService::Service::OpenDoor), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
       UnitService_method_names[1],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< UnitService::Service, ::DataTypes::UpdatedUnits, ::google::protobuf::Empty>(
-          std::mem_fn(&UnitService::Service::UpdateUnits), this)));
+      ::grpc::RpcMethod::SERVER_STREAMING,
+      new ::grpc::ServerStreamingHandler< UnitService::Service, ::DataTypes::Location, ::Services::FrameBytes>(
+          std::mem_fn(&UnitService::Service::GetVideoStream), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
       UnitService_method_names[2],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< UnitService::Service, ::DataTypes::VisitRecords, ::google::protobuf::Empty>(
-          std::mem_fn(&UnitService::Service::UpdateActvity), this)));
+      new ::grpc::RpcMethodHandler< UnitService::Service, ::DataTypes::Location, ::google::protobuf::Empty>(
+          std::mem_fn(&UnitService::Service::UpdateLocation), this)));
 }
 
 UnitService::Service::~Service() {
@@ -85,14 +85,14 @@ UnitService::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status UnitService::Service::UpdateUnits(::grpc::ServerContext* context, const ::DataTypes::UpdatedUnits* request, ::google::protobuf::Empty* response) {
+::grpc::Status UnitService::Service::GetVideoStream(::grpc::ServerContext* context, const ::DataTypes::Location* request, ::grpc::ServerWriter< ::Services::FrameBytes>* writer) {
   (void) context;
   (void) request;
-  (void) response;
+  (void) writer;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status UnitService::Service::UpdateActvity(::grpc::ServerContext* context, const ::DataTypes::VisitRecords* request, ::google::protobuf::Empty* response) {
+::grpc::Status UnitService::Service::UpdateLocation(::grpc::ServerContext* context, const ::DataTypes::Location* request, ::google::protobuf::Empty* response) {
   (void) context;
   (void) request;
   (void) response;

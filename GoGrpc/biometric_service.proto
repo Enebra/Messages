@@ -1,0 +1,572 @@
+syntax = "proto3";
+
+import "empty.proto";
+
+option java_package = "ex.grpc";
+option objc_class_prefix = "RTG";
+
+package Bioskynet;
+
+//Services
+
+service ClientService
+{  
+  rpc UpdateVisitRecords ( VisitRecords ) returns ( google.protobuf.Empty ) {}
+  rpc UpdateUnits        ( UpdatedUnits ) returns ( google.protobuf.Empty ) {}
+  rpc UpdateLocation     ( Location     ) returns ( google.protobuf.Empty ) {}
+  rpc PushUpdates        ( DeviceUpdate ) returns ( google.protobuf.Empty ) {}
+}
+
+service CoordinatorService
+{
+  rpc Connect                ( ConnectedUnit     ) returns ( google.protobuf.Empty  ) {}
+  rpc Heartbeat              ( HeartbeatMessage            ) returns ( google.protobuf.Empty  ) {}
+  rpc GetUnits               ( google.protobuf.Empty       ) returns ( Units        ) {}
+  rpc Subscribe              ( ConnectedUnit     ) returns ( google.protobuf.Empty  ) {}
+  rpc Unsubscribe            ( ConnectedUnit     ) returns ( google.protobuf.Empty  ) {}
+  rpc Get                    ( MessageBytes      ) returns ( MessageBytes ) {}
+  rpc Commit                 ( MessageBytes      ) returns ( MessageBytes ) {}
+  rpc PushUpdates            ( DeviceUpdate      ) returns ( google.protobuf.Empty  ) {}
+}
+
+enum ServiceType
+{
+  None_Type = 0;
+  Facial_Type = 1;
+  AppUnit_Type = 2;
+  Unit_Type = 3; 
+}
+
+message HeartbeatMessage
+{
+  string service_id = 1;
+}
+
+service DatabaseService
+{
+   rpc Get    ( MessageBytes ) returns ( MessageBytes ) {}
+   rpc Commit ( MessageBytes ) returns ( MessageBytes ) {}
+}
+
+message GetResponse
+{
+  Entities items = 1;
+  int64    count = 2;
+}
+
+message GetRequest
+{
+  oneof request_type
+  {
+    GetPersonRequest      person_request        = 1;
+    GetCardRequest        card_request          = 2;
+    GetLocationRequest    location_request      = 3;
+    GetVisitRecordRequest visit_record_request  = 4;
+  }
+}
+
+message CommitRequest 
+{
+  repeated Mutation mutations = 1;
+}
+
+message CommitResponse
+{
+  repeated MutationResult mutation_results = 1;
+}
+
+message MutationResult
+{
+  Key key = 1;
+  string error = 2;
+
+}
+
+message Mutation 
+{
+ oneof operation 
+ {  
+    Entity insert = 1;    
+    Entity update = 2;
+    Key delete    = 3;
+  }
+}
+
+message Entity
+{
+  oneof value_type
+  {
+    Card        card         = 1;
+    Person      person       = 2;
+    VisitRecord visit_record = 3;
+    Location    location     = 4;
+    Photo       Photo        = 5;
+  }
+}
+
+message Entities
+{
+  repeated Entity items = 1;
+}
+
+
+message GetPersonRequest
+{ 
+            string search_text    = 1;  //search in first name, search in surname
+            string first_name     = 2;
+            string last_name      = 3; 
+            string card           = 4;
+   //TODO Photo    photo
+   //TODO Rights   rights
+   repeated string locations      = 5;
+            Page   page           = 6;
+}
+
+message GetLocationRequest
+{ 
+  string search_text    = 1; //search in name, description
+  string name           = 2;
+  string mac_address    = 3;
+  string device_name    = 4;
+  Page   page           = 5;
+}
+
+
+message GetVisitRecordRequest
+{ 
+           string                search_text    = 1;		 
+           AccessState state          = 2;
+  repeated string                locations      = 3;
+  repeated string                persons        = 4;
+           int64                 datetime_from  = 5;
+           int64                 datetime_to    = 6;
+		   string                card           = 7;
+           Page                  page           = 8;		   
+}
+
+
+message Page
+{
+   int32 index = 1;
+   int32 size  = 2;
+}
+
+message GetCardRequest
+{ 
+           string search_text       = 1; //search in name, description
+		   string unique_identifier = 2;
+  repeated string owners            = 3;
+           Page   page              = 4;
+}
+
+service BiometricFacialService
+{  
+  rpc Acquire         ( Photo     ) returns ( Faces            ) {} 
+  rpc CreatePopulation( Photos    ) returns ( PopulationCreationResponse ) {}
+  rpc Verify          ( VerificationData    ) returns ( FaceSearchResponse         ) {}
+  rpc Identify        ( IdentificationData  ) returns ( FaceSearchResponse         ) {}
+}
+
+message PopulationCreationResponse
+{
+           int64           id    = 1;
+  repeated Faces faces = 2;         
+}
+
+message VerificationData
+{
+  Photo  target_image         = 1;
+  Photo  comparison_image     = 2;
+  int64            comparison_person_id = 3;
+}
+
+message IdentificationData
+{
+  Photo target_image      = 1;
+  int64           population_id     = 2; 
+}
+
+message FaceSearchResponse
+{
+  repeated Faces   faces   = 1;
+  repeated Matches matches = 2;   
+}
+
+service UnitService 
+{    
+  rpc OpenDoor            ( Location     ) returns ( google.protobuf.Empty ) {}  
+  rpc GetVideoStream      ( Location     ) returns ( stream FrameBytes     ) {}
+  rpc UpdateLocation      ( Location     ) returns ( google.protobuf.Empty ) {}
+}
+
+message FrameBytes
+{
+  bytes frameData = 1;
+}
+
+
+//Messages
+
+
+message Faces
+{
+  repeated FaceCharacteristic Faces = 1;
+}
+
+message FaceCharacteristic
+{  
+  Key    id          = 1;
+  Box      box         = 2;  
+  float    confidence  = 3;  
+  int64    person_id   = 4;
+  int64    photo_id    = 5;
+}					
+
+
+message Match
+{ 
+  Key face_id = 2;
+  float match   = 3;
+}
+
+message Matches
+{
+           Key face_id = 1;
+  repeated Match matches = 2;
+}
+
+
+enum BiometricType
+{
+  UnspecifiedBio  = 0;
+  Facial          = 1;
+  Fingerprint     = 2;
+  Iris            = 3;
+  All             = 4;
+}
+
+enum EyeType
+{
+  Unspecified_Eye  = 0;
+  Left             = 1;
+  Right            = 2;
+  Both             = 3;
+}
+
+enum Finger
+{ 
+  Unspecified_Finger = 0; 
+  RightThumb         = 1;  
+  LeftThumb          = 2; 
+  RightIndex         = 3;  
+  LeftIndex          = 4;  
+  RightMiddle        = 5;    
+  LeftMiddle         = 6;    
+  RightRing          = 7; 
+  LeftRing           = 8;   
+  RightLittle        = 9;    
+  LeftLittle         = 10;
+}
+
+enum FacialIsoComplianceTemplate
+{
+  Unspecified_IsoTemplate         = 0 ;
+  OnlyOneFaceVisible              = 1 ;
+  goodVerticalFacePosition		  = 2 ;
+  horizontallyCenteredFace		  = 3 ;
+  widthOfHead					  = 4 ;
+  lengthOfHead					  = 5 ;
+  widthOfHeadBestPractice		  = 6 ;
+  lengthOfHeadBestPractice		  = 7 ;
+  resolution					  = 8 ;
+  resolutionBestPractice		  = 9 ;
+  imageWidthToHeightBestPractice  = 10;
+  goodExposure					  = 11;
+  goodGrayScaleProfile			  = 12;
+  hasNaturalSkinColour			  = 13;
+  noHotSpots					  = 14;
+  isBackgroundUniformBestPractice =	15;
+  isFrontal						  =	16;
+  isFrontalBestPractice			  =	17;
+  isLightingUniform				  =	18;
+  eyesOpenBestPractice			  =	19;
+  eyesGazeFrontalBestPractice	  =	20;
+  eyesNotRedBestPractice		  =	21;
+  noTintedGlasses				  =	22;
+  isSharp						  =	23;
+  mouthClosedBestPractice		  =	24;
+}
+
+message Card
+{ 
+  Key  unique_identifier = 1;  
+  Key  owner_id          = 2;    
+}
+
+
+message Cards
+{
+  repeated Card  items = 1;
+           int64 count = 2;
+}
+
+message MessageBytes
+{
+  bytes data = 1;
+  DataType type = 2;
+}
+
+enum DataType
+{
+  None_DataType = 0;
+  GetRequestType = 1;
+  GetResponseType = 2;
+  CommitRequestType = 3;
+  CommitResponseType = 4;
+}
+
+message Key 
+{    
+    oneof id_type 
+    {  
+      int64  id = 1;
+      string guid = 2;
+    }
+}
+
+message AccessDevice
+{  
+  string  name           = 1;  
+  fixed64 serial_number  = 2;  
+}
+
+enum DeviceType 
+{
+  None_DType  = 0;
+  CardReader = 1;
+  Capture     = 2;
+}
+
+enum DeviceState 
+{
+  None_State    = 0;
+  Active        = 1;
+  StoppedByUser = 2;
+  Paused        = 3;
+  Stopped       = 4;
+  Error         = 5;
+}
+
+message DeviceUpdate
+{
+  oneof update
+  {
+    ConnectedDevices   connected_devices = 1;
+    DeviceStateMessage device_state_msg  = 2;
+  }
+}
+
+message ConnectedDevices{
+  Key        location_id    = 1;
+  repeated   Device devices = 2;
+}
+
+message Device
+{
+  DeviceType device_type    = 1;
+  string device_names       = 2;
+}
+
+//To notify about device update
+message DeviceStateMessage 
+{
+   oneof msg
+   {
+       GenericDeviceStateMsg  generic_device_state_msg = 1;
+       AccessDeviceStateMsg   access_device_state_msg  = 2;
+   }
+}
+
+message GenericDeviceStateMsg{
+  Key location_id   = 1;
+  DeviceType type   = 2;
+  DeviceState state = 3;
+  string message    = 4;
+}
+
+// Notify on door state
+message AccessDeviceStateMsg
+{
+    Key  location_id = 1;
+    bool opened      = 2;
+}
+
+message Position
+{
+  int32 x = 1;
+  int32 y = 2;
+}
+
+message Box
+{
+  Position begin  = 1;
+  int32    width  = 2;
+  int32    height = 3;
+}
+
+message Location
+{
+  Key            id               = 1;
+  string            name             = 2;
+  string            description      = 3;    
+  string            unit_mac_address = 4; 
+  AccessDevice      access_device    = 5;
+}
+
+message Locations
+{
+  repeated Location items = 1;
+           int64    count = 2;
+}
+
+enum LocationState
+{
+  Unspecified_State = 0;
+  Opened     = 1;
+  Closed     = 2;
+  Failure    = 3;
+}
+
+enum Gender   
+{
+  Gender_Unspecified   = 0;
+  Male                 = 1;
+  Female               = 2;
+}  
+
+enum Rights 
+{
+  Rights_Unspecified = 0;
+  Custom             = 1;
+  Operator           = 2;
+  Manager            = 3;
+  Supervisor         = 4;
+}
+
+message Person
+{
+           Key              id         = 1;
+           string              first_name = 2;
+           string              last_name  = 3;                 
+  repeated Photo               photos     = 4;      
+  repeated Card                cards      = 5;    
+ 
+}
+
+message Persons
+{
+  repeated Person items = 1;
+           int64  count = 2;
+}
+
+message Photo
+{
+  Key             id              = 1;  
+  string          url             = 2;   
+  int32           width           = 3;
+  int32           height          = 4;
+  Purpose         purpose         = 5;
+  BiometricType   biometric_type  = 6;
+  Key           owner_id       = 7;
+}
+
+enum Purpose
+{
+  NonePurpose = 0;
+  Thumbnail   = 1;
+  Population  = 2;
+}
+
+message Photos
+{
+  repeated Photo photos = 1;
+           int64 count  = 2;
+}
+
+
+message Unit
+{
+  ConnectedUnit       connected_unit  = 1;  
+  int64               heartbeat_time  = 2;
+  Locations locations       = 3;
+}
+
+message ConnectedUnit
+{
+  string ip_address      = 1;
+  string mac_address     = 2;
+}
+
+message UpdatedUnit
+{
+  Unit      current_unit  = 1;
+  UnitState state         = 2;
+}
+
+message UpdatedUnits
+{
+  repeated UpdatedUnit items = 1;
+}
+
+message Units
+{
+  repeated Unit items = 1;
+}
+
+message UnitConfiguration
+{
+  string master_ip_address = 1;
+}
+
+message UnitLocationState
+{
+  LocationState  state  = 1;
+}
+
+enum UnitState
+{
+  None_ = 0;
+  Inserted   = 1;
+  Deleted    = 2;
+  Updated    = 3;  
+}
+
+enum AccessState
+{
+  NoneState = 0;
+  Granted   = 1;
+  Denied    = 2;
+}
+message VisitRecord
+{
+   Key      id           = 1;
+   Key      person_id    = 2;
+   Key      location_id  = 3;                 
+   int64       time         = 4;      
+   Card        card         = 5;
+   AccessState state        = 6; 
+}
+
+message VisitRecords
+{
+  repeated VisitRecord items = 1;
+           int64       count = 2;
+}
+
+
+
+
+
+
+
+

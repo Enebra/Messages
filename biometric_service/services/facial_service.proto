@@ -5,10 +5,11 @@ import "datatypes/biometrics.proto";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
+option go_package = "github.com/Enebra/ServiceCoordinator/grpc/services/facialservice";
 
 package Services;
 
-service BiometricFacialSevice
+service BiometricFacialService
 {  
   rpc Acquire         ( DataTypes.Photo     ) returns ( DataTypes.Faces            ) {} 
   rpc CreatePopulation( DataTypes.Photos    ) returns ( PopulationCreationResponse ) {}

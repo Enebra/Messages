@@ -15,106 +15,106 @@
 #include <grpc++/impl/codegen/sync_stream.h>
 namespace Services {
 
-static const char* BiometricFacialSevice_method_names[] = {
-  "/Services.BiometricFacialSevice/Acquire",
-  "/Services.BiometricFacialSevice/CreatePopulation",
-  "/Services.BiometricFacialSevice/Verify",
-  "/Services.BiometricFacialSevice/Identify",
+static const char* BiometricFacialService_method_names[] = {
+  "/Services.BiometricFacialService/Acquire",
+  "/Services.BiometricFacialService/CreatePopulation",
+  "/Services.BiometricFacialService/Verify",
+  "/Services.BiometricFacialService/Identify",
 };
 
-std::unique_ptr< BiometricFacialSevice::Stub> BiometricFacialSevice::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
-  std::unique_ptr< BiometricFacialSevice::Stub> stub(new BiometricFacialSevice::Stub(channel));
+std::unique_ptr< BiometricFacialService::Stub> BiometricFacialService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+  std::unique_ptr< BiometricFacialService::Stub> stub(new BiometricFacialService::Stub(channel));
   return stub;
 }
 
-BiometricFacialSevice::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_Acquire_(BiometricFacialSevice_method_names[0], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_CreatePopulation_(BiometricFacialSevice_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_Verify_(BiometricFacialSevice_method_names[2], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_Identify_(BiometricFacialSevice_method_names[3], ::grpc::RpcMethod::NORMAL_RPC, channel)
+BiometricFacialService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
+  : channel_(channel), rpcmethod_Acquire_(BiometricFacialService_method_names[0], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_CreatePopulation_(BiometricFacialService_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_Verify_(BiometricFacialService_method_names[2], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_Identify_(BiometricFacialService_method_names[3], ::grpc::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status BiometricFacialSevice::Stub::Acquire(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::DataTypes::Faces* response) {
+::grpc::Status BiometricFacialService::Stub::Acquire(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::DataTypes::Faces* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_Acquire_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::DataTypes::Faces>* BiometricFacialSevice::Stub::AsyncAcquireRaw(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::DataTypes::Faces>* BiometricFacialService::Stub::AsyncAcquireRaw(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::DataTypes::Faces>(channel_.get(), cq, rpcmethod_Acquire_, context, request);
 }
 
-::grpc::Status BiometricFacialSevice::Stub::CreatePopulation(::grpc::ClientContext* context, const ::DataTypes::Photos& request, ::Services::PopulationCreationResponse* response) {
+::grpc::Status BiometricFacialService::Stub::CreatePopulation(::grpc::ClientContext* context, const ::DataTypes::Photos& request, ::Services::PopulationCreationResponse* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_CreatePopulation_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::Services::PopulationCreationResponse>* BiometricFacialSevice::Stub::AsyncCreatePopulationRaw(::grpc::ClientContext* context, const ::DataTypes::Photos& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::Services::PopulationCreationResponse>* BiometricFacialService::Stub::AsyncCreatePopulationRaw(::grpc::ClientContext* context, const ::DataTypes::Photos& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::Services::PopulationCreationResponse>(channel_.get(), cq, rpcmethod_CreatePopulation_, context, request);
 }
 
-::grpc::Status BiometricFacialSevice::Stub::Verify(::grpc::ClientContext* context, const ::Services::VerificationData& request, ::Services::FaceSearchResponse* response) {
+::grpc::Status BiometricFacialService::Stub::Verify(::grpc::ClientContext* context, const ::Services::VerificationData& request, ::Services::FaceSearchResponse* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_Verify_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::Services::FaceSearchResponse>* BiometricFacialSevice::Stub::AsyncVerifyRaw(::grpc::ClientContext* context, const ::Services::VerificationData& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::Services::FaceSearchResponse>* BiometricFacialService::Stub::AsyncVerifyRaw(::grpc::ClientContext* context, const ::Services::VerificationData& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::Services::FaceSearchResponse>(channel_.get(), cq, rpcmethod_Verify_, context, request);
 }
 
-::grpc::Status BiometricFacialSevice::Stub::Identify(::grpc::ClientContext* context, const ::Services::IdentificationData& request, ::Services::FaceSearchResponse* response) {
+::grpc::Status BiometricFacialService::Stub::Identify(::grpc::ClientContext* context, const ::Services::IdentificationData& request, ::Services::FaceSearchResponse* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_Identify_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::Services::FaceSearchResponse>* BiometricFacialSevice::Stub::AsyncIdentifyRaw(::grpc::ClientContext* context, const ::Services::IdentificationData& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::Services::FaceSearchResponse>* BiometricFacialService::Stub::AsyncIdentifyRaw(::grpc::ClientContext* context, const ::Services::IdentificationData& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::Services::FaceSearchResponse>(channel_.get(), cq, rpcmethod_Identify_, context, request);
 }
 
-BiometricFacialSevice::Service::Service() {
-  (void)BiometricFacialSevice_method_names;
+BiometricFacialService::Service::Service() {
+  (void)BiometricFacialService_method_names;
   AddMethod(new ::grpc::RpcServiceMethod(
-      BiometricFacialSevice_method_names[0],
+      BiometricFacialService_method_names[0],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< BiometricFacialSevice::Service, ::DataTypes::Photo, ::DataTypes::Faces>(
-          std::mem_fn(&BiometricFacialSevice::Service::Acquire), this)));
+      new ::grpc::RpcMethodHandler< BiometricFacialService::Service, ::DataTypes::Photo, ::DataTypes::Faces>(
+          std::mem_fn(&BiometricFacialService::Service::Acquire), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      BiometricFacialSevice_method_names[1],
+      BiometricFacialService_method_names[1],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< BiometricFacialSevice::Service, ::DataTypes::Photos, ::Services::PopulationCreationResponse>(
-          std::mem_fn(&BiometricFacialSevice::Service::CreatePopulation), this)));
+      new ::grpc::RpcMethodHandler< BiometricFacialService::Service, ::DataTypes::Photos, ::Services::PopulationCreationResponse>(
+          std::mem_fn(&BiometricFacialService::Service::CreatePopulation), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      BiometricFacialSevice_method_names[2],
+      BiometricFacialService_method_names[2],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< BiometricFacialSevice::Service, ::Services::VerificationData, ::Services::FaceSearchResponse>(
-          std::mem_fn(&BiometricFacialSevice::Service::Verify), this)));
+      new ::grpc::RpcMethodHandler< BiometricFacialService::Service, ::Services::VerificationData, ::Services::FaceSearchResponse>(
+          std::mem_fn(&BiometricFacialService::Service::Verify), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      BiometricFacialSevice_method_names[3],
+      BiometricFacialService_method_names[3],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< BiometricFacialSevice::Service, ::Services::IdentificationData, ::Services::FaceSearchResponse>(
-          std::mem_fn(&BiometricFacialSevice::Service::Identify), this)));
+      new ::grpc::RpcMethodHandler< BiometricFacialService::Service, ::Services::IdentificationData, ::Services::FaceSearchResponse>(
+          std::mem_fn(&BiometricFacialService::Service::Identify), this)));
 }
 
-BiometricFacialSevice::Service::~Service() {
+BiometricFacialService::Service::~Service() {
 }
 
-::grpc::Status BiometricFacialSevice::Service::Acquire(::grpc::ServerContext* context, const ::DataTypes::Photo* request, ::DataTypes::Faces* response) {
+::grpc::Status BiometricFacialService::Service::Acquire(::grpc::ServerContext* context, const ::DataTypes::Photo* request, ::DataTypes::Faces* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status BiometricFacialSevice::Service::CreatePopulation(::grpc::ServerContext* context, const ::DataTypes::Photos* request, ::Services::PopulationCreationResponse* response) {
+::grpc::Status BiometricFacialService::Service::CreatePopulation(::grpc::ServerContext* context, const ::DataTypes::Photos* request, ::Services::PopulationCreationResponse* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status BiometricFacialSevice::Service::Verify(::grpc::ServerContext* context, const ::Services::VerificationData* request, ::Services::FaceSearchResponse* response) {
+::grpc::Status BiometricFacialService::Service::Verify(::grpc::ServerContext* context, const ::Services::VerificationData* request, ::Services::FaceSearchResponse* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status BiometricFacialSevice::Service::Identify(::grpc::ServerContext* context, const ::Services::IdentificationData* request, ::Services::FaceSearchResponse* response) {
+::grpc::Status BiometricFacialService::Service::Identify(::grpc::ServerContext* context, const ::Services::IdentificationData* request, ::Services::FaceSearchResponse* response) {
   (void) context;
   (void) request;
   (void) response;

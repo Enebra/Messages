@@ -33,11 +33,12 @@ namespace DataTypes {
             "YVR5cGVzLlVuaXRTdGF0ZSI1CgxVcGRhdGVkVW5pdHMSJQoFaXRlbXMYASAD",
             "KAsyFi5EYXRhVHlwZXMuVXBkYXRlZFVuaXQiJwoFVW5pdHMSHgoFaXRlbXMY",
             "ASADKAsyDy5EYXRhVHlwZXMuVW5pdCIuChFVbml0Q29uZmlndXJhdGlvbhIZ",
-            "ChFtYXN0ZXJfaXBfYWRkcmVzcxgBIAEoCSJRChFVbml0TG9jYXRpb25TdGF0",
-            "ZRITCgtsb2NhdGlvbl9pZBgBIAEoCRInCgVzdGF0ZRgCIAEoDjIYLkRhdGFU",
-            "eXBlcy5Mb2NhdGlvblN0YXRlKkMKCVVuaXRTdGF0ZRIOCgpOb25lX1N0YXRl",
-            "EAASDAoISW5zZXJ0ZWQQARILCgdEZWxldGVkEAISCwoHVXBkYXRlZBADQg8K",
-            "B2V4LmdycGOiAgNSVEdiBnByb3RvMw=="));
+            "ChFtYXN0ZXJfaXBfYWRkcmVzcxgBIAEoCSI8ChFVbml0TG9jYXRpb25TdGF0",
+            "ZRInCgVzdGF0ZRgBIAEoDjIYLkRhdGFUeXBlcy5Mb2NhdGlvblN0YXRlKj4K",
+            "CVVuaXRTdGF0ZRIJCgVOb25lXxAAEgwKCEluc2VydGVkEAESCwoHRGVsZXRl",
+            "ZBACEgsKB1VwZGF0ZWQQA0JJCgdleC5ncnBjWjhnaXRodWIuY29tL0VuZWJy",
+            "YS9TZXJ2aWNlQ29vcmRpbmF0b3IvZ3JwYy9kYXRhdHlwZXMvdW5pdKICA1JU",
+            "R2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::DataTypes.LocationReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.UnitState), }, new pbr::GeneratedClrTypeInfo[] {
@@ -55,7 +56,7 @@ namespace DataTypes {
   }
   #region Enums
   public enum UnitState {
-    [pbr::OriginalName("None_State")] NoneState = 0,
+    [pbr::OriginalName("None_")] None = 0,
     [pbr::OriginalName("Inserted")] Inserted = 1,
     [pbr::OriginalName("Deleted")] Deleted = 2,
     [pbr::OriginalName("Updated")] Updated = 3,

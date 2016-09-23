@@ -230,12 +230,13 @@ void protobuf_AddDesc_datatypes_2funit_2eproto() {
     "s.UnitState\"5\n\014UpdatedUnits\022%\n\005items\030\001 \003"
     "(\0132\026.DataTypes.UpdatedUnit\"\'\n\005Units\022\036\n\005i"
     "tems\030\001 \003(\0132\017.DataTypes.Unit\".\n\021UnitConfi"
-    "guration\022\031\n\021master_ip_address\030\001 \001(\t\"Q\n\021U"
-    "nitLocationState\022\023\n\013location_id\030\001 \001(\t\022\'\n"
-    "\005state\030\002 \001(\0162\030.DataTypes.LocationState*C"
-    "\n\tUnitState\022\016\n\nNone_State\020\000\022\014\n\010Inserted\020"
-    "\001\022\013\n\007Deleted\020\002\022\013\n\007Updated\020\003B\017\n\007ex.grpc\242\002"
-    "\003RTGb\006proto3", 652);
+    "guration\022\031\n\021master_ip_address\030\001 \001(\t\"<\n\021U"
+    "nitLocationState\022\'\n\005state\030\001 \001(\0162\030.DataTy"
+    "pes.LocationState*>\n\tUnitState\022\t\n\005None_\020"
+    "\000\022\014\n\010Inserted\020\001\022\013\n\007Deleted\020\002\022\013\n\007Updated\020"
+    "\003BI\n\007ex.grpcZ8github.com/Enebra/ServiceC"
+    "oordinator/grpc/datatypes/unit\242\002\003RTGb\006pr"
+    "oto3", 684);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "datatypes/unit.proto", &protobuf_RegisterTypes);
   Unit::default_instance_ = new Unit();
