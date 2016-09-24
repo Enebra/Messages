@@ -16,6 +16,7 @@ namespace Services {
     static readonly Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_Empty = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Google.Protobuf.WellKnownTypes.Empty.Parser.ParseFrom);
     static readonly Marshaller<global::Services.HeartbeatMessage> __Marshaller_HeartbeatMessage = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.HeartbeatMessage.Parser.ParseFrom);
     static readonly Marshaller<global::DataTypes.Units> __Marshaller_Units = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Units.Parser.ParseFrom);
+    static readonly Marshaller<global::DataTypes.SubscriptionMsg> __Marshaller_SubscriptionMsg = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.SubscriptionMsg.Parser.ParseFrom);
     static readonly Marshaller<global::DataTypes.MessageBytes> __Marshaller_MessageBytes = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.MessageBytes.Parser.ParseFrom);
     static readonly Marshaller<global::DataTypes.DeviceUpdate> __Marshaller_DeviceUpdate = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.DeviceUpdate.Parser.ParseFrom);
 
@@ -40,18 +41,18 @@ namespace Services {
         __Marshaller_Empty,
         __Marshaller_Units);
 
-    static readonly Method<global::DataTypes.ConnectedUnit, global::Google.Protobuf.WellKnownTypes.Empty> __Method_Subscribe = new Method<global::DataTypes.ConnectedUnit, global::Google.Protobuf.WellKnownTypes.Empty>(
+    static readonly Method<global::DataTypes.SubscriptionMsg, global::Google.Protobuf.WellKnownTypes.Empty> __Method_Subscribe = new Method<global::DataTypes.SubscriptionMsg, global::Google.Protobuf.WellKnownTypes.Empty>(
         MethodType.Unary,
         __ServiceName,
         "Subscribe",
-        __Marshaller_ConnectedUnit,
+        __Marshaller_SubscriptionMsg,
         __Marshaller_Empty);
 
-    static readonly Method<global::DataTypes.ConnectedUnit, global::Google.Protobuf.WellKnownTypes.Empty> __Method_Unsubscribe = new Method<global::DataTypes.ConnectedUnit, global::Google.Protobuf.WellKnownTypes.Empty>(
+    static readonly Method<global::DataTypes.SubscriptionMsg, global::Google.Protobuf.WellKnownTypes.Empty> __Method_Unsubscribe = new Method<global::DataTypes.SubscriptionMsg, global::Google.Protobuf.WellKnownTypes.Empty>(
         MethodType.Unary,
         __ServiceName,
         "Unsubscribe",
-        __Marshaller_ConnectedUnit,
+        __Marshaller_SubscriptionMsg,
         __Marshaller_Empty);
 
     static readonly Method<global::DataTypes.MessageBytes, global::DataTypes.MessageBytes> __Method_Get = new Method<global::DataTypes.MessageBytes, global::DataTypes.MessageBytes>(
@@ -99,12 +100,12 @@ namespace Services {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> Subscribe(global::DataTypes.ConnectedUnit request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> Subscribe(global::DataTypes.SubscriptionMsg request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> Unsubscribe(global::DataTypes.ConnectedUnit request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> Unsubscribe(global::DataTypes.SubscriptionMsg request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
@@ -197,35 +198,35 @@ namespace Services {
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetUnits, null, options, request);
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty Subscribe(global::DataTypes.ConnectedUnit request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty Subscribe(global::DataTypes.SubscriptionMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return Subscribe(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty Subscribe(global::DataTypes.ConnectedUnit request, CallOptions options)
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty Subscribe(global::DataTypes.SubscriptionMsg request, CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Subscribe, null, options, request);
       }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> SubscribeAsync(global::DataTypes.ConnectedUnit request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> SubscribeAsync(global::DataTypes.SubscriptionMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return SubscribeAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> SubscribeAsync(global::DataTypes.ConnectedUnit request, CallOptions options)
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> SubscribeAsync(global::DataTypes.SubscriptionMsg request, CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Subscribe, null, options, request);
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty Unsubscribe(global::DataTypes.ConnectedUnit request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty Unsubscribe(global::DataTypes.SubscriptionMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return Unsubscribe(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty Unsubscribe(global::DataTypes.ConnectedUnit request, CallOptions options)
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty Unsubscribe(global::DataTypes.SubscriptionMsg request, CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Unsubscribe, null, options, request);
       }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UnsubscribeAsync(global::DataTypes.ConnectedUnit request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UnsubscribeAsync(global::DataTypes.SubscriptionMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return UnsubscribeAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UnsubscribeAsync(global::DataTypes.ConnectedUnit request, CallOptions options)
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UnsubscribeAsync(global::DataTypes.SubscriptionMsg request, CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Unsubscribe, null, options, request);
       }

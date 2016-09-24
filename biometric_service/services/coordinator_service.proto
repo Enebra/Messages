@@ -16,8 +16,8 @@ service CoordinatorService
   rpc Connect                ( DataTypes.ConnectedUnit     ) returns ( google.protobuf.Empty  ) {}
   rpc Heartbeat              ( HeartbeatMessage            ) returns ( google.protobuf.Empty  ) {}
   rpc GetUnits               ( google.protobuf.Empty       ) returns ( DataTypes.Units        ) {}
-  rpc Subscribe              ( DataTypes.ConnectedUnit     ) returns ( google.protobuf.Empty  ) {}
-  rpc Unsubscribe            ( DataTypes.ConnectedUnit     ) returns ( google.protobuf.Empty  ) {}
+  rpc Subscribe              ( DataTypes.SubscriptionMsg   ) returns ( google.protobuf.Empty  ) {}
+  rpc Unsubscribe            ( DataTypes.SubscriptionMsg   ) returns ( google.protobuf.Empty  ) {}
   rpc Get                    ( DataTypes.MessageBytes      ) returns ( DataTypes.MessageBytes ) {}
   rpc Commit                 ( DataTypes.MessageBytes      ) returns ( DataTypes.MessageBytes ) {}
   rpc PushUpdates            ( DataTypes.DeviceUpdate      ) returns ( google.protobuf.Empty  ) {}

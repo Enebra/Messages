@@ -22,6 +22,12 @@ message ConnectedUnit
   string mac_address     = 2;
 }
 
+message SubscriptionMsg
+{
+  string publisher_id  = 1;
+  string subscriber_id = 2;
+}
+
 message UpdatedUnit
 {
   Unit      current_unit  = 1;

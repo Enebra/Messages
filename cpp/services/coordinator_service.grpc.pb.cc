@@ -66,19 +66,19 @@ CoordinatorService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>&
   return new ::grpc::ClientAsyncResponseReader< ::DataTypes::Units>(channel_.get(), cq, rpcmethod_GetUnits_, context, request);
 }
 
-::grpc::Status CoordinatorService::Stub::Subscribe(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::google::protobuf::Empty* response) {
+::grpc::Status CoordinatorService::Stub::Subscribe(::grpc::ClientContext* context, const ::DataTypes::SubscriptionMsg& request, ::google::protobuf::Empty* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_Subscribe_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* CoordinatorService::Stub::AsyncSubscribeRaw(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* CoordinatorService::Stub::AsyncSubscribeRaw(::grpc::ClientContext* context, const ::DataTypes::SubscriptionMsg& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_Subscribe_, context, request);
 }
 
-::grpc::Status CoordinatorService::Stub::Unsubscribe(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::google::protobuf::Empty* response) {
+::grpc::Status CoordinatorService::Stub::Unsubscribe(::grpc::ClientContext* context, const ::DataTypes::SubscriptionMsg& request, ::google::protobuf::Empty* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_Unsubscribe_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* CoordinatorService::Stub::AsyncUnsubscribeRaw(::grpc::ClientContext* context, const ::DataTypes::ConnectedUnit& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* CoordinatorService::Stub::AsyncUnsubscribeRaw(::grpc::ClientContext* context, const ::DataTypes::SubscriptionMsg& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_Unsubscribe_, context, request);
 }
 
@@ -126,12 +126,12 @@ CoordinatorService::Service::Service() {
   AddMethod(new ::grpc::RpcServiceMethod(
       CoordinatorService_method_names[3],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< CoordinatorService::Service, ::DataTypes::ConnectedUnit, ::google::protobuf::Empty>(
+      new ::grpc::RpcMethodHandler< CoordinatorService::Service, ::DataTypes::SubscriptionMsg, ::google::protobuf::Empty>(
           std::mem_fn(&CoordinatorService::Service::Subscribe), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
       CoordinatorService_method_names[4],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< CoordinatorService::Service, ::DataTypes::ConnectedUnit, ::google::protobuf::Empty>(
+      new ::grpc::RpcMethodHandler< CoordinatorService::Service, ::DataTypes::SubscriptionMsg, ::google::protobuf::Empty>(
           std::mem_fn(&CoordinatorService::Service::Unsubscribe), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
       CoordinatorService_method_names[5],
@@ -174,14 +174,14 @@ CoordinatorService::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status CoordinatorService::Service::Subscribe(::grpc::ServerContext* context, const ::DataTypes::ConnectedUnit* request, ::google::protobuf::Empty* response) {
+::grpc::Status CoordinatorService::Service::Subscribe(::grpc::ServerContext* context, const ::DataTypes::SubscriptionMsg* request, ::google::protobuf::Empty* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status CoordinatorService::Service::Unsubscribe(::grpc::ServerContext* context, const ::DataTypes::ConnectedUnit* request, ::google::protobuf::Empty* response) {
+::grpc::Status CoordinatorService::Service::Unsubscribe(::grpc::ServerContext* context, const ::DataTypes::SubscriptionMsg* request, ::google::protobuf::Empty* response) {
   (void) context;
   (void) request;
   (void) response;
