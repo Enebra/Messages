@@ -28,22 +28,25 @@ namespace DataTypes {
             "CzIYLkRhdGFUeXBlcy5Db25uZWN0ZWRVbml0EhYKDmhlYXJ0YmVhdF90aW1l",
             "GAIgASgDEicKCWxvY2F0aW9ucxgDIAEoCzIULkRhdGFUeXBlcy5Mb2NhdGlv",
             "bnMiOAoNQ29ubmVjdGVkVW5pdBISCgppcF9hZGRyZXNzGAEgASgJEhMKC21h",
-            "Y19hZGRyZXNzGAIgASgJIlkKC1VwZGF0ZWRVbml0EiUKDGN1cnJlbnRfdW5p",
-            "dBgBIAEoCzIPLkRhdGFUeXBlcy5Vbml0EiMKBXN0YXRlGAIgASgOMhQuRGF0",
-            "YVR5cGVzLlVuaXRTdGF0ZSI1CgxVcGRhdGVkVW5pdHMSJQoFaXRlbXMYASAD",
-            "KAsyFi5EYXRhVHlwZXMuVXBkYXRlZFVuaXQiJwoFVW5pdHMSHgoFaXRlbXMY",
-            "ASADKAsyDy5EYXRhVHlwZXMuVW5pdCIuChFVbml0Q29uZmlndXJhdGlvbhIZ",
-            "ChFtYXN0ZXJfaXBfYWRkcmVzcxgBIAEoCSI8ChFVbml0TG9jYXRpb25TdGF0",
-            "ZRInCgVzdGF0ZRgBIAEoDjIYLkRhdGFUeXBlcy5Mb2NhdGlvblN0YXRlKj4K",
-            "CVVuaXRTdGF0ZRIJCgVOb25lXxAAEgwKCEluc2VydGVkEAESCwoHRGVsZXRl",
-            "ZBACEgsKB1VwZGF0ZWQQA0JJCgdleC5ncnBjWjhnaXRodWIuY29tL0VuZWJy",
-            "YS9TZXJ2aWNlQ29vcmRpbmF0b3IvZ3JwYy9kYXRhdHlwZXMvdW5pdKICA1JU",
-            "R2IGcHJvdG8z"));
+            "Y19hZGRyZXNzGAIgASgJIj4KD1N1YnNjcmlwdGlvbk1zZxIUCgxwdWJsaXNo",
+            "ZXJfaWQYASABKAkSFQoNc3Vic2NyaWJlcl9pZBgCIAEoCSJZCgtVcGRhdGVk",
+            "VW5pdBIlCgxjdXJyZW50X3VuaXQYASABKAsyDy5EYXRhVHlwZXMuVW5pdBIj",
+            "CgVzdGF0ZRgCIAEoDjIULkRhdGFUeXBlcy5Vbml0U3RhdGUiNQoMVXBkYXRl",
+            "ZFVuaXRzEiUKBWl0ZW1zGAEgAygLMhYuRGF0YVR5cGVzLlVwZGF0ZWRVbml0",
+            "IicKBVVuaXRzEh4KBWl0ZW1zGAEgAygLMg8uRGF0YVR5cGVzLlVuaXQiLgoR",
+            "VW5pdENvbmZpZ3VyYXRpb24SGQoRbWFzdGVyX2lwX2FkZHJlc3MYASABKAki",
+            "UQoRVW5pdExvY2F0aW9uU3RhdGUSEwoLbG9jYXRpb25faWQYASABKAkSJwoF",
+            "c3RhdGUYAiABKA4yGC5EYXRhVHlwZXMuTG9jYXRpb25TdGF0ZSo+CglVbml0",
+            "U3RhdGUSCQoFTm9uZV8QABIMCghJbnNlcnRlZBABEgsKB0RlbGV0ZWQQAhIL",
+            "CgdVcGRhdGVkEANCSQoHZXguZ3JwY1o4Z2l0aHViLmNvbS9FbmVicmEvU2Vy",
+            "dmljZUNvb3JkaW5hdG9yL2dycGMvZGF0YXR5cGVzL3VuaXSiAgNSVEdiBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::DataTypes.LocationReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.UnitState), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Unit), global::DataTypes.Unit.Parser, new[]{ "ConnectedUnit", "HeartbeatTime", "Locations" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.ConnectedUnit), global::DataTypes.ConnectedUnit.Parser, new[]{ "IpAddress", "MacAddress" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.SubscriptionMsg), global::DataTypes.SubscriptionMsg.Parser, new[]{ "PublisherId", "SubscriberId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.UpdatedUnit), global::DataTypes.UpdatedUnit.Parser, new[]{ "CurrentUnit", "State" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.UpdatedUnits), global::DataTypes.UpdatedUnits.Parser, new[]{ "Items" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Units), global::DataTypes.Units.Parser, new[]{ "Items" }, null, null, null),
@@ -365,12 +368,142 @@ namespace DataTypes {
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class SubscriptionMsg : pb::IMessage<SubscriptionMsg> {
+    private static readonly pb::MessageParser<SubscriptionMsg> _parser = new pb::MessageParser<SubscriptionMsg>(() => new SubscriptionMsg());
+    public static pb::MessageParser<SubscriptionMsg> Parser { get { return _parser; } }
+
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    public SubscriptionMsg() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    public SubscriptionMsg(SubscriptionMsg other) : this() {
+      publisherId_ = other.publisherId_;
+      subscriberId_ = other.subscriberId_;
+    }
+
+    public SubscriptionMsg Clone() {
+      return new SubscriptionMsg(this);
+    }
+
+    /// <summary>Field number for the "publisher_id" field.</summary>
+    public const int PublisherIdFieldNumber = 1;
+    private string publisherId_ = "";
+    public string PublisherId {
+      get { return publisherId_; }
+      set {
+        publisherId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "subscriber_id" field.</summary>
+    public const int SubscriberIdFieldNumber = 2;
+    private string subscriberId_ = "";
+    public string SubscriberId {
+      get { return subscriberId_; }
+      set {
+        subscriberId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    public override bool Equals(object other) {
+      return Equals(other as SubscriptionMsg);
+    }
+
+    public bool Equals(SubscriptionMsg other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (PublisherId != other.PublisherId) return false;
+      if (SubscriberId != other.SubscriberId) return false;
+      return true;
+    }
+
+    public override int GetHashCode() {
+      int hash = 1;
+      if (PublisherId.Length != 0) hash ^= PublisherId.GetHashCode();
+      if (SubscriberId.Length != 0) hash ^= SubscriberId.GetHashCode();
+      return hash;
+    }
+
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (PublisherId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(PublisherId);
+      }
+      if (SubscriberId.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(SubscriberId);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (PublisherId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(PublisherId);
+      }
+      if (SubscriberId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(SubscriberId);
+      }
+      return size;
+    }
+
+    public void MergeFrom(SubscriptionMsg other) {
+      if (other == null) {
+        return;
+      }
+      if (other.PublisherId.Length != 0) {
+        PublisherId = other.PublisherId;
+      }
+      if (other.SubscriberId.Length != 0) {
+        SubscriberId = other.SubscriberId;
+      }
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            PublisherId = input.ReadString();
+            break;
+          }
+          case 18: {
+            SubscriberId = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class UpdatedUnit : pb::IMessage<UpdatedUnit> {
     private static readonly pb::MessageParser<UpdatedUnit> _parser = new pb::MessageParser<UpdatedUnit>(() => new UpdatedUnit());
     public static pb::MessageParser<UpdatedUnit> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[2]; }
+      get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[3]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -506,7 +639,7 @@ namespace DataTypes {
     public static pb::MessageParser<UpdatedUnits> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[3]; }
+      get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[4]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -601,7 +734,7 @@ namespace DataTypes {
     public static pb::MessageParser<Units> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[4]; }
+      get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[5]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -696,7 +829,7 @@ namespace DataTypes {
     public static pb::MessageParser<UnitConfiguration> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[5]; }
+      get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[6]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -799,7 +932,7 @@ namespace DataTypes {
     public static pb::MessageParser<UnitLocationState> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[6]; }
+      get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[7]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {

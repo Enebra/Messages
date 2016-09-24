@@ -11,9 +11,9 @@ package Services;
 
 service UnitService 
 {    
-  rpc OpenDoor            ( DataTypes.Location     ) returns ( google.protobuf.Empty ) {}  
-  rpc GetVideoStream      ( DataTypes.Location     ) returns ( stream FrameBytes     ) {}
-  rpc UpdateLocation      ( DataTypes.Location     ) returns ( google.protobuf.Empty ) {}
+  rpc OpenDoor            ( DataTypes.Location ) returns ( google.protobuf.Empty ) {}  
+  rpc GetVideoStream      ( DataTypes.Location ) returns ( stream FrameBytes     ) {}
+  rpc UpdateLocation      ( DataTypes.Location ) returns ( google.protobuf.Empty ) {}
 }
 
 message FrameBytes
