@@ -66,16 +66,16 @@ void protobuf_AddDesc_services_2fclient_5fservice_2eproto() {
     "s\032\033google/protobuf/empty.proto\032\024datatype"
     "s/unit.proto\032\030datatypes/location.proto\032\027"
     "datatypes/devices.proto\032\034datatypes/visit"
-    "_record.proto2\235\002\n\rClientService\022G\n\022Updat"
+    "_record.proto2\234\002\n\rClientService\022G\n\022Updat"
     "eVisitRecords\022\027.DataTypes.VisitRecords\032\026"
-    ".google.protobuf.Empty\"\000\022@\n\013UpdateUnits\022"
-    "\027.DataTypes.UpdatedUnits\032\026.google.protob"
-    "uf.Empty\"\000\022\?\n\016UpdateLocation\022\023.DataTypes"
-    ".Location\032\026.google.protobuf.Empty\"\000\022@\n\013P"
-    "ushUpdates\022\027.DataTypes.DeviceUpdate\032\026.go"
-    "ogle.protobuf.Empty\"\000BQ\n\007ex.grpcZ@github"
-    ".com/Enebra/ServiceCoordinator/grpc/serv"
-    "ices/clientservice\242\002\003RTGb\006proto3", 552);
+    ".google.protobuf.Empty\"\000\022\?\n\013UpdateUnits\022"
+    "\026.DataTypes.UpdatedUnit\032\026.google.protobu"
+    "f.Empty\"\000\022\?\n\016UpdateLocation\022\023.DataTypes."
+    "Location\032\026.google.protobuf.Empty\"\000\022@\n\013Pu"
+    "shUpdates\022\027.DataTypes.DeviceUpdate\032\026.goo"
+    "gle.protobuf.Empty\"\000BQ\n\007ex.grpcZ@github."
+    "com/Enebra/ServiceCoordinator/grpc/servi"
+    "ces/clientservice\242\002\003RTGb\006proto3", 551);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "services/client_service.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_services_2fclient_5fservice_2eproto);

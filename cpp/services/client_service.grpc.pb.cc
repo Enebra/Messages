@@ -42,11 +42,11 @@ ClientService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& chan
   return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_UpdateVisitRecords_, context, request);
 }
 
-::grpc::Status ClientService::Stub::UpdateUnits(::grpc::ClientContext* context, const ::DataTypes::UpdatedUnits& request, ::google::protobuf::Empty* response) {
+::grpc::Status ClientService::Stub::UpdateUnits(::grpc::ClientContext* context, const ::DataTypes::UpdatedUnit& request, ::google::protobuf::Empty* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_UpdateUnits_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* ClientService::Stub::AsyncUpdateUnitsRaw(::grpc::ClientContext* context, const ::DataTypes::UpdatedUnits& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* ClientService::Stub::AsyncUpdateUnitsRaw(::grpc::ClientContext* context, const ::DataTypes::UpdatedUnit& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_UpdateUnits_, context, request);
 }
 
@@ -76,7 +76,7 @@ ClientService::Service::Service() {
   AddMethod(new ::grpc::RpcServiceMethod(
       ClientService_method_names[1],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< ClientService::Service, ::DataTypes::UpdatedUnits, ::google::protobuf::Empty>(
+      new ::grpc::RpcMethodHandler< ClientService::Service, ::DataTypes::UpdatedUnit, ::google::protobuf::Empty>(
           std::mem_fn(&ClientService::Service::UpdateUnits), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
       ClientService_method_names[2],
@@ -100,7 +100,7 @@ ClientService::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status ClientService::Service::UpdateUnits(::grpc::ServerContext* context, const ::DataTypes::UpdatedUnits* request, ::google::protobuf::Empty* response) {
+::grpc::Status ClientService::Service::UpdateUnits(::grpc::ServerContext* context, const ::DataTypes::UpdatedUnit* request, ::google::protobuf::Empty* response) {
   (void) context;
   (void) request;
   (void) response;

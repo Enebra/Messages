@@ -34,8 +34,8 @@ class ClientService GRPC_FINAL {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncUpdateVisitRecords(::grpc::ClientContext* context, const ::DataTypes::VisitRecords& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncUpdateVisitRecordsRaw(context, request, cq));
     }
-    virtual ::grpc::Status UpdateUnits(::grpc::ClientContext* context, const ::DataTypes::UpdatedUnits& request, ::google::protobuf::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncUpdateUnits(::grpc::ClientContext* context, const ::DataTypes::UpdatedUnits& request, ::grpc::CompletionQueue* cq) {
+    virtual ::grpc::Status UpdateUnits(::grpc::ClientContext* context, const ::DataTypes::UpdatedUnit& request, ::google::protobuf::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncUpdateUnits(::grpc::ClientContext* context, const ::DataTypes::UpdatedUnit& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncUpdateUnitsRaw(context, request, cq));
     }
     virtual ::grpc::Status UpdateLocation(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::google::protobuf::Empty* response) = 0;
@@ -48,7 +48,7 @@ class ClientService GRPC_FINAL {
     }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncUpdateVisitRecordsRaw(::grpc::ClientContext* context, const ::DataTypes::VisitRecords& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncUpdateUnitsRaw(::grpc::ClientContext* context, const ::DataTypes::UpdatedUnits& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncUpdateUnitsRaw(::grpc::ClientContext* context, const ::DataTypes::UpdatedUnit& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncUpdateLocationRaw(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncPushUpdatesRaw(::grpc::ClientContext* context, const ::DataTypes::DeviceUpdate& request, ::grpc::CompletionQueue* cq) = 0;
   };
@@ -59,8 +59,8 @@ class ClientService GRPC_FINAL {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncUpdateVisitRecords(::grpc::ClientContext* context, const ::DataTypes::VisitRecords& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncUpdateVisitRecordsRaw(context, request, cq));
     }
-    ::grpc::Status UpdateUnits(::grpc::ClientContext* context, const ::DataTypes::UpdatedUnits& request, ::google::protobuf::Empty* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncUpdateUnits(::grpc::ClientContext* context, const ::DataTypes::UpdatedUnits& request, ::grpc::CompletionQueue* cq) {
+    ::grpc::Status UpdateUnits(::grpc::ClientContext* context, const ::DataTypes::UpdatedUnit& request, ::google::protobuf::Empty* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncUpdateUnits(::grpc::ClientContext* context, const ::DataTypes::UpdatedUnit& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncUpdateUnitsRaw(context, request, cq));
     }
     ::grpc::Status UpdateLocation(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::google::protobuf::Empty* response) GRPC_OVERRIDE;
@@ -75,7 +75,7 @@ class ClientService GRPC_FINAL {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncUpdateVisitRecordsRaw(::grpc::ClientContext* context, const ::DataTypes::VisitRecords& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncUpdateUnitsRaw(::grpc::ClientContext* context, const ::DataTypes::UpdatedUnits& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncUpdateUnitsRaw(::grpc::ClientContext* context, const ::DataTypes::UpdatedUnit& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncUpdateLocationRaw(::grpc::ClientContext* context, const ::DataTypes::Location& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncPushUpdatesRaw(::grpc::ClientContext* context, const ::DataTypes::DeviceUpdate& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     const ::grpc::RpcMethod rpcmethod_UpdateVisitRecords_;
@@ -90,7 +90,7 @@ class ClientService GRPC_FINAL {
     Service();
     virtual ~Service();
     virtual ::grpc::Status UpdateVisitRecords(::grpc::ServerContext* context, const ::DataTypes::VisitRecords* request, ::google::protobuf::Empty* response);
-    virtual ::grpc::Status UpdateUnits(::grpc::ServerContext* context, const ::DataTypes::UpdatedUnits* request, ::google::protobuf::Empty* response);
+    virtual ::grpc::Status UpdateUnits(::grpc::ServerContext* context, const ::DataTypes::UpdatedUnit* request, ::google::protobuf::Empty* response);
     virtual ::grpc::Status UpdateLocation(::grpc::ServerContext* context, const ::DataTypes::Location* request, ::google::protobuf::Empty* response);
     virtual ::grpc::Status PushUpdates(::grpc::ServerContext* context, const ::DataTypes::DeviceUpdate* request, ::google::protobuf::Empty* response);
   };
@@ -126,11 +126,11 @@ class ClientService GRPC_FINAL {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateUnits(::grpc::ServerContext* context, const ::DataTypes::UpdatedUnits* request, ::google::protobuf::Empty* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status UpdateUnits(::grpc::ServerContext* context, const ::DataTypes::UpdatedUnit* request, ::google::protobuf::Empty* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestUpdateUnits(::grpc::ServerContext* context, ::DataTypes::UpdatedUnits* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestUpdateUnits(::grpc::ServerContext* context, ::DataTypes::UpdatedUnit* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -204,7 +204,7 @@ class ClientService GRPC_FINAL {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateUnits(::grpc::ServerContext* context, const ::DataTypes::UpdatedUnits* request, ::google::protobuf::Empty* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status UpdateUnits(::grpc::ServerContext* context, const ::DataTypes::UpdatedUnit* request, ::google::protobuf::Empty* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }

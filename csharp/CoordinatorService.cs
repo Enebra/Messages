@@ -26,148 +26,28 @@ namespace Services {
             "CiJzZXJ2aWNlcy9jb29yZGluYXRvcl9zZXJ2aWNlLnByb3RvEghTZXJ2aWNl",
             "cxobZ29vZ2xlL3Byb3RvYnVmL2VtcHR5LnByb3RvGhRkYXRhdHlwZXMvdW5p",
             "dC5wcm90bxoUZGF0YXR5cGVzL2RhdGEucHJvdG8aF2RhdGF0eXBlcy9kZXZp",
-            "Y2VzLnByb3RvIiYKEEhlYXJ0YmVhdE1lc3NhZ2USEgoKc2VydmljZV9pZBgB",
-            "IAEoCSo/CgtTZXJ2aWNlVHlwZRINCglOb25lX1R5cGUQABIKCgZGYWNpYWwQ",
-            "ARILCgdBcHBVbml0EAISCAoEVW5pdBADMpEEChJDb29yZGluYXRvclNlcnZp",
-            "Y2USPQoHQ29ubmVjdBIYLkRhdGFUeXBlcy5Db25uZWN0ZWRVbml0GhYuZ29v",
-            "Z2xlLnByb3RvYnVmLkVtcHR5IgASQQoJSGVhcnRiZWF0EhouU2VydmljZXMu",
-            "SGVhcnRiZWF0TWVzc2FnZRoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEjYK",
-            "CEdldFVuaXRzEhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5GhAuRGF0YVR5cGVz",
-            "LlVuaXRzIgASQQoJU3Vic2NyaWJlEhouRGF0YVR5cGVzLlN1YnNjcmlwdGlv",
-            "bk1zZxoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEkMKC1Vuc3Vic2NyaWJl",
-            "EhouRGF0YVR5cGVzLlN1YnNjcmlwdGlvbk1zZxoWLmdvb2dsZS5wcm90b2J1",
-            "Zi5FbXB0eSIAEjkKA0dldBIXLkRhdGFUeXBlcy5NZXNzYWdlQnl0ZXMaFy5E",
-            "YXRhVHlwZXMuTWVzc2FnZUJ5dGVzIgASPAoGQ29tbWl0EhcuRGF0YVR5cGVz",
-            "Lk1lc3NhZ2VCeXRlcxoXLkRhdGFUeXBlcy5NZXNzYWdlQnl0ZXMiABJACgtQ",
-            "dXNoVXBkYXRlcxIXLkRhdGFUeXBlcy5EZXZpY2VVcGRhdGUaFi5nb29nbGUu",
-            "cHJvdG9idWYuRW1wdHkiAEJWCgdleC5ncnBjWkVnaXRodWIuY29tL0VuZWJy",
-            "YS9TZXJ2aWNlQ29vcmRpbmF0b3IvZ3JwYy9zZXJ2aWNlcy9jb29yZGluYXRv",
-            "cnNlcnZpY2WiAgNSVEdiBnByb3RvMw=="));
+            "Y2VzLnByb3RvMo8EChJDb29yZGluYXRvclNlcnZpY2USOgoHQ29ubmVjdBIV",
+            "LkRhdGFUeXBlcy5Db25uZWN0TXNnGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5",
+            "IgASQgoJSGVhcnRiZWF0EhsuRGF0YVR5cGVzLkhlYXJ0YmVhdE1lc3NhZ2Ua",
+            "Fi5nb29nbGUucHJvdG9idWYuRW1wdHkiABI2CghHZXRVbml0cxIWLmdvb2ds",
+            "ZS5wcm90b2J1Zi5FbXB0eRoQLkRhdGFUeXBlcy5Vbml0cyIAEkEKCVN1YnNj",
+            "cmliZRIaLkRhdGFUeXBlcy5TdWJzY3JpcHRpb25Nc2caFi5nb29nbGUucHJv",
+            "dG9idWYuRW1wdHkiABJDCgtVbnN1YnNjcmliZRIaLkRhdGFUeXBlcy5TdWJz",
+            "Y3JpcHRpb25Nc2caFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABI5CgNHZXQS",
+            "Fy5EYXRhVHlwZXMuTWVzc2FnZUJ5dGVzGhcuRGF0YVR5cGVzLk1lc3NhZ2VC",
+            "eXRlcyIAEjwKBkNvbW1pdBIXLkRhdGFUeXBlcy5NZXNzYWdlQnl0ZXMaFy5E",
+            "YXRhVHlwZXMuTWVzc2FnZUJ5dGVzIgASQAoLUHVzaFVwZGF0ZXMSFy5EYXRh",
+            "VHlwZXMuRGV2aWNlVXBkYXRlGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgBC",
+            "VgoHZXguZ3JwY1pFZ2l0aHViLmNvbS9FbmVicmEvU2VydmljZUNvb3JkaW5h",
+            "dG9yL2dycGMvc2VydmljZXMvY29vcmRpbmF0b3JzZXJ2aWNlogIDUlRHYgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::DataTypes.UnitReflection.Descriptor, global::DataTypes.DataReflection.Descriptor, global::DataTypes.DevicesReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Services.ServiceType), }, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Services.HeartbeatMessage), global::Services.HeartbeatMessage.Parser, new[]{ "ServiceId" }, null, null, null)
-          }));
+          new pbr::GeneratedClrTypeInfo(null, null));
     }
     #endregion
 
   }
-  #region Enums
-  public enum ServiceType {
-    [pbr::OriginalName("None_Type")] NoneType = 0,
-    [pbr::OriginalName("Facial")] Facial = 1,
-    [pbr::OriginalName("AppUnit")] AppUnit = 2,
-    [pbr::OriginalName("Unit")] Unit = 3,
-  }
-
-  #endregion
-
-  #region Messages
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class HeartbeatMessage : pb::IMessage<HeartbeatMessage> {
-    private static readonly pb::MessageParser<HeartbeatMessage> _parser = new pb::MessageParser<HeartbeatMessage>(() => new HeartbeatMessage());
-    public static pb::MessageParser<HeartbeatMessage> Parser { get { return _parser; } }
-
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Services.CoordinatorServiceReflection.Descriptor.MessageTypes[0]; }
-    }
-
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    public HeartbeatMessage() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    public HeartbeatMessage(HeartbeatMessage other) : this() {
-      serviceId_ = other.serviceId_;
-    }
-
-    public HeartbeatMessage Clone() {
-      return new HeartbeatMessage(this);
-    }
-
-    /// <summary>Field number for the "service_id" field.</summary>
-    public const int ServiceIdFieldNumber = 1;
-    private string serviceId_ = "";
-    public string ServiceId {
-      get { return serviceId_; }
-      set {
-        serviceId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    public override bool Equals(object other) {
-      return Equals(other as HeartbeatMessage);
-    }
-
-    public bool Equals(HeartbeatMessage other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (ServiceId != other.ServiceId) return false;
-      return true;
-    }
-
-    public override int GetHashCode() {
-      int hash = 1;
-      if (ServiceId.Length != 0) hash ^= ServiceId.GetHashCode();
-      return hash;
-    }
-
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (ServiceId.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(ServiceId);
-      }
-    }
-
-    public int CalculateSize() {
-      int size = 0;
-      if (ServiceId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ServiceId);
-      }
-      return size;
-    }
-
-    public void MergeFrom(HeartbeatMessage other) {
-      if (other == null) {
-        return;
-      }
-      if (other.ServiceId.Length != 0) {
-        ServiceId = other.ServiceId;
-      }
-    }
-
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 10: {
-            ServiceId = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  #endregion
-
 }
 
 #endregion Designer generated code

@@ -12,22 +12,22 @@ namespace Services {
   {
     static readonly string __ServiceName = "Services.CoordinatorService";
 
-    static readonly Marshaller<global::DataTypes.ConnectedUnit> __Marshaller_ConnectedUnit = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.ConnectedUnit.Parser.ParseFrom);
+    static readonly Marshaller<global::DataTypes.ConnectMsg> __Marshaller_ConnectMsg = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.ConnectMsg.Parser.ParseFrom);
     static readonly Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_Empty = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Google.Protobuf.WellKnownTypes.Empty.Parser.ParseFrom);
-    static readonly Marshaller<global::Services.HeartbeatMessage> __Marshaller_HeartbeatMessage = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.HeartbeatMessage.Parser.ParseFrom);
+    static readonly Marshaller<global::DataTypes.HeartbeatMessage> __Marshaller_HeartbeatMessage = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.HeartbeatMessage.Parser.ParseFrom);
     static readonly Marshaller<global::DataTypes.Units> __Marshaller_Units = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Units.Parser.ParseFrom);
     static readonly Marshaller<global::DataTypes.SubscriptionMsg> __Marshaller_SubscriptionMsg = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.SubscriptionMsg.Parser.ParseFrom);
     static readonly Marshaller<global::DataTypes.MessageBytes> __Marshaller_MessageBytes = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.MessageBytes.Parser.ParseFrom);
     static readonly Marshaller<global::DataTypes.DeviceUpdate> __Marshaller_DeviceUpdate = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.DeviceUpdate.Parser.ParseFrom);
 
-    static readonly Method<global::DataTypes.ConnectedUnit, global::Google.Protobuf.WellKnownTypes.Empty> __Method_Connect = new Method<global::DataTypes.ConnectedUnit, global::Google.Protobuf.WellKnownTypes.Empty>(
+    static readonly Method<global::DataTypes.ConnectMsg, global::Google.Protobuf.WellKnownTypes.Empty> __Method_Connect = new Method<global::DataTypes.ConnectMsg, global::Google.Protobuf.WellKnownTypes.Empty>(
         MethodType.Unary,
         __ServiceName,
         "Connect",
-        __Marshaller_ConnectedUnit,
+        __Marshaller_ConnectMsg,
         __Marshaller_Empty);
 
-    static readonly Method<global::Services.HeartbeatMessage, global::Google.Protobuf.WellKnownTypes.Empty> __Method_Heartbeat = new Method<global::Services.HeartbeatMessage, global::Google.Protobuf.WellKnownTypes.Empty>(
+    static readonly Method<global::DataTypes.HeartbeatMessage, global::Google.Protobuf.WellKnownTypes.Empty> __Method_Heartbeat = new Method<global::DataTypes.HeartbeatMessage, global::Google.Protobuf.WellKnownTypes.Empty>(
         MethodType.Unary,
         __ServiceName,
         "Heartbeat",
@@ -85,12 +85,12 @@ namespace Services {
     /// <summary>Base class for server-side implementations of CoordinatorService</summary>
     public abstract class CoordinatorServiceBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> Connect(global::DataTypes.ConnectedUnit request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> Connect(global::DataTypes.ConnectMsg request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> Heartbeat(global::Services.HeartbeatMessage request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> Heartbeat(global::DataTypes.HeartbeatMessage request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
@@ -150,35 +150,35 @@ namespace Services {
       {
       }
 
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty Connect(global::DataTypes.ConnectedUnit request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty Connect(global::DataTypes.ConnectMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return Connect(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty Connect(global::DataTypes.ConnectedUnit request, CallOptions options)
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty Connect(global::DataTypes.ConnectMsg request, CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Connect, null, options, request);
       }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> ConnectAsync(global::DataTypes.ConnectedUnit request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> ConnectAsync(global::DataTypes.ConnectMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return ConnectAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> ConnectAsync(global::DataTypes.ConnectedUnit request, CallOptions options)
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> ConnectAsync(global::DataTypes.ConnectMsg request, CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Connect, null, options, request);
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty Heartbeat(global::Services.HeartbeatMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty Heartbeat(global::DataTypes.HeartbeatMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return Heartbeat(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty Heartbeat(global::Services.HeartbeatMessage request, CallOptions options)
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty Heartbeat(global::DataTypes.HeartbeatMessage request, CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Heartbeat, null, options, request);
       }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> HeartbeatAsync(global::Services.HeartbeatMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> HeartbeatAsync(global::DataTypes.HeartbeatMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return HeartbeatAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> HeartbeatAsync(global::Services.HeartbeatMessage request, CallOptions options)
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> HeartbeatAsync(global::DataTypes.HeartbeatMessage request, CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Heartbeat, null, options, request);
       }
