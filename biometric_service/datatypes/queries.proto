@@ -52,7 +52,7 @@ message Page
 message GetCardRequest
 { 
            string search_text       = 1; //search in name, description
-		   string unique_identifier = 2;
+		       string unique_identifier = 2;
   repeated string owners            = 3;
            Page   page              = 4;
 }

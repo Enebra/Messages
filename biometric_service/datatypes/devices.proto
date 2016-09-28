@@ -40,9 +40,10 @@ message DeviceUpdate
   }
 }
 
-message ConnectedDevices{
-  DataTypes.Key        location_id    = 1;
-  repeated   Device devices = 2;
+message ConnectedDevices
+{
+  DataTypes.Key  location_id    = 1;
+  repeated       Device devices = 2;
 }
 
 message Device
