@@ -11,11 +11,11 @@ package DataTypes;
 
 message Location
 {
-  DataTypes.Key            id               = 1;
-  string            name             = 2;
-  string            description      = 3;    
-  string            unit_mac_address = 4; 
-  DataTypes.AccessDevice      access_device    = 5;
+  DataTypes.Key           id               = 1;
+  string                  name             = 2;
+  string                  description      = 3;    
+  string                  unit_mac_address = 4; 
+  DataTypes.AccessDevice  access_device    = 5;
 }
 
 message Locations
@@ -27,9 +27,9 @@ message Locations
 enum LocationState
 {
   Unspecified_State = 0;
-  Opened     = 1;
-  Closed     = 2;
-  Failure    = 3;
+  Opened            = 1;
+  Closed            = 2;
+  Failure           = 3;
 }
 
 

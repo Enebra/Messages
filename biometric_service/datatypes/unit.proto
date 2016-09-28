@@ -11,15 +11,23 @@ package DataTypes;
 
 message Unit
 {
-  ConnectedUnit       connected_unit  = 1;  
-  int64               heartbeat_time  = 2;
-  DataTypes.Locations locations       = 3;
+  string              ip_address      = 1;
+  string              mac_address     = 2;
+  int64               heartbeat_time  = 4;
+  DataTypes.Locations locations       = 5;
 }
 
-message ConnectedUnit
+message ConnectMsg
 {
-  string ip_address      = 1;
-  string mac_address     = 2;
+  string      ip_address   = 1;
+  string      mac_address  = 2;
+  ServiceType service_type = 3;
+}
+
+message HeartbeatMessage
+{
+  string      service_id   = 1;
+  ServiceType service_type = 2;
 }
 
 message SubscriptionMsg
@@ -41,7 +49,7 @@ message UpdatedUnits
 
 message Units
 {
-  repeated Unit items = 1;
+  map<string, Unit> items = 1;
 }
 
 message UnitConfiguration
@@ -57,9 +65,17 @@ message UnitLocationState
 
 enum UnitState
 {
-  None_ = 0;
+  None_      = 0;
   Inserted   = 1;
   Deleted    = 2;
   Updated    = 3;  
+}
+
+enum ServiceType
+{
+  None_Type = 0;
+  Facial    = 1;
+  Client    = 2;
+  Unit      = 3; 
 }
 

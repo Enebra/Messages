@@ -17,9 +17,9 @@ enum AccessState
 }
 message VisitRecord
 {
-   Key      id           = 1;
-   Key      person_id    = 2;
-   Key      location_id  = 3;                 
+   Key         id           = 1;
+   Key         person_id    = 2;
+   Key         location_id  = 3;                 
    int64       time         = 4;      
    Card        card         = 5;
    AccessState state        = 6; 
