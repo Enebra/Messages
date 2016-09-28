@@ -73,9 +73,9 @@ enum UnitState
 
 enum ServiceType
 {
-  None_Type = 0;
-  Facial    = 1;
-  Client    = 2;
-  Unit      = 3; 
+  None_Service      = 0;
+  Facial_Service    = 1;
+  Client_Service    = 2;
+  Unit_Service      = 3; 
 }
 
