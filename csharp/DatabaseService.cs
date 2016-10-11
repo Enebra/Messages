@@ -37,23 +37,23 @@ namespace Services {
             "dGFUeXBlcy5HZXRWaXNpdFJlY29yZFJlcXVlc3RIAEIOCgxyZXF1ZXN0X3R5",
             "cGUiNgoNQ29tbWl0UmVxdWVzdBIlCgltdXRhdGlvbnMYASADKAsyEi5TZXJ2",
             "aWNlcy5NdXRhdGlvbiJECg5Db21taXRSZXNwb25zZRIyChBtdXRhdGlvbl9y",
-            "ZXN1bHRzGAEgAygLMhguU2VydmljZXMuTXV0YXRpb25SZXN1bHQiPAoOTXV0",
-            "YXRpb25SZXN1bHQSGwoDa2V5GAEgASgLMg4uRGF0YVR5cGVzLktleRINCgVl",
-            "cnJvchgCIAEoCSKBAQoITXV0YXRpb24SIgoGaW5zZXJ0GAEgASgLMhAuU2Vy",
-            "dmljZXMuRW50aXR5SAASIgoGdXBkYXRlGAIgASgLMhAuU2VydmljZXMuRW50",
-            "aXR5SAASIAoGZGVsZXRlGAMgASgLMg4uRGF0YVR5cGVzLktleUgAQgsKCW9w",
-            "ZXJhdGlvbiLYAQoGRW50aXR5Eh8KBGNhcmQYASABKAsyDy5EYXRhVHlwZXMu",
-            "Q2FyZEgAEiMKBnBlcnNvbhgCIAEoCzIRLkRhdGFUeXBlcy5QZXJzb25IABIu",
-            "Cgx2aXNpdF9yZWNvcmQYAyABKAsyFi5EYXRhVHlwZXMuVmlzaXRSZWNvcmRI",
-            "ABInCghsb2NhdGlvbhgEIAEoCzITLkRhdGFUeXBlcy5Mb2NhdGlvbkgAEiEK",
-            "BVBob3RvGAUgASgLMhAuRGF0YVR5cGVzLlBob3RvSABCDAoKdmFsdWVfdHlw",
-            "ZSIrCghFbnRpdGllcxIfCgVpdGVtcxgBIAMoCzIQLlNlcnZpY2VzLkVudGl0",
-            "eTKKAQoPRGF0YWJhc2VTZXJ2aWNlEjkKA0dldBIXLkRhdGFUeXBlcy5NZXNz",
-            "YWdlQnl0ZXMaFy5EYXRhVHlwZXMuTWVzc2FnZUJ5dGVzIgASPAoGQ29tbWl0",
-            "EhcuRGF0YVR5cGVzLk1lc3NhZ2VCeXRlcxoXLkRhdGFUeXBlcy5NZXNzYWdl",
-            "Qnl0ZXMiAEJTCgdleC5ncnBjWkJnaXRodWIuY29tL0VuZWJyYS9TZXJ2aWNl",
-            "Q29vcmRpbmF0b3IvZ3JwYy9zZXJ2aWNlcy9kYXRhYmFzZXNlcnZpY2WiAgNS",
-            "VEdiBnByb3RvMw=="));
+            "ZXN1bHRzGAEgAygLMhguU2VydmljZXMuTXV0YXRpb25SZXN1bHQiQQoOTXV0",
+            "YXRpb25SZXN1bHQSIAoGZW50aXR5GAEgASgLMhAuU2VydmljZXMuRW50aXR5",
+            "Eg0KBWVycm9yGAIgASgJIoMBCghNdXRhdGlvbhIiCgZpbnNlcnQYASABKAsy",
+            "EC5TZXJ2aWNlcy5FbnRpdHlIABIiCgZ1cGRhdGUYAiABKAsyEC5TZXJ2aWNl",
+            "cy5FbnRpdHlIABIiCgZkZWxldGUYAyABKAsyEC5TZXJ2aWNlcy5FbnRpdHlI",
+            "AEILCglvcGVyYXRpb24i2AEKBkVudGl0eRIfCgRjYXJkGAEgASgLMg8uRGF0",
+            "YVR5cGVzLkNhcmRIABIjCgZwZXJzb24YAiABKAsyES5EYXRhVHlwZXMuUGVy",
+            "c29uSAASLgoMdmlzaXRfcmVjb3JkGAMgASgLMhYuRGF0YVR5cGVzLlZpc2l0",
+            "UmVjb3JkSAASJwoIbG9jYXRpb24YBCABKAsyEy5EYXRhVHlwZXMuTG9jYXRp",
+            "b25IABIhCgVQaG90bxgFIAEoCzIQLkRhdGFUeXBlcy5QaG90b0gAQgwKCnZh",
+            "bHVlX3R5cGUiKwoIRW50aXRpZXMSHwoFaXRlbXMYASADKAsyEC5TZXJ2aWNl",
+            "cy5FbnRpdHkyigEKD0RhdGFiYXNlU2VydmljZRI5CgNHZXQSFy5EYXRhVHlw",
+            "ZXMuTWVzc2FnZUJ5dGVzGhcuRGF0YVR5cGVzLk1lc3NhZ2VCeXRlcyIAEjwK",
+            "BkNvbW1pdBIXLkRhdGFUeXBlcy5NZXNzYWdlQnl0ZXMaFy5EYXRhVHlwZXMu",
+            "TWVzc2FnZUJ5dGVzIgBCUwoHZXguZ3JwY1pCZ2l0aHViLmNvbS9FbmVicmEv",
+            "U2VydmljZUNvb3JkaW5hdG9yL2dycGMvc2VydmljZXMvZGF0YWJhc2VzZXJ2",
+            "aWNlogIDUlRHYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::DataTypes.PersonReflection.Descriptor, global::DataTypes.CardReflection.Descriptor, global::DataTypes.PhotoReflection.Descriptor, global::DataTypes.LocationReflection.Descriptor, global::DataTypes.VisitRecordReflection.Descriptor, global::DataTypes.DataReflection.Descriptor, global::DataTypes.QueriesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -61,7 +61,7 @@ namespace Services {
             new pbr::GeneratedClrTypeInfo(typeof(global::Services.GetRequest), global::Services.GetRequest.Parser, new[]{ "PersonRequest", "CardRequest", "LocationRequest", "VisitRecordRequest" }, new[]{ "RequestType" }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Services.CommitRequest), global::Services.CommitRequest.Parser, new[]{ "Mutations" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Services.CommitResponse), global::Services.CommitResponse.Parser, new[]{ "MutationResults" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Services.MutationResult), global::Services.MutationResult.Parser, new[]{ "Key", "Error" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Services.MutationResult), global::Services.MutationResult.Parser, new[]{ "Entity", "Error" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Services.Mutation), global::Services.Mutation.Parser, new[]{ "Insert", "Update", "Delete" }, new[]{ "Operation" }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Services.Entity), global::Services.Entity.Parser, new[]{ "Card", "Person", "VisitRecord", "Location", "Photo" }, new[]{ "ValueType" }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Services.Entities), global::Services.Entities.Parser, new[]{ "Items" }, null, null, null)
@@ -656,7 +656,7 @@ namespace Services {
     partial void OnConstruction();
 
     public MutationResult(MutationResult other) : this() {
-      Key = other.key_ != null ? other.Key.Clone() : null;
+      Entity = other.entity_ != null ? other.Entity.Clone() : null;
       error_ = other.error_;
     }
 
@@ -664,13 +664,13 @@ namespace Services {
       return new MutationResult(this);
     }
 
-    /// <summary>Field number for the "key" field.</summary>
-    public const int KeyFieldNumber = 1;
-    private global::DataTypes.Key key_;
-    public global::DataTypes.Key Key {
-      get { return key_; }
+    /// <summary>Field number for the "entity" field.</summary>
+    public const int EntityFieldNumber = 1;
+    private global::Services.Entity entity_;
+    public global::Services.Entity Entity {
+      get { return entity_; }
       set {
-        key_ = value;
+        entity_ = value;
       }
     }
 
@@ -695,14 +695,14 @@ namespace Services {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(Key, other.Key)) return false;
+      if (!object.Equals(Entity, other.Entity)) return false;
       if (Error != other.Error) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
-      if (key_ != null) hash ^= Key.GetHashCode();
+      if (entity_ != null) hash ^= Entity.GetHashCode();
       if (Error.Length != 0) hash ^= Error.GetHashCode();
       return hash;
     }
@@ -712,9 +712,9 @@ namespace Services {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (key_ != null) {
+      if (entity_ != null) {
         output.WriteRawTag(10);
-        output.WriteMessage(Key);
+        output.WriteMessage(Entity);
       }
       if (Error.Length != 0) {
         output.WriteRawTag(18);
@@ -724,8 +724,8 @@ namespace Services {
 
     public int CalculateSize() {
       int size = 0;
-      if (key_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Key);
+      if (entity_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Entity);
       }
       if (Error.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Error);
@@ -737,11 +737,11 @@ namespace Services {
       if (other == null) {
         return;
       }
-      if (other.key_ != null) {
-        if (key_ == null) {
-          key_ = new global::DataTypes.Key();
+      if (other.entity_ != null) {
+        if (entity_ == null) {
+          entity_ = new global::Services.Entity();
         }
-        Key.MergeFrom(other.Key);
+        Entity.MergeFrom(other.Entity);
       }
       if (other.Error.Length != 0) {
         Error = other.Error;
@@ -756,10 +756,10 @@ namespace Services {
             input.SkipLastField();
             break;
           case 10: {
-            if (key_ == null) {
-              key_ = new global::DataTypes.Key();
+            if (entity_ == null) {
+              entity_ = new global::Services.Entity();
             }
-            input.ReadMessage(key_);
+            input.ReadMessage(entity_);
             break;
           }
           case 18: {
@@ -832,8 +832,8 @@ namespace Services {
 
     /// <summary>Field number for the "delete" field.</summary>
     public const int DeleteFieldNumber = 3;
-    public global::DataTypes.Key Delete {
-      get { return operationCase_ == OperationOneofCase.Delete ? (global::DataTypes.Key) operation_ : null; }
+    public global::Services.Entity Delete {
+      get { return operationCase_ == OperationOneofCase.Delete ? (global::Services.Entity) operation_ : null; }
       set {
         operation_ = value;
         operationCase_ = value == null ? OperationOneofCase.None : OperationOneofCase.Delete;
@@ -962,7 +962,7 @@ namespace Services {
             break;
           }
           case 26: {
-            global::DataTypes.Key subBuilder = new global::DataTypes.Key();
+            global::Services.Entity subBuilder = new global::Services.Entity();
             if (operationCase_ == OperationOneofCase.Delete) {
               subBuilder.MergeFrom(Delete);
             }

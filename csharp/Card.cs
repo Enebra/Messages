@@ -26,15 +26,12 @@ namespace DataTypes {
             "ChRkYXRhdHlwZXMvY2FyZC5wcm90bxIJRGF0YVR5cGVzGhRkYXRhdHlwZXMv",
             "ZGF0YS5wcm90byJTCgRDYXJkEikKEXVuaXF1ZV9pZGVudGlmaWVyGAEgASgL",
             "Mg4uRGF0YVR5cGVzLktleRIgCghvd25lcl9pZBgCIAEoCzIOLkRhdGFUeXBl",
-            "cy5LZXkiNgoFQ2FyZHMSHgoFaXRlbXMYASADKAsyDy5EYXRhVHlwZXMuQ2Fy",
-            "ZBINCgVjb3VudBgCIAEoA0JJCgdleC5ncnBjWjhnaXRodWIuY29tL0VuZWJy",
-            "YS9TZXJ2aWNlQ29vcmRpbmF0b3IvZ3JwYy9kYXRhdHlwZXMvY2FyZKICA1JU",
-            "R2IGcHJvdG8z"));
+            "cy5LZXlCSQoHZXguZ3JwY1o4Z2l0aHViLmNvbS9FbmVicmEvU2VydmljZUNv",
+            "b3JkaW5hdG9yL2dycGMvZGF0YXR5cGVzL2NhcmSiAgNSVEdiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::DataTypes.DataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Card), global::DataTypes.Card.Parser, new[]{ "UniqueIdentifier", "OwnerId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Cards), global::DataTypes.Cards.Parser, new[]{ "Items", "Count" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Card), global::DataTypes.Card.Parser, new[]{ "UniqueIdentifier", "OwnerId" }, null, null, null)
           }));
     }
     #endregion
@@ -175,128 +172,6 @@ namespace DataTypes {
               ownerId_ = new global::DataTypes.Key();
             }
             input.ReadMessage(ownerId_);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class Cards : pb::IMessage<Cards> {
-    private static readonly pb::MessageParser<Cards> _parser = new pb::MessageParser<Cards>(() => new Cards());
-    public static pb::MessageParser<Cards> Parser { get { return _parser; } }
-
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::DataTypes.CardReflection.Descriptor.MessageTypes[1]; }
-    }
-
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    public Cards() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    public Cards(Cards other) : this() {
-      items_ = other.items_.Clone();
-      count_ = other.count_;
-    }
-
-    public Cards Clone() {
-      return new Cards(this);
-    }
-
-    /// <summary>Field number for the "items" field.</summary>
-    public const int ItemsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::DataTypes.Card> _repeated_items_codec
-        = pb::FieldCodec.ForMessage(10, global::DataTypes.Card.Parser);
-    private readonly pbc::RepeatedField<global::DataTypes.Card> items_ = new pbc::RepeatedField<global::DataTypes.Card>();
-    public pbc::RepeatedField<global::DataTypes.Card> Items {
-      get { return items_; }
-    }
-
-    /// <summary>Field number for the "count" field.</summary>
-    public const int CountFieldNumber = 2;
-    private long count_;
-    public long Count {
-      get { return count_; }
-      set {
-        count_ = value;
-      }
-    }
-
-    public override bool Equals(object other) {
-      return Equals(other as Cards);
-    }
-
-    public bool Equals(Cards other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if(!items_.Equals(other.items_)) return false;
-      if (Count != other.Count) return false;
-      return true;
-    }
-
-    public override int GetHashCode() {
-      int hash = 1;
-      hash ^= items_.GetHashCode();
-      if (Count != 0L) hash ^= Count.GetHashCode();
-      return hash;
-    }
-
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    public void WriteTo(pb::CodedOutputStream output) {
-      items_.WriteTo(output, _repeated_items_codec);
-      if (Count != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(Count);
-      }
-    }
-
-    public int CalculateSize() {
-      int size = 0;
-      size += items_.CalculateSize(_repeated_items_codec);
-      if (Count != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Count);
-      }
-      return size;
-    }
-
-    public void MergeFrom(Cards other) {
-      if (other == null) {
-        return;
-      }
-      items_.Add(other.items_);
-      if (other.Count != 0L) {
-        Count = other.Count;
-      }
-    }
-
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 10: {
-            items_.AddEntriesFrom(input, _repeated_items_codec);
-            break;
-          }
-          case 16: {
-            Count = input.ReadInt64();
             break;
           }
         }

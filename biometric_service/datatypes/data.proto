@@ -8,16 +8,16 @@ package DataTypes;
 
 message MessageBytes
 {
-  bytes data = 1;
+  bytes    data = 1;
   DataType type = 2;
 }
 
 enum DataType
 {
-  NoneType = 0;
-  GetRequestType = 1;
-  GetResponseType = 2;
-  CommitRequestType = 3;
+  NoneType           = 0;
+  GetRequestType     = 1;
+  GetResponseType    = 2;
+  CommitRequestType  = 3;
   CommitResponseType = 4;
 }
 
@@ -25,7 +25,8 @@ message Key
 {    
     oneof id_type 
     {  
-      int64  id = 1;
-      string guid = 2;
+      int64  number     = 1;
+      string identifier = 2;
+	  bytes  guid       = 3;
     }
 }

@@ -27,8 +27,12 @@
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/unknown_field_set.h>
+#include "datatypes/person.pb.h"
 #include "datatypes/photo.pb.h"
+#include "datatypes/data.pb.h"
+#include "datatypes/group.pb.h"
 #include "datatypes/biometrics.pb.h"
+#include <google/protobuf/empty.pb.h>
 // @@protoc_insertion_point(includes)
 
 namespace Services {
@@ -38,39 +42,38 @@ void protobuf_AddDesc_services_2ffacial_5fservice_2eproto();
 void protobuf_AssignDesc_services_2ffacial_5fservice_2eproto();
 void protobuf_ShutdownFile_services_2ffacial_5fservice_2eproto();
 
-class FaceSearchResponse;
-class IdentificationData;
-class PopulationCreationResponse;
-class VerificationData;
+class BiometricRequest;
+class BiometricResponse;
+class BiometricUpdate;
 
 // ===================================================================
 
-class PopulationCreationResponse : public ::google::protobuf::Message {
+class BiometricRequest : public ::google::protobuf::Message {
  public:
-  PopulationCreationResponse();
-  virtual ~PopulationCreationResponse();
+  BiometricRequest();
+  virtual ~BiometricRequest();
 
-  PopulationCreationResponse(const PopulationCreationResponse& from);
+  BiometricRequest(const BiometricRequest& from);
 
-  inline PopulationCreationResponse& operator=(const PopulationCreationResponse& from) {
+  inline BiometricRequest& operator=(const BiometricRequest& from) {
     CopyFrom(from);
     return *this;
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const PopulationCreationResponse& default_instance();
+  static const BiometricRequest& default_instance();
 
-  void Swap(PopulationCreationResponse* other);
+  void Swap(BiometricRequest* other);
 
   // implements Message ----------------------------------------------
 
-  inline PopulationCreationResponse* New() const { return New(NULL); }
+  inline BiometricRequest* New() const { return New(NULL); }
 
-  PopulationCreationResponse* New(::google::protobuf::Arena* arena) const;
+  BiometricRequest* New(::google::protobuf::Arena* arena) const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const PopulationCreationResponse& from);
-  void MergeFrom(const PopulationCreationResponse& from);
+  void CopyFrom(const BiometricRequest& from);
+  void MergeFrom(const BiometricRequest& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -85,7 +88,7 @@ class PopulationCreationResponse : public ::google::protobuf::Message {
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(PopulationCreationResponse* other);
+  void InternalSwap(BiometricRequest* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
@@ -101,67 +104,205 @@ class PopulationCreationResponse : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 id = 1;
-  void clear_id();
-  static const int kIdFieldNumber = 1;
-  ::google::protobuf::int64 id() const;
-  void set_id(::google::protobuf::int64 value);
+  // optional .DataTypes.Photo photo = 1;
+  bool has_photo() const;
+  void clear_photo();
+  static const int kPhotoFieldNumber = 1;
+  const ::DataTypes::Photo& photo() const;
+  ::DataTypes::Photo* mutable_photo();
+  ::DataTypes::Photo* release_photo();
+  void set_allocated_photo(::DataTypes::Photo* photo);
 
-  // repeated .DataTypes.Faces faces = 2;
-  int faces_size() const;
+  // optional .DataTypes.Key person = 2;
+  bool has_person() const;
+  void clear_person();
+  static const int kPersonFieldNumber = 2;
+  const ::DataTypes::Key& person() const;
+  ::DataTypes::Key* mutable_person();
+  ::DataTypes::Key* release_person();
+  void set_allocated_person(::DataTypes::Key* person);
+
+  // optional .DataTypes.Key group = 3;
+  bool has_group() const;
+  void clear_group();
+  static const int kGroupFieldNumber = 3;
+  const ::DataTypes::Key& group() const;
+  ::DataTypes::Key* mutable_group();
+  ::DataTypes::Key* release_group();
+  void set_allocated_group(::DataTypes::Key* group);
+
+  // optional .DataTypes.BioActionType action = 4;
+  void clear_action();
+  static const int kActionFieldNumber = 4;
+  ::DataTypes::BioActionType action() const;
+  void set_action(::DataTypes::BioActionType value);
+
+  // optional .DataTypes.BiometricType type = 5;
+  void clear_type();
+  static const int kTypeFieldNumber = 5;
+  ::DataTypes::BiometricType type() const;
+  void set_type(::DataTypes::BiometricType value);
+
+  // @@protoc_insertion_point(class_scope:Services.BiometricRequest)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  ::DataTypes::Photo* photo_;
+  ::DataTypes::Key* person_;
+  ::DataTypes::Key* group_;
+  int action_;
+  int type_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_services_2ffacial_5fservice_2eproto();
+  friend void protobuf_AssignDesc_services_2ffacial_5fservice_2eproto();
+  friend void protobuf_ShutdownFile_services_2ffacial_5fservice_2eproto();
+
+  void InitAsDefaultInstance();
+  static BiometricRequest* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class BiometricResponse : public ::google::protobuf::Message {
+ public:
+  BiometricResponse();
+  virtual ~BiometricResponse();
+
+  BiometricResponse(const BiometricResponse& from);
+
+  inline BiometricResponse& operator=(const BiometricResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BiometricResponse& default_instance();
+
+  void Swap(BiometricResponse* other);
+
+  // implements Message ----------------------------------------------
+
+  inline BiometricResponse* New() const { return New(NULL); }
+
+  BiometricResponse* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BiometricResponse& from);
+  void MergeFrom(const BiometricResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(BiometricResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .DataTypes.Photo photo = 1;
+  bool has_photo() const;
+  void clear_photo();
+  static const int kPhotoFieldNumber = 1;
+  const ::DataTypes::Photo& photo() const;
+  ::DataTypes::Photo* mutable_photo();
+  ::DataTypes::Photo* release_photo();
+  void set_allocated_photo(::DataTypes::Photo* photo);
+
+  // optional .DataTypes.Key person = 2;
+  bool has_person() const;
+  void clear_person();
+  static const int kPersonFieldNumber = 2;
+  const ::DataTypes::Key& person() const;
+  ::DataTypes::Key* mutable_person();
+  ::DataTypes::Key* release_person();
+  void set_allocated_person(::DataTypes::Key* person);
+
+  // optional .DataTypes.Faces faces = 3;
+  bool has_faces() const;
   void clear_faces();
-  static const int kFacesFieldNumber = 2;
-  const ::DataTypes::Faces& faces(int index) const;
-  ::DataTypes::Faces* mutable_faces(int index);
-  ::DataTypes::Faces* add_faces();
-  ::google::protobuf::RepeatedPtrField< ::DataTypes::Faces >*
-      mutable_faces();
-  const ::google::protobuf::RepeatedPtrField< ::DataTypes::Faces >&
-      faces() const;
+  static const int kFacesFieldNumber = 3;
+  const ::DataTypes::Faces& faces() const;
+  ::DataTypes::Faces* mutable_faces();
+  ::DataTypes::Faces* release_faces();
+  void set_allocated_faces(::DataTypes::Faces* faces);
 
-  // @@protoc_insertion_point(class_scope:Services.PopulationCreationResponse)
+  // optional bool success = 4;
+  void clear_success();
+  static const int kSuccessFieldNumber = 4;
+  bool success() const;
+  void set_success(bool value);
+
+  // @@protoc_insertion_point(class_scope:Services.BiometricResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::google::protobuf::int64 id_;
-  ::google::protobuf::RepeatedPtrField< ::DataTypes::Faces > faces_;
+  ::DataTypes::Photo* photo_;
+  ::DataTypes::Key* person_;
+  ::DataTypes::Faces* faces_;
+  bool success_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_services_2ffacial_5fservice_2eproto();
   friend void protobuf_AssignDesc_services_2ffacial_5fservice_2eproto();
   friend void protobuf_ShutdownFile_services_2ffacial_5fservice_2eproto();
 
   void InitAsDefaultInstance();
-  static PopulationCreationResponse* default_instance_;
+  static BiometricResponse* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class VerificationData : public ::google::protobuf::Message {
+class BiometricUpdate : public ::google::protobuf::Message {
  public:
-  VerificationData();
-  virtual ~VerificationData();
+  BiometricUpdate();
+  virtual ~BiometricUpdate();
 
-  VerificationData(const VerificationData& from);
+  BiometricUpdate(const BiometricUpdate& from);
 
-  inline VerificationData& operator=(const VerificationData& from) {
+  inline BiometricUpdate& operator=(const BiometricUpdate& from) {
     CopyFrom(from);
     return *this;
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const VerificationData& default_instance();
+  static const BiometricUpdate& default_instance();
 
-  void Swap(VerificationData* other);
+  enum UpdateTypeCase {
+    kPersonUpdates = 2,
+    kGroupUpdates = 4,
+    UPDATE_TYPE_NOT_SET = 0,
+  };
+
+  void Swap(BiometricUpdate* other);
 
   // implements Message ----------------------------------------------
 
-  inline VerificationData* New() const { return New(NULL); }
+  inline BiometricUpdate* New() const { return New(NULL); }
 
-  VerificationData* New(::google::protobuf::Arena* arena) const;
+  BiometricUpdate* New(::google::protobuf::Arena* arena) const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const VerificationData& from);
-  void MergeFrom(const VerificationData& from);
+  void CopyFrom(const BiometricUpdate& from);
+  void MergeFrom(const BiometricUpdate& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -176,7 +317,7 @@ class VerificationData : public ::google::protobuf::Message {
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(VerificationData* other);
+  void InternalSwap(BiometricUpdate* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
@@ -192,230 +333,50 @@ class VerificationData : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .DataTypes.Photo target_image = 1;
-  bool has_target_image() const;
-  void clear_target_image();
-  static const int kTargetImageFieldNumber = 1;
-  const ::DataTypes::Photo& target_image() const;
-  ::DataTypes::Photo* mutable_target_image();
-  ::DataTypes::Photo* release_target_image();
-  void set_allocated_target_image(::DataTypes::Photo* target_image);
+  // optional .DataTypes.Person person_updates = 2;
+  bool has_person_updates() const;
+  void clear_person_updates();
+  static const int kPersonUpdatesFieldNumber = 2;
+  const ::DataTypes::Person& person_updates() const;
+  ::DataTypes::Person* mutable_person_updates();
+  ::DataTypes::Person* release_person_updates();
+  void set_allocated_person_updates(::DataTypes::Person* person_updates);
 
-  // optional .DataTypes.Photo comparison_image = 2;
-  bool has_comparison_image() const;
-  void clear_comparison_image();
-  static const int kComparisonImageFieldNumber = 2;
-  const ::DataTypes::Photo& comparison_image() const;
-  ::DataTypes::Photo* mutable_comparison_image();
-  ::DataTypes::Photo* release_comparison_image();
-  void set_allocated_comparison_image(::DataTypes::Photo* comparison_image);
+  // optional .DataTypes.Group group_updates = 4;
+  bool has_group_updates() const;
+  void clear_group_updates();
+  static const int kGroupUpdatesFieldNumber = 4;
+  const ::DataTypes::Group& group_updates() const;
+  ::DataTypes::Group* mutable_group_updates();
+  ::DataTypes::Group* release_group_updates();
+  void set_allocated_group_updates(::DataTypes::Group* group_updates);
 
-  // optional int64 comparison_person_id = 3;
-  void clear_comparison_person_id();
-  static const int kComparisonPersonIdFieldNumber = 3;
-  ::google::protobuf::int64 comparison_person_id() const;
-  void set_comparison_person_id(::google::protobuf::int64 value);
-
-  // @@protoc_insertion_point(class_scope:Services.VerificationData)
+  UpdateTypeCase update_type_case() const;
+  // @@protoc_insertion_point(class_scope:Services.BiometricUpdate)
  private:
+  inline void set_has_person_updates();
+  inline void set_has_group_updates();
+
+  inline bool has_update_type() const;
+  void clear_update_type();
+  inline void clear_has_update_type();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::DataTypes::Photo* target_image_;
-  ::DataTypes::Photo* comparison_image_;
-  ::google::protobuf::int64 comparison_person_id_;
+  union UpdateTypeUnion {
+    UpdateTypeUnion() {}
+    ::DataTypes::Person* person_updates_;
+    ::DataTypes::Group* group_updates_;
+  } update_type_;
   mutable int _cached_size_;
+  ::google::protobuf::uint32 _oneof_case_[1];
+
   friend void  protobuf_AddDesc_services_2ffacial_5fservice_2eproto();
   friend void protobuf_AssignDesc_services_2ffacial_5fservice_2eproto();
   friend void protobuf_ShutdownFile_services_2ffacial_5fservice_2eproto();
 
   void InitAsDefaultInstance();
-  static VerificationData* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class IdentificationData : public ::google::protobuf::Message {
- public:
-  IdentificationData();
-  virtual ~IdentificationData();
-
-  IdentificationData(const IdentificationData& from);
-
-  inline IdentificationData& operator=(const IdentificationData& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const IdentificationData& default_instance();
-
-  void Swap(IdentificationData* other);
-
-  // implements Message ----------------------------------------------
-
-  inline IdentificationData* New() const { return New(NULL); }
-
-  IdentificationData* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const IdentificationData& from);
-  void MergeFrom(const IdentificationData& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(IdentificationData* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional .DataTypes.Photo target_image = 1;
-  bool has_target_image() const;
-  void clear_target_image();
-  static const int kTargetImageFieldNumber = 1;
-  const ::DataTypes::Photo& target_image() const;
-  ::DataTypes::Photo* mutable_target_image();
-  ::DataTypes::Photo* release_target_image();
-  void set_allocated_target_image(::DataTypes::Photo* target_image);
-
-  // optional int64 population_id = 2;
-  void clear_population_id();
-  static const int kPopulationIdFieldNumber = 2;
-  ::google::protobuf::int64 population_id() const;
-  void set_population_id(::google::protobuf::int64 value);
-
-  // @@protoc_insertion_point(class_scope:Services.IdentificationData)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  bool _is_default_instance_;
-  ::DataTypes::Photo* target_image_;
-  ::google::protobuf::int64 population_id_;
-  mutable int _cached_size_;
-  friend void  protobuf_AddDesc_services_2ffacial_5fservice_2eproto();
-  friend void protobuf_AssignDesc_services_2ffacial_5fservice_2eproto();
-  friend void protobuf_ShutdownFile_services_2ffacial_5fservice_2eproto();
-
-  void InitAsDefaultInstance();
-  static IdentificationData* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class FaceSearchResponse : public ::google::protobuf::Message {
- public:
-  FaceSearchResponse();
-  virtual ~FaceSearchResponse();
-
-  FaceSearchResponse(const FaceSearchResponse& from);
-
-  inline FaceSearchResponse& operator=(const FaceSearchResponse& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const FaceSearchResponse& default_instance();
-
-  void Swap(FaceSearchResponse* other);
-
-  // implements Message ----------------------------------------------
-
-  inline FaceSearchResponse* New() const { return New(NULL); }
-
-  FaceSearchResponse* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const FaceSearchResponse& from);
-  void MergeFrom(const FaceSearchResponse& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(FaceSearchResponse* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // repeated .DataTypes.Faces faces = 1;
-  int faces_size() const;
-  void clear_faces();
-  static const int kFacesFieldNumber = 1;
-  const ::DataTypes::Faces& faces(int index) const;
-  ::DataTypes::Faces* mutable_faces(int index);
-  ::DataTypes::Faces* add_faces();
-  ::google::protobuf::RepeatedPtrField< ::DataTypes::Faces >*
-      mutable_faces();
-  const ::google::protobuf::RepeatedPtrField< ::DataTypes::Faces >&
-      faces() const;
-
-  // repeated .DataTypes.Matches matches = 2;
-  int matches_size() const;
-  void clear_matches();
-  static const int kMatchesFieldNumber = 2;
-  const ::DataTypes::Matches& matches(int index) const;
-  ::DataTypes::Matches* mutable_matches(int index);
-  ::DataTypes::Matches* add_matches();
-  ::google::protobuf::RepeatedPtrField< ::DataTypes::Matches >*
-      mutable_matches();
-  const ::google::protobuf::RepeatedPtrField< ::DataTypes::Matches >&
-      matches() const;
-
-  // @@protoc_insertion_point(class_scope:Services.FaceSearchResponse)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  bool _is_default_instance_;
-  ::google::protobuf::RepeatedPtrField< ::DataTypes::Faces > faces_;
-  ::google::protobuf::RepeatedPtrField< ::DataTypes::Matches > matches_;
-  mutable int _cached_size_;
-  friend void  protobuf_AddDesc_services_2ffacial_5fservice_2eproto();
-  friend void protobuf_AssignDesc_services_2ffacial_5fservice_2eproto();
-  friend void protobuf_ShutdownFile_services_2ffacial_5fservice_2eproto();
-
-  void InitAsDefaultInstance();
-  static FaceSearchResponse* default_instance_;
+  static BiometricUpdate* default_instance_;
 };
 // ===================================================================
 
@@ -423,269 +384,392 @@ class FaceSearchResponse : public ::google::protobuf::Message {
 // ===================================================================
 
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
-// PopulationCreationResponse
+// BiometricRequest
 
-// optional int64 id = 1;
-inline void PopulationCreationResponse::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
+// optional .DataTypes.Photo photo = 1;
+inline bool BiometricRequest::has_photo() const {
+  return !_is_default_instance_ && photo_ != NULL;
 }
-inline ::google::protobuf::int64 PopulationCreationResponse::id() const {
-  // @@protoc_insertion_point(field_get:Services.PopulationCreationResponse.id)
-  return id_;
+inline void BiometricRequest::clear_photo() {
+  if (GetArenaNoVirtual() == NULL && photo_ != NULL) delete photo_;
+  photo_ = NULL;
 }
-inline void PopulationCreationResponse::set_id(::google::protobuf::int64 value) {
+inline const ::DataTypes::Photo& BiometricRequest::photo() const {
+  // @@protoc_insertion_point(field_get:Services.BiometricRequest.photo)
+  return photo_ != NULL ? *photo_ : *default_instance_->photo_;
+}
+inline ::DataTypes::Photo* BiometricRequest::mutable_photo() {
   
-  id_ = value;
-  // @@protoc_insertion_point(field_set:Services.PopulationCreationResponse.id)
+  if (photo_ == NULL) {
+    photo_ = new ::DataTypes::Photo;
+  }
+  // @@protoc_insertion_point(field_mutable:Services.BiometricRequest.photo)
+  return photo_;
+}
+inline ::DataTypes::Photo* BiometricRequest::release_photo() {
+  // @@protoc_insertion_point(field_release:Services.BiometricRequest.photo)
+  
+  ::DataTypes::Photo* temp = photo_;
+  photo_ = NULL;
+  return temp;
+}
+inline void BiometricRequest::set_allocated_photo(::DataTypes::Photo* photo) {
+  delete photo_;
+  photo_ = photo;
+  if (photo) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:Services.BiometricRequest.photo)
 }
 
-// repeated .DataTypes.Faces faces = 2;
-inline int PopulationCreationResponse::faces_size() const {
-  return faces_.size();
+// optional .DataTypes.Key person = 2;
+inline bool BiometricRequest::has_person() const {
+  return !_is_default_instance_ && person_ != NULL;
 }
-inline void PopulationCreationResponse::clear_faces() {
-  faces_.Clear();
+inline void BiometricRequest::clear_person() {
+  if (GetArenaNoVirtual() == NULL && person_ != NULL) delete person_;
+  person_ = NULL;
 }
-inline const ::DataTypes::Faces& PopulationCreationResponse::faces(int index) const {
-  // @@protoc_insertion_point(field_get:Services.PopulationCreationResponse.faces)
-  return faces_.Get(index);
+inline const ::DataTypes::Key& BiometricRequest::person() const {
+  // @@protoc_insertion_point(field_get:Services.BiometricRequest.person)
+  return person_ != NULL ? *person_ : *default_instance_->person_;
 }
-inline ::DataTypes::Faces* PopulationCreationResponse::mutable_faces(int index) {
-  // @@protoc_insertion_point(field_mutable:Services.PopulationCreationResponse.faces)
-  return faces_.Mutable(index);
+inline ::DataTypes::Key* BiometricRequest::mutable_person() {
+  
+  if (person_ == NULL) {
+    person_ = new ::DataTypes::Key;
+  }
+  // @@protoc_insertion_point(field_mutable:Services.BiometricRequest.person)
+  return person_;
 }
-inline ::DataTypes::Faces* PopulationCreationResponse::add_faces() {
-  // @@protoc_insertion_point(field_add:Services.PopulationCreationResponse.faces)
-  return faces_.Add();
+inline ::DataTypes::Key* BiometricRequest::release_person() {
+  // @@protoc_insertion_point(field_release:Services.BiometricRequest.person)
+  
+  ::DataTypes::Key* temp = person_;
+  person_ = NULL;
+  return temp;
 }
-inline ::google::protobuf::RepeatedPtrField< ::DataTypes::Faces >*
-PopulationCreationResponse::mutable_faces() {
-  // @@protoc_insertion_point(field_mutable_list:Services.PopulationCreationResponse.faces)
-  return &faces_;
+inline void BiometricRequest::set_allocated_person(::DataTypes::Key* person) {
+  delete person_;
+  person_ = person;
+  if (person) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:Services.BiometricRequest.person)
 }
-inline const ::google::protobuf::RepeatedPtrField< ::DataTypes::Faces >&
-PopulationCreationResponse::faces() const {
-  // @@protoc_insertion_point(field_list:Services.PopulationCreationResponse.faces)
+
+// optional .DataTypes.Key group = 3;
+inline bool BiometricRequest::has_group() const {
+  return !_is_default_instance_ && group_ != NULL;
+}
+inline void BiometricRequest::clear_group() {
+  if (GetArenaNoVirtual() == NULL && group_ != NULL) delete group_;
+  group_ = NULL;
+}
+inline const ::DataTypes::Key& BiometricRequest::group() const {
+  // @@protoc_insertion_point(field_get:Services.BiometricRequest.group)
+  return group_ != NULL ? *group_ : *default_instance_->group_;
+}
+inline ::DataTypes::Key* BiometricRequest::mutable_group() {
+  
+  if (group_ == NULL) {
+    group_ = new ::DataTypes::Key;
+  }
+  // @@protoc_insertion_point(field_mutable:Services.BiometricRequest.group)
+  return group_;
+}
+inline ::DataTypes::Key* BiometricRequest::release_group() {
+  // @@protoc_insertion_point(field_release:Services.BiometricRequest.group)
+  
+  ::DataTypes::Key* temp = group_;
+  group_ = NULL;
+  return temp;
+}
+inline void BiometricRequest::set_allocated_group(::DataTypes::Key* group) {
+  delete group_;
+  group_ = group;
+  if (group) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:Services.BiometricRequest.group)
+}
+
+// optional .DataTypes.BioActionType action = 4;
+inline void BiometricRequest::clear_action() {
+  action_ = 0;
+}
+inline ::DataTypes::BioActionType BiometricRequest::action() const {
+  // @@protoc_insertion_point(field_get:Services.BiometricRequest.action)
+  return static_cast< ::DataTypes::BioActionType >(action_);
+}
+inline void BiometricRequest::set_action(::DataTypes::BioActionType value) {
+  
+  action_ = value;
+  // @@protoc_insertion_point(field_set:Services.BiometricRequest.action)
+}
+
+// optional .DataTypes.BiometricType type = 5;
+inline void BiometricRequest::clear_type() {
+  type_ = 0;
+}
+inline ::DataTypes::BiometricType BiometricRequest::type() const {
+  // @@protoc_insertion_point(field_get:Services.BiometricRequest.type)
+  return static_cast< ::DataTypes::BiometricType >(type_);
+}
+inline void BiometricRequest::set_type(::DataTypes::BiometricType value) {
+  
+  type_ = value;
+  // @@protoc_insertion_point(field_set:Services.BiometricRequest.type)
+}
+
+// -------------------------------------------------------------------
+
+// BiometricResponse
+
+// optional .DataTypes.Photo photo = 1;
+inline bool BiometricResponse::has_photo() const {
+  return !_is_default_instance_ && photo_ != NULL;
+}
+inline void BiometricResponse::clear_photo() {
+  if (GetArenaNoVirtual() == NULL && photo_ != NULL) delete photo_;
+  photo_ = NULL;
+}
+inline const ::DataTypes::Photo& BiometricResponse::photo() const {
+  // @@protoc_insertion_point(field_get:Services.BiometricResponse.photo)
+  return photo_ != NULL ? *photo_ : *default_instance_->photo_;
+}
+inline ::DataTypes::Photo* BiometricResponse::mutable_photo() {
+  
+  if (photo_ == NULL) {
+    photo_ = new ::DataTypes::Photo;
+  }
+  // @@protoc_insertion_point(field_mutable:Services.BiometricResponse.photo)
+  return photo_;
+}
+inline ::DataTypes::Photo* BiometricResponse::release_photo() {
+  // @@protoc_insertion_point(field_release:Services.BiometricResponse.photo)
+  
+  ::DataTypes::Photo* temp = photo_;
+  photo_ = NULL;
+  return temp;
+}
+inline void BiometricResponse::set_allocated_photo(::DataTypes::Photo* photo) {
+  delete photo_;
+  photo_ = photo;
+  if (photo) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:Services.BiometricResponse.photo)
+}
+
+// optional .DataTypes.Key person = 2;
+inline bool BiometricResponse::has_person() const {
+  return !_is_default_instance_ && person_ != NULL;
+}
+inline void BiometricResponse::clear_person() {
+  if (GetArenaNoVirtual() == NULL && person_ != NULL) delete person_;
+  person_ = NULL;
+}
+inline const ::DataTypes::Key& BiometricResponse::person() const {
+  // @@protoc_insertion_point(field_get:Services.BiometricResponse.person)
+  return person_ != NULL ? *person_ : *default_instance_->person_;
+}
+inline ::DataTypes::Key* BiometricResponse::mutable_person() {
+  
+  if (person_ == NULL) {
+    person_ = new ::DataTypes::Key;
+  }
+  // @@protoc_insertion_point(field_mutable:Services.BiometricResponse.person)
+  return person_;
+}
+inline ::DataTypes::Key* BiometricResponse::release_person() {
+  // @@protoc_insertion_point(field_release:Services.BiometricResponse.person)
+  
+  ::DataTypes::Key* temp = person_;
+  person_ = NULL;
+  return temp;
+}
+inline void BiometricResponse::set_allocated_person(::DataTypes::Key* person) {
+  delete person_;
+  person_ = person;
+  if (person) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:Services.BiometricResponse.person)
+}
+
+// optional .DataTypes.Faces faces = 3;
+inline bool BiometricResponse::has_faces() const {
+  return !_is_default_instance_ && faces_ != NULL;
+}
+inline void BiometricResponse::clear_faces() {
+  if (GetArenaNoVirtual() == NULL && faces_ != NULL) delete faces_;
+  faces_ = NULL;
+}
+inline const ::DataTypes::Faces& BiometricResponse::faces() const {
+  // @@protoc_insertion_point(field_get:Services.BiometricResponse.faces)
+  return faces_ != NULL ? *faces_ : *default_instance_->faces_;
+}
+inline ::DataTypes::Faces* BiometricResponse::mutable_faces() {
+  
+  if (faces_ == NULL) {
+    faces_ = new ::DataTypes::Faces;
+  }
+  // @@protoc_insertion_point(field_mutable:Services.BiometricResponse.faces)
   return faces_;
 }
-
-// -------------------------------------------------------------------
-
-// VerificationData
-
-// optional .DataTypes.Photo target_image = 1;
-inline bool VerificationData::has_target_image() const {
-  return !_is_default_instance_ && target_image_ != NULL;
-}
-inline void VerificationData::clear_target_image() {
-  if (GetArenaNoVirtual() == NULL && target_image_ != NULL) delete target_image_;
-  target_image_ = NULL;
-}
-inline const ::DataTypes::Photo& VerificationData::target_image() const {
-  // @@protoc_insertion_point(field_get:Services.VerificationData.target_image)
-  return target_image_ != NULL ? *target_image_ : *default_instance_->target_image_;
-}
-inline ::DataTypes::Photo* VerificationData::mutable_target_image() {
+inline ::DataTypes::Faces* BiometricResponse::release_faces() {
+  // @@protoc_insertion_point(field_release:Services.BiometricResponse.faces)
   
-  if (target_image_ == NULL) {
-    target_image_ = new ::DataTypes::Photo;
-  }
-  // @@protoc_insertion_point(field_mutable:Services.VerificationData.target_image)
-  return target_image_;
-}
-inline ::DataTypes::Photo* VerificationData::release_target_image() {
-  // @@protoc_insertion_point(field_release:Services.VerificationData.target_image)
-  
-  ::DataTypes::Photo* temp = target_image_;
-  target_image_ = NULL;
+  ::DataTypes::Faces* temp = faces_;
+  faces_ = NULL;
   return temp;
 }
-inline void VerificationData::set_allocated_target_image(::DataTypes::Photo* target_image) {
-  delete target_image_;
-  target_image_ = target_image;
-  if (target_image) {
+inline void BiometricResponse::set_allocated_faces(::DataTypes::Faces* faces) {
+  delete faces_;
+  faces_ = faces;
+  if (faces) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:Services.VerificationData.target_image)
+  // @@protoc_insertion_point(field_set_allocated:Services.BiometricResponse.faces)
 }
 
-// optional .DataTypes.Photo comparison_image = 2;
-inline bool VerificationData::has_comparison_image() const {
-  return !_is_default_instance_ && comparison_image_ != NULL;
+// optional bool success = 4;
+inline void BiometricResponse::clear_success() {
+  success_ = false;
 }
-inline void VerificationData::clear_comparison_image() {
-  if (GetArenaNoVirtual() == NULL && comparison_image_ != NULL) delete comparison_image_;
-  comparison_image_ = NULL;
+inline bool BiometricResponse::success() const {
+  // @@protoc_insertion_point(field_get:Services.BiometricResponse.success)
+  return success_;
 }
-inline const ::DataTypes::Photo& VerificationData::comparison_image() const {
-  // @@protoc_insertion_point(field_get:Services.VerificationData.comparison_image)
-  return comparison_image_ != NULL ? *comparison_image_ : *default_instance_->comparison_image_;
-}
-inline ::DataTypes::Photo* VerificationData::mutable_comparison_image() {
+inline void BiometricResponse::set_success(bool value) {
   
-  if (comparison_image_ == NULL) {
-    comparison_image_ = new ::DataTypes::Photo;
-  }
-  // @@protoc_insertion_point(field_mutable:Services.VerificationData.comparison_image)
-  return comparison_image_;
-}
-inline ::DataTypes::Photo* VerificationData::release_comparison_image() {
-  // @@protoc_insertion_point(field_release:Services.VerificationData.comparison_image)
-  
-  ::DataTypes::Photo* temp = comparison_image_;
-  comparison_image_ = NULL;
-  return temp;
-}
-inline void VerificationData::set_allocated_comparison_image(::DataTypes::Photo* comparison_image) {
-  delete comparison_image_;
-  comparison_image_ = comparison_image;
-  if (comparison_image) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:Services.VerificationData.comparison_image)
-}
-
-// optional int64 comparison_person_id = 3;
-inline void VerificationData::clear_comparison_person_id() {
-  comparison_person_id_ = GOOGLE_LONGLONG(0);
-}
-inline ::google::protobuf::int64 VerificationData::comparison_person_id() const {
-  // @@protoc_insertion_point(field_get:Services.VerificationData.comparison_person_id)
-  return comparison_person_id_;
-}
-inline void VerificationData::set_comparison_person_id(::google::protobuf::int64 value) {
-  
-  comparison_person_id_ = value;
-  // @@protoc_insertion_point(field_set:Services.VerificationData.comparison_person_id)
+  success_ = value;
+  // @@protoc_insertion_point(field_set:Services.BiometricResponse.success)
 }
 
 // -------------------------------------------------------------------
 
-// IdentificationData
+// BiometricUpdate
 
-// optional .DataTypes.Photo target_image = 1;
-inline bool IdentificationData::has_target_image() const {
-  return !_is_default_instance_ && target_image_ != NULL;
+// optional .DataTypes.Person person_updates = 2;
+inline bool BiometricUpdate::has_person_updates() const {
+  return update_type_case() == kPersonUpdates;
 }
-inline void IdentificationData::clear_target_image() {
-  if (GetArenaNoVirtual() == NULL && target_image_ != NULL) delete target_image_;
-  target_image_ = NULL;
+inline void BiometricUpdate::set_has_person_updates() {
+  _oneof_case_[0] = kPersonUpdates;
 }
-inline const ::DataTypes::Photo& IdentificationData::target_image() const {
-  // @@protoc_insertion_point(field_get:Services.IdentificationData.target_image)
-  return target_image_ != NULL ? *target_image_ : *default_instance_->target_image_;
-}
-inline ::DataTypes::Photo* IdentificationData::mutable_target_image() {
-  
-  if (target_image_ == NULL) {
-    target_image_ = new ::DataTypes::Photo;
+inline void BiometricUpdate::clear_person_updates() {
+  if (has_person_updates()) {
+    delete update_type_.person_updates_;
+    clear_has_update_type();
   }
-  // @@protoc_insertion_point(field_mutable:Services.IdentificationData.target_image)
-  return target_image_;
 }
-inline ::DataTypes::Photo* IdentificationData::release_target_image() {
-  // @@protoc_insertion_point(field_release:Services.IdentificationData.target_image)
-  
-  ::DataTypes::Photo* temp = target_image_;
-  target_image_ = NULL;
-  return temp;
+inline  const ::DataTypes::Person& BiometricUpdate::person_updates() const {
+  // @@protoc_insertion_point(field_get:Services.BiometricUpdate.person_updates)
+  return has_person_updates()
+      ? *update_type_.person_updates_
+      : ::DataTypes::Person::default_instance();
 }
-inline void IdentificationData::set_allocated_target_image(::DataTypes::Photo* target_image) {
-  delete target_image_;
-  target_image_ = target_image;
-  if (target_image) {
-    
+inline ::DataTypes::Person* BiometricUpdate::mutable_person_updates() {
+  if (!has_person_updates()) {
+    clear_update_type();
+    set_has_person_updates();
+    update_type_.person_updates_ = new ::DataTypes::Person;
+  }
+  // @@protoc_insertion_point(field_mutable:Services.BiometricUpdate.person_updates)
+  return update_type_.person_updates_;
+}
+inline ::DataTypes::Person* BiometricUpdate::release_person_updates() {
+  // @@protoc_insertion_point(field_release:Services.BiometricUpdate.person_updates)
+  if (has_person_updates()) {
+    clear_has_update_type();
+    ::DataTypes::Person* temp = update_type_.person_updates_;
+    update_type_.person_updates_ = NULL;
+    return temp;
   } else {
-    
+    return NULL;
   }
-  // @@protoc_insertion_point(field_set_allocated:Services.IdentificationData.target_image)
+}
+inline void BiometricUpdate::set_allocated_person_updates(::DataTypes::Person* person_updates) {
+  clear_update_type();
+  if (person_updates) {
+    set_has_person_updates();
+    update_type_.person_updates_ = person_updates;
+  }
+  // @@protoc_insertion_point(field_set_allocated:Services.BiometricUpdate.person_updates)
 }
 
-// optional int64 population_id = 2;
-inline void IdentificationData::clear_population_id() {
-  population_id_ = GOOGLE_LONGLONG(0);
+// optional .DataTypes.Group group_updates = 4;
+inline bool BiometricUpdate::has_group_updates() const {
+  return update_type_case() == kGroupUpdates;
 }
-inline ::google::protobuf::int64 IdentificationData::population_id() const {
-  // @@protoc_insertion_point(field_get:Services.IdentificationData.population_id)
-  return population_id_;
+inline void BiometricUpdate::set_has_group_updates() {
+  _oneof_case_[0] = kGroupUpdates;
 }
-inline void IdentificationData::set_population_id(::google::protobuf::int64 value) {
-  
-  population_id_ = value;
-  // @@protoc_insertion_point(field_set:Services.IdentificationData.population_id)
+inline void BiometricUpdate::clear_group_updates() {
+  if (has_group_updates()) {
+    delete update_type_.group_updates_;
+    clear_has_update_type();
+  }
 }
-
-// -------------------------------------------------------------------
-
-// FaceSearchResponse
-
-// repeated .DataTypes.Faces faces = 1;
-inline int FaceSearchResponse::faces_size() const {
-  return faces_.size();
+inline  const ::DataTypes::Group& BiometricUpdate::group_updates() const {
+  // @@protoc_insertion_point(field_get:Services.BiometricUpdate.group_updates)
+  return has_group_updates()
+      ? *update_type_.group_updates_
+      : ::DataTypes::Group::default_instance();
 }
-inline void FaceSearchResponse::clear_faces() {
-  faces_.Clear();
+inline ::DataTypes::Group* BiometricUpdate::mutable_group_updates() {
+  if (!has_group_updates()) {
+    clear_update_type();
+    set_has_group_updates();
+    update_type_.group_updates_ = new ::DataTypes::Group;
+  }
+  // @@protoc_insertion_point(field_mutable:Services.BiometricUpdate.group_updates)
+  return update_type_.group_updates_;
 }
-inline const ::DataTypes::Faces& FaceSearchResponse::faces(int index) const {
-  // @@protoc_insertion_point(field_get:Services.FaceSearchResponse.faces)
-  return faces_.Get(index);
+inline ::DataTypes::Group* BiometricUpdate::release_group_updates() {
+  // @@protoc_insertion_point(field_release:Services.BiometricUpdate.group_updates)
+  if (has_group_updates()) {
+    clear_has_update_type();
+    ::DataTypes::Group* temp = update_type_.group_updates_;
+    update_type_.group_updates_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
 }
-inline ::DataTypes::Faces* FaceSearchResponse::mutable_faces(int index) {
-  // @@protoc_insertion_point(field_mutable:Services.FaceSearchResponse.faces)
-  return faces_.Mutable(index);
-}
-inline ::DataTypes::Faces* FaceSearchResponse::add_faces() {
-  // @@protoc_insertion_point(field_add:Services.FaceSearchResponse.faces)
-  return faces_.Add();
-}
-inline ::google::protobuf::RepeatedPtrField< ::DataTypes::Faces >*
-FaceSearchResponse::mutable_faces() {
-  // @@protoc_insertion_point(field_mutable_list:Services.FaceSearchResponse.faces)
-  return &faces_;
-}
-inline const ::google::protobuf::RepeatedPtrField< ::DataTypes::Faces >&
-FaceSearchResponse::faces() const {
-  // @@protoc_insertion_point(field_list:Services.FaceSearchResponse.faces)
-  return faces_;
-}
-
-// repeated .DataTypes.Matches matches = 2;
-inline int FaceSearchResponse::matches_size() const {
-  return matches_.size();
-}
-inline void FaceSearchResponse::clear_matches() {
-  matches_.Clear();
-}
-inline const ::DataTypes::Matches& FaceSearchResponse::matches(int index) const {
-  // @@protoc_insertion_point(field_get:Services.FaceSearchResponse.matches)
-  return matches_.Get(index);
-}
-inline ::DataTypes::Matches* FaceSearchResponse::mutable_matches(int index) {
-  // @@protoc_insertion_point(field_mutable:Services.FaceSearchResponse.matches)
-  return matches_.Mutable(index);
-}
-inline ::DataTypes::Matches* FaceSearchResponse::add_matches() {
-  // @@protoc_insertion_point(field_add:Services.FaceSearchResponse.matches)
-  return matches_.Add();
-}
-inline ::google::protobuf::RepeatedPtrField< ::DataTypes::Matches >*
-FaceSearchResponse::mutable_matches() {
-  // @@protoc_insertion_point(field_mutable_list:Services.FaceSearchResponse.matches)
-  return &matches_;
-}
-inline const ::google::protobuf::RepeatedPtrField< ::DataTypes::Matches >&
-FaceSearchResponse::matches() const {
-  // @@protoc_insertion_point(field_list:Services.FaceSearchResponse.matches)
-  return matches_;
+inline void BiometricUpdate::set_allocated_group_updates(::DataTypes::Group* group_updates) {
+  clear_update_type();
+  if (group_updates) {
+    set_has_group_updates();
+    update_type_.group_updates_ = group_updates;
+  }
+  // @@protoc_insertion_point(field_set_allocated:Services.BiometricUpdate.group_updates)
 }
 
+inline bool BiometricUpdate::has_update_type() const {
+  return update_type_case() != UPDATE_TYPE_NOT_SET;
+}
+inline void BiometricUpdate::clear_has_update_type() {
+  _oneof_case_[0] = UPDATE_TYPE_NOT_SET;
+}
+inline BiometricUpdate::UpdateTypeCase BiometricUpdate::update_type_case() const {
+  return BiometricUpdate::UpdateTypeCase(_oneof_case_[0]);
+}
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

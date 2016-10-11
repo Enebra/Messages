@@ -29,10 +29,10 @@ enum Rights
 message Person
 {
            Key              id         = 1;
-           string              first_name = 2;
-           string              last_name  = 3;                 
-  repeated Photo               photos     = 4;      
-  repeated Card                cards      = 5;    
+           string           first_name = 2;
+           string           last_name  = 3;                 
+  repeated Photo            photos     = 4;      
+  repeated Card             cards      = 5;    
  
 }
 

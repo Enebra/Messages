@@ -17,10 +17,10 @@ message Faces
 message FaceCharacteristic
 {  
   Key    id          = 1;
-  Box      box         = 2;  
-  float    confidence  = 3;  
-  int64    person_id   = 4;
-  int64    photo_id    = 5;
+  Box    box         = 2;  
+  float  confidence  = 3;  
+  Key    person_id   = 4;
+  Key    photo_id    = 5;
 }					
 
 
@@ -36,6 +36,13 @@ message Matches
   repeated Match matches = 2;
 }
 
+enum BioActionType
+{
+  NoneActionType = 0;
+  Enroll         = 1;
+  Identify       = 2;
+  Verify         = 3;
+}
 
 enum BiometricType
 {

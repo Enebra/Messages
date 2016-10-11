@@ -50,8 +50,8 @@ message CommitResponse
 
 message MutationResult
 {
-  DataTypes.Key key = 1;
-  string error = 2;
+  Entity entity = 1;
+  string error  = 2;
 
 }
 
@@ -61,7 +61,7 @@ message Mutation
  {  
     Entity insert = 1;    
     Entity update = 2;
-    DataTypes.Key delete    = 3;
+    Entity delete = 3;
   }
 }
 
