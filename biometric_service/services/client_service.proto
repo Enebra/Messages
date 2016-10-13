@@ -15,9 +15,9 @@ package Services;
 service ClientService
 {  
   rpc UpdateVisitRecords ( DataTypes.VisitRecords ) returns ( google.protobuf.Empty ) {}
-  rpc UpdateUnits        ( DataTypes.UpdatedUnit ) returns ( google.protobuf.Empty ) {}
+  rpc UpdateUnits        ( DataTypes.UnitUpdates  ) returns ( google.protobuf.Empty ) {}
   rpc UpdateLocation     ( DataTypes.Location     ) returns ( google.protobuf.Empty ) {}
-  rpc PushUpdates        ( DataTypes.DeviceUpdate ) returns ( google.protobuf.Empty ) {}
+  rpc UpdateDevices      ( DataTypes.DeviceUpdate ) returns ( google.protobuf.Empty ) {}
 }
 
 

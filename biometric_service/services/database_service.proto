@@ -1,12 +1,6 @@
 syntax = "proto3";
 
-import "datatypes/person.proto";
-import "datatypes/card.proto";
-import "datatypes/photo.proto";
-import "datatypes/location.proto";
-import "datatypes/visit_record.proto";
 import "datatypes/data.proto";
-import "datatypes/queries.proto";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
@@ -19,65 +13,4 @@ service DatabaseService
 {
    rpc Get    ( DataTypes.MessageBytes ) returns ( DataTypes.MessageBytes ) {}
    rpc Commit ( DataTypes.MessageBytes ) returns ( DataTypes.MessageBytes ) {}
-}
-
-message GetResponse
-{
-  Entities items = 1;
-  int64    count = 2;
-}
-
-message GetRequest
-{
-  oneof request_type
-  {
-    DataTypes.GetPersonRequest      person_request        = 1;
-    DataTypes.GetCardRequest        card_request          = 2;
-    DataTypes.GetLocationRequest    location_request      = 3;
-    DataTypes.GetVisitRecordRequest visit_record_request  = 4;
-  }
-}
-
-message CommitRequest 
-{
-  repeated Mutation mutations = 1;
-}
-
-message CommitResponse
-{
-  repeated MutationResult mutation_results = 1;
-}
-
-message MutationResult
-{
-  DataTypes.Key key = 1;
-  string error = 2;
-
-}
-
-message Mutation 
-{
- oneof operation 
- {  
-    Entity insert = 1;    
-    Entity update = 2;
-    DataTypes.Key delete    = 3;
-  }
-}
-
-message Entity
-{
-  oneof value_type
-  {
-    DataTypes.Card        card         = 1;
-    DataTypes.Person      person       = 2;
-    DataTypes.VisitRecord visit_record = 3;
-    DataTypes.Location    location     = 4;
-    DataTypes.Photo       Photo        = 5;
-  }
-}
-
-message Entities
-{
-  repeated Entity items = 1;
 }

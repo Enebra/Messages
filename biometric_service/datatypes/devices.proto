@@ -35,12 +35,13 @@ message DeviceUpdate
 {
   oneof update
   {
-    ConnectedDevices   connected_devices = 1;
+    Devices            items             = 1;
+    // On location 
     DeviceStateMessage device_state_msg  = 2;
   }
 }
 
-message ConnectedDevices
+message Devices
 {
   DataTypes.Key  location_id    = 1;
   repeated       Device devices = 2;
@@ -49,7 +50,7 @@ message ConnectedDevices
 message Device
 {
   DeviceType device_type    = 1;
-  string device_names       = 2;
+  string device_name        = 2;
 }
 
 //To notify about device update
@@ -62,18 +63,29 @@ message DeviceStateMessage
    }
 }
 
+// Other devices (binded to location)
 message GenericDeviceStateMsg{
-  Key location_id   = 1;
+  DataTypes.Key location_id   = 1;
   DeviceType type   = 2;
   DeviceState state = 3;
+  //msg from device
   string message    = 4;
 }
 
-// Notify on door state
+// Notify on door state  (binded to location)
 message AccessDeviceStateMsg
 {
-    Key  location_id = 1;
+    DataTypes.Key  location_id = 1;
     bool opened      = 2;
 }
 
+message CardMsg
+{
+  string card_num = 1;
+}
 
+message CheckMsg
+{
+  bool   ok      = 1;
+  string message = 2;
+}

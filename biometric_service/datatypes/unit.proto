@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 import "datatypes/location.proto";
+import "datatypes/data.proto"
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
@@ -11,64 +12,63 @@ package DataTypes;
 
 message Unit
 {
-  string              ip_address      = 1;
-  string              mac_address     = 2;
-  int64               heartbeat_time  = 4;
-  DataTypes.Locations locations       = 5;
+  DataTypes.Key       id              = 1;
+  string              ip_address      = 2;
+  DataTypes.Locations locations       = 3;
 }
 
 message ConnectMsg
 {
-  string      ip_address   = 1;
-  string      mac_address  = 2;
-  ServiceType service_type = 3;
+  DataTypes.Key id           = 1;
+  string        ip_address   = 2;
+  ServiceType   service_type = 3;
 }
 
 message HeartbeatMessage
 {
-  string      service_id   = 1;
-  ServiceType service_type = 2;
+  DataTypes.Key id           = 1;
+  ServiceType   service_type = 2;
 }
 
 message SubscriptionMsg
 {
-  string publisher_id  = 1;
-  string subscriber_id = 2;
-}
-
-message UpdatedUnit
-{
-  Unit      current_unit  = 1;
-  UnitState state         = 2;
-}
-
-message UpdatedUnits
-{
-  repeated UpdatedUnit items = 1;
+  DataTypes.Key publisher_id  = 1;
+  DataTypes.Key subscriber_id = 2;
 }
 
 message Units
 {
-  map<string, Unit> items = 1;
+  repeated Unit items = 1;
 }
 
-message UnitConfiguration
-{
-  string master_ip_address = 1;
-}
-
+//Lookup usage
 message UnitLocationState
 {
-  string                   location_id = 1;
+  DataTypes.Key            location_id = 1;
   DataTypes.LocationState  state       = 2;
 }
 
 enum UnitState
 {
-  None_      = 0;
-  Inserted   = 1;
-  Deleted    = 2;
-  Updated    = 3;  
+  None_        = 0;
+  Connected    = 1;
+  Disconnected = 2;
+}
+
+message UnitUpdate
+{
+  oneof unit_type
+  {
+    Unit inserted = 1;
+    Unit deleted  = 2;
+    Unit updated  = 3;
+  }
+  UnitState state = 4;
+}
+
+message UnitUpdates
+{
+  repeated UnitUpdate items = 1;
 }
 
 enum ServiceType
