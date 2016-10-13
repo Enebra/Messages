@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "datatypes/person.proto";
+import "datatypes/card.proto";
+import "datatypes/photo.proto";
+import "datatypes/location.proto";
+import "datatypes/visit_record.proto";
+import "datatypes/unit.proto";
+
+message Entity
+{
+  oneof value_type
+  {
+    DataTypes.Card        card         = 1;
+    DataTypes.Person      person       = 2;
+    DataTypes.VisitRecord visit_record = 3;
+    DataTypes.Location    location     = 4;
+    DataTypes.Photo       photo        = 5;
+    DataTypes.Unit        unit         = 6;
+  }
+}
+
+message Entities
+{
+  repeated Entity items = 1;
+}

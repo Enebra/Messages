@@ -30,11 +30,9 @@ echo Processing  %%f
 echo.
 
 ::  cpp
-protoc --grpc_out=.\cpp --plugin=protoc-gen-grpc=grpc_cpp_plugin.exe %%f --proto_path biometric_service
 protoc --cpp_out=.\cpp %%f --proto_path biometric_service
 
 :: csharp
-protoc --grpc_out=.\csharp --plugin=protoc-gen-grpc=grpc_csharp_plugin.exe %%f --proto_path biometric_service
 protoc --csharp_out=.\csharp %%f --proto_path biometric_service
 
 :: go
