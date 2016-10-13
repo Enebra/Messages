@@ -5,6 +5,10 @@ if /i "%1" NEQ "" goto Generate
 echo Generating grpc files...
 echo.
 
+if not exist golang mkdir golang
+if not exist cpp mkdir cpp
+if not exist csharp mkdir csharp
+
 for  %%f in (biometric_service\services\*) do (
 
 echo Processing  %%f

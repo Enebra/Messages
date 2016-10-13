@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "datatypes/entity.proto";
+
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
 option go_package = "github.com/Enebra/ServiceCoordinator/grpc/datatypes/data";
@@ -8,24 +10,32 @@ package DataTypes;
 
 message MessageBytes
 {
-  bytes data = 1;
+  bytes    data = 1;
   DataType type = 2;
 }
 
 enum DataType
 {
-  NoneType = 0;
-  GetRequestType = 1;
-  GetResponseType = 2;
-  CommitRequestType = 3;
+  NoneType           = 0;
+  GetRequestType     = 1;
+  GetResponseType    = 2;
+  CommitRequestType  = 3;
   CommitResponseType = 4;
 }
 
-message Key 
-{    
-    oneof id_type 
-    {  
-      int64  id = 1;
-      string guid = 2;
-    }
+message MutationResult
+{
+  DataTypes.Entity entity = 1;
+  string           error = 2;
+
+}
+
+message Mutation 
+{
+ oneof operation 
+ {  
+    DataTypes.Entity insert = 1;    
+    DataTypes.Entity update = 2;
+    DataTypes.Entity delete    = 3;
+  }
 }

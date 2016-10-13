@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 import "datatypes/devices.proto";
-import "datatypes/data.proto";
+import "datatypes/key.proto";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
@@ -16,20 +16,5 @@ message Location
   string                  description      = 3;    
   string                  unit_mac_address = 4; 
   DataTypes.AccessDevice  access_device    = 5;
+  //TODO add capture device
 }
-
-message Locations
-{
-  repeated Location items = 1;
-           int64    count = 2;
-}
-
-enum LocationState
-{
-  Unspecified_State = 0;
-  Opened            = 1;
-  Closed            = 2;
-  Failure           = 3;
-}
-
-

@@ -19,6 +19,7 @@ service CoordinatorService
   rpc Subscribe              ( DataTypes.SubscriptionMsg  ) returns ( google.protobuf.Empty  ) {}
   rpc Unsubscribe            ( DataTypes.SubscriptionMsg  ) returns ( google.protobuf.Empty  ) {}
   rpc Get                    ( DataTypes.MessageBytes     ) returns ( DataTypes.MessageBytes ) {}
+  // update locations/visitrecords rely on commit
   rpc Commit                 ( DataTypes.MessageBytes     ) returns ( DataTypes.MessageBytes ) {}
-  rpc PushUpdates            ( DataTypes.DeviceUpdate     ) returns ( google.protobuf.Empty  ) {}
+  rpc UpdateDevices          ( DataTypes.DeviceUpdate     ) returns ( google.protobuf.Empty  ) {}
 }

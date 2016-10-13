@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 import "datatypes/card.proto";
-import "datatypes/data.proto";
+import "datatypes/key.proto";
 option go_package = "github.com/Enebra/ServiceCoordinator/grpc/datatypes/visitrecord";
 
 option java_package = "ex.grpc";
@@ -15,21 +15,18 @@ enum AccessState
   Granted   = 1;
   Denied    = 2;
 }
+
 message VisitRecord
 {
-   Key         id           = 1;
-   Key         person_id    = 2;
-   Key         location_id  = 3;                 
-   int64       time         = 4;      
-   Card        card         = 5;
-   AccessState state        = 6; 
+   DataTypes.Key         id           = 1;
+   DataTypes.Key         person_id    = 2;
+   DataTypes.Key         location_id  = 3;                 
+   int64                 time         = 4;      
+   DataTypes.Card        card         = 5;
+   AccessState           state        = 6; 
 }
 
 message VisitRecords
 {
   repeated VisitRecord items = 1;
-           int64       count = 2;
 }
-
-
-

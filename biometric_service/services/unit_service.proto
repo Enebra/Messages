@@ -2,6 +2,8 @@ syntax = "proto3";
 
 import "google/protobuf/empty.proto";
 import "datatypes/location.proto";
+import "datatypes/devices.proto";
+import "datatypes/biometrics.proto";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
@@ -11,12 +13,14 @@ package Services;
 
 service UnitService 
 {    
-  rpc OpenDoor            ( DataTypes.Location ) returns ( google.protobuf.Empty ) {}  
-  rpc GetVideoStream      ( DataTypes.Location ) returns ( stream FrameBytes     ) {}
-  rpc UpdateLocation      ( DataTypes.Location ) returns ( google.protobuf.Empty ) {}
-}
-
-message FrameBytes
-{
-  bytes frameData = 1;
+  rpc OpenDoor            ( DataTypes.Location    )  returns ( google.protobuf.Empty       ) {}  
+  rpc GetLocationStream   ( DataTypes.Location    )  returns ( stream DataTypes.FrameBytes ) {}
+  rpc GetDevices          ( google.protobuf.Empty )  returns ( DataTypes.Devices           ) {}
+  rpc UpdateLocation      ( DataTypes.Location    )  returns ( google.protobuf.Empty       ) {}
+  //on person registration      
+  rpc GetCard             ( DataTypes.Device      )  returns ( DataTypes.CardMsg           ) {}
+  rpc CheckDevice         ( DataTypes.Device      )  returns ( DataTypes.CheckMsg          ) {}
+  rpc GetDeviceStream     ( DataTypes.Device      )  returns ( stream DataTypes.FrameBytes ) {}
+  // on person registration & identification      
+  rpc Enroll              ( DataTypes.Device      )  returns ( DataTypes.Faces             ) {}  
 }

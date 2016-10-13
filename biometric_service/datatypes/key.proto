@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_package = "ex.grpc";
+option objc_class_prefix = "RTG";
+option go_package = "github.com/Enebra/ServiceCoordinator/grpc/datatypes/key";
+
+package DataTypes;
+
+
+message Key 
+{    
+    oneof id_type 
+    {  
+      int64  number     = 1;
+      string identifier = 2;
+	  bytes  guid       = 3;
+    }
+}
+

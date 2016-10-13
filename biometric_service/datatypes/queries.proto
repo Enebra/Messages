@@ -1,6 +1,8 @@
 syntax = "proto3";
 
 import "datatypes/visit_record.proto";
+import "datatypes/key.proto";
+import "datatypes/entity.proto";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
@@ -8,25 +10,45 @@ option go_package = "github.com/Enebra/ServiceCoordinator/grpc/datatypes/queries
 
 package DataTypes;
 
+message GetResponse
+{
+  DataTypes.Entities items = 1;
+  int64              count = 2;
+}
+
+message GetRequest
+{
+  oneof request_type
+  {
+    DataTypes.GetPersonRequest      person_request        = 1;
+    DataTypes.GetCardRequest        card_request          = 2;
+    DataTypes.GetLocationRequest    location_request      = 3;
+    DataTypes.GetVisitRecordRequest visit_record_request  = 4;
+  }
+  //TODO add error message info
+}
+
 message GetPersonRequest
 { 
-            string search_text    = 1;  //search in first name, search in surname
-            string first_name     = 2;
-            string last_name      = 3; 
-            string card           = 4;
+            string        search_text    = 1;  //search in first name, search in surname
+            string        first_name     = 2;
+            string        last_name      = 3; 
+            string        card           = 4;
    //TODO Photo    photo
    //TODO Rights   rights
-   repeated string locations      = 5;
-            Page   page           = 6;
+   repeated DataTypes.Key locations      = 5;
+            Page          page           = 6;
+            DataTypes.Key id = 7;            
 }
 
 message GetLocationRequest
 { 
-  string search_text    = 1; //search in name, description
-  string name           = 2;
-  string mac_address    = 3;
-  string device_name    = 4;
-  Page   page           = 5;
+  string        search_text = 1; //search in name, description
+  string        name        = 2;
+  string        mac_address = 3;
+  string        device_name = 4;
+  Page          page        = 5;
+  DataTypes.Key id          = 6;  
 }
 
 
@@ -34,12 +56,13 @@ message GetVisitRecordRequest
 { 
            string                search_text    = 1;		 
            DataTypes.AccessState state          = 2;
-  repeated string                locations      = 3;
-  repeated string                persons        = 4;
+  repeated DataTypes.Key         locations      = 3;
+  repeated DataTypes.Key         persons        = 4;
            int64                 datetime_from  = 5;
            int64                 datetime_to    = 6;
 		       string                card           = 7;
-           Page                  page           = 8;		   
+           Page                  page           = 8;
+           DataTypes.Key         id             = 9;     
 }
 
 
@@ -51,8 +74,8 @@ message Page
 
 message GetCardRequest
 { 
-           string search_text       = 1; //search in name, description
-		       string unique_identifier = 2;
-  repeated string owners            = 3;
-           Page   page              = 4;
+           string           search_text       = 1; //search in name, description
+		       string           unique_identifier = 2;
+  repeated DataTypes.Key    owners            = 3;
+           Page             page              = 4;
 }

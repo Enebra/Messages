@@ -1,7 +1,11 @@
 syntax = "proto3";
 
+import "datatypes/person.proto";
 import "datatypes/photo.proto";
+import "datatypes/key.proto";
+import "datatypes/group.proto";
 import "datatypes/biometrics.proto";
+import "google/protobuf/empty.proto";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
@@ -11,33 +15,33 @@ package Services;
 
 service BiometricFacialService
 {  
-  rpc Acquire         ( DataTypes.Photo     ) returns ( DataTypes.Faces            ) {} 
-  rpc CreatePopulation( DataTypes.Photos    ) returns ( PopulationCreationResponse ) {}
-  rpc Verify          ( VerificationData    ) returns ( FaceSearchResponse         ) {}
-  rpc Identify        ( IdentificationData  ) returns ( FaceSearchResponse         ) {}
+  rpc Process          ( BiometricRequest   ) returns ( BiometricResponse     ) {} 
+  rpc Update           ( BiometricUpdate    ) returns ( google.protobuf.Empty ) {}
 }
 
-message PopulationCreationResponse
+//TODO move to queries
+message BiometricRequest 
 {
-           int64           id    = 1;
-  repeated DataTypes.Faces faces = 2;         
+  DataTypes.Photo           photo  = 1;
+  DataTypes.Key             person = 2;
+  DataTypes.Key             group  = 3;
+  DataTypes.BioActionType   action = 4;
+  DataTypes.BiometricType   type   = 5;
 }
 
-message VerificationData
+message BiometricResponse
 {
-  DataTypes.Photo  target_image         = 1;
-  DataTypes.Photo  comparison_image     = 2;
-  int64            comparison_person_id = 3;
+  DataTypes.Photo photo   = 1;
+  DataTypes.Key   person  = 2;
+  DataTypes.Faces faces   = 3;
+  bool            success = 4;
 }
 
-message IdentificationData
+message BiometricUpdate
 {
-  DataTypes.Photo target_image      = 1;
-  int64           population_id     = 2; 
-}
-
-message FaceSearchResponse
-{
-  repeated DataTypes.Faces   faces   = 1;
-  repeated DataTypes.Matches matches = 2;   
+  oneof update_type
+  {   
+	  DataTypes.Person person_updates = 2;	
+	  DataTypes.Group  group_updates  = 4;
+  }
 }
