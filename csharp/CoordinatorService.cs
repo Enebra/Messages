@@ -26,7 +26,7 @@ namespace Services {
             "CiJzZXJ2aWNlcy9jb29yZGluYXRvcl9zZXJ2aWNlLnByb3RvEghTZXJ2aWNl",
             "cxobZ29vZ2xlL3Byb3RvYnVmL2VtcHR5LnByb3RvGhRkYXRhdHlwZXMvdW5p",
             "dC5wcm90bxoUZGF0YXR5cGVzL2RhdGEucHJvdG8aF2RhdGF0eXBlcy9kZXZp",
-            "Y2VzLnByb3RvMo8EChJDb29yZGluYXRvclNlcnZpY2USOgoHQ29ubmVjdBIV",
+            "Y2VzLnByb3RvMpEEChJDb29yZGluYXRvclNlcnZpY2USOgoHQ29ubmVjdBIV",
             "LkRhdGFUeXBlcy5Db25uZWN0TXNnGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5",
             "IgASQgoJSGVhcnRiZWF0EhsuRGF0YVR5cGVzLkhlYXJ0YmVhdE1lc3NhZ2Ua",
             "Fi5nb29nbGUucHJvdG9idWYuRW1wdHkiABI2CghHZXRVbml0cxIWLmdvb2ds",
@@ -36,11 +36,11 @@ namespace Services {
             "Y3JpcHRpb25Nc2caFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABI5CgNHZXQS",
             "Fy5EYXRhVHlwZXMuTWVzc2FnZUJ5dGVzGhcuRGF0YVR5cGVzLk1lc3NhZ2VC",
             "eXRlcyIAEjwKBkNvbW1pdBIXLkRhdGFUeXBlcy5NZXNzYWdlQnl0ZXMaFy5E",
-            "YXRhVHlwZXMuTWVzc2FnZUJ5dGVzIgASQAoLUHVzaFVwZGF0ZXMSFy5EYXRh",
-            "VHlwZXMuRGV2aWNlVXBkYXRlGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgBC",
-            "VgoHZXguZ3JwY1pFZ2l0aHViLmNvbS9FbmVicmEvU2VydmljZUNvb3JkaW5h",
-            "dG9yL2dycGMvc2VydmljZXMvY29vcmRpbmF0b3JzZXJ2aWNlogIDUlRHYgZw",
-            "cm90bzM="));
+            "YXRhVHlwZXMuTWVzc2FnZUJ5dGVzIgASQgoNVXBkYXRlRGV2aWNlcxIXLkRh",
+            "dGFUeXBlcy5EZXZpY2VVcGRhdGUaFi5nb29nbGUucHJvdG9idWYuRW1wdHki",
+            "AEJWCgdleC5ncnBjWkVnaXRodWIuY29tL0VuZWJyYS9TZXJ2aWNlQ29vcmRp",
+            "bmF0b3IvZ3JwYy9zZXJ2aWNlcy9jb29yZGluYXRvcnNlcnZpY2WiAgNSVEdi",
+            "BnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::DataTypes.UnitReflection.Descriptor, global::DataTypes.DataReflection.Descriptor, global::DataTypes.DevicesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null));

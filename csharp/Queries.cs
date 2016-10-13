@@ -24,29 +24,43 @@ namespace DataTypes {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChdkYXRhdHlwZXMvcXVlcmllcy5wcm90bxIJRGF0YVR5cGVzGhxkYXRhdHlw",
-            "ZXMvdmlzaXRfcmVjb3JkLnByb3RvIo4BChBHZXRQZXJzb25SZXF1ZXN0EhMK",
-            "C3NlYXJjaF90ZXh0GAEgASgJEhIKCmZpcnN0X25hbWUYAiABKAkSEQoJbGFz",
-            "dF9uYW1lGAMgASgJEgwKBGNhcmQYBCABKAkSEQoJbG9jYXRpb25zGAUgAygJ",
-            "Eh0KBHBhZ2UYBiABKAsyDy5EYXRhVHlwZXMuUGFnZSKAAQoSR2V0TG9jYXRp",
-            "b25SZXF1ZXN0EhMKC3NlYXJjaF90ZXh0GAEgASgJEgwKBG5hbWUYAiABKAkS",
-            "EwoLbWFjX2FkZHJlc3MYAyABKAkSEwoLZGV2aWNlX25hbWUYBCABKAkSHQoE",
-            "cGFnZRgFIAEoCzIPLkRhdGFUeXBlcy5QYWdlItABChVHZXRWaXNpdFJlY29y",
-            "ZFJlcXVlc3QSEwoLc2VhcmNoX3RleHQYASABKAkSJQoFc3RhdGUYAiABKA4y",
-            "Fi5EYXRhVHlwZXMuQWNjZXNzU3RhdGUSEQoJbG9jYXRpb25zGAMgAygJEg8K",
-            "B3BlcnNvbnMYBCADKAkSFQoNZGF0ZXRpbWVfZnJvbRgFIAEoAxITCgtkYXRl",
-            "dGltZV90bxgGIAEoAxIMCgRjYXJkGAcgASgJEh0KBHBhZ2UYCCABKAsyDy5E",
-            "YXRhVHlwZXMuUGFnZSIjCgRQYWdlEg0KBWluZGV4GAEgASgFEgwKBHNpemUY",
-            "AiABKAUibwoOR2V0Q2FyZFJlcXVlc3QSEwoLc2VhcmNoX3RleHQYASABKAkS",
-            "GQoRdW5pcXVlX2lkZW50aWZpZXIYAiABKAkSDgoGb3duZXJzGAMgAygJEh0K",
-            "BHBhZ2UYBCABKAsyDy5EYXRhVHlwZXMuUGFnZUJMCgdleC5ncnBjWjtnaXRo",
-            "dWIuY29tL0VuZWJyYS9TZXJ2aWNlQ29vcmRpbmF0b3IvZ3JwYy9kYXRhdHlw",
-            "ZXMvcXVlcmllc6ICA1JUR2IGcHJvdG8z"));
+            "ZXMvdmlzaXRfcmVjb3JkLnByb3RvGhNkYXRhdHlwZXMva2V5LnByb3RvGhZk",
+            "YXRhdHlwZXMvZW50aXR5LnByb3RvIkAKC0dldFJlc3BvbnNlEiIKBWl0ZW1z",
+            "GAEgASgLMhMuRGF0YVR5cGVzLkVudGl0aWVzEg0KBWNvdW50GAIgASgDIoMC",
+            "CgpHZXRSZXF1ZXN0EjUKDnBlcnNvbl9yZXF1ZXN0GAEgASgLMhsuRGF0YVR5",
+            "cGVzLkdldFBlcnNvblJlcXVlc3RIABIxCgxjYXJkX3JlcXVlc3QYAiABKAsy",
+            "GS5EYXRhVHlwZXMuR2V0Q2FyZFJlcXVlc3RIABI5ChBsb2NhdGlvbl9yZXF1",
+            "ZXN0GAMgASgLMh0uRGF0YVR5cGVzLkdldExvY2F0aW9uUmVxdWVzdEgAEkAK",
+            "FHZpc2l0X3JlY29yZF9yZXF1ZXN0GAQgASgLMiAuRGF0YVR5cGVzLkdldFZp",
+            "c2l0UmVjb3JkUmVxdWVzdEgAQg4KDHJlcXVlc3RfdHlwZSK6AQoQR2V0UGVy",
+            "c29uUmVxdWVzdBITCgtzZWFyY2hfdGV4dBgBIAEoCRISCgpmaXJzdF9uYW1l",
+            "GAIgASgJEhEKCWxhc3RfbmFtZRgDIAEoCRIMCgRjYXJkGAQgASgJEiEKCWxv",
+            "Y2F0aW9ucxgFIAMoCzIOLkRhdGFUeXBlcy5LZXkSHQoEcGFnZRgGIAEoCzIP",
+            "LkRhdGFUeXBlcy5QYWdlEhoKAmlkGAcgASgLMg4uRGF0YVR5cGVzLktleSKc",
+            "AQoSR2V0TG9jYXRpb25SZXF1ZXN0EhMKC3NlYXJjaF90ZXh0GAEgASgJEgwK",
+            "BG5hbWUYAiABKAkSEwoLbWFjX2FkZHJlc3MYAyABKAkSEwoLZGV2aWNlX25h",
+            "bWUYBCABKAkSHQoEcGFnZRgFIAEoCzIPLkRhdGFUeXBlcy5QYWdlEhoKAmlk",
+            "GAYgASgLMg4uRGF0YVR5cGVzLktleSKMAgoVR2V0VmlzaXRSZWNvcmRSZXF1",
+            "ZXN0EhMKC3NlYXJjaF90ZXh0GAEgASgJEiUKBXN0YXRlGAIgASgOMhYuRGF0",
+            "YVR5cGVzLkFjY2Vzc1N0YXRlEiEKCWxvY2F0aW9ucxgDIAMoCzIOLkRhdGFU",
+            "eXBlcy5LZXkSHwoHcGVyc29ucxgEIAMoCzIOLkRhdGFUeXBlcy5LZXkSFQoN",
+            "ZGF0ZXRpbWVfZnJvbRgFIAEoAxITCgtkYXRldGltZV90bxgGIAEoAxIMCgRj",
+            "YXJkGAcgASgJEh0KBHBhZ2UYCCABKAsyDy5EYXRhVHlwZXMuUGFnZRIaCgJp",
+            "ZBgJIAEoCzIOLkRhdGFUeXBlcy5LZXkiIwoEUGFnZRINCgVpbmRleBgBIAEo",
+            "BRIMCgRzaXplGAIgASgFIn8KDkdldENhcmRSZXF1ZXN0EhMKC3NlYXJjaF90",
+            "ZXh0GAEgASgJEhkKEXVuaXF1ZV9pZGVudGlmaWVyGAIgASgJEh4KBm93bmVy",
+            "cxgDIAMoCzIOLkRhdGFUeXBlcy5LZXkSHQoEcGFnZRgEIAEoCzIPLkRhdGFU",
+            "eXBlcy5QYWdlQkwKB2V4LmdycGNaO2dpdGh1Yi5jb20vRW5lYnJhL1NlcnZp",
+            "Y2VDb29yZGluYXRvci9ncnBjL2RhdGF0eXBlcy9xdWVyaWVzogIDUlRHYgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::DataTypes.VisitRecordReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::DataTypes.VisitRecordReflection.Descriptor, global::DataTypes.KeyReflection.Descriptor, global::DataTypes.EntityReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.GetPersonRequest), global::DataTypes.GetPersonRequest.Parser, new[]{ "SearchText", "FirstName", "LastName", "Card", "Locations", "Page" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.GetLocationRequest), global::DataTypes.GetLocationRequest.Parser, new[]{ "SearchText", "Name", "MacAddress", "DeviceName", "Page" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.GetVisitRecordRequest), global::DataTypes.GetVisitRecordRequest.Parser, new[]{ "SearchText", "State", "Locations", "Persons", "DatetimeFrom", "DatetimeTo", "Card", "Page" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.GetResponse), global::DataTypes.GetResponse.Parser, new[]{ "Items", "Count" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.GetRequest), global::DataTypes.GetRequest.Parser, new[]{ "PersonRequest", "CardRequest", "LocationRequest", "VisitRecordRequest" }, new[]{ "RequestType" }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.GetPersonRequest), global::DataTypes.GetPersonRequest.Parser, new[]{ "SearchText", "FirstName", "LastName", "Card", "Locations", "Page", "Id" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.GetLocationRequest), global::DataTypes.GetLocationRequest.Parser, new[]{ "SearchText", "Name", "MacAddress", "DeviceName", "Page", "Id" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.GetVisitRecordRequest), global::DataTypes.GetVisitRecordRequest.Parser, new[]{ "SearchText", "State", "Locations", "Persons", "DatetimeFrom", "DatetimeTo", "Card", "Page", "Id" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Page), global::DataTypes.Page.Parser, new[]{ "Index", "Size" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.GetCardRequest), global::DataTypes.GetCardRequest.Parser, new[]{ "SearchText", "UniqueIdentifier", "Owners", "Page" }, null, null, null)
           }));
@@ -56,12 +70,387 @@ namespace DataTypes {
   }
   #region Messages
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class GetResponse : pb::IMessage<GetResponse> {
+    private static readonly pb::MessageParser<GetResponse> _parser = new pb::MessageParser<GetResponse>(() => new GetResponse());
+    public static pb::MessageParser<GetResponse> Parser { get { return _parser; } }
+
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DataTypes.QueriesReflection.Descriptor.MessageTypes[0]; }
+    }
+
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    public GetResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    public GetResponse(GetResponse other) : this() {
+      Items = other.items_ != null ? other.Items.Clone() : null;
+      count_ = other.count_;
+    }
+
+    public GetResponse Clone() {
+      return new GetResponse(this);
+    }
+
+    /// <summary>Field number for the "items" field.</summary>
+    public const int ItemsFieldNumber = 1;
+    private global::DataTypes.Entities items_;
+    public global::DataTypes.Entities Items {
+      get { return items_; }
+      set {
+        items_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "count" field.</summary>
+    public const int CountFieldNumber = 2;
+    private long count_;
+    public long Count {
+      get { return count_; }
+      set {
+        count_ = value;
+      }
+    }
+
+    public override bool Equals(object other) {
+      return Equals(other as GetResponse);
+    }
+
+    public bool Equals(GetResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Items, other.Items)) return false;
+      if (Count != other.Count) return false;
+      return true;
+    }
+
+    public override int GetHashCode() {
+      int hash = 1;
+      if (items_ != null) hash ^= Items.GetHashCode();
+      if (Count != 0L) hash ^= Count.GetHashCode();
+      return hash;
+    }
+
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (items_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Items);
+      }
+      if (Count != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(Count);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (items_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Items);
+      }
+      if (Count != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Count);
+      }
+      return size;
+    }
+
+    public void MergeFrom(GetResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.items_ != null) {
+        if (items_ == null) {
+          items_ = new global::DataTypes.Entities();
+        }
+        Items.MergeFrom(other.Items);
+      }
+      if (other.Count != 0L) {
+        Count = other.Count;
+      }
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            if (items_ == null) {
+              items_ = new global::DataTypes.Entities();
+            }
+            input.ReadMessage(items_);
+            break;
+          }
+          case 16: {
+            Count = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class GetRequest : pb::IMessage<GetRequest> {
+    private static readonly pb::MessageParser<GetRequest> _parser = new pb::MessageParser<GetRequest>(() => new GetRequest());
+    public static pb::MessageParser<GetRequest> Parser { get { return _parser; } }
+
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DataTypes.QueriesReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    public GetRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    public GetRequest(GetRequest other) : this() {
+      switch (other.RequestTypeCase) {
+        case RequestTypeOneofCase.PersonRequest:
+          PersonRequest = other.PersonRequest.Clone();
+          break;
+        case RequestTypeOneofCase.CardRequest:
+          CardRequest = other.CardRequest.Clone();
+          break;
+        case RequestTypeOneofCase.LocationRequest:
+          LocationRequest = other.LocationRequest.Clone();
+          break;
+        case RequestTypeOneofCase.VisitRecordRequest:
+          VisitRecordRequest = other.VisitRecordRequest.Clone();
+          break;
+      }
+
+    }
+
+    public GetRequest Clone() {
+      return new GetRequest(this);
+    }
+
+    /// <summary>Field number for the "person_request" field.</summary>
+    public const int PersonRequestFieldNumber = 1;
+    public global::DataTypes.GetPersonRequest PersonRequest {
+      get { return requestTypeCase_ == RequestTypeOneofCase.PersonRequest ? (global::DataTypes.GetPersonRequest) requestType_ : null; }
+      set {
+        requestType_ = value;
+        requestTypeCase_ = value == null ? RequestTypeOneofCase.None : RequestTypeOneofCase.PersonRequest;
+      }
+    }
+
+    /// <summary>Field number for the "card_request" field.</summary>
+    public const int CardRequestFieldNumber = 2;
+    public global::DataTypes.GetCardRequest CardRequest {
+      get { return requestTypeCase_ == RequestTypeOneofCase.CardRequest ? (global::DataTypes.GetCardRequest) requestType_ : null; }
+      set {
+        requestType_ = value;
+        requestTypeCase_ = value == null ? RequestTypeOneofCase.None : RequestTypeOneofCase.CardRequest;
+      }
+    }
+
+    /// <summary>Field number for the "location_request" field.</summary>
+    public const int LocationRequestFieldNumber = 3;
+    public global::DataTypes.GetLocationRequest LocationRequest {
+      get { return requestTypeCase_ == RequestTypeOneofCase.LocationRequest ? (global::DataTypes.GetLocationRequest) requestType_ : null; }
+      set {
+        requestType_ = value;
+        requestTypeCase_ = value == null ? RequestTypeOneofCase.None : RequestTypeOneofCase.LocationRequest;
+      }
+    }
+
+    /// <summary>Field number for the "visit_record_request" field.</summary>
+    public const int VisitRecordRequestFieldNumber = 4;
+    public global::DataTypes.GetVisitRecordRequest VisitRecordRequest {
+      get { return requestTypeCase_ == RequestTypeOneofCase.VisitRecordRequest ? (global::DataTypes.GetVisitRecordRequest) requestType_ : null; }
+      set {
+        requestType_ = value;
+        requestTypeCase_ = value == null ? RequestTypeOneofCase.None : RequestTypeOneofCase.VisitRecordRequest;
+      }
+    }
+
+    private object requestType_;
+    /// <summary>Enum of possible cases for the "request_type" oneof.</summary>
+    public enum RequestTypeOneofCase {
+      None = 0,
+      PersonRequest = 1,
+      CardRequest = 2,
+      LocationRequest = 3,
+      VisitRecordRequest = 4,
+    }
+    private RequestTypeOneofCase requestTypeCase_ = RequestTypeOneofCase.None;
+    public RequestTypeOneofCase RequestTypeCase {
+      get { return requestTypeCase_; }
+    }
+
+    public void ClearRequestType() {
+      requestTypeCase_ = RequestTypeOneofCase.None;
+      requestType_ = null;
+    }
+
+    public override bool Equals(object other) {
+      return Equals(other as GetRequest);
+    }
+
+    public bool Equals(GetRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(PersonRequest, other.PersonRequest)) return false;
+      if (!object.Equals(CardRequest, other.CardRequest)) return false;
+      if (!object.Equals(LocationRequest, other.LocationRequest)) return false;
+      if (!object.Equals(VisitRecordRequest, other.VisitRecordRequest)) return false;
+      if (RequestTypeCase != other.RequestTypeCase) return false;
+      return true;
+    }
+
+    public override int GetHashCode() {
+      int hash = 1;
+      if (requestTypeCase_ == RequestTypeOneofCase.PersonRequest) hash ^= PersonRequest.GetHashCode();
+      if (requestTypeCase_ == RequestTypeOneofCase.CardRequest) hash ^= CardRequest.GetHashCode();
+      if (requestTypeCase_ == RequestTypeOneofCase.LocationRequest) hash ^= LocationRequest.GetHashCode();
+      if (requestTypeCase_ == RequestTypeOneofCase.VisitRecordRequest) hash ^= VisitRecordRequest.GetHashCode();
+      hash ^= (int) requestTypeCase_;
+      return hash;
+    }
+
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (requestTypeCase_ == RequestTypeOneofCase.PersonRequest) {
+        output.WriteRawTag(10);
+        output.WriteMessage(PersonRequest);
+      }
+      if (requestTypeCase_ == RequestTypeOneofCase.CardRequest) {
+        output.WriteRawTag(18);
+        output.WriteMessage(CardRequest);
+      }
+      if (requestTypeCase_ == RequestTypeOneofCase.LocationRequest) {
+        output.WriteRawTag(26);
+        output.WriteMessage(LocationRequest);
+      }
+      if (requestTypeCase_ == RequestTypeOneofCase.VisitRecordRequest) {
+        output.WriteRawTag(34);
+        output.WriteMessage(VisitRecordRequest);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (requestTypeCase_ == RequestTypeOneofCase.PersonRequest) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(PersonRequest);
+      }
+      if (requestTypeCase_ == RequestTypeOneofCase.CardRequest) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CardRequest);
+      }
+      if (requestTypeCase_ == RequestTypeOneofCase.LocationRequest) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(LocationRequest);
+      }
+      if (requestTypeCase_ == RequestTypeOneofCase.VisitRecordRequest) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(VisitRecordRequest);
+      }
+      return size;
+    }
+
+    public void MergeFrom(GetRequest other) {
+      if (other == null) {
+        return;
+      }
+      switch (other.RequestTypeCase) {
+        case RequestTypeOneofCase.PersonRequest:
+          PersonRequest = other.PersonRequest;
+          break;
+        case RequestTypeOneofCase.CardRequest:
+          CardRequest = other.CardRequest;
+          break;
+        case RequestTypeOneofCase.LocationRequest:
+          LocationRequest = other.LocationRequest;
+          break;
+        case RequestTypeOneofCase.VisitRecordRequest:
+          VisitRecordRequest = other.VisitRecordRequest;
+          break;
+      }
+
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            global::DataTypes.GetPersonRequest subBuilder = new global::DataTypes.GetPersonRequest();
+            if (requestTypeCase_ == RequestTypeOneofCase.PersonRequest) {
+              subBuilder.MergeFrom(PersonRequest);
+            }
+            input.ReadMessage(subBuilder);
+            PersonRequest = subBuilder;
+            break;
+          }
+          case 18: {
+            global::DataTypes.GetCardRequest subBuilder = new global::DataTypes.GetCardRequest();
+            if (requestTypeCase_ == RequestTypeOneofCase.CardRequest) {
+              subBuilder.MergeFrom(CardRequest);
+            }
+            input.ReadMessage(subBuilder);
+            CardRequest = subBuilder;
+            break;
+          }
+          case 26: {
+            global::DataTypes.GetLocationRequest subBuilder = new global::DataTypes.GetLocationRequest();
+            if (requestTypeCase_ == RequestTypeOneofCase.LocationRequest) {
+              subBuilder.MergeFrom(LocationRequest);
+            }
+            input.ReadMessage(subBuilder);
+            LocationRequest = subBuilder;
+            break;
+          }
+          case 34: {
+            global::DataTypes.GetVisitRecordRequest subBuilder = new global::DataTypes.GetVisitRecordRequest();
+            if (requestTypeCase_ == RequestTypeOneofCase.VisitRecordRequest) {
+              subBuilder.MergeFrom(VisitRecordRequest);
+            }
+            input.ReadMessage(subBuilder);
+            VisitRecordRequest = subBuilder;
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class GetPersonRequest : pb::IMessage<GetPersonRequest> {
     private static readonly pb::MessageParser<GetPersonRequest> _parser = new pb::MessageParser<GetPersonRequest>(() => new GetPersonRequest());
     public static pb::MessageParser<GetPersonRequest> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DataTypes.QueriesReflection.Descriptor.MessageTypes[0]; }
+      get { return global::DataTypes.QueriesReflection.Descriptor.MessageTypes[2]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -81,6 +470,7 @@ namespace DataTypes {
       card_ = other.card_;
       locations_ = other.locations_.Clone();
       Page = other.page_ != null ? other.Page.Clone() : null;
+      Id = other.id_ != null ? other.Id.Clone() : null;
     }
 
     public GetPersonRequest Clone() {
@@ -132,14 +522,14 @@ namespace DataTypes {
 
     /// <summary>Field number for the "locations" field.</summary>
     public const int LocationsFieldNumber = 5;
-    private static readonly pb::FieldCodec<string> _repeated_locations_codec
-        = pb::FieldCodec.ForString(42);
-    private readonly pbc::RepeatedField<string> locations_ = new pbc::RepeatedField<string>();
+    private static readonly pb::FieldCodec<global::DataTypes.Key> _repeated_locations_codec
+        = pb::FieldCodec.ForMessage(42, global::DataTypes.Key.Parser);
+    private readonly pbc::RepeatedField<global::DataTypes.Key> locations_ = new pbc::RepeatedField<global::DataTypes.Key>();
     /// <summary>
     /// TODO Photo    photo
     /// TODO Rights   rights
     /// </summary>
-    public pbc::RepeatedField<string> Locations {
+    public pbc::RepeatedField<global::DataTypes.Key> Locations {
       get { return locations_; }
     }
 
@@ -150,6 +540,16 @@ namespace DataTypes {
       get { return page_; }
       set {
         page_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 7;
+    private global::DataTypes.Key id_;
+    public global::DataTypes.Key Id {
+      get { return id_; }
+      set {
+        id_ = value;
       }
     }
 
@@ -170,6 +570,7 @@ namespace DataTypes {
       if (Card != other.Card) return false;
       if(!locations_.Equals(other.locations_)) return false;
       if (!object.Equals(Page, other.Page)) return false;
+      if (!object.Equals(Id, other.Id)) return false;
       return true;
     }
 
@@ -181,6 +582,7 @@ namespace DataTypes {
       if (Card.Length != 0) hash ^= Card.GetHashCode();
       hash ^= locations_.GetHashCode();
       if (page_ != null) hash ^= Page.GetHashCode();
+      if (id_ != null) hash ^= Id.GetHashCode();
       return hash;
     }
 
@@ -210,6 +612,10 @@ namespace DataTypes {
         output.WriteRawTag(50);
         output.WriteMessage(Page);
       }
+      if (id_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(Id);
+      }
     }
 
     public int CalculateSize() {
@@ -229,6 +635,9 @@ namespace DataTypes {
       size += locations_.CalculateSize(_repeated_locations_codec);
       if (page_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Page);
+      }
+      if (id_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Id);
       }
       return size;
     }
@@ -255,6 +664,12 @@ namespace DataTypes {
           page_ = new global::DataTypes.Page();
         }
         Page.MergeFrom(other.Page);
+      }
+      if (other.id_ != null) {
+        if (id_ == null) {
+          id_ = new global::DataTypes.Key();
+        }
+        Id.MergeFrom(other.Id);
       }
     }
 
@@ -292,6 +707,13 @@ namespace DataTypes {
             input.ReadMessage(page_);
             break;
           }
+          case 58: {
+            if (id_ == null) {
+              id_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(id_);
+            break;
+          }
         }
       }
     }
@@ -304,7 +726,7 @@ namespace DataTypes {
     public static pb::MessageParser<GetLocationRequest> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DataTypes.QueriesReflection.Descriptor.MessageTypes[1]; }
+      get { return global::DataTypes.QueriesReflection.Descriptor.MessageTypes[3]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -323,6 +745,7 @@ namespace DataTypes {
       macAddress_ = other.macAddress_;
       deviceName_ = other.deviceName_;
       Page = other.page_ != null ? other.Page.Clone() : null;
+      Id = other.id_ != null ? other.Id.Clone() : null;
     }
 
     public GetLocationRequest Clone() {
@@ -382,6 +805,16 @@ namespace DataTypes {
       }
     }
 
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 6;
+    private global::DataTypes.Key id_;
+    public global::DataTypes.Key Id {
+      get { return id_; }
+      set {
+        id_ = value;
+      }
+    }
+
     public override bool Equals(object other) {
       return Equals(other as GetLocationRequest);
     }
@@ -398,6 +831,7 @@ namespace DataTypes {
       if (MacAddress != other.MacAddress) return false;
       if (DeviceName != other.DeviceName) return false;
       if (!object.Equals(Page, other.Page)) return false;
+      if (!object.Equals(Id, other.Id)) return false;
       return true;
     }
 
@@ -408,6 +842,7 @@ namespace DataTypes {
       if (MacAddress.Length != 0) hash ^= MacAddress.GetHashCode();
       if (DeviceName.Length != 0) hash ^= DeviceName.GetHashCode();
       if (page_ != null) hash ^= Page.GetHashCode();
+      if (id_ != null) hash ^= Id.GetHashCode();
       return hash;
     }
 
@@ -436,6 +871,10 @@ namespace DataTypes {
         output.WriteRawTag(42);
         output.WriteMessage(Page);
       }
+      if (id_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(Id);
+      }
     }
 
     public int CalculateSize() {
@@ -454,6 +893,9 @@ namespace DataTypes {
       }
       if (page_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Page);
+      }
+      if (id_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Id);
       }
       return size;
     }
@@ -479,6 +921,12 @@ namespace DataTypes {
           page_ = new global::DataTypes.Page();
         }
         Page.MergeFrom(other.Page);
+      }
+      if (other.id_ != null) {
+        if (id_ == null) {
+          id_ = new global::DataTypes.Key();
+        }
+        Id.MergeFrom(other.Id);
       }
     }
 
@@ -512,6 +960,13 @@ namespace DataTypes {
             input.ReadMessage(page_);
             break;
           }
+          case 50: {
+            if (id_ == null) {
+              id_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(id_);
+            break;
+          }
         }
       }
     }
@@ -524,7 +979,7 @@ namespace DataTypes {
     public static pb::MessageParser<GetVisitRecordRequest> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DataTypes.QueriesReflection.Descriptor.MessageTypes[2]; }
+      get { return global::DataTypes.QueriesReflection.Descriptor.MessageTypes[4]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -546,6 +1001,7 @@ namespace DataTypes {
       datetimeTo_ = other.datetimeTo_;
       card_ = other.card_;
       Page = other.page_ != null ? other.Page.Clone() : null;
+      Id = other.id_ != null ? other.Id.Clone() : null;
     }
 
     public GetVisitRecordRequest Clone() {
@@ -574,19 +1030,19 @@ namespace DataTypes {
 
     /// <summary>Field number for the "locations" field.</summary>
     public const int LocationsFieldNumber = 3;
-    private static readonly pb::FieldCodec<string> _repeated_locations_codec
-        = pb::FieldCodec.ForString(26);
-    private readonly pbc::RepeatedField<string> locations_ = new pbc::RepeatedField<string>();
-    public pbc::RepeatedField<string> Locations {
+    private static readonly pb::FieldCodec<global::DataTypes.Key> _repeated_locations_codec
+        = pb::FieldCodec.ForMessage(26, global::DataTypes.Key.Parser);
+    private readonly pbc::RepeatedField<global::DataTypes.Key> locations_ = new pbc::RepeatedField<global::DataTypes.Key>();
+    public pbc::RepeatedField<global::DataTypes.Key> Locations {
       get { return locations_; }
     }
 
     /// <summary>Field number for the "persons" field.</summary>
     public const int PersonsFieldNumber = 4;
-    private static readonly pb::FieldCodec<string> _repeated_persons_codec
-        = pb::FieldCodec.ForString(34);
-    private readonly pbc::RepeatedField<string> persons_ = new pbc::RepeatedField<string>();
-    public pbc::RepeatedField<string> Persons {
+    private static readonly pb::FieldCodec<global::DataTypes.Key> _repeated_persons_codec
+        = pb::FieldCodec.ForMessage(34, global::DataTypes.Key.Parser);
+    private readonly pbc::RepeatedField<global::DataTypes.Key> persons_ = new pbc::RepeatedField<global::DataTypes.Key>();
+    public pbc::RepeatedField<global::DataTypes.Key> Persons {
       get { return persons_; }
     }
 
@@ -630,6 +1086,16 @@ namespace DataTypes {
       }
     }
 
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 9;
+    private global::DataTypes.Key id_;
+    public global::DataTypes.Key Id {
+      get { return id_; }
+      set {
+        id_ = value;
+      }
+    }
+
     public override bool Equals(object other) {
       return Equals(other as GetVisitRecordRequest);
     }
@@ -649,6 +1115,7 @@ namespace DataTypes {
       if (DatetimeTo != other.DatetimeTo) return false;
       if (Card != other.Card) return false;
       if (!object.Equals(Page, other.Page)) return false;
+      if (!object.Equals(Id, other.Id)) return false;
       return true;
     }
 
@@ -662,6 +1129,7 @@ namespace DataTypes {
       if (DatetimeTo != 0L) hash ^= DatetimeTo.GetHashCode();
       if (Card.Length != 0) hash ^= Card.GetHashCode();
       if (page_ != null) hash ^= Page.GetHashCode();
+      if (id_ != null) hash ^= Id.GetHashCode();
       return hash;
     }
 
@@ -696,6 +1164,10 @@ namespace DataTypes {
         output.WriteRawTag(66);
         output.WriteMessage(Page);
       }
+      if (id_ != null) {
+        output.WriteRawTag(74);
+        output.WriteMessage(Id);
+      }
     }
 
     public int CalculateSize() {
@@ -719,6 +1191,9 @@ namespace DataTypes {
       }
       if (page_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Page);
+      }
+      if (id_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Id);
       }
       return size;
     }
@@ -749,6 +1224,12 @@ namespace DataTypes {
           page_ = new global::DataTypes.Page();
         }
         Page.MergeFrom(other.Page);
+      }
+      if (other.id_ != null) {
+        if (id_ == null) {
+          id_ = new global::DataTypes.Key();
+        }
+        Id.MergeFrom(other.Id);
       }
     }
 
@@ -794,6 +1275,13 @@ namespace DataTypes {
             input.ReadMessage(page_);
             break;
           }
+          case 74: {
+            if (id_ == null) {
+              id_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(id_);
+            break;
+          }
         }
       }
     }
@@ -806,7 +1294,7 @@ namespace DataTypes {
     public static pb::MessageParser<Page> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DataTypes.QueriesReflection.Descriptor.MessageTypes[3]; }
+      get { return global::DataTypes.QueriesReflection.Descriptor.MessageTypes[5]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -936,7 +1424,7 @@ namespace DataTypes {
     public static pb::MessageParser<GetCardRequest> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DataTypes.QueriesReflection.Descriptor.MessageTypes[4]; }
+      get { return global::DataTypes.QueriesReflection.Descriptor.MessageTypes[6]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -985,10 +1473,10 @@ namespace DataTypes {
 
     /// <summary>Field number for the "owners" field.</summary>
     public const int OwnersFieldNumber = 3;
-    private static readonly pb::FieldCodec<string> _repeated_owners_codec
-        = pb::FieldCodec.ForString(26);
-    private readonly pbc::RepeatedField<string> owners_ = new pbc::RepeatedField<string>();
-    public pbc::RepeatedField<string> Owners {
+    private static readonly pb::FieldCodec<global::DataTypes.Key> _repeated_owners_codec
+        = pb::FieldCodec.ForMessage(26, global::DataTypes.Key.Parser);
+    private readonly pbc::RepeatedField<global::DataTypes.Key> owners_ = new pbc::RepeatedField<global::DataTypes.Key>();
+    public pbc::RepeatedField<global::DataTypes.Key> Owners {
       get { return owners_; }
     }
 

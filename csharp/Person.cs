@@ -24,22 +24,20 @@ namespace DataTypes {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChZkYXRhdHlwZXMvcGVyc29uLnByb3RvEglEYXRhVHlwZXMaFGRhdGF0eXBl",
-            "cy9jYXJkLnByb3RvGhVkYXRhdHlwZXMvcGhvdG8ucHJvdG8aFGRhdGF0eXBl",
-            "cy9kYXRhLnByb3RvIo0BCgZQZXJzb24SGgoCaWQYASABKAsyDi5EYXRhVHlw",
-            "ZXMuS2V5EhIKCmZpcnN0X25hbWUYAiABKAkSEQoJbGFzdF9uYW1lGAMgASgJ",
-            "EiAKBnBob3RvcxgEIAMoCzIQLkRhdGFUeXBlcy5QaG90bxIeCgVjYXJkcxgF",
-            "IAMoCzIPLkRhdGFUeXBlcy5DYXJkIjoKB1BlcnNvbnMSIAoFaXRlbXMYASAD",
-            "KAsyES5EYXRhVHlwZXMuUGVyc29uEg0KBWNvdW50GAIgASgDKjYKBkdlbmRl",
-            "chIWChJHZW5kZXJfVW5zcGVjaWZpZWQQABIICgRNYWxlEAESCgoGRmVtYWxl",
-            "EAIqVwoGUmlnaHRzEhYKElJpZ2h0c19VbnNwZWNpZmllZBAAEgoKBkN1c3Rv",
-            "bRABEgwKCE9wZXJhdG9yEAISCwoHTWFuYWdlchADEg4KClN1cGVydmlzb3IQ",
-            "BEJLCgdleC5ncnBjWjpnaXRodWIuY29tL0VuZWJyYS9TZXJ2aWNlQ29vcmRp",
-            "bmF0b3IvZ3JwYy9kYXRhdHlwZXMvcGVyc29uogIDUlRHYgZwcm90bzM="));
+            "cy9jYXJkLnByb3RvGhVkYXRhdHlwZXMvcGhvdG8ucHJvdG8aE2RhdGF0eXBl",
+            "cy9rZXkucHJvdG8ijQEKBlBlcnNvbhIaCgJpZBgBIAEoCzIOLkRhdGFUeXBl",
+            "cy5LZXkSEgoKZmlyc3RfbmFtZRgCIAEoCRIRCglsYXN0X25hbWUYAyABKAkS",
+            "IAoGcGhvdG9zGAQgAygLMhAuRGF0YVR5cGVzLlBob3RvEh4KBWNhcmRzGAUg",
+            "AygLMg8uRGF0YVR5cGVzLkNhcmQqNgoGR2VuZGVyEhYKEkdlbmRlcl9VbnNw",
+            "ZWNpZmllZBAAEggKBE1hbGUQARIKCgZGZW1hbGUQAipXCgZSaWdodHMSFgoS",
+            "UmlnaHRzX1Vuc3BlY2lmaWVkEAASCgoGQ3VzdG9tEAESDAoIT3BlcmF0b3IQ",
+            "AhILCgdNYW5hZ2VyEAMSDgoKU3VwZXJ2aXNvchAEQksKB2V4LmdycGNaOmdp",
+            "dGh1Yi5jb20vRW5lYnJhL1NlcnZpY2VDb29yZGluYXRvci9ncnBjL2RhdGF0",
+            "eXBlcy9wZXJzb26iAgNSVEdiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::DataTypes.CardReflection.Descriptor, global::DataTypes.PhotoReflection.Descriptor, global::DataTypes.DataReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::DataTypes.CardReflection.Descriptor, global::DataTypes.PhotoReflection.Descriptor, global::DataTypes.KeyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.Gender), typeof(global::DataTypes.Rights), }, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Person), global::DataTypes.Person.Parser, new[]{ "Id", "FirstName", "LastName", "Photos", "Cards" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Persons), global::DataTypes.Persons.Parser, new[]{ "Items", "Count" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Person), global::DataTypes.Person.Parser, new[]{ "Id", "FirstName", "LastName", "Photos", "Cards" }, null, null, null)
           }));
     }
     #endregion
@@ -256,128 +254,6 @@ namespace DataTypes {
           }
           case 42: {
             cards_.AddEntriesFrom(input, _repeated_cards_codec);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class Persons : pb::IMessage<Persons> {
-    private static readonly pb::MessageParser<Persons> _parser = new pb::MessageParser<Persons>(() => new Persons());
-    public static pb::MessageParser<Persons> Parser { get { return _parser; } }
-
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::DataTypes.PersonReflection.Descriptor.MessageTypes[1]; }
-    }
-
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    public Persons() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    public Persons(Persons other) : this() {
-      items_ = other.items_.Clone();
-      count_ = other.count_;
-    }
-
-    public Persons Clone() {
-      return new Persons(this);
-    }
-
-    /// <summary>Field number for the "items" field.</summary>
-    public const int ItemsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::DataTypes.Person> _repeated_items_codec
-        = pb::FieldCodec.ForMessage(10, global::DataTypes.Person.Parser);
-    private readonly pbc::RepeatedField<global::DataTypes.Person> items_ = new pbc::RepeatedField<global::DataTypes.Person>();
-    public pbc::RepeatedField<global::DataTypes.Person> Items {
-      get { return items_; }
-    }
-
-    /// <summary>Field number for the "count" field.</summary>
-    public const int CountFieldNumber = 2;
-    private long count_;
-    public long Count {
-      get { return count_; }
-      set {
-        count_ = value;
-      }
-    }
-
-    public override bool Equals(object other) {
-      return Equals(other as Persons);
-    }
-
-    public bool Equals(Persons other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if(!items_.Equals(other.items_)) return false;
-      if (Count != other.Count) return false;
-      return true;
-    }
-
-    public override int GetHashCode() {
-      int hash = 1;
-      hash ^= items_.GetHashCode();
-      if (Count != 0L) hash ^= Count.GetHashCode();
-      return hash;
-    }
-
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    public void WriteTo(pb::CodedOutputStream output) {
-      items_.WriteTo(output, _repeated_items_codec);
-      if (Count != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(Count);
-      }
-    }
-
-    public int CalculateSize() {
-      int size = 0;
-      size += items_.CalculateSize(_repeated_items_codec);
-      if (Count != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Count);
-      }
-      return size;
-    }
-
-    public void MergeFrom(Persons other) {
-      if (other == null) {
-        return;
-      }
-      items_.Add(other.items_);
-      if (other.Count != 0L) {
-        Count = other.Count;
-      }
-    }
-
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 10: {
-            items_.AddEntriesFrom(input, _repeated_items_codec);
-            break;
-          }
-          case 16: {
-            Count = input.ReadInt64();
             break;
           }
         }

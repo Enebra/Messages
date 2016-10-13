@@ -23,40 +23,43 @@ namespace DataTypes {
     static DevicesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChdkYXRhdHlwZXMvZGV2aWNlcy5wcm90bxIJRGF0YVR5cGVzGhRkYXRhdHlw",
-            "ZXMvZGF0YS5wcm90byIzCgxBY2Nlc3NEZXZpY2USDAoEbmFtZRgBIAEoCRIV",
-            "Cg1zZXJpYWxfbnVtYmVyGAIgASgGIo0BCgxEZXZpY2VVcGRhdGUSOAoRY29u",
-            "bmVjdGVkX2RldmljZXMYASABKAsyGy5EYXRhVHlwZXMuQ29ubmVjdGVkRGV2",
-            "aWNlc0gAEjkKEGRldmljZV9zdGF0ZV9tc2cYAiABKAsyHS5EYXRhVHlwZXMu",
-            "RGV2aWNlU3RhdGVNZXNzYWdlSABCCAoGdXBkYXRlIlsKEENvbm5lY3RlZERl",
-            "dmljZXMSIwoLbG9jYXRpb25faWQYASABKAsyDi5EYXRhVHlwZXMuS2V5EiIK",
-            "B2RldmljZXMYAiADKAsyES5EYXRhVHlwZXMuRGV2aWNlIkoKBkRldmljZRIq",
-            "CgtkZXZpY2VfdHlwZRgBIAEoDjIVLkRhdGFUeXBlcy5EZXZpY2VUeXBlEhQK",
-            "DGRldmljZV9uYW1lcxgCIAEoCSKlAQoSRGV2aWNlU3RhdGVNZXNzYWdlEkQK",
-            "GGdlbmVyaWNfZGV2aWNlX3N0YXRlX21zZxgBIAEoCzIgLkRhdGFUeXBlcy5H",
-            "ZW5lcmljRGV2aWNlU3RhdGVNc2dIABJCChdhY2Nlc3NfZGV2aWNlX3N0YXRl",
-            "X21zZxgCIAEoCzIfLkRhdGFUeXBlcy5BY2Nlc3NEZXZpY2VTdGF0ZU1zZ0gA",
-            "QgUKA21zZyKZAQoVR2VuZXJpY0RldmljZVN0YXRlTXNnEiMKC2xvY2F0aW9u",
-            "X2lkGAEgASgLMg4uRGF0YVR5cGVzLktleRIjCgR0eXBlGAIgASgOMhUuRGF0",
-            "YVR5cGVzLkRldmljZVR5cGUSJQoFc3RhdGUYAyABKA4yFi5EYXRhVHlwZXMu",
-            "RGV2aWNlU3RhdGUSDwoHbWVzc2FnZRgEIAEoCSJLChRBY2Nlc3NEZXZpY2VT",
-            "dGF0ZU1zZxIjCgtsb2NhdGlvbl9pZBgBIAEoCzIOLkRhdGFUeXBlcy5LZXkS",
-            "DgoGb3BlbmVkGAIgASgIKjgKCkRldmljZVR5cGUSDQoJTm9uZV9UeXBlEAAS",
-            "DgoKQ2FyZFJlYWRlchABEgsKB0NhcHR1cmUQAipgCgtEZXZpY2VTdGF0ZRIO",
-            "CgpOb25lX1N0YXRlEAASCgoGQWN0aXZlEAESEQoNU3RvcHBlZEJ5VXNlchAC",
-            "EgoKBlBhdXNlZBADEgsKB1N0b3BwZWQQBBIJCgVFcnJvchAFQkwKB2V4Lmdy",
-            "cGNaO2dpdGh1Yi5jb20vRW5lYnJhL1NlcnZpY2VDb29yZGluYXRvci9ncnBj",
-            "L2RhdGF0eXBlcy9kZXZpY2VzogIDUlRHYgZwcm90bzM="));
+            "ChdkYXRhdHlwZXMvZGV2aWNlcy5wcm90bxIJRGF0YVR5cGVzGhNkYXRhdHlw",
+            "ZXMva2V5LnByb3RvIjMKDEFjY2Vzc0RldmljZRIMCgRuYW1lGAEgASgJEhUK",
+            "DXNlcmlhbF9udW1iZXIYAiABKAYieAoMRGV2aWNlVXBkYXRlEiMKBWl0ZW1z",
+            "GAEgASgLMhIuRGF0YVR5cGVzLkRldmljZXNIABI5ChBkZXZpY2Vfc3RhdGVf",
+            "bXNnGAIgASgLMh0uRGF0YVR5cGVzLkRldmljZVN0YXRlTWVzc2FnZUgAQggK",
+            "BnVwZGF0ZSJSCgdEZXZpY2VzEiMKC2xvY2F0aW9uX2lkGAEgASgLMg4uRGF0",
+            "YVR5cGVzLktleRIiCgdkZXZpY2VzGAIgAygLMhEuRGF0YVR5cGVzLkRldmlj",
+            "ZSJJCgZEZXZpY2USKgoLZGV2aWNlX3R5cGUYASABKA4yFS5EYXRhVHlwZXMu",
+            "RGV2aWNlVHlwZRITCgtkZXZpY2VfbmFtZRgCIAEoCSKlAQoSRGV2aWNlU3Rh",
+            "dGVNZXNzYWdlEkQKGGdlbmVyaWNfZGV2aWNlX3N0YXRlX21zZxgBIAEoCzIg",
+            "LkRhdGFUeXBlcy5HZW5lcmljRGV2aWNlU3RhdGVNc2dIABJCChdhY2Nlc3Nf",
+            "ZGV2aWNlX3N0YXRlX21zZxgCIAEoCzIfLkRhdGFUeXBlcy5BY2Nlc3NEZXZp",
+            "Y2VTdGF0ZU1zZ0gAQgUKA21zZyKZAQoVR2VuZXJpY0RldmljZVN0YXRlTXNn",
+            "EiMKC2xvY2F0aW9uX2lkGAEgASgLMg4uRGF0YVR5cGVzLktleRIjCgR0eXBl",
+            "GAIgASgOMhUuRGF0YVR5cGVzLkRldmljZVR5cGUSJQoFc3RhdGUYAyABKA4y",
+            "Fi5EYXRhVHlwZXMuRGV2aWNlU3RhdGUSDwoHbWVzc2FnZRgEIAEoCSJLChRB",
+            "Y2Nlc3NEZXZpY2VTdGF0ZU1zZxIjCgtsb2NhdGlvbl9pZBgBIAEoCzIOLkRh",
+            "dGFUeXBlcy5LZXkSDgoGb3BlbmVkGAIgASgIIhsKB0NhcmRNc2cSEAoIY2Fy",
+            "ZF9udW0YASABKAkiJwoIQ2hlY2tNc2cSCgoCb2sYASABKAgSDwoHbWVzc2Fn",
+            "ZRgCIAEoCSo4CgpEZXZpY2VUeXBlEg0KCU5vbmVfVHlwZRAAEg4KCkNhcmRS",
+            "ZWFkZXIQARILCgdDYXB0dXJlEAIqYAoLRGV2aWNlU3RhdGUSDgoKTm9uZV9T",
+            "dGF0ZRAAEgoKBkFjdGl2ZRABEhEKDVN0b3BwZWRCeVVzZXIQAhIKCgZQYXVz",
+            "ZWQQAxILCgdTdG9wcGVkEAQSCQoFRXJyb3IQBUJMCgdleC5ncnBjWjtnaXRo",
+            "dWIuY29tL0VuZWJyYS9TZXJ2aWNlQ29vcmRpbmF0b3IvZ3JwYy9kYXRhdHlw",
+            "ZXMvZGV2aWNlc6ICA1JUR2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::DataTypes.DataReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::DataTypes.KeyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.DeviceType), typeof(global::DataTypes.DeviceState), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.AccessDevice), global::DataTypes.AccessDevice.Parser, new[]{ "Name", "SerialNumber" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.DeviceUpdate), global::DataTypes.DeviceUpdate.Parser, new[]{ "ConnectedDevices", "DeviceStateMsg" }, new[]{ "Update" }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.ConnectedDevices), global::DataTypes.ConnectedDevices.Parser, new[]{ "LocationId", "Devices" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Device), global::DataTypes.Device.Parser, new[]{ "DeviceType", "DeviceNames" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.DeviceUpdate), global::DataTypes.DeviceUpdate.Parser, new[]{ "Items", "DeviceStateMsg" }, new[]{ "Update" }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Devices), global::DataTypes.Devices.Parser, new[]{ "LocationId", "Devices_" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Device), global::DataTypes.Device.Parser, new[]{ "DeviceType", "DeviceName" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.DeviceStateMessage), global::DataTypes.DeviceStateMessage.Parser, new[]{ "GenericDeviceStateMsg", "AccessDeviceStateMsg" }, new[]{ "Msg" }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.GenericDeviceStateMsg), global::DataTypes.GenericDeviceStateMsg.Parser, new[]{ "LocationId", "Type", "State", "Message" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.AccessDeviceStateMsg), global::DataTypes.AccessDeviceStateMsg.Parser, new[]{ "LocationId", "Opened" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.AccessDeviceStateMsg), global::DataTypes.AccessDeviceStateMsg.Parser, new[]{ "LocationId", "Opened" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.CardMsg), global::DataTypes.CardMsg.Parser, new[]{ "CardNum" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.CheckMsg), global::DataTypes.CheckMsg.Parser, new[]{ "Ok", "Message" }, null, null, null)
           }));
     }
     #endregion
@@ -232,8 +235,8 @@ namespace DataTypes {
 
     public DeviceUpdate(DeviceUpdate other) : this() {
       switch (other.UpdateCase) {
-        case UpdateOneofCase.ConnectedDevices:
-          ConnectedDevices = other.ConnectedDevices.Clone();
+        case UpdateOneofCase.Items:
+          Items = other.Items.Clone();
           break;
         case UpdateOneofCase.DeviceStateMsg:
           DeviceStateMsg = other.DeviceStateMsg.Clone();
@@ -246,18 +249,21 @@ namespace DataTypes {
       return new DeviceUpdate(this);
     }
 
-    /// <summary>Field number for the "connected_devices" field.</summary>
-    public const int ConnectedDevicesFieldNumber = 1;
-    public global::DataTypes.ConnectedDevices ConnectedDevices {
-      get { return updateCase_ == UpdateOneofCase.ConnectedDevices ? (global::DataTypes.ConnectedDevices) update_ : null; }
+    /// <summary>Field number for the "items" field.</summary>
+    public const int ItemsFieldNumber = 1;
+    public global::DataTypes.Devices Items {
+      get { return updateCase_ == UpdateOneofCase.Items ? (global::DataTypes.Devices) update_ : null; }
       set {
         update_ = value;
-        updateCase_ = value == null ? UpdateOneofCase.None : UpdateOneofCase.ConnectedDevices;
+        updateCase_ = value == null ? UpdateOneofCase.None : UpdateOneofCase.Items;
       }
     }
 
     /// <summary>Field number for the "device_state_msg" field.</summary>
     public const int DeviceStateMsgFieldNumber = 2;
+    /// <summary>
+    ///  On location 
+    /// </summary>
     public global::DataTypes.DeviceStateMessage DeviceStateMsg {
       get { return updateCase_ == UpdateOneofCase.DeviceStateMsg ? (global::DataTypes.DeviceStateMessage) update_ : null; }
       set {
@@ -270,7 +276,7 @@ namespace DataTypes {
     /// <summary>Enum of possible cases for the "update" oneof.</summary>
     public enum UpdateOneofCase {
       None = 0,
-      ConnectedDevices = 1,
+      Items = 1,
       DeviceStateMsg = 2,
     }
     private UpdateOneofCase updateCase_ = UpdateOneofCase.None;
@@ -294,7 +300,7 @@ namespace DataTypes {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(ConnectedDevices, other.ConnectedDevices)) return false;
+      if (!object.Equals(Items, other.Items)) return false;
       if (!object.Equals(DeviceStateMsg, other.DeviceStateMsg)) return false;
       if (UpdateCase != other.UpdateCase) return false;
       return true;
@@ -302,7 +308,7 @@ namespace DataTypes {
 
     public override int GetHashCode() {
       int hash = 1;
-      if (updateCase_ == UpdateOneofCase.ConnectedDevices) hash ^= ConnectedDevices.GetHashCode();
+      if (updateCase_ == UpdateOneofCase.Items) hash ^= Items.GetHashCode();
       if (updateCase_ == UpdateOneofCase.DeviceStateMsg) hash ^= DeviceStateMsg.GetHashCode();
       hash ^= (int) updateCase_;
       return hash;
@@ -313,9 +319,9 @@ namespace DataTypes {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (updateCase_ == UpdateOneofCase.ConnectedDevices) {
+      if (updateCase_ == UpdateOneofCase.Items) {
         output.WriteRawTag(10);
-        output.WriteMessage(ConnectedDevices);
+        output.WriteMessage(Items);
       }
       if (updateCase_ == UpdateOneofCase.DeviceStateMsg) {
         output.WriteRawTag(18);
@@ -325,8 +331,8 @@ namespace DataTypes {
 
     public int CalculateSize() {
       int size = 0;
-      if (updateCase_ == UpdateOneofCase.ConnectedDevices) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ConnectedDevices);
+      if (updateCase_ == UpdateOneofCase.Items) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Items);
       }
       if (updateCase_ == UpdateOneofCase.DeviceStateMsg) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(DeviceStateMsg);
@@ -339,8 +345,8 @@ namespace DataTypes {
         return;
       }
       switch (other.UpdateCase) {
-        case UpdateOneofCase.ConnectedDevices:
-          ConnectedDevices = other.ConnectedDevices;
+        case UpdateOneofCase.Items:
+          Items = other.Items;
           break;
         case UpdateOneofCase.DeviceStateMsg:
           DeviceStateMsg = other.DeviceStateMsg;
@@ -357,12 +363,12 @@ namespace DataTypes {
             input.SkipLastField();
             break;
           case 10: {
-            global::DataTypes.ConnectedDevices subBuilder = new global::DataTypes.ConnectedDevices();
-            if (updateCase_ == UpdateOneofCase.ConnectedDevices) {
-              subBuilder.MergeFrom(ConnectedDevices);
+            global::DataTypes.Devices subBuilder = new global::DataTypes.Devices();
+            if (updateCase_ == UpdateOneofCase.Items) {
+              subBuilder.MergeFrom(Items);
             }
             input.ReadMessage(subBuilder);
-            ConnectedDevices = subBuilder;
+            Items = subBuilder;
             break;
           }
           case 18: {
@@ -381,9 +387,9 @@ namespace DataTypes {
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class ConnectedDevices : pb::IMessage<ConnectedDevices> {
-    private static readonly pb::MessageParser<ConnectedDevices> _parser = new pb::MessageParser<ConnectedDevices>(() => new ConnectedDevices());
-    public static pb::MessageParser<ConnectedDevices> Parser { get { return _parser; } }
+  public sealed partial class Devices : pb::IMessage<Devices> {
+    private static readonly pb::MessageParser<Devices> _parser = new pb::MessageParser<Devices>(() => new Devices());
+    public static pb::MessageParser<Devices> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
       get { return global::DataTypes.DevicesReflection.Descriptor.MessageTypes[2]; }
@@ -393,19 +399,19 @@ namespace DataTypes {
       get { return Descriptor; }
     }
 
-    public ConnectedDevices() {
+    public Devices() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
-    public ConnectedDevices(ConnectedDevices other) : this() {
+    public Devices(Devices other) : this() {
       LocationId = other.locationId_ != null ? other.LocationId.Clone() : null;
       devices_ = other.devices_.Clone();
     }
 
-    public ConnectedDevices Clone() {
-      return new ConnectedDevices(this);
+    public Devices Clone() {
+      return new Devices(this);
     }
 
     /// <summary>Field number for the "location_id" field.</summary>
@@ -419,19 +425,19 @@ namespace DataTypes {
     }
 
     /// <summary>Field number for the "devices" field.</summary>
-    public const int DevicesFieldNumber = 2;
+    public const int Devices_FieldNumber = 2;
     private static readonly pb::FieldCodec<global::DataTypes.Device> _repeated_devices_codec
         = pb::FieldCodec.ForMessage(18, global::DataTypes.Device.Parser);
     private readonly pbc::RepeatedField<global::DataTypes.Device> devices_ = new pbc::RepeatedField<global::DataTypes.Device>();
-    public pbc::RepeatedField<global::DataTypes.Device> Devices {
+    public pbc::RepeatedField<global::DataTypes.Device> Devices_ {
       get { return devices_; }
     }
 
     public override bool Equals(object other) {
-      return Equals(other as ConnectedDevices);
+      return Equals(other as Devices);
     }
 
-    public bool Equals(ConnectedDevices other) {
+    public bool Equals(Devices other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -471,7 +477,7 @@ namespace DataTypes {
       return size;
     }
 
-    public void MergeFrom(ConnectedDevices other) {
+    public void MergeFrom(Devices other) {
       if (other == null) {
         return;
       }
@@ -529,7 +535,7 @@ namespace DataTypes {
 
     public Device(Device other) : this() {
       deviceType_ = other.deviceType_;
-      deviceNames_ = other.deviceNames_;
+      deviceName_ = other.deviceName_;
     }
 
     public Device Clone() {
@@ -546,13 +552,13 @@ namespace DataTypes {
       }
     }
 
-    /// <summary>Field number for the "device_names" field.</summary>
-    public const int DeviceNamesFieldNumber = 2;
-    private string deviceNames_ = "";
-    public string DeviceNames {
-      get { return deviceNames_; }
+    /// <summary>Field number for the "device_name" field.</summary>
+    public const int DeviceNameFieldNumber = 2;
+    private string deviceName_ = "";
+    public string DeviceName {
+      get { return deviceName_; }
       set {
-        deviceNames_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        deviceName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -568,14 +574,14 @@ namespace DataTypes {
         return true;
       }
       if (DeviceType != other.DeviceType) return false;
-      if (DeviceNames != other.DeviceNames) return false;
+      if (DeviceName != other.DeviceName) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
       if (DeviceType != 0) hash ^= DeviceType.GetHashCode();
-      if (DeviceNames.Length != 0) hash ^= DeviceNames.GetHashCode();
+      if (DeviceName.Length != 0) hash ^= DeviceName.GetHashCode();
       return hash;
     }
 
@@ -588,9 +594,9 @@ namespace DataTypes {
         output.WriteRawTag(8);
         output.WriteEnum((int) DeviceType);
       }
-      if (DeviceNames.Length != 0) {
+      if (DeviceName.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteString(DeviceNames);
+        output.WriteString(DeviceName);
       }
     }
 
@@ -599,8 +605,8 @@ namespace DataTypes {
       if (DeviceType != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) DeviceType);
       }
-      if (DeviceNames.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(DeviceNames);
+      if (DeviceName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(DeviceName);
       }
       return size;
     }
@@ -612,8 +618,8 @@ namespace DataTypes {
       if (other.DeviceType != 0) {
         DeviceType = other.DeviceType;
       }
-      if (other.DeviceNames.Length != 0) {
-        DeviceNames = other.DeviceNames;
+      if (other.DeviceName.Length != 0) {
+        DeviceName = other.DeviceName;
       }
     }
 
@@ -629,7 +635,7 @@ namespace DataTypes {
             break;
           }
           case 18: {
-            DeviceNames = input.ReadString();
+            DeviceName = input.ReadString();
             break;
           }
         }
@@ -810,6 +816,9 @@ namespace DataTypes {
 
   }
 
+  /// <summary>
+  ///  Other devices (binded to location)
+  /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class GenericDeviceStateMsg : pb::IMessage<GenericDeviceStateMsg> {
     private static readonly pb::MessageParser<GenericDeviceStateMsg> _parser = new pb::MessageParser<GenericDeviceStateMsg>(() => new GenericDeviceStateMsg());
@@ -873,6 +882,9 @@ namespace DataTypes {
     /// <summary>Field number for the "message" field.</summary>
     public const int MessageFieldNumber = 4;
     private string message_ = "";
+    /// <summary>
+    /// msg from device
+    /// </summary>
     public string Message {
       get { return message_; }
       set {
@@ -1001,7 +1013,7 @@ namespace DataTypes {
   }
 
   /// <summary>
-  ///  Notify on door state
+  ///  Notify on door state  (binded to location)
   /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class AccessDeviceStateMsg : pb::IMessage<AccessDeviceStateMsg> {
@@ -1131,6 +1143,239 @@ namespace DataTypes {
           }
           case 16: {
             Opened = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class CardMsg : pb::IMessage<CardMsg> {
+    private static readonly pb::MessageParser<CardMsg> _parser = new pb::MessageParser<CardMsg>(() => new CardMsg());
+    public static pb::MessageParser<CardMsg> Parser { get { return _parser; } }
+
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DataTypes.DevicesReflection.Descriptor.MessageTypes[7]; }
+    }
+
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    public CardMsg() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    public CardMsg(CardMsg other) : this() {
+      cardNum_ = other.cardNum_;
+    }
+
+    public CardMsg Clone() {
+      return new CardMsg(this);
+    }
+
+    /// <summary>Field number for the "card_num" field.</summary>
+    public const int CardNumFieldNumber = 1;
+    private string cardNum_ = "";
+    public string CardNum {
+      get { return cardNum_; }
+      set {
+        cardNum_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    public override bool Equals(object other) {
+      return Equals(other as CardMsg);
+    }
+
+    public bool Equals(CardMsg other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (CardNum != other.CardNum) return false;
+      return true;
+    }
+
+    public override int GetHashCode() {
+      int hash = 1;
+      if (CardNum.Length != 0) hash ^= CardNum.GetHashCode();
+      return hash;
+    }
+
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (CardNum.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(CardNum);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (CardNum.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CardNum);
+      }
+      return size;
+    }
+
+    public void MergeFrom(CardMsg other) {
+      if (other == null) {
+        return;
+      }
+      if (other.CardNum.Length != 0) {
+        CardNum = other.CardNum;
+      }
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            CardNum = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class CheckMsg : pb::IMessage<CheckMsg> {
+    private static readonly pb::MessageParser<CheckMsg> _parser = new pb::MessageParser<CheckMsg>(() => new CheckMsg());
+    public static pb::MessageParser<CheckMsg> Parser { get { return _parser; } }
+
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DataTypes.DevicesReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    public CheckMsg() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    public CheckMsg(CheckMsg other) : this() {
+      ok_ = other.ok_;
+      message_ = other.message_;
+    }
+
+    public CheckMsg Clone() {
+      return new CheckMsg(this);
+    }
+
+    /// <summary>Field number for the "ok" field.</summary>
+    public const int OkFieldNumber = 1;
+    private bool ok_;
+    public bool Ok {
+      get { return ok_; }
+      set {
+        ok_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "message" field.</summary>
+    public const int MessageFieldNumber = 2;
+    private string message_ = "";
+    public string Message {
+      get { return message_; }
+      set {
+        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    public override bool Equals(object other) {
+      return Equals(other as CheckMsg);
+    }
+
+    public bool Equals(CheckMsg other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Ok != other.Ok) return false;
+      if (Message != other.Message) return false;
+      return true;
+    }
+
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Ok != false) hash ^= Ok.GetHashCode();
+      if (Message.Length != 0) hash ^= Message.GetHashCode();
+      return hash;
+    }
+
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Ok != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Ok);
+      }
+      if (Message.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Message);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (Ok != false) {
+        size += 1 + 1;
+      }
+      if (Message.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
+      }
+      return size;
+    }
+
+    public void MergeFrom(CheckMsg other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Ok != false) {
+        Ok = other.Ok;
+      }
+      if (other.Message.Length != 0) {
+        Message = other.Message;
+      }
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            Ok = input.ReadBool();
+            break;
+          }
+          case 18: {
+            Message = input.ReadString();
             break;
           }
         }

@@ -25,129 +25,28 @@ namespace Services {
           string.Concat(
             "ChtzZXJ2aWNlcy91bml0X3NlcnZpY2UucHJvdG8SCFNlcnZpY2VzGhtnb29n",
             "bGUvcHJvdG9idWYvZW1wdHkucHJvdG8aGGRhdGF0eXBlcy9sb2NhdGlvbi5w",
-            "cm90byIfCgpGcmFtZUJ5dGVzEhEKCWZyYW1lRGF0YRgBIAEoDDLKAQoLVW5p",
-            "dFNlcnZpY2USOQoIT3BlbkRvb3ISEy5EYXRhVHlwZXMuTG9jYXRpb24aFi5n",
-            "b29nbGUucHJvdG9idWYuRW1wdHkiABI/Cg5HZXRWaWRlb1N0cmVhbRITLkRh",
-            "dGFUeXBlcy5Mb2NhdGlvbhoULlNlcnZpY2VzLkZyYW1lQnl0ZXMiADABEj8K",
-            "DlVwZGF0ZUxvY2F0aW9uEhMuRGF0YVR5cGVzLkxvY2F0aW9uGhYuZ29vZ2xl",
-            "LnByb3RvYnVmLkVtcHR5IgBCTwoHZXguZ3JwY1o+Z2l0aHViLmNvbS9FbmVi",
-            "cmEvU2VydmljZUNvb3JkaW5hdG9yL2dycGMvc2VydmljZXMvdW5pdHNlcnZp",
-            "Y2WiAgNSVEdiBnByb3RvMw=="));
+            "cm90bxoXZGF0YXR5cGVzL2RldmljZXMucHJvdG8aGmRhdGF0eXBlcy9iaW9t",
+            "ZXRyaWNzLnByb3RvMukDCgtVbml0U2VydmljZRI5CghPcGVuRG9vchITLkRh",
+            "dGFUeXBlcy5Mb2NhdGlvbhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEkMK",
+            "EUdldExvY2F0aW9uU3RyZWFtEhMuRGF0YVR5cGVzLkxvY2F0aW9uGhUuRGF0",
+            "YVR5cGVzLkZyYW1lQnl0ZXMiADABEjoKCkdldERldmljZXMSFi5nb29nbGUu",
+            "cHJvdG9idWYuRW1wdHkaEi5EYXRhVHlwZXMuRGV2aWNlcyIAEj8KDlVwZGF0",
+            "ZUxvY2F0aW9uEhMuRGF0YVR5cGVzLkxvY2F0aW9uGhYuZ29vZ2xlLnByb3Rv",
+            "YnVmLkVtcHR5IgASMgoHR2V0Q2FyZBIRLkRhdGFUeXBlcy5EZXZpY2UaEi5E",
+            "YXRhVHlwZXMuQ2FyZE1zZyIAEjcKC0NoZWNrRGV2aWNlEhEuRGF0YVR5cGVz",
+            "LkRldmljZRoTLkRhdGFUeXBlcy5DaGVja01zZyIAEj8KD0dldERldmljZVN0",
+            "cmVhbRIRLkRhdGFUeXBlcy5EZXZpY2UaFS5EYXRhVHlwZXMuRnJhbWVCeXRl",
+            "cyIAMAESLwoGRW5yb2xsEhEuRGF0YVR5cGVzLkRldmljZRoQLkRhdGFUeXBl",
+            "cy5GYWNlcyIAQk8KB2V4LmdycGNaPmdpdGh1Yi5jb20vRW5lYnJhL1NlcnZp",
+            "Y2VDb29yZGluYXRvci9ncnBjL3NlcnZpY2VzL3VuaXRzZXJ2aWNlogIDUlRH",
+            "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::DataTypes.LocationReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Services.FrameBytes), global::Services.FrameBytes.Parser, new[]{ "FrameData" }, null, null, null)
-          }));
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::DataTypes.LocationReflection.Descriptor, global::DataTypes.DevicesReflection.Descriptor, global::DataTypes.BiometricsReflection.Descriptor, },
+          new pbr::GeneratedClrTypeInfo(null, null));
     }
     #endregion
 
   }
-  #region Messages
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class FrameBytes : pb::IMessage<FrameBytes> {
-    private static readonly pb::MessageParser<FrameBytes> _parser = new pb::MessageParser<FrameBytes>(() => new FrameBytes());
-    public static pb::MessageParser<FrameBytes> Parser { get { return _parser; } }
-
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Services.UnitServiceReflection.Descriptor.MessageTypes[0]; }
-    }
-
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    public FrameBytes() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    public FrameBytes(FrameBytes other) : this() {
-      frameData_ = other.frameData_;
-    }
-
-    public FrameBytes Clone() {
-      return new FrameBytes(this);
-    }
-
-    /// <summary>Field number for the "frameData" field.</summary>
-    public const int FrameDataFieldNumber = 1;
-    private pb::ByteString frameData_ = pb::ByteString.Empty;
-    public pb::ByteString FrameData {
-      get { return frameData_; }
-      set {
-        frameData_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    public override bool Equals(object other) {
-      return Equals(other as FrameBytes);
-    }
-
-    public bool Equals(FrameBytes other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (FrameData != other.FrameData) return false;
-      return true;
-    }
-
-    public override int GetHashCode() {
-      int hash = 1;
-      if (FrameData.Length != 0) hash ^= FrameData.GetHashCode();
-      return hash;
-    }
-
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (FrameData.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(FrameData);
-      }
-    }
-
-    public int CalculateSize() {
-      int size = 0;
-      if (FrameData.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(FrameData);
-      }
-      return size;
-    }
-
-    public void MergeFrom(FrameBytes other) {
-      if (other == null) {
-        return;
-      }
-      if (other.FrameData.Length != 0) {
-        FrameData = other.FrameData;
-      }
-    }
-
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 10: {
-            FrameData = input.ReadBytes();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  #endregion
-
 }
 
 #endregion Designer generated code

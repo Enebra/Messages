@@ -24,36 +24,22 @@ namespace DataTypes {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChhkYXRhdHlwZXMvbG9jYXRpb24ucHJvdG8SCURhdGFUeXBlcxoXZGF0YXR5",
-            "cGVzL2RldmljZXMucHJvdG8aFGRhdGF0eXBlcy9kYXRhLnByb3RvIpMBCghM",
-            "b2NhdGlvbhIaCgJpZBgBIAEoCzIOLkRhdGFUeXBlcy5LZXkSDAoEbmFtZRgC",
-            "IAEoCRITCgtkZXNjcmlwdGlvbhgDIAEoCRIYChB1bml0X21hY19hZGRyZXNz",
-            "GAQgASgJEi4KDWFjY2Vzc19kZXZpY2UYBSABKAsyFy5EYXRhVHlwZXMuQWNj",
-            "ZXNzRGV2aWNlIj4KCUxvY2F0aW9ucxIiCgVpdGVtcxgBIAMoCzITLkRhdGFU",
-            "eXBlcy5Mb2NhdGlvbhINCgVjb3VudBgCIAEoAypLCg1Mb2NhdGlvblN0YXRl",
-            "EhUKEVVuc3BlY2lmaWVkX1N0YXRlEAASCgoGT3BlbmVkEAESCgoGQ2xvc2Vk",
-            "EAISCwoHRmFpbHVyZRADQk0KB2V4LmdycGNaPGdpdGh1Yi5jb20vRW5lYnJh",
-            "L1NlcnZpY2VDb29yZGluYXRvci9ncnBjL2RhdGF0eXBlcy9sb2NhdGlvbqIC",
-            "A1JUR2IGcHJvdG8z"));
+            "cGVzL2RldmljZXMucHJvdG8aE2RhdGF0eXBlcy9rZXkucHJvdG8ikwEKCExv",
+            "Y2F0aW9uEhoKAmlkGAEgASgLMg4uRGF0YVR5cGVzLktleRIMCgRuYW1lGAIg",
+            "ASgJEhMKC2Rlc2NyaXB0aW9uGAMgASgJEhgKEHVuaXRfbWFjX2FkZHJlc3MY",
+            "BCABKAkSLgoNYWNjZXNzX2RldmljZRgFIAEoCzIXLkRhdGFUeXBlcy5BY2Nl",
+            "c3NEZXZpY2VCTQoHZXguZ3JwY1o8Z2l0aHViLmNvbS9FbmVicmEvU2Vydmlj",
+            "ZUNvb3JkaW5hdG9yL2dycGMvZGF0YXR5cGVzL2xvY2F0aW9uogIDUlRHYgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::DataTypes.DevicesReflection.Descriptor, global::DataTypes.DataReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.LocationState), }, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Location), global::DataTypes.Location.Parser, new[]{ "Id", "Name", "Description", "UnitMacAddress", "AccessDevice" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Locations), global::DataTypes.Locations.Parser, new[]{ "Items", "Count" }, null, null, null)
+          new pbr::FileDescriptor[] { global::DataTypes.DevicesReflection.Descriptor, global::DataTypes.KeyReflection.Descriptor, },
+          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Location), global::DataTypes.Location.Parser, new[]{ "Id", "Name", "Description", "UnitMacAddress", "AccessDevice" }, null, null, null)
           }));
     }
     #endregion
 
   }
-  #region Enums
-  public enum LocationState {
-    [pbr::OriginalName("Unspecified_State")] UnspecifiedState = 0,
-    [pbr::OriginalName("Opened")] Opened = 1,
-    [pbr::OriginalName("Closed")] Closed = 2,
-    [pbr::OriginalName("Failure")] Failure = 3,
-  }
-
-  #endregion
-
   #region Messages
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class Location : pb::IMessage<Location> {
@@ -129,6 +115,9 @@ namespace DataTypes {
     /// <summary>Field number for the "access_device" field.</summary>
     public const int AccessDeviceFieldNumber = 5;
     private global::DataTypes.AccessDevice accessDevice_;
+    /// <summary>
+    /// TODO add capture device
+    /// </summary>
     public global::DataTypes.AccessDevice AccessDevice {
       get { return accessDevice_; }
       set {
@@ -270,128 +259,6 @@ namespace DataTypes {
               accessDevice_ = new global::DataTypes.AccessDevice();
             }
             input.ReadMessage(accessDevice_);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class Locations : pb::IMessage<Locations> {
-    private static readonly pb::MessageParser<Locations> _parser = new pb::MessageParser<Locations>(() => new Locations());
-    public static pb::MessageParser<Locations> Parser { get { return _parser; } }
-
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::DataTypes.LocationReflection.Descriptor.MessageTypes[1]; }
-    }
-
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    public Locations() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    public Locations(Locations other) : this() {
-      items_ = other.items_.Clone();
-      count_ = other.count_;
-    }
-
-    public Locations Clone() {
-      return new Locations(this);
-    }
-
-    /// <summary>Field number for the "items" field.</summary>
-    public const int ItemsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::DataTypes.Location> _repeated_items_codec
-        = pb::FieldCodec.ForMessage(10, global::DataTypes.Location.Parser);
-    private readonly pbc::RepeatedField<global::DataTypes.Location> items_ = new pbc::RepeatedField<global::DataTypes.Location>();
-    public pbc::RepeatedField<global::DataTypes.Location> Items {
-      get { return items_; }
-    }
-
-    /// <summary>Field number for the "count" field.</summary>
-    public const int CountFieldNumber = 2;
-    private long count_;
-    public long Count {
-      get { return count_; }
-      set {
-        count_ = value;
-      }
-    }
-
-    public override bool Equals(object other) {
-      return Equals(other as Locations);
-    }
-
-    public bool Equals(Locations other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if(!items_.Equals(other.items_)) return false;
-      if (Count != other.Count) return false;
-      return true;
-    }
-
-    public override int GetHashCode() {
-      int hash = 1;
-      hash ^= items_.GetHashCode();
-      if (Count != 0L) hash ^= Count.GetHashCode();
-      return hash;
-    }
-
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    public void WriteTo(pb::CodedOutputStream output) {
-      items_.WriteTo(output, _repeated_items_codec);
-      if (Count != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(Count);
-      }
-    }
-
-    public int CalculateSize() {
-      int size = 0;
-      size += items_.CalculateSize(_repeated_items_codec);
-      if (Count != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Count);
-      }
-      return size;
-    }
-
-    public void MergeFrom(Locations other) {
-      if (other == null) {
-        return;
-      }
-      items_.Add(other.items_);
-      if (other.Count != 0L) {
-        Count = other.Count;
-      }
-    }
-
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 10: {
-            items_.AddEntriesFrom(input, _repeated_items_codec);
-            break;
-          }
-          case 16: {
-            Count = input.ReadInt64();
             break;
           }
         }

@@ -23,13 +23,13 @@ namespace DataTypes {
     static CardReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChRkYXRhdHlwZXMvY2FyZC5wcm90bxIJRGF0YVR5cGVzGhRkYXRhdHlwZXMv",
-            "ZGF0YS5wcm90byJTCgRDYXJkEikKEXVuaXF1ZV9pZGVudGlmaWVyGAEgASgL",
-            "Mg4uRGF0YVR5cGVzLktleRIgCghvd25lcl9pZBgCIAEoCzIOLkRhdGFUeXBl",
-            "cy5LZXlCSQoHZXguZ3JwY1o4Z2l0aHViLmNvbS9FbmVicmEvU2VydmljZUNv",
-            "b3JkaW5hdG9yL2dycGMvZGF0YXR5cGVzL2NhcmSiAgNSVEdiBnByb3RvMw=="));
+            "ChRkYXRhdHlwZXMvY2FyZC5wcm90bxIJRGF0YVR5cGVzGhNkYXRhdHlwZXMv",
+            "a2V5LnByb3RvIlMKBENhcmQSKQoRdW5pcXVlX2lkZW50aWZpZXIYASABKAsy",
+            "Di5EYXRhVHlwZXMuS2V5EiAKCG93bmVyX2lkGAIgASgLMg4uRGF0YVR5cGVz",
+            "LktleUJJCgdleC5ncnBjWjhnaXRodWIuY29tL0VuZWJyYS9TZXJ2aWNlQ29v",
+            "cmRpbmF0b3IvZ3JwYy9kYXRhdHlwZXMvY2FyZKICA1JUR2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::DataTypes.DataReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::DataTypes.KeyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Card), global::DataTypes.Card.Parser, new[]{ "UniqueIdentifier", "OwnerId" }, null, null, null)
           }));

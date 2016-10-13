@@ -1,6 +1,8 @@
 syntax = "proto3";
 
 import "datatypes/visit_record.proto";
+import "datatypes/key.proto";
+import "datatypes/entity.proto";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
@@ -10,8 +12,8 @@ package DataTypes;
 
 message GetResponse
 {
-  Entities items = 1;
-  int64    count = 2;
+  DataTypes.Entities items = 1;
+  int64              count = 2;
 }
 
 message GetRequest
@@ -41,12 +43,12 @@ message GetPersonRequest
 
 message GetLocationRequest
 { 
-  string search_text = 1; //search in name, description
-  string name        = 2;
-  string mac_address = 3;
-  string device_name = 4;
-  Page   page        = 5;
-  DataTypes.Key id   = 6;  
+  string        search_text = 1; //search in name, description
+  string        name        = 2;
+  string        mac_address = 3;
+  string        device_name = 4;
+  Page          page        = 5;
+  DataTypes.Key id          = 6;  
 }
 
 

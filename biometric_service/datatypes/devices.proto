@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "datatypes/data.proto";
+import "datatypes/key.proto";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
@@ -43,8 +43,8 @@ message DeviceUpdate
 
 message Devices
 {
-  DataTypes.Key  location_id    = 1;
-  repeated       Device devices = 2;
+                 DataTypes.Key  location_id = 1;
+  repeated       Device         devices     = 2;
 }
 
 message Device

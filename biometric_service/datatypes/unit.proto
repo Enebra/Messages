@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 import "datatypes/location.proto";
-import "datatypes/data.proto"
+import "datatypes/key.proto";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
@@ -12,9 +12,9 @@ package DataTypes;
 
 message Unit
 {
-  DataTypes.Key       id              = 1;
-  string              ip_address      = 2;
-  DataTypes.Locations locations       = 3;
+           DataTypes.Key      id         = 1;
+           string             ip_address = 2;
+  repeated DataTypes.Location locations  = 3;
 }
 
 message ConnectMsg
@@ -39,13 +39,6 @@ message SubscriptionMsg
 message Units
 {
   repeated Unit items = 1;
-}
-
-//Lookup usage
-message UnitLocationState
-{
-  DataTypes.Key            location_id = 1;
-  DataTypes.LocationState  state       = 2;
 }
 
 enum UnitState

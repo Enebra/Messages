@@ -24,41 +24,37 @@ namespace DataTypes {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChRkYXRhdHlwZXMvdW5pdC5wcm90bxIJRGF0YVR5cGVzGhhkYXRhdHlwZXMv",
-            "bG9jYXRpb24ucHJvdG8icAoEVW5pdBISCgppcF9hZGRyZXNzGAEgASgJEhMK",
-            "C21hY19hZGRyZXNzGAIgASgJEhYKDmhlYXJ0YmVhdF90aW1lGAQgASgDEicK",
-            "CWxvY2F0aW9ucxgFIAEoCzIULkRhdGFUeXBlcy5Mb2NhdGlvbnMiYwoKQ29u",
-            "bmVjdE1zZxISCgppcF9hZGRyZXNzGAEgASgJEhMKC21hY19hZGRyZXNzGAIg",
-            "ASgJEiwKDHNlcnZpY2VfdHlwZRgDIAEoDjIWLkRhdGFUeXBlcy5TZXJ2aWNl",
-            "VHlwZSJUChBIZWFydGJlYXRNZXNzYWdlEhIKCnNlcnZpY2VfaWQYASABKAkS",
-            "LAoMc2VydmljZV90eXBlGAIgASgOMhYuRGF0YVR5cGVzLlNlcnZpY2VUeXBl",
-            "Ij4KD1N1YnNjcmlwdGlvbk1zZxIUCgxwdWJsaXNoZXJfaWQYASABKAkSFQoN",
-            "c3Vic2NyaWJlcl9pZBgCIAEoCSJZCgtVcGRhdGVkVW5pdBIlCgxjdXJyZW50",
-            "X3VuaXQYASABKAsyDy5EYXRhVHlwZXMuVW5pdBIjCgVzdGF0ZRgCIAEoDjIU",
-            "LkRhdGFUeXBlcy5Vbml0U3RhdGUiNQoMVXBkYXRlZFVuaXRzEiUKBWl0ZW1z",
-            "GAEgAygLMhYuRGF0YVR5cGVzLlVwZGF0ZWRVbml0InIKBVVuaXRzEioKBWl0",
-            "ZW1zGAEgAygLMhsuRGF0YVR5cGVzLlVuaXRzLkl0ZW1zRW50cnkaPQoKSXRl",
-            "bXNFbnRyeRILCgNrZXkYASABKAkSHgoFdmFsdWUYAiABKAsyDy5EYXRhVHlw",
-            "ZXMuVW5pdDoCOAEiLgoRVW5pdENvbmZpZ3VyYXRpb24SGQoRbWFzdGVyX2lw",
-            "X2FkZHJlc3MYASABKAkiUQoRVW5pdExvY2F0aW9uU3RhdGUSEwoLbG9jYXRp",
-            "b25faWQYASABKAkSJwoFc3RhdGUYAiABKA4yGC5EYXRhVHlwZXMuTG9jYXRp",
-            "b25TdGF0ZSo+CglVbml0U3RhdGUSCQoFTm9uZV8QABIMCghJbnNlcnRlZBAB",
-            "EgsKB0RlbGV0ZWQQAhILCgdVcGRhdGVkEAMqWQoLU2VydmljZVR5cGUSEAoM",
-            "Tm9uZV9TZXJ2aWNlEAASEgoORmFjaWFsX1NlcnZpY2UQARISCg5DbGllbnRf",
-            "U2VydmljZRACEhAKDFVuaXRfU2VydmljZRADQkkKB2V4LmdycGNaOGdpdGh1",
-            "Yi5jb20vRW5lYnJhL1NlcnZpY2VDb29yZGluYXRvci9ncnBjL2RhdGF0eXBl",
-            "cy91bml0ogIDUlRHYgZwcm90bzM="));
+            "bG9jYXRpb24ucHJvdG8aE2RhdGF0eXBlcy9rZXkucHJvdG8iXgoEVW5pdBIa",
+            "CgJpZBgBIAEoCzIOLkRhdGFUeXBlcy5LZXkSEgoKaXBfYWRkcmVzcxgCIAEo",
+            "CRImCglsb2NhdGlvbnMYAyADKAsyEy5EYXRhVHlwZXMuTG9jYXRpb24iagoK",
+            "Q29ubmVjdE1zZxIaCgJpZBgBIAEoCzIOLkRhdGFUeXBlcy5LZXkSEgoKaXBf",
+            "YWRkcmVzcxgCIAEoCRIsCgxzZXJ2aWNlX3R5cGUYAyABKA4yFi5EYXRhVHlw",
+            "ZXMuU2VydmljZVR5cGUiXAoQSGVhcnRiZWF0TWVzc2FnZRIaCgJpZBgBIAEo",
+            "CzIOLkRhdGFUeXBlcy5LZXkSLAoMc2VydmljZV90eXBlGAIgASgOMhYuRGF0",
+            "YVR5cGVzLlNlcnZpY2VUeXBlIl4KD1N1YnNjcmlwdGlvbk1zZxIkCgxwdWJs",
+            "aXNoZXJfaWQYASABKAsyDi5EYXRhVHlwZXMuS2V5EiUKDXN1YnNjcmliZXJf",
+            "aWQYAiABKAsyDi5EYXRhVHlwZXMuS2V5IicKBVVuaXRzEh4KBWl0ZW1zGAEg",
+            "AygLMg8uRGF0YVR5cGVzLlVuaXQiqwEKClVuaXRVcGRhdGUSIwoIaW5zZXJ0",
+            "ZWQYASABKAsyDy5EYXRhVHlwZXMuVW5pdEgAEiIKB2RlbGV0ZWQYAiABKAsy",
+            "Dy5EYXRhVHlwZXMuVW5pdEgAEiIKB3VwZGF0ZWQYAyABKAsyDy5EYXRhVHlw",
+            "ZXMuVW5pdEgAEiMKBXN0YXRlGAQgASgOMhQuRGF0YVR5cGVzLlVuaXRTdGF0",
+            "ZUILCgl1bml0X3R5cGUiMwoLVW5pdFVwZGF0ZXMSJAoFaXRlbXMYASADKAsy",
+            "FS5EYXRhVHlwZXMuVW5pdFVwZGF0ZSo3CglVbml0U3RhdGUSCQoFTm9uZV8Q",
+            "ABINCglDb25uZWN0ZWQQARIQCgxEaXNjb25uZWN0ZWQQAipZCgtTZXJ2aWNl",
+            "VHlwZRIQCgxOb25lX1NlcnZpY2UQABISCg5GYWNpYWxfU2VydmljZRABEhIK",
+            "DkNsaWVudF9TZXJ2aWNlEAISEAoMVW5pdF9TZXJ2aWNlEANCSQoHZXguZ3Jw",
+            "Y1o4Z2l0aHViLmNvbS9FbmVicmEvU2VydmljZUNvb3JkaW5hdG9yL2dycGMv",
+            "ZGF0YXR5cGVzL3VuaXSiAgNSVEdiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::DataTypes.LocationReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::DataTypes.LocationReflection.Descriptor, global::DataTypes.KeyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.UnitState), typeof(global::DataTypes.ServiceType), }, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Unit), global::DataTypes.Unit.Parser, new[]{ "IpAddress", "MacAddress", "HeartbeatTime", "Locations" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.ConnectMsg), global::DataTypes.ConnectMsg.Parser, new[]{ "IpAddress", "MacAddress", "ServiceType" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.HeartbeatMessage), global::DataTypes.HeartbeatMessage.Parser, new[]{ "ServiceId", "ServiceType" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Unit), global::DataTypes.Unit.Parser, new[]{ "Id", "IpAddress", "Locations" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.ConnectMsg), global::DataTypes.ConnectMsg.Parser, new[]{ "Id", "IpAddress", "ServiceType" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.HeartbeatMessage), global::DataTypes.HeartbeatMessage.Parser, new[]{ "Id", "ServiceType" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.SubscriptionMsg), global::DataTypes.SubscriptionMsg.Parser, new[]{ "PublisherId", "SubscriberId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.UpdatedUnit), global::DataTypes.UpdatedUnit.Parser, new[]{ "CurrentUnit", "State" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.UpdatedUnits), global::DataTypes.UpdatedUnits.Parser, new[]{ "Items" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Units), global::DataTypes.Units.Parser, new[]{ "Items" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.UnitConfiguration), global::DataTypes.UnitConfiguration.Parser, new[]{ "MasterIpAddress" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.UnitLocationState), global::DataTypes.UnitLocationState.Parser, new[]{ "LocationId", "State" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Units), global::DataTypes.Units.Parser, new[]{ "Items" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.UnitUpdate), global::DataTypes.UnitUpdate.Parser, new[]{ "Inserted", "Deleted", "Updated", "State" }, new[]{ "UnitType" }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.UnitUpdates), global::DataTypes.UnitUpdates.Parser, new[]{ "Items" }, null, null, null)
           }));
     }
     #endregion
@@ -67,9 +63,8 @@ namespace DataTypes {
   #region Enums
   public enum UnitState {
     [pbr::OriginalName("None_")] None = 0,
-    [pbr::OriginalName("Inserted")] Inserted = 1,
-    [pbr::OriginalName("Deleted")] Deleted = 2,
-    [pbr::OriginalName("Updated")] Updated = 3,
+    [pbr::OriginalName("Connected")] Connected = 1,
+    [pbr::OriginalName("Disconnected")] Disconnected = 2,
   }
 
   public enum ServiceType {
@@ -102,18 +97,27 @@ namespace DataTypes {
     partial void OnConstruction();
 
     public Unit(Unit other) : this() {
+      Id = other.id_ != null ? other.Id.Clone() : null;
       ipAddress_ = other.ipAddress_;
-      macAddress_ = other.macAddress_;
-      heartbeatTime_ = other.heartbeatTime_;
-      Locations = other.locations_ != null ? other.Locations.Clone() : null;
+      locations_ = other.locations_.Clone();
     }
 
     public Unit Clone() {
       return new Unit(this);
     }
 
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 1;
+    private global::DataTypes.Key id_;
+    public global::DataTypes.Key Id {
+      get { return id_; }
+      set {
+        id_ = value;
+      }
+    }
+
     /// <summary>Field number for the "ip_address" field.</summary>
-    public const int IpAddressFieldNumber = 1;
+    public const int IpAddressFieldNumber = 2;
     private string ipAddress_ = "";
     public string IpAddress {
       get { return ipAddress_; }
@@ -122,34 +126,13 @@ namespace DataTypes {
       }
     }
 
-    /// <summary>Field number for the "mac_address" field.</summary>
-    public const int MacAddressFieldNumber = 2;
-    private string macAddress_ = "";
-    public string MacAddress {
-      get { return macAddress_; }
-      set {
-        macAddress_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "heartbeat_time" field.</summary>
-    public const int HeartbeatTimeFieldNumber = 4;
-    private long heartbeatTime_;
-    public long HeartbeatTime {
-      get { return heartbeatTime_; }
-      set {
-        heartbeatTime_ = value;
-      }
-    }
-
     /// <summary>Field number for the "locations" field.</summary>
-    public const int LocationsFieldNumber = 5;
-    private global::DataTypes.Locations locations_;
-    public global::DataTypes.Locations Locations {
+    public const int LocationsFieldNumber = 3;
+    private static readonly pb::FieldCodec<global::DataTypes.Location> _repeated_locations_codec
+        = pb::FieldCodec.ForMessage(26, global::DataTypes.Location.Parser);
+    private readonly pbc::RepeatedField<global::DataTypes.Location> locations_ = new pbc::RepeatedField<global::DataTypes.Location>();
+    public pbc::RepeatedField<global::DataTypes.Location> Locations {
       get { return locations_; }
-      set {
-        locations_ = value;
-      }
     }
 
     public override bool Equals(object other) {
@@ -163,19 +146,17 @@ namespace DataTypes {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (!object.Equals(Id, other.Id)) return false;
       if (IpAddress != other.IpAddress) return false;
-      if (MacAddress != other.MacAddress) return false;
-      if (HeartbeatTime != other.HeartbeatTime) return false;
-      if (!object.Equals(Locations, other.Locations)) return false;
+      if(!locations_.Equals(other.locations_)) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
+      if (id_ != null) hash ^= Id.GetHashCode();
       if (IpAddress.Length != 0) hash ^= IpAddress.GetHashCode();
-      if (MacAddress.Length != 0) hash ^= MacAddress.GetHashCode();
-      if (HeartbeatTime != 0L) hash ^= HeartbeatTime.GetHashCode();
-      if (locations_ != null) hash ^= Locations.GetHashCode();
+      hash ^= locations_.GetHashCode();
       return hash;
     }
 
@@ -184,38 +165,26 @@ namespace DataTypes {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (IpAddress.Length != 0) {
+      if (id_ != null) {
         output.WriteRawTag(10);
+        output.WriteMessage(Id);
+      }
+      if (IpAddress.Length != 0) {
+        output.WriteRawTag(18);
         output.WriteString(IpAddress);
       }
-      if (MacAddress.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(MacAddress);
-      }
-      if (HeartbeatTime != 0L) {
-        output.WriteRawTag(32);
-        output.WriteInt64(HeartbeatTime);
-      }
-      if (locations_ != null) {
-        output.WriteRawTag(42);
-        output.WriteMessage(Locations);
-      }
+      locations_.WriteTo(output, _repeated_locations_codec);
     }
 
     public int CalculateSize() {
       int size = 0;
+      if (id_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Id);
+      }
       if (IpAddress.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(IpAddress);
       }
-      if (MacAddress.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(MacAddress);
-      }
-      if (HeartbeatTime != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(HeartbeatTime);
-      }
-      if (locations_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Locations);
-      }
+      size += locations_.CalculateSize(_repeated_locations_codec);
       return size;
     }
 
@@ -223,21 +192,16 @@ namespace DataTypes {
       if (other == null) {
         return;
       }
+      if (other.id_ != null) {
+        if (id_ == null) {
+          id_ = new global::DataTypes.Key();
+        }
+        Id.MergeFrom(other.Id);
+      }
       if (other.IpAddress.Length != 0) {
         IpAddress = other.IpAddress;
       }
-      if (other.MacAddress.Length != 0) {
-        MacAddress = other.MacAddress;
-      }
-      if (other.HeartbeatTime != 0L) {
-        HeartbeatTime = other.HeartbeatTime;
-      }
-      if (other.locations_ != null) {
-        if (locations_ == null) {
-          locations_ = new global::DataTypes.Locations();
-        }
-        Locations.MergeFrom(other.Locations);
-      }
+      locations_.Add(other.locations_);
     }
 
     public void MergeFrom(pb::CodedInputStream input) {
@@ -248,22 +212,18 @@ namespace DataTypes {
             input.SkipLastField();
             break;
           case 10: {
-            IpAddress = input.ReadString();
+            if (id_ == null) {
+              id_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(id_);
             break;
           }
           case 18: {
-            MacAddress = input.ReadString();
+            IpAddress = input.ReadString();
             break;
           }
-          case 32: {
-            HeartbeatTime = input.ReadInt64();
-            break;
-          }
-          case 42: {
-            if (locations_ == null) {
-              locations_ = new global::DataTypes.Locations();
-            }
-            input.ReadMessage(locations_);
+          case 26: {
+            locations_.AddEntriesFrom(input, _repeated_locations_codec);
             break;
           }
         }
@@ -292,8 +252,8 @@ namespace DataTypes {
     partial void OnConstruction();
 
     public ConnectMsg(ConnectMsg other) : this() {
+      Id = other.id_ != null ? other.Id.Clone() : null;
       ipAddress_ = other.ipAddress_;
-      macAddress_ = other.macAddress_;
       serviceType_ = other.serviceType_;
     }
 
@@ -301,23 +261,23 @@ namespace DataTypes {
       return new ConnectMsg(this);
     }
 
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 1;
+    private global::DataTypes.Key id_;
+    public global::DataTypes.Key Id {
+      get { return id_; }
+      set {
+        id_ = value;
+      }
+    }
+
     /// <summary>Field number for the "ip_address" field.</summary>
-    public const int IpAddressFieldNumber = 1;
+    public const int IpAddressFieldNumber = 2;
     private string ipAddress_ = "";
     public string IpAddress {
       get { return ipAddress_; }
       set {
         ipAddress_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "mac_address" field.</summary>
-    public const int MacAddressFieldNumber = 2;
-    private string macAddress_ = "";
-    public string MacAddress {
-      get { return macAddress_; }
-      set {
-        macAddress_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -342,16 +302,16 @@ namespace DataTypes {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (!object.Equals(Id, other.Id)) return false;
       if (IpAddress != other.IpAddress) return false;
-      if (MacAddress != other.MacAddress) return false;
       if (ServiceType != other.ServiceType) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
+      if (id_ != null) hash ^= Id.GetHashCode();
       if (IpAddress.Length != 0) hash ^= IpAddress.GetHashCode();
-      if (MacAddress.Length != 0) hash ^= MacAddress.GetHashCode();
       if (ServiceType != 0) hash ^= ServiceType.GetHashCode();
       return hash;
     }
@@ -361,13 +321,13 @@ namespace DataTypes {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (IpAddress.Length != 0) {
+      if (id_ != null) {
         output.WriteRawTag(10);
-        output.WriteString(IpAddress);
+        output.WriteMessage(Id);
       }
-      if (MacAddress.Length != 0) {
+      if (IpAddress.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteString(MacAddress);
+        output.WriteString(IpAddress);
       }
       if (ServiceType != 0) {
         output.WriteRawTag(24);
@@ -377,11 +337,11 @@ namespace DataTypes {
 
     public int CalculateSize() {
       int size = 0;
+      if (id_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Id);
+      }
       if (IpAddress.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(IpAddress);
-      }
-      if (MacAddress.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(MacAddress);
       }
       if (ServiceType != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ServiceType);
@@ -393,11 +353,14 @@ namespace DataTypes {
       if (other == null) {
         return;
       }
+      if (other.id_ != null) {
+        if (id_ == null) {
+          id_ = new global::DataTypes.Key();
+        }
+        Id.MergeFrom(other.Id);
+      }
       if (other.IpAddress.Length != 0) {
         IpAddress = other.IpAddress;
-      }
-      if (other.MacAddress.Length != 0) {
-        MacAddress = other.MacAddress;
       }
       if (other.ServiceType != 0) {
         ServiceType = other.ServiceType;
@@ -412,11 +375,14 @@ namespace DataTypes {
             input.SkipLastField();
             break;
           case 10: {
-            IpAddress = input.ReadString();
+            if (id_ == null) {
+              id_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(id_);
             break;
           }
           case 18: {
-            MacAddress = input.ReadString();
+            IpAddress = input.ReadString();
             break;
           }
           case 24: {
@@ -449,7 +415,7 @@ namespace DataTypes {
     partial void OnConstruction();
 
     public HeartbeatMessage(HeartbeatMessage other) : this() {
-      serviceId_ = other.serviceId_;
+      Id = other.id_ != null ? other.Id.Clone() : null;
       serviceType_ = other.serviceType_;
     }
 
@@ -457,13 +423,13 @@ namespace DataTypes {
       return new HeartbeatMessage(this);
     }
 
-    /// <summary>Field number for the "service_id" field.</summary>
-    public const int ServiceIdFieldNumber = 1;
-    private string serviceId_ = "";
-    public string ServiceId {
-      get { return serviceId_; }
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 1;
+    private global::DataTypes.Key id_;
+    public global::DataTypes.Key Id {
+      get { return id_; }
       set {
-        serviceId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        id_ = value;
       }
     }
 
@@ -488,14 +454,14 @@ namespace DataTypes {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (ServiceId != other.ServiceId) return false;
+      if (!object.Equals(Id, other.Id)) return false;
       if (ServiceType != other.ServiceType) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
-      if (ServiceId.Length != 0) hash ^= ServiceId.GetHashCode();
+      if (id_ != null) hash ^= Id.GetHashCode();
       if (ServiceType != 0) hash ^= ServiceType.GetHashCode();
       return hash;
     }
@@ -505,9 +471,9 @@ namespace DataTypes {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (ServiceId.Length != 0) {
+      if (id_ != null) {
         output.WriteRawTag(10);
-        output.WriteString(ServiceId);
+        output.WriteMessage(Id);
       }
       if (ServiceType != 0) {
         output.WriteRawTag(16);
@@ -517,8 +483,8 @@ namespace DataTypes {
 
     public int CalculateSize() {
       int size = 0;
-      if (ServiceId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ServiceId);
+      if (id_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Id);
       }
       if (ServiceType != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ServiceType);
@@ -530,8 +496,11 @@ namespace DataTypes {
       if (other == null) {
         return;
       }
-      if (other.ServiceId.Length != 0) {
-        ServiceId = other.ServiceId;
+      if (other.id_ != null) {
+        if (id_ == null) {
+          id_ = new global::DataTypes.Key();
+        }
+        Id.MergeFrom(other.Id);
       }
       if (other.ServiceType != 0) {
         ServiceType = other.ServiceType;
@@ -546,7 +515,10 @@ namespace DataTypes {
             input.SkipLastField();
             break;
           case 10: {
-            ServiceId = input.ReadString();
+            if (id_ == null) {
+              id_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(id_);
             break;
           }
           case 16: {
@@ -579,8 +551,8 @@ namespace DataTypes {
     partial void OnConstruction();
 
     public SubscriptionMsg(SubscriptionMsg other) : this() {
-      publisherId_ = other.publisherId_;
-      subscriberId_ = other.subscriberId_;
+      PublisherId = other.publisherId_ != null ? other.PublisherId.Clone() : null;
+      SubscriberId = other.subscriberId_ != null ? other.SubscriberId.Clone() : null;
     }
 
     public SubscriptionMsg Clone() {
@@ -589,21 +561,21 @@ namespace DataTypes {
 
     /// <summary>Field number for the "publisher_id" field.</summary>
     public const int PublisherIdFieldNumber = 1;
-    private string publisherId_ = "";
-    public string PublisherId {
+    private global::DataTypes.Key publisherId_;
+    public global::DataTypes.Key PublisherId {
       get { return publisherId_; }
       set {
-        publisherId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        publisherId_ = value;
       }
     }
 
     /// <summary>Field number for the "subscriber_id" field.</summary>
     public const int SubscriberIdFieldNumber = 2;
-    private string subscriberId_ = "";
-    public string SubscriberId {
+    private global::DataTypes.Key subscriberId_;
+    public global::DataTypes.Key SubscriberId {
       get { return subscriberId_; }
       set {
-        subscriberId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        subscriberId_ = value;
       }
     }
 
@@ -618,15 +590,15 @@ namespace DataTypes {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (PublisherId != other.PublisherId) return false;
-      if (SubscriberId != other.SubscriberId) return false;
+      if (!object.Equals(PublisherId, other.PublisherId)) return false;
+      if (!object.Equals(SubscriberId, other.SubscriberId)) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
-      if (PublisherId.Length != 0) hash ^= PublisherId.GetHashCode();
-      if (SubscriberId.Length != 0) hash ^= SubscriberId.GetHashCode();
+      if (publisherId_ != null) hash ^= PublisherId.GetHashCode();
+      if (subscriberId_ != null) hash ^= SubscriberId.GetHashCode();
       return hash;
     }
 
@@ -635,23 +607,23 @@ namespace DataTypes {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (PublisherId.Length != 0) {
+      if (publisherId_ != null) {
         output.WriteRawTag(10);
-        output.WriteString(PublisherId);
+        output.WriteMessage(PublisherId);
       }
-      if (SubscriberId.Length != 0) {
+      if (subscriberId_ != null) {
         output.WriteRawTag(18);
-        output.WriteString(SubscriberId);
+        output.WriteMessage(SubscriberId);
       }
     }
 
     public int CalculateSize() {
       int size = 0;
-      if (PublisherId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(PublisherId);
+      if (publisherId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(PublisherId);
       }
-      if (SubscriberId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(SubscriberId);
+      if (subscriberId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SubscriberId);
       }
       return size;
     }
@@ -660,11 +632,17 @@ namespace DataTypes {
       if (other == null) {
         return;
       }
-      if (other.PublisherId.Length != 0) {
-        PublisherId = other.PublisherId;
+      if (other.publisherId_ != null) {
+        if (publisherId_ == null) {
+          publisherId_ = new global::DataTypes.Key();
+        }
+        PublisherId.MergeFrom(other.PublisherId);
       }
-      if (other.SubscriberId.Length != 0) {
-        SubscriberId = other.SubscriberId;
+      if (other.subscriberId_ != null) {
+        if (subscriberId_ == null) {
+          subscriberId_ = new global::DataTypes.Key();
+        }
+        SubscriberId.MergeFrom(other.SubscriberId);
       }
     }
 
@@ -676,11 +654,17 @@ namespace DataTypes {
             input.SkipLastField();
             break;
           case 10: {
-            PublisherId = input.ReadString();
+            if (publisherId_ == null) {
+              publisherId_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(publisherId_);
             break;
           }
           case 18: {
-            SubscriberId = input.ReadString();
+            if (subscriberId_ == null) {
+              subscriberId_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(subscriberId_);
             break;
           }
         }
@@ -690,9 +674,9 @@ namespace DataTypes {
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class UpdatedUnit : pb::IMessage<UpdatedUnit> {
-    private static readonly pb::MessageParser<UpdatedUnit> _parser = new pb::MessageParser<UpdatedUnit>(() => new UpdatedUnit());
-    public static pb::MessageParser<UpdatedUnit> Parser { get { return _parser; } }
+  public sealed partial class Units : pb::IMessage<Units> {
+    private static readonly pb::MessageParser<Units> _parser = new pb::MessageParser<Units>(() => new Units());
+    public static pb::MessageParser<Units> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
       get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[4]; }
@@ -702,170 +686,34 @@ namespace DataTypes {
       get { return Descriptor; }
     }
 
-    public UpdatedUnit() {
+    public Units() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
-    public UpdatedUnit(UpdatedUnit other) : this() {
-      CurrentUnit = other.currentUnit_ != null ? other.CurrentUnit.Clone() : null;
-      state_ = other.state_;
-    }
-
-    public UpdatedUnit Clone() {
-      return new UpdatedUnit(this);
-    }
-
-    /// <summary>Field number for the "current_unit" field.</summary>
-    public const int CurrentUnitFieldNumber = 1;
-    private global::DataTypes.Unit currentUnit_;
-    public global::DataTypes.Unit CurrentUnit {
-      get { return currentUnit_; }
-      set {
-        currentUnit_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "state" field.</summary>
-    public const int StateFieldNumber = 2;
-    private global::DataTypes.UnitState state_ = 0;
-    public global::DataTypes.UnitState State {
-      get { return state_; }
-      set {
-        state_ = value;
-      }
-    }
-
-    public override bool Equals(object other) {
-      return Equals(other as UpdatedUnit);
-    }
-
-    public bool Equals(UpdatedUnit other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(CurrentUnit, other.CurrentUnit)) return false;
-      if (State != other.State) return false;
-      return true;
-    }
-
-    public override int GetHashCode() {
-      int hash = 1;
-      if (currentUnit_ != null) hash ^= CurrentUnit.GetHashCode();
-      if (State != 0) hash ^= State.GetHashCode();
-      return hash;
-    }
-
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (currentUnit_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(CurrentUnit);
-      }
-      if (State != 0) {
-        output.WriteRawTag(16);
-        output.WriteEnum((int) State);
-      }
-    }
-
-    public int CalculateSize() {
-      int size = 0;
-      if (currentUnit_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CurrentUnit);
-      }
-      if (State != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) State);
-      }
-      return size;
-    }
-
-    public void MergeFrom(UpdatedUnit other) {
-      if (other == null) {
-        return;
-      }
-      if (other.currentUnit_ != null) {
-        if (currentUnit_ == null) {
-          currentUnit_ = new global::DataTypes.Unit();
-        }
-        CurrentUnit.MergeFrom(other.CurrentUnit);
-      }
-      if (other.State != 0) {
-        State = other.State;
-      }
-    }
-
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 10: {
-            if (currentUnit_ == null) {
-              currentUnit_ = new global::DataTypes.Unit();
-            }
-            input.ReadMessage(currentUnit_);
-            break;
-          }
-          case 16: {
-            state_ = (global::DataTypes.UnitState) input.ReadEnum();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class UpdatedUnits : pb::IMessage<UpdatedUnits> {
-    private static readonly pb::MessageParser<UpdatedUnits> _parser = new pb::MessageParser<UpdatedUnits>(() => new UpdatedUnits());
-    public static pb::MessageParser<UpdatedUnits> Parser { get { return _parser; } }
-
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[5]; }
-    }
-
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    public UpdatedUnits() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    public UpdatedUnits(UpdatedUnits other) : this() {
+    public Units(Units other) : this() {
       items_ = other.items_.Clone();
     }
 
-    public UpdatedUnits Clone() {
-      return new UpdatedUnits(this);
+    public Units Clone() {
+      return new Units(this);
     }
 
     /// <summary>Field number for the "items" field.</summary>
     public const int ItemsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::DataTypes.UpdatedUnit> _repeated_items_codec
-        = pb::FieldCodec.ForMessage(10, global::DataTypes.UpdatedUnit.Parser);
-    private readonly pbc::RepeatedField<global::DataTypes.UpdatedUnit> items_ = new pbc::RepeatedField<global::DataTypes.UpdatedUnit>();
-    public pbc::RepeatedField<global::DataTypes.UpdatedUnit> Items {
+    private static readonly pb::FieldCodec<global::DataTypes.Unit> _repeated_items_codec
+        = pb::FieldCodec.ForMessage(10, global::DataTypes.Unit.Parser);
+    private readonly pbc::RepeatedField<global::DataTypes.Unit> items_ = new pbc::RepeatedField<global::DataTypes.Unit>();
+    public pbc::RepeatedField<global::DataTypes.Unit> Items {
       get { return items_; }
     }
 
     public override bool Equals(object other) {
-      return Equals(other as UpdatedUnits);
+      return Equals(other as Units);
     }
 
-    public bool Equals(UpdatedUnits other) {
+    public bool Equals(Units other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -896,7 +744,7 @@ namespace DataTypes {
       return size;
     }
 
-    public void MergeFrom(UpdatedUnits other) {
+    public void MergeFrom(Units other) {
       if (other == null) {
         return;
       }
@@ -921,9 +769,240 @@ namespace DataTypes {
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class Units : pb::IMessage<Units> {
-    private static readonly pb::MessageParser<Units> _parser = new pb::MessageParser<Units>(() => new Units());
-    public static pb::MessageParser<Units> Parser { get { return _parser; } }
+  public sealed partial class UnitUpdate : pb::IMessage<UnitUpdate> {
+    private static readonly pb::MessageParser<UnitUpdate> _parser = new pb::MessageParser<UnitUpdate>(() => new UnitUpdate());
+    public static pb::MessageParser<UnitUpdate> Parser { get { return _parser; } }
+
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[5]; }
+    }
+
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    public UnitUpdate() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    public UnitUpdate(UnitUpdate other) : this() {
+      state_ = other.state_;
+      switch (other.UnitTypeCase) {
+        case UnitTypeOneofCase.Inserted:
+          Inserted = other.Inserted.Clone();
+          break;
+        case UnitTypeOneofCase.Deleted:
+          Deleted = other.Deleted.Clone();
+          break;
+        case UnitTypeOneofCase.Updated:
+          Updated = other.Updated.Clone();
+          break;
+      }
+
+    }
+
+    public UnitUpdate Clone() {
+      return new UnitUpdate(this);
+    }
+
+    /// <summary>Field number for the "inserted" field.</summary>
+    public const int InsertedFieldNumber = 1;
+    public global::DataTypes.Unit Inserted {
+      get { return unitTypeCase_ == UnitTypeOneofCase.Inserted ? (global::DataTypes.Unit) unitType_ : null; }
+      set {
+        unitType_ = value;
+        unitTypeCase_ = value == null ? UnitTypeOneofCase.None : UnitTypeOneofCase.Inserted;
+      }
+    }
+
+    /// <summary>Field number for the "deleted" field.</summary>
+    public const int DeletedFieldNumber = 2;
+    public global::DataTypes.Unit Deleted {
+      get { return unitTypeCase_ == UnitTypeOneofCase.Deleted ? (global::DataTypes.Unit) unitType_ : null; }
+      set {
+        unitType_ = value;
+        unitTypeCase_ = value == null ? UnitTypeOneofCase.None : UnitTypeOneofCase.Deleted;
+      }
+    }
+
+    /// <summary>Field number for the "updated" field.</summary>
+    public const int UpdatedFieldNumber = 3;
+    public global::DataTypes.Unit Updated {
+      get { return unitTypeCase_ == UnitTypeOneofCase.Updated ? (global::DataTypes.Unit) unitType_ : null; }
+      set {
+        unitType_ = value;
+        unitTypeCase_ = value == null ? UnitTypeOneofCase.None : UnitTypeOneofCase.Updated;
+      }
+    }
+
+    /// <summary>Field number for the "state" field.</summary>
+    public const int StateFieldNumber = 4;
+    private global::DataTypes.UnitState state_ = 0;
+    public global::DataTypes.UnitState State {
+      get { return state_; }
+      set {
+        state_ = value;
+      }
+    }
+
+    private object unitType_;
+    /// <summary>Enum of possible cases for the "unit_type" oneof.</summary>
+    public enum UnitTypeOneofCase {
+      None = 0,
+      Inserted = 1,
+      Deleted = 2,
+      Updated = 3,
+    }
+    private UnitTypeOneofCase unitTypeCase_ = UnitTypeOneofCase.None;
+    public UnitTypeOneofCase UnitTypeCase {
+      get { return unitTypeCase_; }
+    }
+
+    public void ClearUnitType() {
+      unitTypeCase_ = UnitTypeOneofCase.None;
+      unitType_ = null;
+    }
+
+    public override bool Equals(object other) {
+      return Equals(other as UnitUpdate);
+    }
+
+    public bool Equals(UnitUpdate other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Inserted, other.Inserted)) return false;
+      if (!object.Equals(Deleted, other.Deleted)) return false;
+      if (!object.Equals(Updated, other.Updated)) return false;
+      if (State != other.State) return false;
+      if (UnitTypeCase != other.UnitTypeCase) return false;
+      return true;
+    }
+
+    public override int GetHashCode() {
+      int hash = 1;
+      if (unitTypeCase_ == UnitTypeOneofCase.Inserted) hash ^= Inserted.GetHashCode();
+      if (unitTypeCase_ == UnitTypeOneofCase.Deleted) hash ^= Deleted.GetHashCode();
+      if (unitTypeCase_ == UnitTypeOneofCase.Updated) hash ^= Updated.GetHashCode();
+      if (State != 0) hash ^= State.GetHashCode();
+      hash ^= (int) unitTypeCase_;
+      return hash;
+    }
+
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (unitTypeCase_ == UnitTypeOneofCase.Inserted) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Inserted);
+      }
+      if (unitTypeCase_ == UnitTypeOneofCase.Deleted) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Deleted);
+      }
+      if (unitTypeCase_ == UnitTypeOneofCase.Updated) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Updated);
+      }
+      if (State != 0) {
+        output.WriteRawTag(32);
+        output.WriteEnum((int) State);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (unitTypeCase_ == UnitTypeOneofCase.Inserted) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Inserted);
+      }
+      if (unitTypeCase_ == UnitTypeOneofCase.Deleted) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Deleted);
+      }
+      if (unitTypeCase_ == UnitTypeOneofCase.Updated) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Updated);
+      }
+      if (State != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) State);
+      }
+      return size;
+    }
+
+    public void MergeFrom(UnitUpdate other) {
+      if (other == null) {
+        return;
+      }
+      if (other.State != 0) {
+        State = other.State;
+      }
+      switch (other.UnitTypeCase) {
+        case UnitTypeOneofCase.Inserted:
+          Inserted = other.Inserted;
+          break;
+        case UnitTypeOneofCase.Deleted:
+          Deleted = other.Deleted;
+          break;
+        case UnitTypeOneofCase.Updated:
+          Updated = other.Updated;
+          break;
+      }
+
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            global::DataTypes.Unit subBuilder = new global::DataTypes.Unit();
+            if (unitTypeCase_ == UnitTypeOneofCase.Inserted) {
+              subBuilder.MergeFrom(Inserted);
+            }
+            input.ReadMessage(subBuilder);
+            Inserted = subBuilder;
+            break;
+          }
+          case 18: {
+            global::DataTypes.Unit subBuilder = new global::DataTypes.Unit();
+            if (unitTypeCase_ == UnitTypeOneofCase.Deleted) {
+              subBuilder.MergeFrom(Deleted);
+            }
+            input.ReadMessage(subBuilder);
+            Deleted = subBuilder;
+            break;
+          }
+          case 26: {
+            global::DataTypes.Unit subBuilder = new global::DataTypes.Unit();
+            if (unitTypeCase_ == UnitTypeOneofCase.Updated) {
+              subBuilder.MergeFrom(Updated);
+            }
+            input.ReadMessage(subBuilder);
+            Updated = subBuilder;
+            break;
+          }
+          case 32: {
+            state_ = (global::DataTypes.UnitState) input.ReadEnum();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class UnitUpdates : pb::IMessage<UnitUpdates> {
+    private static readonly pb::MessageParser<UnitUpdates> _parser = new pb::MessageParser<UnitUpdates>(() => new UnitUpdates());
+    public static pb::MessageParser<UnitUpdates> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
       get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[6]; }
@@ -933,47 +1012,47 @@ namespace DataTypes {
       get { return Descriptor; }
     }
 
-    public Units() {
+    public UnitUpdates() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
-    public Units(Units other) : this() {
+    public UnitUpdates(UnitUpdates other) : this() {
       items_ = other.items_.Clone();
     }
 
-    public Units Clone() {
-      return new Units(this);
+    public UnitUpdates Clone() {
+      return new UnitUpdates(this);
     }
 
     /// <summary>Field number for the "items" field.</summary>
     public const int ItemsFieldNumber = 1;
-    private static readonly pbc::MapField<string, global::DataTypes.Unit>.Codec _map_items_codec
-        = new pbc::MapField<string, global::DataTypes.Unit>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForMessage(18, global::DataTypes.Unit.Parser), 10);
-    private readonly pbc::MapField<string, global::DataTypes.Unit> items_ = new pbc::MapField<string, global::DataTypes.Unit>();
-    public pbc::MapField<string, global::DataTypes.Unit> Items {
+    private static readonly pb::FieldCodec<global::DataTypes.UnitUpdate> _repeated_items_codec
+        = pb::FieldCodec.ForMessage(10, global::DataTypes.UnitUpdate.Parser);
+    private readonly pbc::RepeatedField<global::DataTypes.UnitUpdate> items_ = new pbc::RepeatedField<global::DataTypes.UnitUpdate>();
+    public pbc::RepeatedField<global::DataTypes.UnitUpdate> Items {
       get { return items_; }
     }
 
     public override bool Equals(object other) {
-      return Equals(other as Units);
+      return Equals(other as UnitUpdates);
     }
 
-    public bool Equals(Units other) {
+    public bool Equals(UnitUpdates other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!Items.Equals(other.Items)) return false;
+      if(!items_.Equals(other.items_)) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= Items.GetHashCode();
+      hash ^= items_.GetHashCode();
       return hash;
     }
 
@@ -982,16 +1061,16 @@ namespace DataTypes {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      items_.WriteTo(output, _map_items_codec);
+      items_.WriteTo(output, _repeated_items_codec);
     }
 
     public int CalculateSize() {
       int size = 0;
-      size += items_.CalculateSize(_map_items_codec);
+      size += items_.CalculateSize(_repeated_items_codec);
       return size;
     }
 
-    public void MergeFrom(Units other) {
+    public void MergeFrom(UnitUpdates other) {
       if (other == null) {
         return;
       }
@@ -1006,240 +1085,7 @@ namespace DataTypes {
             input.SkipLastField();
             break;
           case 10: {
-            items_.AddEntriesFrom(input, _map_items_codec);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class UnitConfiguration : pb::IMessage<UnitConfiguration> {
-    private static readonly pb::MessageParser<UnitConfiguration> _parser = new pb::MessageParser<UnitConfiguration>(() => new UnitConfiguration());
-    public static pb::MessageParser<UnitConfiguration> Parser { get { return _parser; } }
-
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[7]; }
-    }
-
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    public UnitConfiguration() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    public UnitConfiguration(UnitConfiguration other) : this() {
-      masterIpAddress_ = other.masterIpAddress_;
-    }
-
-    public UnitConfiguration Clone() {
-      return new UnitConfiguration(this);
-    }
-
-    /// <summary>Field number for the "master_ip_address" field.</summary>
-    public const int MasterIpAddressFieldNumber = 1;
-    private string masterIpAddress_ = "";
-    public string MasterIpAddress {
-      get { return masterIpAddress_; }
-      set {
-        masterIpAddress_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    public override bool Equals(object other) {
-      return Equals(other as UnitConfiguration);
-    }
-
-    public bool Equals(UnitConfiguration other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (MasterIpAddress != other.MasterIpAddress) return false;
-      return true;
-    }
-
-    public override int GetHashCode() {
-      int hash = 1;
-      if (MasterIpAddress.Length != 0) hash ^= MasterIpAddress.GetHashCode();
-      return hash;
-    }
-
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (MasterIpAddress.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(MasterIpAddress);
-      }
-    }
-
-    public int CalculateSize() {
-      int size = 0;
-      if (MasterIpAddress.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(MasterIpAddress);
-      }
-      return size;
-    }
-
-    public void MergeFrom(UnitConfiguration other) {
-      if (other == null) {
-        return;
-      }
-      if (other.MasterIpAddress.Length != 0) {
-        MasterIpAddress = other.MasterIpAddress;
-      }
-    }
-
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 10: {
-            MasterIpAddress = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class UnitLocationState : pb::IMessage<UnitLocationState> {
-    private static readonly pb::MessageParser<UnitLocationState> _parser = new pb::MessageParser<UnitLocationState>(() => new UnitLocationState());
-    public static pb::MessageParser<UnitLocationState> Parser { get { return _parser; } }
-
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::DataTypes.UnitReflection.Descriptor.MessageTypes[8]; }
-    }
-
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    public UnitLocationState() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    public UnitLocationState(UnitLocationState other) : this() {
-      locationId_ = other.locationId_;
-      state_ = other.state_;
-    }
-
-    public UnitLocationState Clone() {
-      return new UnitLocationState(this);
-    }
-
-    /// <summary>Field number for the "location_id" field.</summary>
-    public const int LocationIdFieldNumber = 1;
-    private string locationId_ = "";
-    public string LocationId {
-      get { return locationId_; }
-      set {
-        locationId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "state" field.</summary>
-    public const int StateFieldNumber = 2;
-    private global::DataTypes.LocationState state_ = 0;
-    public global::DataTypes.LocationState State {
-      get { return state_; }
-      set {
-        state_ = value;
-      }
-    }
-
-    public override bool Equals(object other) {
-      return Equals(other as UnitLocationState);
-    }
-
-    public bool Equals(UnitLocationState other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (LocationId != other.LocationId) return false;
-      if (State != other.State) return false;
-      return true;
-    }
-
-    public override int GetHashCode() {
-      int hash = 1;
-      if (LocationId.Length != 0) hash ^= LocationId.GetHashCode();
-      if (State != 0) hash ^= State.GetHashCode();
-      return hash;
-    }
-
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (LocationId.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(LocationId);
-      }
-      if (State != 0) {
-        output.WriteRawTag(16);
-        output.WriteEnum((int) State);
-      }
-    }
-
-    public int CalculateSize() {
-      int size = 0;
-      if (LocationId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(LocationId);
-      }
-      if (State != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) State);
-      }
-      return size;
-    }
-
-    public void MergeFrom(UnitLocationState other) {
-      if (other == null) {
-        return;
-      }
-      if (other.LocationId.Length != 0) {
-        LocationId = other.LocationId;
-      }
-      if (other.State != 0) {
-        State = other.State;
-      }
-    }
-
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 10: {
-            LocationId = input.ReadString();
-            break;
-          }
-          case 16: {
-            state_ = (global::DataTypes.LocationState) input.ReadEnum();
+            items_.AddEntriesFrom(input, _repeated_items_codec);
             break;
           }
         }

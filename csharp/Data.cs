@@ -23,20 +23,24 @@ namespace DataTypes {
     static DataReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChRkYXRhdHlwZXMvZGF0YS5wcm90bxIJRGF0YVR5cGVzIj8KDE1lc3NhZ2VC",
-            "eXRlcxIMCgRkYXRhGAEgASgMEiEKBHR5cGUYAiABKA4yEy5EYXRhVHlwZXMu",
-            "RGF0YVR5cGUiSAoDS2V5EhAKBm51bWJlchgBIAEoA0gAEhQKCmlkZW50aWZp",
-            "ZXIYAiABKAlIABIOCgRndWlkGAMgASgMSABCCQoHaWRfdHlwZSpwCghEYXRh",
-            "VHlwZRIMCghOb25lVHlwZRAAEhIKDkdldFJlcXVlc3RUeXBlEAESEwoPR2V0",
-            "UmVzcG9uc2VUeXBlEAISFQoRQ29tbWl0UmVxdWVzdFR5cGUQAxIWChJDb21t",
-            "aXRSZXNwb25zZVR5cGUQBEJJCgdleC5ncnBjWjhnaXRodWIuY29tL0VuZWJy",
-            "YS9TZXJ2aWNlQ29vcmRpbmF0b3IvZ3JwYy9kYXRhdHlwZXMvZGF0YaICA1JU",
-            "R2IGcHJvdG8z"));
+            "ChRkYXRhdHlwZXMvZGF0YS5wcm90bxIJRGF0YVR5cGVzGhZkYXRhdHlwZXMv",
+            "ZW50aXR5LnByb3RvIj8KDE1lc3NhZ2VCeXRlcxIMCgRkYXRhGAEgASgMEiEK",
+            "BHR5cGUYAiABKA4yEy5EYXRhVHlwZXMuRGF0YVR5cGUiQgoOTXV0YXRpb25S",
+            "ZXN1bHQSIQoGZW50aXR5GAEgASgLMhEuRGF0YVR5cGVzLkVudGl0eRINCgVl",
+            "cnJvchgCIAEoCSKGAQoITXV0YXRpb24SIwoGaW5zZXJ0GAEgASgLMhEuRGF0",
+            "YVR5cGVzLkVudGl0eUgAEiMKBnVwZGF0ZRgCIAEoCzIRLkRhdGFUeXBlcy5F",
+            "bnRpdHlIABIjCgZkZWxldGUYAyABKAsyES5EYXRhVHlwZXMuRW50aXR5SABC",
+            "CwoJb3BlcmF0aW9uKnAKCERhdGFUeXBlEgwKCE5vbmVUeXBlEAASEgoOR2V0",
+            "UmVxdWVzdFR5cGUQARITCg9HZXRSZXNwb25zZVR5cGUQAhIVChFDb21taXRS",
+            "ZXF1ZXN0VHlwZRADEhYKEkNvbW1pdFJlc3BvbnNlVHlwZRAEQkkKB2V4Lmdy",
+            "cGNaOGdpdGh1Yi5jb20vRW5lYnJhL1NlcnZpY2VDb29yZGluYXRvci9ncnBj",
+            "L2RhdGF0eXBlcy9kYXRhogIDUlRHYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { },
+          new pbr::FileDescriptor[] { global::DataTypes.EntityReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.DataType), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.MessageBytes), global::DataTypes.MessageBytes.Parser, new[]{ "Data", "Type" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Key), global::DataTypes.Key.Parser, new[]{ "Number", "Identifier", "Guid" }, new[]{ "IdType" }, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.MutationResult), global::DataTypes.MutationResult.Parser, new[]{ "Entity", "Error" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Mutation), global::DataTypes.Mutation.Parser, new[]{ "Insert", "Update", "Delete" }, new[]{ "Operation" }, null, null)
           }));
     }
     #endregion
@@ -185,9 +189,9 @@ namespace DataTypes {
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class Key : pb::IMessage<Key> {
-    private static readonly pb::MessageParser<Key> _parser = new pb::MessageParser<Key>(() => new Key());
-    public static pb::MessageParser<Key> Parser { get { return _parser; } }
+  public sealed partial class MutationResult : pb::IMessage<MutationResult> {
+    private static readonly pb::MessageParser<MutationResult> _parser = new pb::MessageParser<MutationResult>(() => new MutationResult());
+    public static pb::MessageParser<MutationResult> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
       get { return global::DataTypes.DataReflection.Descriptor.MessageTypes[1]; }
@@ -197,103 +201,61 @@ namespace DataTypes {
       get { return Descriptor; }
     }
 
-    public Key() {
+    public MutationResult() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
-    public Key(Key other) : this() {
-      switch (other.IdTypeCase) {
-        case IdTypeOneofCase.Number:
-          Number = other.Number;
-          break;
-        case IdTypeOneofCase.Identifier:
-          Identifier = other.Identifier;
-          break;
-        case IdTypeOneofCase.Guid:
-          Guid = other.Guid;
-          break;
-      }
-
+    public MutationResult(MutationResult other) : this() {
+      Entity = other.entity_ != null ? other.Entity.Clone() : null;
+      error_ = other.error_;
     }
 
-    public Key Clone() {
-      return new Key(this);
+    public MutationResult Clone() {
+      return new MutationResult(this);
     }
 
-    /// <summary>Field number for the "number" field.</summary>
-    public const int NumberFieldNumber = 1;
-    public long Number {
-      get { return idTypeCase_ == IdTypeOneofCase.Number ? (long) idType_ : 0L; }
+    /// <summary>Field number for the "entity" field.</summary>
+    public const int EntityFieldNumber = 1;
+    private global::DataTypes.Entity entity_;
+    public global::DataTypes.Entity Entity {
+      get { return entity_; }
       set {
-        idType_ = value;
-        idTypeCase_ = IdTypeOneofCase.Number;
+        entity_ = value;
       }
     }
 
-    /// <summary>Field number for the "identifier" field.</summary>
-    public const int IdentifierFieldNumber = 2;
-    public string Identifier {
-      get { return idTypeCase_ == IdTypeOneofCase.Identifier ? (string) idType_ : ""; }
+    /// <summary>Field number for the "error" field.</summary>
+    public const int ErrorFieldNumber = 2;
+    private string error_ = "";
+    public string Error {
+      get { return error_; }
       set {
-        idType_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-        idTypeCase_ = IdTypeOneofCase.Identifier;
+        error_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
-    }
-
-    /// <summary>Field number for the "guid" field.</summary>
-    public const int GuidFieldNumber = 3;
-    public pb::ByteString Guid {
-      get { return idTypeCase_ == IdTypeOneofCase.Guid ? (pb::ByteString) idType_ : pb::ByteString.Empty; }
-      set {
-        idType_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-        idTypeCase_ = IdTypeOneofCase.Guid;
-      }
-    }
-
-    private object idType_;
-    /// <summary>Enum of possible cases for the "id_type" oneof.</summary>
-    public enum IdTypeOneofCase {
-      None = 0,
-      Number = 1,
-      Identifier = 2,
-      Guid = 3,
-    }
-    private IdTypeOneofCase idTypeCase_ = IdTypeOneofCase.None;
-    public IdTypeOneofCase IdTypeCase {
-      get { return idTypeCase_; }
-    }
-
-    public void ClearIdType() {
-      idTypeCase_ = IdTypeOneofCase.None;
-      idType_ = null;
     }
 
     public override bool Equals(object other) {
-      return Equals(other as Key);
+      return Equals(other as MutationResult);
     }
 
-    public bool Equals(Key other) {
+    public bool Equals(MutationResult other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Number != other.Number) return false;
-      if (Identifier != other.Identifier) return false;
-      if (Guid != other.Guid) return false;
-      if (IdTypeCase != other.IdTypeCase) return false;
+      if (!object.Equals(Entity, other.Entity)) return false;
+      if (Error != other.Error) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
-      if (idTypeCase_ == IdTypeOneofCase.Number) hash ^= Number.GetHashCode();
-      if (idTypeCase_ == IdTypeOneofCase.Identifier) hash ^= Identifier.GetHashCode();
-      if (idTypeCase_ == IdTypeOneofCase.Guid) hash ^= Guid.GetHashCode();
-      hash ^= (int) idTypeCase_;
+      if (entity_ != null) hash ^= Entity.GetHashCode();
+      if (Error.Length != 0) hash ^= Error.GetHashCode();
       return hash;
     }
 
@@ -302,47 +264,225 @@ namespace DataTypes {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (idTypeCase_ == IdTypeOneofCase.Number) {
-        output.WriteRawTag(8);
-        output.WriteInt64(Number);
+      if (entity_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Entity);
       }
-      if (idTypeCase_ == IdTypeOneofCase.Identifier) {
+      if (Error.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteString(Identifier);
-      }
-      if (idTypeCase_ == IdTypeOneofCase.Guid) {
-        output.WriteRawTag(26);
-        output.WriteBytes(Guid);
+        output.WriteString(Error);
       }
     }
 
     public int CalculateSize() {
       int size = 0;
-      if (idTypeCase_ == IdTypeOneofCase.Number) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Number);
+      if (entity_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Entity);
       }
-      if (idTypeCase_ == IdTypeOneofCase.Identifier) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Identifier);
-      }
-      if (idTypeCase_ == IdTypeOneofCase.Guid) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Guid);
+      if (Error.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Error);
       }
       return size;
     }
 
-    public void MergeFrom(Key other) {
+    public void MergeFrom(MutationResult other) {
       if (other == null) {
         return;
       }
-      switch (other.IdTypeCase) {
-        case IdTypeOneofCase.Number:
-          Number = other.Number;
+      if (other.entity_ != null) {
+        if (entity_ == null) {
+          entity_ = new global::DataTypes.Entity();
+        }
+        Entity.MergeFrom(other.Entity);
+      }
+      if (other.Error.Length != 0) {
+        Error = other.Error;
+      }
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            if (entity_ == null) {
+              entity_ = new global::DataTypes.Entity();
+            }
+            input.ReadMessage(entity_);
+            break;
+          }
+          case 18: {
+            Error = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class Mutation : pb::IMessage<Mutation> {
+    private static readonly pb::MessageParser<Mutation> _parser = new pb::MessageParser<Mutation>(() => new Mutation());
+    public static pb::MessageParser<Mutation> Parser { get { return _parser; } }
+
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DataTypes.DataReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    public Mutation() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    public Mutation(Mutation other) : this() {
+      switch (other.OperationCase) {
+        case OperationOneofCase.Insert:
+          Insert = other.Insert.Clone();
           break;
-        case IdTypeOneofCase.Identifier:
-          Identifier = other.Identifier;
+        case OperationOneofCase.Update:
+          Update = other.Update.Clone();
           break;
-        case IdTypeOneofCase.Guid:
-          Guid = other.Guid;
+        case OperationOneofCase.Delete:
+          Delete = other.Delete.Clone();
+          break;
+      }
+
+    }
+
+    public Mutation Clone() {
+      return new Mutation(this);
+    }
+
+    /// <summary>Field number for the "insert" field.</summary>
+    public const int InsertFieldNumber = 1;
+    public global::DataTypes.Entity Insert {
+      get { return operationCase_ == OperationOneofCase.Insert ? (global::DataTypes.Entity) operation_ : null; }
+      set {
+        operation_ = value;
+        operationCase_ = value == null ? OperationOneofCase.None : OperationOneofCase.Insert;
+      }
+    }
+
+    /// <summary>Field number for the "update" field.</summary>
+    public const int UpdateFieldNumber = 2;
+    public global::DataTypes.Entity Update {
+      get { return operationCase_ == OperationOneofCase.Update ? (global::DataTypes.Entity) operation_ : null; }
+      set {
+        operation_ = value;
+        operationCase_ = value == null ? OperationOneofCase.None : OperationOneofCase.Update;
+      }
+    }
+
+    /// <summary>Field number for the "delete" field.</summary>
+    public const int DeleteFieldNumber = 3;
+    public global::DataTypes.Entity Delete {
+      get { return operationCase_ == OperationOneofCase.Delete ? (global::DataTypes.Entity) operation_ : null; }
+      set {
+        operation_ = value;
+        operationCase_ = value == null ? OperationOneofCase.None : OperationOneofCase.Delete;
+      }
+    }
+
+    private object operation_;
+    /// <summary>Enum of possible cases for the "operation" oneof.</summary>
+    public enum OperationOneofCase {
+      None = 0,
+      Insert = 1,
+      Update = 2,
+      Delete = 3,
+    }
+    private OperationOneofCase operationCase_ = OperationOneofCase.None;
+    public OperationOneofCase OperationCase {
+      get { return operationCase_; }
+    }
+
+    public void ClearOperation() {
+      operationCase_ = OperationOneofCase.None;
+      operation_ = null;
+    }
+
+    public override bool Equals(object other) {
+      return Equals(other as Mutation);
+    }
+
+    public bool Equals(Mutation other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Insert, other.Insert)) return false;
+      if (!object.Equals(Update, other.Update)) return false;
+      if (!object.Equals(Delete, other.Delete)) return false;
+      if (OperationCase != other.OperationCase) return false;
+      return true;
+    }
+
+    public override int GetHashCode() {
+      int hash = 1;
+      if (operationCase_ == OperationOneofCase.Insert) hash ^= Insert.GetHashCode();
+      if (operationCase_ == OperationOneofCase.Update) hash ^= Update.GetHashCode();
+      if (operationCase_ == OperationOneofCase.Delete) hash ^= Delete.GetHashCode();
+      hash ^= (int) operationCase_;
+      return hash;
+    }
+
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (operationCase_ == OperationOneofCase.Insert) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Insert);
+      }
+      if (operationCase_ == OperationOneofCase.Update) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Update);
+      }
+      if (operationCase_ == OperationOneofCase.Delete) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Delete);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (operationCase_ == OperationOneofCase.Insert) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Insert);
+      }
+      if (operationCase_ == OperationOneofCase.Update) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Update);
+      }
+      if (operationCase_ == OperationOneofCase.Delete) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Delete);
+      }
+      return size;
+    }
+
+    public void MergeFrom(Mutation other) {
+      if (other == null) {
+        return;
+      }
+      switch (other.OperationCase) {
+        case OperationOneofCase.Insert:
+          Insert = other.Insert;
+          break;
+        case OperationOneofCase.Update:
+          Update = other.Update;
+          break;
+        case OperationOneofCase.Delete:
+          Delete = other.Delete;
           break;
       }
 
@@ -355,16 +495,31 @@ namespace DataTypes {
           default:
             input.SkipLastField();
             break;
-          case 8: {
-            Number = input.ReadInt64();
+          case 10: {
+            global::DataTypes.Entity subBuilder = new global::DataTypes.Entity();
+            if (operationCase_ == OperationOneofCase.Insert) {
+              subBuilder.MergeFrom(Insert);
+            }
+            input.ReadMessage(subBuilder);
+            Insert = subBuilder;
             break;
           }
           case 18: {
-            Identifier = input.ReadString();
+            global::DataTypes.Entity subBuilder = new global::DataTypes.Entity();
+            if (operationCase_ == OperationOneofCase.Update) {
+              subBuilder.MergeFrom(Update);
+            }
+            input.ReadMessage(subBuilder);
+            Update = subBuilder;
             break;
           }
           case 26: {
-            Guid = input.ReadBytes();
+            global::DataTypes.Entity subBuilder = new global::DataTypes.Entity();
+            if (operationCase_ == OperationOneofCase.Delete) {
+              subBuilder.MergeFrom(Delete);
+            }
+            input.ReadMessage(subBuilder);
+            Delete = subBuilder;
             break;
           }
         }

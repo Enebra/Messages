@@ -10,10 +10,10 @@ package DataTypes;
 
 message CommitRequest 
 {
-  repeated Mutation mutations = 1;
+  repeated DataTypes.Mutation mutations = 1;
 }
 
 message CommitResponse
 {
-  repeated MutationResult mutation_results = 1;
+  repeated DataTypes.MutationResult mutation_results = 1;
 }

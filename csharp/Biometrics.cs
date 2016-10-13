@@ -24,46 +24,49 @@ namespace DataTypes {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChpkYXRhdHlwZXMvYmlvbWV0cmljcy5wcm90bxIJRGF0YVR5cGVzGhhkYXRh",
-            "dHlwZXMvZ2VvbWV0cnkucHJvdG8aFGRhdGF0eXBlcy9kYXRhLnByb3RvIjUK",
-            "BUZhY2VzEiwKBUZhY2VzGAEgAygLMh0uRGF0YVR5cGVzLkZhY2VDaGFyYWN0",
-            "ZXJpc3RpYyKmAQoSRmFjZUNoYXJhY3RlcmlzdGljEhoKAmlkGAEgASgLMg4u",
-            "RGF0YVR5cGVzLktleRIbCgNib3gYAiABKAsyDi5EYXRhVHlwZXMuQm94EhIK",
-            "CmNvbmZpZGVuY2UYAyABKAISIQoJcGVyc29uX2lkGAQgASgLMg4uRGF0YVR5",
-            "cGVzLktleRIgCghwaG90b19pZBgFIAEoCzIOLkRhdGFUeXBlcy5LZXkiNwoF",
-            "TWF0Y2gSHwoHZmFjZV9pZBgCIAEoCzIOLkRhdGFUeXBlcy5LZXkSDQoFbWF0",
-            "Y2gYAyABKAIiTQoHTWF0Y2hlcxIfCgdmYWNlX2lkGAEgASgLMg4uRGF0YVR5",
-            "cGVzLktleRIhCgdtYXRjaGVzGAIgAygLMhAuRGF0YVR5cGVzLk1hdGNoKkkK",
-            "DUJpb0FjdGlvblR5cGUSEgoOTm9uZUFjdGlvblR5cGUQABIKCgZFbnJvbGwQ",
-            "ARIMCghJZGVudGlmeRACEgoKBlZlcmlmeRADKlMKDUJpb21ldHJpY1R5cGUS",
-            "EgoOVW5zcGVjaWZpZWRCaW8QABIKCgZGYWNpYWwQARIPCgtGaW5nZXJwcmlu",
-            "dBACEggKBElyaXMQAxIHCgNBbGwQBCo9CgdFeWVUeXBlEhMKD1Vuc3BlY2lm",
-            "aWVkX0V5ZRAAEggKBExlZnQQARIJCgVSaWdodBACEggKBEJvdGgQAyq9AQoG",
-            "RmluZ2VyEhYKElVuc3BlY2lmaWVkX0ZpbmdlchAAEg4KClJpZ2h0VGh1bWIQ",
-            "ARINCglMZWZ0VGh1bWIQAhIOCgpSaWdodEluZGV4EAMSDQoJTGVmdEluZGV4",
-            "EAQSDwoLUmlnaHRNaWRkbGUQBRIOCgpMZWZ0TWlkZGxlEAYSDQoJUmlnaHRS",
-            "aW5nEAcSDAoITGVmdFJpbmcQCBIPCgtSaWdodExpdHRsZRAJEg4KCkxlZnRM",
-            "aXR0bGUQCiqOBQobRmFjaWFsSXNvQ29tcGxpYW5jZVRlbXBsYXRlEhsKF1Vu",
-            "c3BlY2lmaWVkX0lzb1RlbXBsYXRlEAASFgoST25seU9uZUZhY2VWaXNpYmxl",
-            "EAESHAoYZ29vZFZlcnRpY2FsRmFjZVBvc2l0aW9uEAISHAoYaG9yaXpvbnRh",
-            "bGx5Q2VudGVyZWRGYWNlEAMSDwoLd2lkdGhPZkhlYWQQBBIQCgxsZW5ndGhP",
-            "ZkhlYWQQBRIbChd3aWR0aE9mSGVhZEJlc3RQcmFjdGljZRAGEhwKGGxlbmd0",
-            "aE9mSGVhZEJlc3RQcmFjdGljZRAHEg4KCnJlc29sdXRpb24QCBIaChZyZXNv",
-            "bHV0aW9uQmVzdFByYWN0aWNlEAkSIgoeaW1hZ2VXaWR0aFRvSGVpZ2h0QmVz",
-            "dFByYWN0aWNlEAoSEAoMZ29vZEV4cG9zdXJlEAsSGAoUZ29vZEdyYXlTY2Fs",
-            "ZVByb2ZpbGUQDBIYChRoYXNOYXR1cmFsU2tpbkNvbG91chANEg4KCm5vSG90",
-            "U3BvdHMQDhIjCh9pc0JhY2tncm91bmRVbmlmb3JtQmVzdFByYWN0aWNlEA8S",
-            "DQoJaXNGcm9udGFsEBASGQoVaXNGcm9udGFsQmVzdFByYWN0aWNlEBESFQoR",
-            "aXNMaWdodGluZ1VuaWZvcm0QEhIYChRleWVzT3BlbkJlc3RQcmFjdGljZRAT",
-            "Eh8KG2V5ZXNHYXplRnJvbnRhbEJlc3RQcmFjdGljZRAUEhoKFmV5ZXNOb3RS",
-            "ZWRCZXN0UHJhY3RpY2UQFRITCg9ub1RpbnRlZEdsYXNzZXMQFhILCgdpc1No",
-            "YXJwEBcSGwoXbW91dGhDbG9zZWRCZXN0UHJhY3RpY2UQGEJPCgdleC5ncnBj",
-            "Wj5naXRodWIuY29tL0VuZWJyYS9TZXJ2aWNlQ29vcmRpbmF0b3IvZ3JwYy9k",
-            "YXRhdHlwZXMvYmlvbWV0cmljc6ICA1JUR2IGcHJvdG8z"));
+            "dHlwZXMvZ2VvbWV0cnkucHJvdG8aE2RhdGF0eXBlcy9rZXkucHJvdG8iNQoF",
+            "RmFjZXMSLAoFRmFjZXMYASADKAsyHS5EYXRhVHlwZXMuRmFjZUNoYXJhY3Rl",
+            "cmlzdGljIqYBChJGYWNlQ2hhcmFjdGVyaXN0aWMSGgoCaWQYASABKAsyDi5E",
+            "YXRhVHlwZXMuS2V5EhsKA2JveBgCIAEoCzIOLkRhdGFUeXBlcy5Cb3gSEgoK",
+            "Y29uZmlkZW5jZRgDIAEoAhIhCglwZXJzb25faWQYBCABKAsyDi5EYXRhVHlw",
+            "ZXMuS2V5EiAKCHBob3RvX2lkGAUgASgLMg4uRGF0YVR5cGVzLktleSJOCgpG",
+            "cmFtZUJ5dGVzEhIKCmZyYW1lX2RhdGEYASABKAwSLAoFZmFjZXMYAiADKAsy",
+            "HS5EYXRhVHlwZXMuRmFjZUNoYXJhY3RlcmlzdGljIjcKBU1hdGNoEh8KB2Zh",
+            "Y2VfaWQYASABKAsyDi5EYXRhVHlwZXMuS2V5Eg0KBW1hdGNoGAIgASgCIk0K",
+            "B01hdGNoZXMSHwoHZmFjZV9pZBgBIAEoCzIOLkRhdGFUeXBlcy5LZXkSIQoH",
+            "bWF0Y2hlcxgCIAMoCzIQLkRhdGFUeXBlcy5NYXRjaCpJCg1CaW9BY3Rpb25U",
+            "eXBlEhIKDk5vbmVBY3Rpb25UeXBlEAASCgoGRW5yb2xsEAESDAoISWRlbnRp",
+            "ZnkQAhIKCgZWZXJpZnkQAypTCg1CaW9tZXRyaWNUeXBlEhIKDlVuc3BlY2lm",
+            "aWVkQmlvEAASCgoGRmFjaWFsEAESDwoLRmluZ2VycHJpbnQQAhIICgRJcmlz",
+            "EAMSBwoDQWxsEAQqPQoHRXllVHlwZRITCg9VbnNwZWNpZmllZF9FeWUQABII",
+            "CgRMZWZ0EAESCQoFUmlnaHQQAhIICgRCb3RoEAMqvQEKBkZpbmdlchIWChJV",
+            "bnNwZWNpZmllZF9GaW5nZXIQABIOCgpSaWdodFRodW1iEAESDQoJTGVmdFRo",
+            "dW1iEAISDgoKUmlnaHRJbmRleBADEg0KCUxlZnRJbmRleBAEEg8KC1JpZ2h0",
+            "TWlkZGxlEAUSDgoKTGVmdE1pZGRsZRAGEg0KCVJpZ2h0UmluZxAHEgwKCExl",
+            "ZnRSaW5nEAgSDwoLUmlnaHRMaXR0bGUQCRIOCgpMZWZ0TGl0dGxlEAoqjgUK",
+            "G0ZhY2lhbElzb0NvbXBsaWFuY2VUZW1wbGF0ZRIbChdVbnNwZWNpZmllZF9J",
+            "c29UZW1wbGF0ZRAAEhYKEk9ubHlPbmVGYWNlVmlzaWJsZRABEhwKGGdvb2RW",
+            "ZXJ0aWNhbEZhY2VQb3NpdGlvbhACEhwKGGhvcml6b250YWxseUNlbnRlcmVk",
+            "RmFjZRADEg8KC3dpZHRoT2ZIZWFkEAQSEAoMbGVuZ3RoT2ZIZWFkEAUSGwoX",
+            "d2lkdGhPZkhlYWRCZXN0UHJhY3RpY2UQBhIcChhsZW5ndGhPZkhlYWRCZXN0",
+            "UHJhY3RpY2UQBxIOCgpyZXNvbHV0aW9uEAgSGgoWcmVzb2x1dGlvbkJlc3RQ",
+            "cmFjdGljZRAJEiIKHmltYWdlV2lkdGhUb0hlaWdodEJlc3RQcmFjdGljZRAK",
+            "EhAKDGdvb2RFeHBvc3VyZRALEhgKFGdvb2RHcmF5U2NhbGVQcm9maWxlEAwS",
+            "GAoUaGFzTmF0dXJhbFNraW5Db2xvdXIQDRIOCgpub0hvdFNwb3RzEA4SIwof",
+            "aXNCYWNrZ3JvdW5kVW5pZm9ybUJlc3RQcmFjdGljZRAPEg0KCWlzRnJvbnRh",
+            "bBAQEhkKFWlzRnJvbnRhbEJlc3RQcmFjdGljZRAREhUKEWlzTGlnaHRpbmdV",
+            "bmlmb3JtEBISGAoUZXllc09wZW5CZXN0UHJhY3RpY2UQExIfChtleWVzR2F6",
+            "ZUZyb250YWxCZXN0UHJhY3RpY2UQFBIaChZleWVzTm90UmVkQmVzdFByYWN0",
+            "aWNlEBUSEwoPbm9UaW50ZWRHbGFzc2VzEBYSCwoHaXNTaGFycBAXEhsKF21v",
+            "dXRoQ2xvc2VkQmVzdFByYWN0aWNlEBhCTwoHZXguZ3JwY1o+Z2l0aHViLmNv",
+            "bS9FbmVicmEvU2VydmljZUNvb3JkaW5hdG9yL2dycGMvZGF0YXR5cGVzL2Jp",
+            "b21ldHJpY3OiAgNSVEdiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::DataTypes.GeometryReflection.Descriptor, global::DataTypes.DataReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::DataTypes.GeometryReflection.Descriptor, global::DataTypes.KeyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.BioActionType), typeof(global::DataTypes.BiometricType), typeof(global::DataTypes.EyeType), typeof(global::DataTypes.Finger), typeof(global::DataTypes.FacialIsoComplianceTemplate), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Faces), global::DataTypes.Faces.Parser, new[]{ "Faces_" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.FaceCharacteristic), global::DataTypes.FaceCharacteristic.Parser, new[]{ "Id", "Box", "Confidence", "PersonId", "PhotoId" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.FrameBytes), global::DataTypes.FrameBytes.Parser, new[]{ "FrameData", "Faces" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Match), global::DataTypes.Match.Parser, new[]{ "FaceId", "Match_" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Matches), global::DataTypes.Matches.Parser, new[]{ "FaceId", "Matches_" }, null, null, null)
           }));
@@ -470,12 +473,134 @@ namespace DataTypes {
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class FrameBytes : pb::IMessage<FrameBytes> {
+    private static readonly pb::MessageParser<FrameBytes> _parser = new pb::MessageParser<FrameBytes>(() => new FrameBytes());
+    public static pb::MessageParser<FrameBytes> Parser { get { return _parser; } }
+
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::DataTypes.BiometricsReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    public FrameBytes() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    public FrameBytes(FrameBytes other) : this() {
+      frameData_ = other.frameData_;
+      faces_ = other.faces_.Clone();
+    }
+
+    public FrameBytes Clone() {
+      return new FrameBytes(this);
+    }
+
+    /// <summary>Field number for the "frame_data" field.</summary>
+    public const int FrameDataFieldNumber = 1;
+    private pb::ByteString frameData_ = pb::ByteString.Empty;
+    public pb::ByteString FrameData {
+      get { return frameData_; }
+      set {
+        frameData_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "faces" field.</summary>
+    public const int FacesFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::DataTypes.FaceCharacteristic> _repeated_faces_codec
+        = pb::FieldCodec.ForMessage(18, global::DataTypes.FaceCharacteristic.Parser);
+    private readonly pbc::RepeatedField<global::DataTypes.FaceCharacteristic> faces_ = new pbc::RepeatedField<global::DataTypes.FaceCharacteristic>();
+    public pbc::RepeatedField<global::DataTypes.FaceCharacteristic> Faces {
+      get { return faces_; }
+    }
+
+    public override bool Equals(object other) {
+      return Equals(other as FrameBytes);
+    }
+
+    public bool Equals(FrameBytes other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (FrameData != other.FrameData) return false;
+      if(!faces_.Equals(other.faces_)) return false;
+      return true;
+    }
+
+    public override int GetHashCode() {
+      int hash = 1;
+      if (FrameData.Length != 0) hash ^= FrameData.GetHashCode();
+      hash ^= faces_.GetHashCode();
+      return hash;
+    }
+
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (FrameData.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(FrameData);
+      }
+      faces_.WriteTo(output, _repeated_faces_codec);
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (FrameData.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(FrameData);
+      }
+      size += faces_.CalculateSize(_repeated_faces_codec);
+      return size;
+    }
+
+    public void MergeFrom(FrameBytes other) {
+      if (other == null) {
+        return;
+      }
+      if (other.FrameData.Length != 0) {
+        FrameData = other.FrameData;
+      }
+      faces_.Add(other.faces_);
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            FrameData = input.ReadBytes();
+            break;
+          }
+          case 18: {
+            faces_.AddEntriesFrom(input, _repeated_faces_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class Match : pb::IMessage<Match> {
     private static readonly pb::MessageParser<Match> _parser = new pb::MessageParser<Match>(() => new Match());
     public static pb::MessageParser<Match> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DataTypes.BiometricsReflection.Descriptor.MessageTypes[2]; }
+      get { return global::DataTypes.BiometricsReflection.Descriptor.MessageTypes[3]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -498,7 +623,7 @@ namespace DataTypes {
     }
 
     /// <summary>Field number for the "face_id" field.</summary>
-    public const int FaceIdFieldNumber = 2;
+    public const int FaceIdFieldNumber = 1;
     private global::DataTypes.Key faceId_;
     public global::DataTypes.Key FaceId {
       get { return faceId_; }
@@ -508,7 +633,7 @@ namespace DataTypes {
     }
 
     /// <summary>Field number for the "match" field.</summary>
-    public const int Match_FieldNumber = 3;
+    public const int Match_FieldNumber = 2;
     private float match_;
     public float Match_ {
       get { return match_; }
@@ -546,11 +671,11 @@ namespace DataTypes {
 
     public void WriteTo(pb::CodedOutputStream output) {
       if (faceId_ != null) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(10);
         output.WriteMessage(FaceId);
       }
       if (Match_ != 0F) {
-        output.WriteRawTag(29);
+        output.WriteRawTag(21);
         output.WriteFloat(Match_);
       }
     }
@@ -588,14 +713,14 @@ namespace DataTypes {
           default:
             input.SkipLastField();
             break;
-          case 18: {
+          case 10: {
             if (faceId_ == null) {
               faceId_ = new global::DataTypes.Key();
             }
             input.ReadMessage(faceId_);
             break;
           }
-          case 29: {
+          case 21: {
             Match_ = input.ReadFloat();
             break;
           }
@@ -611,7 +736,7 @@ namespace DataTypes {
     public static pb::MessageParser<Matches> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DataTypes.BiometricsReflection.Descriptor.MessageTypes[3]; }
+      get { return global::DataTypes.BiometricsReflection.Descriptor.MessageTypes[4]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {

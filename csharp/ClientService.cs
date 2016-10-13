@@ -26,16 +26,16 @@ namespace Services {
             "Ch1zZXJ2aWNlcy9jbGllbnRfc2VydmljZS5wcm90bxIIU2VydmljZXMaG2dv",
             "b2dsZS9wcm90b2J1Zi9lbXB0eS5wcm90bxoUZGF0YXR5cGVzL3VuaXQucHJv",
             "dG8aGGRhdGF0eXBlcy9sb2NhdGlvbi5wcm90bxoXZGF0YXR5cGVzL2Rldmlj",
-            "ZXMucHJvdG8aHGRhdGF0eXBlcy92aXNpdF9yZWNvcmQucHJvdG8ynAIKDUNs",
+            "ZXMucHJvdG8aHGRhdGF0eXBlcy92aXNpdF9yZWNvcmQucHJvdG8yngIKDUNs",
             "aWVudFNlcnZpY2USRwoSVXBkYXRlVmlzaXRSZWNvcmRzEhcuRGF0YVR5cGVz",
             "LlZpc2l0UmVjb3JkcxoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEj8KC1Vw",
-            "ZGF0ZVVuaXRzEhYuRGF0YVR5cGVzLlVwZGF0ZWRVbml0GhYuZ29vZ2xlLnBy",
+            "ZGF0ZVVuaXRzEhYuRGF0YVR5cGVzLlVuaXRVcGRhdGVzGhYuZ29vZ2xlLnBy",
             "b3RvYnVmLkVtcHR5IgASPwoOVXBkYXRlTG9jYXRpb24SEy5EYXRhVHlwZXMu",
-            "TG9jYXRpb24aFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABJACgtQdXNoVXBk",
-            "YXRlcxIXLkRhdGFUeXBlcy5EZXZpY2VVcGRhdGUaFi5nb29nbGUucHJvdG9i",
-            "dWYuRW1wdHkiAEJRCgdleC5ncnBjWkBnaXRodWIuY29tL0VuZWJyYS9TZXJ2",
-            "aWNlQ29vcmRpbmF0b3IvZ3JwYy9zZXJ2aWNlcy9jbGllbnRzZXJ2aWNlogID",
-            "UlRHYgZwcm90bzM="));
+            "TG9jYXRpb24aFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABJCCg1VcGRhdGVE",
+            "ZXZpY2VzEhcuRGF0YVR5cGVzLkRldmljZVVwZGF0ZRoWLmdvb2dsZS5wcm90",
+            "b2J1Zi5FbXB0eSIAQlEKB2V4LmdycGNaQGdpdGh1Yi5jb20vRW5lYnJhL1Nl",
+            "cnZpY2VDb29yZGluYXRvci9ncnBjL3NlcnZpY2VzL2NsaWVudHNlcnZpY2Wi",
+            "AgNSVEdiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::DataTypes.UnitReflection.Descriptor, global::DataTypes.LocationReflection.Descriptor, global::DataTypes.DevicesReflection.Descriptor, global::DataTypes.VisitRecordReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null));

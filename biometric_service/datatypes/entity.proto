@@ -5,7 +5,13 @@ import "datatypes/card.proto";
 import "datatypes/photo.proto";
 import "datatypes/location.proto";
 import "datatypes/visit_record.proto";
-import "datatypes/unit.proto";
+import "datatypes/group.proto";
+
+option java_package = "ex.grpc";
+option objc_class_prefix = "RTG";
+option go_package = "github.com/Enebra/ServiceCoordinator/grpc/datatypes/entity";
+
+package DataTypes;
 
 message Entity
 {
@@ -16,7 +22,7 @@ message Entity
     DataTypes.VisitRecord visit_record = 3;
     DataTypes.Location    location     = 4;
     DataTypes.Photo       photo        = 5;
-    DataTypes.Unit        unit         = 6;
+    DataTypes.Group       group        = 6;
   }
 }
 

@@ -19,7 +19,7 @@ static const char* ClientService_method_names[] = {
   "/Services.ClientService/UpdateVisitRecords",
   "/Services.ClientService/UpdateUnits",
   "/Services.ClientService/UpdateLocation",
-  "/Services.ClientService/PushUpdates",
+  "/Services.ClientService/UpdateDevices",
 };
 
 std::unique_ptr< ClientService::Stub> ClientService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -31,7 +31,7 @@ ClientService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& chan
   : channel_(channel), rpcmethod_UpdateVisitRecords_(ClientService_method_names[0], ::grpc::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_UpdateUnits_(ClientService_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_UpdateLocation_(ClientService_method_names[2], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_PushUpdates_(ClientService_method_names[3], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_UpdateDevices_(ClientService_method_names[3], ::grpc::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status ClientService::Stub::UpdateVisitRecords(::grpc::ClientContext* context, const ::DataTypes::VisitRecords& request, ::google::protobuf::Empty* response) {
@@ -42,11 +42,11 @@ ClientService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& chan
   return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_UpdateVisitRecords_, context, request);
 }
 
-::grpc::Status ClientService::Stub::UpdateUnits(::grpc::ClientContext* context, const ::DataTypes::UpdatedUnit& request, ::google::protobuf::Empty* response) {
+::grpc::Status ClientService::Stub::UpdateUnits(::grpc::ClientContext* context, const ::DataTypes::UnitUpdates& request, ::google::protobuf::Empty* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_UpdateUnits_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* ClientService::Stub::AsyncUpdateUnitsRaw(::grpc::ClientContext* context, const ::DataTypes::UpdatedUnit& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* ClientService::Stub::AsyncUpdateUnitsRaw(::grpc::ClientContext* context, const ::DataTypes::UnitUpdates& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_UpdateUnits_, context, request);
 }
 
@@ -58,12 +58,12 @@ ClientService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& chan
   return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_UpdateLocation_, context, request);
 }
 
-::grpc::Status ClientService::Stub::PushUpdates(::grpc::ClientContext* context, const ::DataTypes::DeviceUpdate& request, ::google::protobuf::Empty* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_PushUpdates_, context, request, response);
+::grpc::Status ClientService::Stub::UpdateDevices(::grpc::ClientContext* context, const ::DataTypes::DeviceUpdate& request, ::google::protobuf::Empty* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_UpdateDevices_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* ClientService::Stub::AsyncPushUpdatesRaw(::grpc::ClientContext* context, const ::DataTypes::DeviceUpdate& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_PushUpdates_, context, request);
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* ClientService::Stub::AsyncUpdateDevicesRaw(::grpc::ClientContext* context, const ::DataTypes::DeviceUpdate& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>(channel_.get(), cq, rpcmethod_UpdateDevices_, context, request);
 }
 
 ClientService::Service::Service() {
@@ -76,7 +76,7 @@ ClientService::Service::Service() {
   AddMethod(new ::grpc::RpcServiceMethod(
       ClientService_method_names[1],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< ClientService::Service, ::DataTypes::UpdatedUnit, ::google::protobuf::Empty>(
+      new ::grpc::RpcMethodHandler< ClientService::Service, ::DataTypes::UnitUpdates, ::google::protobuf::Empty>(
           std::mem_fn(&ClientService::Service::UpdateUnits), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
       ClientService_method_names[2],
@@ -87,7 +87,7 @@ ClientService::Service::Service() {
       ClientService_method_names[3],
       ::grpc::RpcMethod::NORMAL_RPC,
       new ::grpc::RpcMethodHandler< ClientService::Service, ::DataTypes::DeviceUpdate, ::google::protobuf::Empty>(
-          std::mem_fn(&ClientService::Service::PushUpdates), this)));
+          std::mem_fn(&ClientService::Service::UpdateDevices), this)));
 }
 
 ClientService::Service::~Service() {
@@ -100,7 +100,7 @@ ClientService::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status ClientService::Service::UpdateUnits(::grpc::ServerContext* context, const ::DataTypes::UpdatedUnit* request, ::google::protobuf::Empty* response) {
+::grpc::Status ClientService::Service::UpdateUnits(::grpc::ServerContext* context, const ::DataTypes::UnitUpdates* request, ::google::protobuf::Empty* response) {
   (void) context;
   (void) request;
   (void) response;
@@ -114,7 +114,7 @@ ClientService::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status ClientService::Service::PushUpdates(::grpc::ServerContext* context, const ::DataTypes::DeviceUpdate* request, ::google::protobuf::Empty* response) {
+::grpc::Status ClientService::Service::UpdateDevices(::grpc::ServerContext* context, const ::DataTypes::DeviceUpdate* request, ::google::protobuf::Empty* response) {
   (void) context;
   (void) request;
   (void) response;

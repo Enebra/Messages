@@ -24,21 +24,19 @@ namespace DataTypes {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChVkYXRhdHlwZXMvcGhvdG8ucHJvdG8SCURhdGFUeXBlcxoaZGF0YXR5cGVz",
-            "L2Jpb21ldHJpY3MucHJvdG8aFGRhdGF0eXBlcy9kYXRhLnByb3RvIsgBCgVQ",
-            "aG90bxIaCgJpZBgBIAEoCzIOLkRhdGFUeXBlcy5LZXkSCwoDdXJsGAIgASgJ",
-            "Eg0KBXdpZHRoGAMgASgFEg4KBmhlaWdodBgEIAEoBRIjCgdwdXJwb3NlGAUg",
-            "ASgOMhIuRGF0YVR5cGVzLlB1cnBvc2USMAoOYmlvbWV0cmljX3R5cGUYBiAB",
-            "KA4yGC5EYXRhVHlwZXMuQmlvbWV0cmljVHlwZRIgCghvd25lcl9pZBgHIAEo",
-            "CzIOLkRhdGFUeXBlcy5LZXkiOQoGUGhvdG9zEiAKBnBob3RvcxgBIAMoCzIQ",
-            "LkRhdGFUeXBlcy5QaG90bxINCgVjb3VudBgCIAEoAyo5CgdQdXJwb3NlEg8K",
-            "C05vbmVQdXJwb3NlEAASDQoJVGh1bWJuYWlsEAESDgoKUG9wdWxhdGlvbhAC",
-            "QkoKB2V4LmdycGNaOWdpdGh1Yi5jb20vRW5lYnJhL1NlcnZpY2VDb29yZGlu",
-            "YXRvci9ncnBjL2RhdGF0eXBlcy9waG90b6ICA1JUR2IGcHJvdG8z"));
+            "L2Jpb21ldHJpY3MucHJvdG8aE2RhdGF0eXBlcy9rZXkucHJvdG8iyAEKBVBo",
+            "b3RvEhoKAmlkGAEgASgLMg4uRGF0YVR5cGVzLktleRILCgN1cmwYAiABKAkS",
+            "DQoFd2lkdGgYAyABKAUSDgoGaGVpZ2h0GAQgASgFEiMKB3B1cnBvc2UYBSAB",
+            "KA4yEi5EYXRhVHlwZXMuUHVycG9zZRIwCg5iaW9tZXRyaWNfdHlwZRgGIAEo",
+            "DjIYLkRhdGFUeXBlcy5CaW9tZXRyaWNUeXBlEiAKCG93bmVyX2lkGAcgASgL",
+            "Mg4uRGF0YVR5cGVzLktleSo5CgdQdXJwb3NlEg8KC05vbmVQdXJwb3NlEAAS",
+            "DQoJVGh1bWJuYWlsEAESDgoKUG9wdWxhdGlvbhACQkoKB2V4LmdycGNaOWdp",
+            "dGh1Yi5jb20vRW5lYnJhL1NlcnZpY2VDb29yZGluYXRvci9ncnBjL2RhdGF0",
+            "eXBlcy9waG90b6ICA1JUR2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::DataTypes.BiometricsReflection.Descriptor, global::DataTypes.DataReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::DataTypes.BiometricsReflection.Descriptor, global::DataTypes.KeyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.Purpose), }, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Photo), global::DataTypes.Photo.Parser, new[]{ "Id", "Url", "Width", "Height", "Purpose", "BiometricType", "OwnerId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Photos), global::DataTypes.Photos.Parser, new[]{ "Photos_", "Count" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Photo), global::DataTypes.Photo.Parser, new[]{ "Id", "Url", "Width", "Height", "Purpose", "BiometricType", "OwnerId" }, null, null, null)
           }));
     }
     #endregion
@@ -323,128 +321,6 @@ namespace DataTypes {
               ownerId_ = new global::DataTypes.Key();
             }
             input.ReadMessage(ownerId_);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class Photos : pb::IMessage<Photos> {
-    private static readonly pb::MessageParser<Photos> _parser = new pb::MessageParser<Photos>(() => new Photos());
-    public static pb::MessageParser<Photos> Parser { get { return _parser; } }
-
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::DataTypes.PhotoReflection.Descriptor.MessageTypes[1]; }
-    }
-
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    public Photos() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    public Photos(Photos other) : this() {
-      photos_ = other.photos_.Clone();
-      count_ = other.count_;
-    }
-
-    public Photos Clone() {
-      return new Photos(this);
-    }
-
-    /// <summary>Field number for the "photos" field.</summary>
-    public const int Photos_FieldNumber = 1;
-    private static readonly pb::FieldCodec<global::DataTypes.Photo> _repeated_photos_codec
-        = pb::FieldCodec.ForMessage(10, global::DataTypes.Photo.Parser);
-    private readonly pbc::RepeatedField<global::DataTypes.Photo> photos_ = new pbc::RepeatedField<global::DataTypes.Photo>();
-    public pbc::RepeatedField<global::DataTypes.Photo> Photos_ {
-      get { return photos_; }
-    }
-
-    /// <summary>Field number for the "count" field.</summary>
-    public const int CountFieldNumber = 2;
-    private long count_;
-    public long Count {
-      get { return count_; }
-      set {
-        count_ = value;
-      }
-    }
-
-    public override bool Equals(object other) {
-      return Equals(other as Photos);
-    }
-
-    public bool Equals(Photos other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if(!photos_.Equals(other.photos_)) return false;
-      if (Count != other.Count) return false;
-      return true;
-    }
-
-    public override int GetHashCode() {
-      int hash = 1;
-      hash ^= photos_.GetHashCode();
-      if (Count != 0L) hash ^= Count.GetHashCode();
-      return hash;
-    }
-
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    public void WriteTo(pb::CodedOutputStream output) {
-      photos_.WriteTo(output, _repeated_photos_codec);
-      if (Count != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(Count);
-      }
-    }
-
-    public int CalculateSize() {
-      int size = 0;
-      size += photos_.CalculateSize(_repeated_photos_codec);
-      if (Count != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Count);
-      }
-      return size;
-    }
-
-    public void MergeFrom(Photos other) {
-      if (other == null) {
-        return;
-      }
-      photos_.Add(other.photos_);
-      if (other.Count != 0L) {
-        Count = other.Count;
-      }
-    }
-
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 10: {
-            photos_.AddEntriesFrom(input, _repeated_photos_codec);
-            break;
-          }
-          case 16: {
-            Count = input.ReadInt64();
             break;
           }
         }

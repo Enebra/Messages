@@ -24,27 +24,27 @@ namespace Services {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Ch1zZXJ2aWNlcy9mYWNpYWxfc2VydmljZS5wcm90bxIIU2VydmljZXMaFmRh",
-            "dGF0eXBlcy9wZXJzb24ucHJvdG8aFWRhdGF0eXBlcy9waG90by5wcm90bxoU",
-            "ZGF0YXR5cGVzL2RhdGEucHJvdG8aFWRhdGF0eXBlcy9ncm91cC5wcm90bxoa",
-            "ZGF0YXR5cGVzL2Jpb21ldHJpY3MucHJvdG8aG2dvb2dsZS9wcm90b2J1Zi9l",
-            "bXB0eS5wcm90byLEAQoQQmlvbWV0cmljUmVxdWVzdBIfCgVwaG90bxgBIAEo",
-            "CzIQLkRhdGFUeXBlcy5QaG90bxIeCgZwZXJzb24YAiABKAsyDi5EYXRhVHlw",
-            "ZXMuS2V5Eh0KBWdyb3VwGAMgASgLMg4uRGF0YVR5cGVzLktleRIoCgZhY3Rp",
-            "b24YBCABKA4yGC5EYXRhVHlwZXMuQmlvQWN0aW9uVHlwZRImCgR0eXBlGAUg",
-            "ASgOMhguRGF0YVR5cGVzLkJpb21ldHJpY1R5cGUihgEKEUJpb21ldHJpY1Jl",
-            "c3BvbnNlEh8KBXBob3RvGAEgASgLMhAuRGF0YVR5cGVzLlBob3RvEh4KBnBl",
-            "cnNvbhgCIAEoCzIOLkRhdGFUeXBlcy5LZXkSHwoFZmFjZXMYAyABKAsyEC5E",
-            "YXRhVHlwZXMuRmFjZXMSDwoHc3VjY2VzcxgEIAEoCCJ4Cg9CaW9tZXRyaWNV",
-            "cGRhdGUSKwoOcGVyc29uX3VwZGF0ZXMYAiABKAsyES5EYXRhVHlwZXMuUGVy",
-            "c29uSAASKQoNZ3JvdXBfdXBkYXRlcxgEIAEoCzIQLkRhdGFUeXBlcy5Hcm91",
-            "cEgAQg0KC3VwZGF0ZV90eXBlMp0BChZCaW9tZXRyaWNGYWNpYWxTZXJ2aWNl",
-            "EkQKB1Byb2Nlc3MSGi5TZXJ2aWNlcy5CaW9tZXRyaWNSZXF1ZXN0GhsuU2Vy",
-            "dmljZXMuQmlvbWV0cmljUmVzcG9uc2UiABI9CgZVcGRhdGUSGS5TZXJ2aWNl",
-            "cy5CaW9tZXRyaWNVcGRhdGUaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiAEJR",
-            "CgdleC5ncnBjWkBnaXRodWIuY29tL0VuZWJyYS9TZXJ2aWNlQ29vcmRpbmF0",
-            "b3IvZ3JwYy9zZXJ2aWNlcy9mYWNpYWxzZXJ2aWNlogIDUlRHYgZwcm90bzM="));
+            "dGF0eXBlcy9wZXJzb24ucHJvdG8aFWRhdGF0eXBlcy9waG90by5wcm90bxoT",
+            "ZGF0YXR5cGVzL2tleS5wcm90bxoVZGF0YXR5cGVzL2dyb3VwLnByb3RvGhpk",
+            "YXRhdHlwZXMvYmlvbWV0cmljcy5wcm90bxobZ29vZ2xlL3Byb3RvYnVmL2Vt",
+            "cHR5LnByb3RvIsQBChBCaW9tZXRyaWNSZXF1ZXN0Eh8KBXBob3RvGAEgASgL",
+            "MhAuRGF0YVR5cGVzLlBob3RvEh4KBnBlcnNvbhgCIAEoCzIOLkRhdGFUeXBl",
+            "cy5LZXkSHQoFZ3JvdXAYAyABKAsyDi5EYXRhVHlwZXMuS2V5EigKBmFjdGlv",
+            "bhgEIAEoDjIYLkRhdGFUeXBlcy5CaW9BY3Rpb25UeXBlEiYKBHR5cGUYBSAB",
+            "KA4yGC5EYXRhVHlwZXMuQmlvbWV0cmljVHlwZSKGAQoRQmlvbWV0cmljUmVz",
+            "cG9uc2USHwoFcGhvdG8YASABKAsyEC5EYXRhVHlwZXMuUGhvdG8SHgoGcGVy",
+            "c29uGAIgASgLMg4uRGF0YVR5cGVzLktleRIfCgVmYWNlcxgDIAEoCzIQLkRh",
+            "dGFUeXBlcy5GYWNlcxIPCgdzdWNjZXNzGAQgASgIIngKD0Jpb21ldHJpY1Vw",
+            "ZGF0ZRIrCg5wZXJzb25fdXBkYXRlcxgCIAEoCzIRLkRhdGFUeXBlcy5QZXJz",
+            "b25IABIpCg1ncm91cF91cGRhdGVzGAQgASgLMhAuRGF0YVR5cGVzLkdyb3Vw",
+            "SABCDQoLdXBkYXRlX3R5cGUynQEKFkJpb21ldHJpY0ZhY2lhbFNlcnZpY2US",
+            "RAoHUHJvY2VzcxIaLlNlcnZpY2VzLkJpb21ldHJpY1JlcXVlc3QaGy5TZXJ2",
+            "aWNlcy5CaW9tZXRyaWNSZXNwb25zZSIAEj0KBlVwZGF0ZRIZLlNlcnZpY2Vz",
+            "LkJpb21ldHJpY1VwZGF0ZRoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAQlEK",
+            "B2V4LmdycGNaQGdpdGh1Yi5jb20vRW5lYnJhL1NlcnZpY2VDb29yZGluYXRv",
+            "ci9ncnBjL3NlcnZpY2VzL2ZhY2lhbHNlcnZpY2WiAgNSVEdiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::DataTypes.PersonReflection.Descriptor, global::DataTypes.PhotoReflection.Descriptor, global::DataTypes.DataReflection.Descriptor, global::DataTypes.GroupReflection.Descriptor, global::DataTypes.BiometricsReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::DataTypes.PersonReflection.Descriptor, global::DataTypes.PhotoReflection.Descriptor, global::DataTypes.KeyReflection.Descriptor, global::DataTypes.GroupReflection.Descriptor, global::DataTypes.BiometricsReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Services.BiometricRequest), global::Services.BiometricRequest.Parser, new[]{ "Photo", "Person", "Group", "Action", "Type" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Services.BiometricResponse), global::Services.BiometricResponse.Parser, new[]{ "Photo", "Person", "Faces", "Success" }, null, null, null),
@@ -55,6 +55,9 @@ namespace Services {
 
   }
   #region Messages
+  /// <summary>
+  /// TODO move to queries
+  /// </summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class BiometricRequest : pb::IMessage<BiometricRequest> {
     private static readonly pb::MessageParser<BiometricRequest> _parser = new pb::MessageParser<BiometricRequest>(() => new BiometricRequest());

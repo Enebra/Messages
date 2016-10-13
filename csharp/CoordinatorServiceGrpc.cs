@@ -69,10 +69,10 @@ namespace Services {
         __Marshaller_MessageBytes,
         __Marshaller_MessageBytes);
 
-    static readonly Method<global::DataTypes.DeviceUpdate, global::Google.Protobuf.WellKnownTypes.Empty> __Method_PushUpdates = new Method<global::DataTypes.DeviceUpdate, global::Google.Protobuf.WellKnownTypes.Empty>(
+    static readonly Method<global::DataTypes.DeviceUpdate, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdateDevices = new Method<global::DataTypes.DeviceUpdate, global::Google.Protobuf.WellKnownTypes.Empty>(
         MethodType.Unary,
         __ServiceName,
-        "PushUpdates",
+        "UpdateDevices",
         __Marshaller_DeviceUpdate,
         __Marshaller_Empty);
 
@@ -115,12 +115,15 @@ namespace Services {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
 
+      /// <summary>
+      ///  update locations/visitrecords rely on commit
+      /// </summary>
       public virtual global::System.Threading.Tasks.Task<global::DataTypes.MessageBytes> Commit(global::DataTypes.MessageBytes request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> PushUpdates(global::DataTypes.DeviceUpdate request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> UpdateDevices(global::DataTypes.DeviceUpdate request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
@@ -246,37 +249,49 @@ namespace Services {
       {
         return CallInvoker.AsyncUnaryCall(__Method_Get, null, options, request);
       }
+      /// <summary>
+      ///  update locations/visitrecords rely on commit
+      /// </summary>
       public virtual global::DataTypes.MessageBytes Commit(global::DataTypes.MessageBytes request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return Commit(request, new CallOptions(headers, deadline, cancellationToken));
       }
+      /// <summary>
+      ///  update locations/visitrecords rely on commit
+      /// </summary>
       public virtual global::DataTypes.MessageBytes Commit(global::DataTypes.MessageBytes request, CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Commit, null, options, request);
       }
+      /// <summary>
+      ///  update locations/visitrecords rely on commit
+      /// </summary>
       public virtual AsyncUnaryCall<global::DataTypes.MessageBytes> CommitAsync(global::DataTypes.MessageBytes request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return CommitAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
+      /// <summary>
+      ///  update locations/visitrecords rely on commit
+      /// </summary>
       public virtual AsyncUnaryCall<global::DataTypes.MessageBytes> CommitAsync(global::DataTypes.MessageBytes request, CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Commit, null, options, request);
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty PushUpdates(global::DataTypes.DeviceUpdate request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateDevices(global::DataTypes.DeviceUpdate request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return PushUpdates(request, new CallOptions(headers, deadline, cancellationToken));
+        return UpdateDevices(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty PushUpdates(global::DataTypes.DeviceUpdate request, CallOptions options)
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateDevices(global::DataTypes.DeviceUpdate request, CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_PushUpdates, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_UpdateDevices, null, options, request);
       }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> PushUpdatesAsync(global::DataTypes.DeviceUpdate request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateDevicesAsync(global::DataTypes.DeviceUpdate request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return PushUpdatesAsync(request, new CallOptions(headers, deadline, cancellationToken));
+        return UpdateDevicesAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> PushUpdatesAsync(global::DataTypes.DeviceUpdate request, CallOptions options)
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateDevicesAsync(global::DataTypes.DeviceUpdate request, CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_PushUpdates, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_UpdateDevices, null, options, request);
       }
       protected override CoordinatorServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -295,7 +310,7 @@ namespace Services {
           .AddMethod(__Method_Unsubscribe, serviceImpl.Unsubscribe)
           .AddMethod(__Method_Get, serviceImpl.Get)
           .AddMethod(__Method_Commit, serviceImpl.Commit)
-          .AddMethod(__Method_PushUpdates, serviceImpl.PushUpdates).Build();
+          .AddMethod(__Method_UpdateDevices, serviceImpl.UpdateDevices).Build();
     }
 
   }
