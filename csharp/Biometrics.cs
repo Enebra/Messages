@@ -26,40 +26,42 @@ namespace DataTypes {
             "ChpkYXRhdHlwZXMvYmlvbWV0cmljcy5wcm90bxIJRGF0YVR5cGVzGhhkYXRh",
             "dHlwZXMvZ2VvbWV0cnkucHJvdG8aFGRhdGF0eXBlcy9kYXRhLnByb3RvIjUK",
             "BUZhY2VzEiwKBUZhY2VzGAEgAygLMh0uRGF0YVR5cGVzLkZhY2VDaGFyYWN0",
-            "ZXJpc3RpYyKGAQoSRmFjZUNoYXJhY3RlcmlzdGljEhoKAmlkGAEgASgLMg4u",
+            "ZXJpc3RpYyKmAQoSRmFjZUNoYXJhY3RlcmlzdGljEhoKAmlkGAEgASgLMg4u",
             "RGF0YVR5cGVzLktleRIbCgNib3gYAiABKAsyDi5EYXRhVHlwZXMuQm94EhIK",
-            "CmNvbmZpZGVuY2UYAyABKAISEQoJcGVyc29uX2lkGAQgASgDEhAKCHBob3Rv",
-            "X2lkGAUgASgDIjcKBU1hdGNoEh8KB2ZhY2VfaWQYAiABKAsyDi5EYXRhVHlw",
-            "ZXMuS2V5Eg0KBW1hdGNoGAMgASgCIk0KB01hdGNoZXMSHwoHZmFjZV9pZBgB",
-            "IAEoCzIOLkRhdGFUeXBlcy5LZXkSIQoHbWF0Y2hlcxgCIAMoCzIQLkRhdGFU",
-            "eXBlcy5NYXRjaCpTCg1CaW9tZXRyaWNUeXBlEhIKDlVuc3BlY2lmaWVkQmlv",
-            "EAASCgoGRmFjaWFsEAESDwoLRmluZ2VycHJpbnQQAhIICgRJcmlzEAMSBwoD",
-            "QWxsEAQqPQoHRXllVHlwZRITCg9VbnNwZWNpZmllZF9FeWUQABIICgRMZWZ0",
-            "EAESCQoFUmlnaHQQAhIICgRCb3RoEAMqvQEKBkZpbmdlchIWChJVbnNwZWNp",
-            "ZmllZF9GaW5nZXIQABIOCgpSaWdodFRodW1iEAESDQoJTGVmdFRodW1iEAIS",
-            "DgoKUmlnaHRJbmRleBADEg0KCUxlZnRJbmRleBAEEg8KC1JpZ2h0TWlkZGxl",
-            "EAUSDgoKTGVmdE1pZGRsZRAGEg0KCVJpZ2h0UmluZxAHEgwKCExlZnRSaW5n",
-            "EAgSDwoLUmlnaHRMaXR0bGUQCRIOCgpMZWZ0TGl0dGxlEAoqjgUKG0ZhY2lh",
-            "bElzb0NvbXBsaWFuY2VUZW1wbGF0ZRIbChdVbnNwZWNpZmllZF9Jc29UZW1w",
-            "bGF0ZRAAEhYKEk9ubHlPbmVGYWNlVmlzaWJsZRABEhwKGGdvb2RWZXJ0aWNh",
-            "bEZhY2VQb3NpdGlvbhACEhwKGGhvcml6b250YWxseUNlbnRlcmVkRmFjZRAD",
-            "Eg8KC3dpZHRoT2ZIZWFkEAQSEAoMbGVuZ3RoT2ZIZWFkEAUSGwoXd2lkdGhP",
-            "ZkhlYWRCZXN0UHJhY3RpY2UQBhIcChhsZW5ndGhPZkhlYWRCZXN0UHJhY3Rp",
-            "Y2UQBxIOCgpyZXNvbHV0aW9uEAgSGgoWcmVzb2x1dGlvbkJlc3RQcmFjdGlj",
-            "ZRAJEiIKHmltYWdlV2lkdGhUb0hlaWdodEJlc3RQcmFjdGljZRAKEhAKDGdv",
-            "b2RFeHBvc3VyZRALEhgKFGdvb2RHcmF5U2NhbGVQcm9maWxlEAwSGAoUaGFz",
-            "TmF0dXJhbFNraW5Db2xvdXIQDRIOCgpub0hvdFNwb3RzEA4SIwofaXNCYWNr",
-            "Z3JvdW5kVW5pZm9ybUJlc3RQcmFjdGljZRAPEg0KCWlzRnJvbnRhbBAQEhkK",
-            "FWlzRnJvbnRhbEJlc3RQcmFjdGljZRAREhUKEWlzTGlnaHRpbmdVbmlmb3Jt",
-            "EBISGAoUZXllc09wZW5CZXN0UHJhY3RpY2UQExIfChtleWVzR2F6ZUZyb250",
-            "YWxCZXN0UHJhY3RpY2UQFBIaChZleWVzTm90UmVkQmVzdFByYWN0aWNlEBUS",
-            "EwoPbm9UaW50ZWRHbGFzc2VzEBYSCwoHaXNTaGFycBAXEhsKF21vdXRoQ2xv",
-            "c2VkQmVzdFByYWN0aWNlEBhCTwoHZXguZ3JwY1o+Z2l0aHViLmNvbS9FbmVi",
-            "cmEvU2VydmljZUNvb3JkaW5hdG9yL2dycGMvZGF0YXR5cGVzL2Jpb21ldHJp",
-            "Y3OiAgNSVEdiBnByb3RvMw=="));
+            "CmNvbmZpZGVuY2UYAyABKAISIQoJcGVyc29uX2lkGAQgASgLMg4uRGF0YVR5",
+            "cGVzLktleRIgCghwaG90b19pZBgFIAEoCzIOLkRhdGFUeXBlcy5LZXkiNwoF",
+            "TWF0Y2gSHwoHZmFjZV9pZBgCIAEoCzIOLkRhdGFUeXBlcy5LZXkSDQoFbWF0",
+            "Y2gYAyABKAIiTQoHTWF0Y2hlcxIfCgdmYWNlX2lkGAEgASgLMg4uRGF0YVR5",
+            "cGVzLktleRIhCgdtYXRjaGVzGAIgAygLMhAuRGF0YVR5cGVzLk1hdGNoKkkK",
+            "DUJpb0FjdGlvblR5cGUSEgoOTm9uZUFjdGlvblR5cGUQABIKCgZFbnJvbGwQ",
+            "ARIMCghJZGVudGlmeRACEgoKBlZlcmlmeRADKlMKDUJpb21ldHJpY1R5cGUS",
+            "EgoOVW5zcGVjaWZpZWRCaW8QABIKCgZGYWNpYWwQARIPCgtGaW5nZXJwcmlu",
+            "dBACEggKBElyaXMQAxIHCgNBbGwQBCo9CgdFeWVUeXBlEhMKD1Vuc3BlY2lm",
+            "aWVkX0V5ZRAAEggKBExlZnQQARIJCgVSaWdodBACEggKBEJvdGgQAyq9AQoG",
+            "RmluZ2VyEhYKElVuc3BlY2lmaWVkX0ZpbmdlchAAEg4KClJpZ2h0VGh1bWIQ",
+            "ARINCglMZWZ0VGh1bWIQAhIOCgpSaWdodEluZGV4EAMSDQoJTGVmdEluZGV4",
+            "EAQSDwoLUmlnaHRNaWRkbGUQBRIOCgpMZWZ0TWlkZGxlEAYSDQoJUmlnaHRS",
+            "aW5nEAcSDAoITGVmdFJpbmcQCBIPCgtSaWdodExpdHRsZRAJEg4KCkxlZnRM",
+            "aXR0bGUQCiqOBQobRmFjaWFsSXNvQ29tcGxpYW5jZVRlbXBsYXRlEhsKF1Vu",
+            "c3BlY2lmaWVkX0lzb1RlbXBsYXRlEAASFgoST25seU9uZUZhY2VWaXNpYmxl",
+            "EAESHAoYZ29vZFZlcnRpY2FsRmFjZVBvc2l0aW9uEAISHAoYaG9yaXpvbnRh",
+            "bGx5Q2VudGVyZWRGYWNlEAMSDwoLd2lkdGhPZkhlYWQQBBIQCgxsZW5ndGhP",
+            "ZkhlYWQQBRIbChd3aWR0aE9mSGVhZEJlc3RQcmFjdGljZRAGEhwKGGxlbmd0",
+            "aE9mSGVhZEJlc3RQcmFjdGljZRAHEg4KCnJlc29sdXRpb24QCBIaChZyZXNv",
+            "bHV0aW9uQmVzdFByYWN0aWNlEAkSIgoeaW1hZ2VXaWR0aFRvSGVpZ2h0QmVz",
+            "dFByYWN0aWNlEAoSEAoMZ29vZEV4cG9zdXJlEAsSGAoUZ29vZEdyYXlTY2Fs",
+            "ZVByb2ZpbGUQDBIYChRoYXNOYXR1cmFsU2tpbkNvbG91chANEg4KCm5vSG90",
+            "U3BvdHMQDhIjCh9pc0JhY2tncm91bmRVbmlmb3JtQmVzdFByYWN0aWNlEA8S",
+            "DQoJaXNGcm9udGFsEBASGQoVaXNGcm9udGFsQmVzdFByYWN0aWNlEBESFQoR",
+            "aXNMaWdodGluZ1VuaWZvcm0QEhIYChRleWVzT3BlbkJlc3RQcmFjdGljZRAT",
+            "Eh8KG2V5ZXNHYXplRnJvbnRhbEJlc3RQcmFjdGljZRAUEhoKFmV5ZXNOb3RS",
+            "ZWRCZXN0UHJhY3RpY2UQFRITCg9ub1RpbnRlZEdsYXNzZXMQFhILCgdpc1No",
+            "YXJwEBcSGwoXbW91dGhDbG9zZWRCZXN0UHJhY3RpY2UQGEJPCgdleC5ncnBj",
+            "Wj5naXRodWIuY29tL0VuZWJyYS9TZXJ2aWNlQ29vcmRpbmF0b3IvZ3JwYy9k",
+            "YXRhdHlwZXMvYmlvbWV0cmljc6ICA1JUR2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::DataTypes.GeometryReflection.Descriptor, global::DataTypes.DataReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.BiometricType), typeof(global::DataTypes.EyeType), typeof(global::DataTypes.Finger), typeof(global::DataTypes.FacialIsoComplianceTemplate), }, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.BioActionType), typeof(global::DataTypes.BiometricType), typeof(global::DataTypes.EyeType), typeof(global::DataTypes.Finger), typeof(global::DataTypes.FacialIsoComplianceTemplate), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Faces), global::DataTypes.Faces.Parser, new[]{ "Faces_" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.FaceCharacteristic), global::DataTypes.FaceCharacteristic.Parser, new[]{ "Id", "Box", "Confidence", "PersonId", "PhotoId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Match), global::DataTypes.Match.Parser, new[]{ "FaceId", "Match_" }, null, null, null),
@@ -70,6 +72,13 @@ namespace DataTypes {
 
   }
   #region Enums
+  public enum BioActionType {
+    [pbr::OriginalName("NoneActionType")] NoneActionType = 0,
+    [pbr::OriginalName("Enroll")] Enroll = 1,
+    [pbr::OriginalName("Identify")] Identify = 2,
+    [pbr::OriginalName("Verify")] Verify = 3,
+  }
+
   public enum BiometricType {
     [pbr::OriginalName("UnspecifiedBio")] UnspecifiedBio = 0,
     [pbr::OriginalName("Facial")] Facial = 1,
@@ -248,8 +257,8 @@ namespace DataTypes {
       Id = other.id_ != null ? other.Id.Clone() : null;
       Box = other.box_ != null ? other.Box.Clone() : null;
       confidence_ = other.confidence_;
-      personId_ = other.personId_;
-      photoId_ = other.photoId_;
+      PersonId = other.personId_ != null ? other.PersonId.Clone() : null;
+      PhotoId = other.photoId_ != null ? other.PhotoId.Clone() : null;
     }
 
     public FaceCharacteristic Clone() {
@@ -288,8 +297,8 @@ namespace DataTypes {
 
     /// <summary>Field number for the "person_id" field.</summary>
     public const int PersonIdFieldNumber = 4;
-    private long personId_;
-    public long PersonId {
+    private global::DataTypes.Key personId_;
+    public global::DataTypes.Key PersonId {
       get { return personId_; }
       set {
         personId_ = value;
@@ -298,8 +307,8 @@ namespace DataTypes {
 
     /// <summary>Field number for the "photo_id" field.</summary>
     public const int PhotoIdFieldNumber = 5;
-    private long photoId_;
-    public long PhotoId {
+    private global::DataTypes.Key photoId_;
+    public global::DataTypes.Key PhotoId {
       get { return photoId_; }
       set {
         photoId_ = value;
@@ -320,8 +329,8 @@ namespace DataTypes {
       if (!object.Equals(Id, other.Id)) return false;
       if (!object.Equals(Box, other.Box)) return false;
       if (Confidence != other.Confidence) return false;
-      if (PersonId != other.PersonId) return false;
-      if (PhotoId != other.PhotoId) return false;
+      if (!object.Equals(PersonId, other.PersonId)) return false;
+      if (!object.Equals(PhotoId, other.PhotoId)) return false;
       return true;
     }
 
@@ -330,8 +339,8 @@ namespace DataTypes {
       if (id_ != null) hash ^= Id.GetHashCode();
       if (box_ != null) hash ^= Box.GetHashCode();
       if (Confidence != 0F) hash ^= Confidence.GetHashCode();
-      if (PersonId != 0L) hash ^= PersonId.GetHashCode();
-      if (PhotoId != 0L) hash ^= PhotoId.GetHashCode();
+      if (personId_ != null) hash ^= PersonId.GetHashCode();
+      if (photoId_ != null) hash ^= PhotoId.GetHashCode();
       return hash;
     }
 
@@ -352,13 +361,13 @@ namespace DataTypes {
         output.WriteRawTag(29);
         output.WriteFloat(Confidence);
       }
-      if (PersonId != 0L) {
-        output.WriteRawTag(32);
-        output.WriteInt64(PersonId);
+      if (personId_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(PersonId);
       }
-      if (PhotoId != 0L) {
-        output.WriteRawTag(40);
-        output.WriteInt64(PhotoId);
+      if (photoId_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(PhotoId);
       }
     }
 
@@ -373,11 +382,11 @@ namespace DataTypes {
       if (Confidence != 0F) {
         size += 1 + 4;
       }
-      if (PersonId != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(PersonId);
+      if (personId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(PersonId);
       }
-      if (PhotoId != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(PhotoId);
+      if (photoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(PhotoId);
       }
       return size;
     }
@@ -401,11 +410,17 @@ namespace DataTypes {
       if (other.Confidence != 0F) {
         Confidence = other.Confidence;
       }
-      if (other.PersonId != 0L) {
-        PersonId = other.PersonId;
+      if (other.personId_ != null) {
+        if (personId_ == null) {
+          personId_ = new global::DataTypes.Key();
+        }
+        PersonId.MergeFrom(other.PersonId);
       }
-      if (other.PhotoId != 0L) {
-        PhotoId = other.PhotoId;
+      if (other.photoId_ != null) {
+        if (photoId_ == null) {
+          photoId_ = new global::DataTypes.Key();
+        }
+        PhotoId.MergeFrom(other.PhotoId);
       }
     }
 
@@ -434,12 +449,18 @@ namespace DataTypes {
             Confidence = input.ReadFloat();
             break;
           }
-          case 32: {
-            PersonId = input.ReadInt64();
+          case 34: {
+            if (personId_ == null) {
+              personId_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(personId_);
             break;
           }
-          case 40: {
-            PhotoId = input.ReadInt64();
+          case 42: {
+            if (photoId_ == null) {
+              photoId_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(photoId_);
             break;
           }
         }

@@ -48,7 +48,7 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 struct MutationOneofInstance {
   const ::Services::Entity* insert_;
   const ::Services::Entity* update_;
-  const ::DataTypes::Key* delete__;
+  const ::Services::Entity* delete__;
 }* Mutation_default_oneof_instance_ = NULL;
 const ::google::protobuf::Descriptor* Entity_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
@@ -142,7 +142,7 @@ void protobuf_AssignDesc_services_2fdatabase_5fservice_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CommitResponse, _is_default_instance_));
   MutationResult_descriptor_ = file->message_type(4);
   static const int MutationResult_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MutationResult, key_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MutationResult, entity_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MutationResult, error_),
   };
   MutationResult_reflection_ =
@@ -297,24 +297,25 @@ void protobuf_AddDesc_services_2fdatabase_5fservice_2eproto() {
     "uestH\000B\016\n\014request_type\"6\n\rCommitRequest\022"
     "%\n\tmutations\030\001 \003(\0132\022.Services.Mutation\"D"
     "\n\016CommitResponse\0222\n\020mutation_results\030\001 \003"
-    "(\0132\030.Services.MutationResult\"<\n\016Mutation"
-    "Result\022\033\n\003key\030\001 \001(\0132\016.DataTypes.Key\022\r\n\005e"
-    "rror\030\002 \001(\t\"\201\001\n\010Mutation\022\"\n\006insert\030\001 \001(\0132"
-    "\020.Services.EntityH\000\022\"\n\006update\030\002 \001(\0132\020.Se"
-    "rvices.EntityH\000\022 \n\006delete\030\003 \001(\0132\016.DataTy"
-    "pes.KeyH\000B\013\n\toperation\"\330\001\n\006Entity\022\037\n\004car"
-    "d\030\001 \001(\0132\017.DataTypes.CardH\000\022#\n\006person\030\002 \001"
-    "(\0132\021.DataTypes.PersonH\000\022.\n\014visit_record\030"
-    "\003 \001(\0132\026.DataTypes.VisitRecordH\000\022\'\n\010locat"
-    "ion\030\004 \001(\0132\023.DataTypes.LocationH\000\022!\n\005Phot"
-    "o\030\005 \001(\0132\020.DataTypes.PhotoH\000B\014\n\nvalue_typ"
-    "e\"+\n\010Entities\022\037\n\005items\030\001 \003(\0132\020.Services."
-    "Entity2\212\001\n\017DatabaseService\0229\n\003Get\022\027.Data"
-    "Types.MessageBytes\032\027.DataTypes.MessageBy"
-    "tes\"\000\022<\n\006Commit\022\027.DataTypes.MessageBytes"
-    "\032\027.DataTypes.MessageBytes\"\000BS\n\007ex.grpcZB"
-    "github.com/Enebra/ServiceCoordinator/grp"
-    "c/services/databaseservice\242\002\003RTGb\006proto3", 1360);
+    "(\0132\030.Services.MutationResult\"A\n\016Mutation"
+    "Result\022 \n\006entity\030\001 \001(\0132\020.Services.Entity"
+    "\022\r\n\005error\030\002 \001(\t\"\203\001\n\010Mutation\022\"\n\006insert\030\001"
+    " \001(\0132\020.Services.EntityH\000\022\"\n\006update\030\002 \001(\013"
+    "2\020.Services.EntityH\000\022\"\n\006delete\030\003 \001(\0132\020.S"
+    "ervices.EntityH\000B\013\n\toperation\"\330\001\n\006Entity"
+    "\022\037\n\004card\030\001 \001(\0132\017.DataTypes.CardH\000\022#\n\006per"
+    "son\030\002 \001(\0132\021.DataTypes.PersonH\000\022.\n\014visit_"
+    "record\030\003 \001(\0132\026.DataTypes.VisitRecordH\000\022\'"
+    "\n\010location\030\004 \001(\0132\023.DataTypes.LocationH\000\022"
+    "!\n\005Photo\030\005 \001(\0132\020.DataTypes.PhotoH\000B\014\n\nva"
+    "lue_type\"+\n\010Entities\022\037\n\005items\030\001 \003(\0132\020.Se"
+    "rvices.Entity2\212\001\n\017DatabaseService\0229\n\003Get"
+    "\022\027.DataTypes.MessageBytes\032\027.DataTypes.Me"
+    "ssageBytes\"\000\022<\n\006Commit\022\027.DataTypes.Messa"
+    "geBytes\032\027.DataTypes.MessageBytes\"\000BS\n\007ex"
+    ".grpcZBgithub.com/Enebra/ServiceCoordina"
+    "tor/grpc/services/databaseservice\242\002\003RTGb"
+    "\006proto3", 1367);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "services/database_service.proto", &protobuf_RegisterTypes);
   GetResponse::default_instance_ = new GetResponse();
@@ -1762,7 +1763,7 @@ CommitResponse::mutation_results() const {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int MutationResult::kKeyFieldNumber;
+const int MutationResult::kEntityFieldNumber;
 const int MutationResult::kErrorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -1774,7 +1775,7 @@ MutationResult::MutationResult()
 
 void MutationResult::InitAsDefaultInstance() {
   _is_default_instance_ = true;
-  key_ = const_cast< ::DataTypes::Key*>(&::DataTypes::Key::default_instance());
+  entity_ = const_cast< ::Services::Entity*>(&::Services::Entity::default_instance());
 }
 
 MutationResult::MutationResult(const MutationResult& from)
@@ -1789,7 +1790,7 @@ void MutationResult::SharedCtor() {
     _is_default_instance_ = false;
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  key_ = NULL;
+  entity_ = NULL;
   error_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
@@ -1801,7 +1802,7 @@ MutationResult::~MutationResult() {
 void MutationResult::SharedDtor() {
   error_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
-    delete key_;
+    delete entity_;
   }
 }
 
@@ -1832,8 +1833,8 @@ MutationResult* MutationResult::New(::google::protobuf::Arena* arena) const {
 
 void MutationResult::Clear() {
 // @@protoc_insertion_point(message_clear_start:Services.MutationResult)
-  if (GetArenaNoVirtual() == NULL && key_ != NULL) delete key_;
-  key_ = NULL;
+  if (GetArenaNoVirtual() == NULL && entity_ != NULL) delete entity_;
+  entity_ = NULL;
   error_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
@@ -1847,11 +1848,11 @@ bool MutationResult::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .DataTypes.Key key = 1;
+      // optional .Services.Entity entity = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_key()));
+               input, mutable_entity()));
         } else {
           goto handle_unusual;
         }
@@ -1900,10 +1901,10 @@ failure:
 void MutationResult::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:Services.MutationResult)
-  // optional .DataTypes.Key key = 1;
-  if (this->has_key()) {
+  // optional .Services.Entity entity = 1;
+  if (this->has_entity()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, *this->key_, output);
+      1, *this->entity_, output);
   }
 
   // optional string error = 2;
@@ -1922,11 +1923,11 @@ void MutationResult::SerializeWithCachedSizes(
 ::google::protobuf::uint8* MutationResult::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:Services.MutationResult)
-  // optional .DataTypes.Key key = 1;
-  if (this->has_key()) {
+  // optional .Services.Entity entity = 1;
+  if (this->has_entity()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, *this->key_, target);
+        1, *this->entity_, target);
   }
 
   // optional string error = 2;
@@ -1948,11 +1949,11 @@ int MutationResult::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:Services.MutationResult)
   int total_size = 0;
 
-  // optional .DataTypes.Key key = 1;
-  if (this->has_key()) {
+  // optional .Services.Entity entity = 1;
+  if (this->has_entity()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->key_);
+        *this->entity_);
   }
 
   // optional string error = 2;
@@ -1986,8 +1987,8 @@ void MutationResult::MergeFrom(const ::google::protobuf::Message& from) {
 void MutationResult::MergeFrom(const MutationResult& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:Services.MutationResult)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  if (from.has_key()) {
-    mutable_key()->::DataTypes::Key::MergeFrom(from.key());
+  if (from.has_entity()) {
+    mutable_entity()->::Services::Entity::MergeFrom(from.entity());
   }
   if (from.error().size() > 0) {
 
@@ -2019,7 +2020,7 @@ void MutationResult::Swap(MutationResult* other) {
   InternalSwap(other);
 }
 void MutationResult::InternalSwap(MutationResult* other) {
-  std::swap(key_, other->key_);
+  std::swap(entity_, other->entity_);
   error_.Swap(&other->error_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -2036,42 +2037,42 @@ void MutationResult::InternalSwap(MutationResult* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // MutationResult
 
-// optional .DataTypes.Key key = 1;
-bool MutationResult::has_key() const {
-  return !_is_default_instance_ && key_ != NULL;
+// optional .Services.Entity entity = 1;
+bool MutationResult::has_entity() const {
+  return !_is_default_instance_ && entity_ != NULL;
 }
-void MutationResult::clear_key() {
-  if (GetArenaNoVirtual() == NULL && key_ != NULL) delete key_;
-  key_ = NULL;
+void MutationResult::clear_entity() {
+  if (GetArenaNoVirtual() == NULL && entity_ != NULL) delete entity_;
+  entity_ = NULL;
 }
-const ::DataTypes::Key& MutationResult::key() const {
-  // @@protoc_insertion_point(field_get:Services.MutationResult.key)
-  return key_ != NULL ? *key_ : *default_instance_->key_;
+const ::Services::Entity& MutationResult::entity() const {
+  // @@protoc_insertion_point(field_get:Services.MutationResult.entity)
+  return entity_ != NULL ? *entity_ : *default_instance_->entity_;
 }
-::DataTypes::Key* MutationResult::mutable_key() {
+::Services::Entity* MutationResult::mutable_entity() {
   
-  if (key_ == NULL) {
-    key_ = new ::DataTypes::Key;
+  if (entity_ == NULL) {
+    entity_ = new ::Services::Entity;
   }
-  // @@protoc_insertion_point(field_mutable:Services.MutationResult.key)
-  return key_;
+  // @@protoc_insertion_point(field_mutable:Services.MutationResult.entity)
+  return entity_;
 }
-::DataTypes::Key* MutationResult::release_key() {
-  // @@protoc_insertion_point(field_release:Services.MutationResult.key)
+::Services::Entity* MutationResult::release_entity() {
+  // @@protoc_insertion_point(field_release:Services.MutationResult.entity)
   
-  ::DataTypes::Key* temp = key_;
-  key_ = NULL;
+  ::Services::Entity* temp = entity_;
+  entity_ = NULL;
   return temp;
 }
-void MutationResult::set_allocated_key(::DataTypes::Key* key) {
-  delete key_;
-  key_ = key;
-  if (key) {
+void MutationResult::set_allocated_entity(::Services::Entity* entity) {
+  delete entity_;
+  entity_ = entity;
+  if (entity) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:Services.MutationResult.key)
+  // @@protoc_insertion_point(field_set_allocated:Services.MutationResult.entity)
 }
 
 // optional string error = 2;
@@ -2138,7 +2139,7 @@ void Mutation::InitAsDefaultInstance() {
   _is_default_instance_ = true;
   Mutation_default_oneof_instance_->insert_ = const_cast< ::Services::Entity*>(&::Services::Entity::default_instance());
   Mutation_default_oneof_instance_->update_ = const_cast< ::Services::Entity*>(&::Services::Entity::default_instance());
-  Mutation_default_oneof_instance_->delete__ = const_cast< ::DataTypes::Key*>(&::DataTypes::Key::default_instance());
+  Mutation_default_oneof_instance_->delete__ = const_cast< ::Services::Entity*>(&::Services::Entity::default_instance());
 }
 
 Mutation::Mutation(const Mutation& from)
@@ -2256,7 +2257,7 @@ bool Mutation::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .DataTypes.Key delete = 3;
+      // optional .Services.Entity delete = 3;
       case 3: {
         if (tag == 26) {
          parse_delete:
@@ -2305,7 +2306,7 @@ void Mutation::SerializeWithCachedSizes(
       2, *operation_.update_, output);
   }
 
-  // optional .DataTypes.Key delete = 3;
+  // optional .Services.Entity delete = 3;
   if (has_delete_()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, *operation_.delete__, output);
@@ -2331,7 +2332,7 @@ void Mutation::SerializeWithCachedSizes(
         2, *operation_.update_, target);
   }
 
-  // optional .DataTypes.Key delete = 3;
+  // optional .Services.Entity delete = 3;
   if (has_delete_()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -2361,7 +2362,7 @@ int Mutation::ByteSize() const {
           *operation_.update_);
       break;
     }
-    // optional .DataTypes.Key delete = 3;
+    // optional .Services.Entity delete = 3;
     case kDelete: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -2406,7 +2407,7 @@ void Mutation::MergeFrom(const Mutation& from) {
       break;
     }
     case kDelete: {
-      mutable_delete_()->::DataTypes::Key::MergeFrom(from.delete_());
+      mutable_delete_()->::Services::Entity::MergeFrom(from.delete_());
       break;
     }
     case OPERATION_NOT_SET: {
@@ -2552,7 +2553,7 @@ void Mutation::set_allocated_update(::Services::Entity* update) {
   // @@protoc_insertion_point(field_set_allocated:Services.Mutation.update)
 }
 
-// optional .DataTypes.Key delete = 3;
+// optional .Services.Entity delete = 3;
 bool Mutation::has_delete_() const {
   return operation_case() == kDelete;
 }
@@ -2565,33 +2566,33 @@ void Mutation::clear_delete_() {
     clear_has_operation();
   }
 }
- const ::DataTypes::Key& Mutation::delete_() const {
+ const ::Services::Entity& Mutation::delete_() const {
   // @@protoc_insertion_point(field_get:Services.Mutation.delete)
   return has_delete_()
       ? *operation_.delete__
-      : ::DataTypes::Key::default_instance();
+      : ::Services::Entity::default_instance();
 }
-::DataTypes::Key* Mutation::mutable_delete_() {
+::Services::Entity* Mutation::mutable_delete_() {
   if (!has_delete_()) {
     clear_operation();
     set_has_delete_();
-    operation_.delete__ = new ::DataTypes::Key;
+    operation_.delete__ = new ::Services::Entity;
   }
   // @@protoc_insertion_point(field_mutable:Services.Mutation.delete)
   return operation_.delete__;
 }
-::DataTypes::Key* Mutation::release_delete_() {
+::Services::Entity* Mutation::release_delete_() {
   // @@protoc_insertion_point(field_release:Services.Mutation.delete)
   if (has_delete_()) {
     clear_has_operation();
-    ::DataTypes::Key* temp = operation_.delete__;
+    ::Services::Entity* temp = operation_.delete__;
     operation_.delete__ = NULL;
     return temp;
   } else {
     return NULL;
   }
 }
-void Mutation::set_allocated_delete_(::DataTypes::Key* delete_) {
+void Mutation::set_allocated_delete_(::Services::Entity* delete_) {
   clear_operation();
   if (delete_) {
     set_has_delete_();

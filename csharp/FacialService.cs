@@ -23,33 +23,32 @@ namespace Services {
     static FacialServiceReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Ch1zZXJ2aWNlcy9mYWNpYWxfc2VydmljZS5wcm90bxIIU2VydmljZXMaFWRh",
-            "dGF0eXBlcy9waG90by5wcm90bxoaZGF0YXR5cGVzL2Jpb21ldHJpY3MucHJv",
-            "dG8iSQoaUG9wdWxhdGlvbkNyZWF0aW9uUmVzcG9uc2USCgoCaWQYASABKAMS",
-            "HwoFZmFjZXMYAiADKAsyEC5EYXRhVHlwZXMuRmFjZXMihAEKEFZlcmlmaWNh",
-            "dGlvbkRhdGESJgoMdGFyZ2V0X2ltYWdlGAEgASgLMhAuRGF0YVR5cGVzLlBo",
-            "b3RvEioKEGNvbXBhcmlzb25faW1hZ2UYAiABKAsyEC5EYXRhVHlwZXMuUGhv",
-            "dG8SHAoUY29tcGFyaXNvbl9wZXJzb25faWQYAyABKAMiUwoSSWRlbnRpZmlj",
-            "YXRpb25EYXRhEiYKDHRhcmdldF9pbWFnZRgBIAEoCzIQLkRhdGFUeXBlcy5Q",
-            "aG90bxIVCg1wb3B1bGF0aW9uX2lkGAIgASgDIloKEkZhY2VTZWFyY2hSZXNw",
-            "b25zZRIfCgVmYWNlcxgBIAMoCzIQLkRhdGFUeXBlcy5GYWNlcxIjCgdtYXRj",
-            "aGVzGAIgAygLMhIuRGF0YVR5cGVzLk1hdGNoZXMyqAIKFkJpb21ldHJpY0Zh",
-            "Y2lhbFNlcnZpY2USLwoHQWNxdWlyZRIQLkRhdGFUeXBlcy5QaG90bxoQLkRh",
-            "dGFUeXBlcy5GYWNlcyIAEk0KEENyZWF0ZVBvcHVsYXRpb24SES5EYXRhVHlw",
-            "ZXMuUGhvdG9zGiQuU2VydmljZXMuUG9wdWxhdGlvbkNyZWF0aW9uUmVzcG9u",
-            "c2UiABJECgZWZXJpZnkSGi5TZXJ2aWNlcy5WZXJpZmljYXRpb25EYXRhGhwu",
-            "U2VydmljZXMuRmFjZVNlYXJjaFJlc3BvbnNlIgASSAoISWRlbnRpZnkSHC5T",
-            "ZXJ2aWNlcy5JZGVudGlmaWNhdGlvbkRhdGEaHC5TZXJ2aWNlcy5GYWNlU2Vh",
-            "cmNoUmVzcG9uc2UiAEJRCgdleC5ncnBjWkBnaXRodWIuY29tL0VuZWJyYS9T",
-            "ZXJ2aWNlQ29vcmRpbmF0b3IvZ3JwYy9zZXJ2aWNlcy9mYWNpYWxzZXJ2aWNl",
-            "ogIDUlRHYgZwcm90bzM="));
+            "Ch1zZXJ2aWNlcy9mYWNpYWxfc2VydmljZS5wcm90bxIIU2VydmljZXMaFmRh",
+            "dGF0eXBlcy9wZXJzb24ucHJvdG8aFWRhdGF0eXBlcy9waG90by5wcm90bxoU",
+            "ZGF0YXR5cGVzL2RhdGEucHJvdG8aFWRhdGF0eXBlcy9ncm91cC5wcm90bxoa",
+            "ZGF0YXR5cGVzL2Jpb21ldHJpY3MucHJvdG8aG2dvb2dsZS9wcm90b2J1Zi9l",
+            "bXB0eS5wcm90byLEAQoQQmlvbWV0cmljUmVxdWVzdBIfCgVwaG90bxgBIAEo",
+            "CzIQLkRhdGFUeXBlcy5QaG90bxIeCgZwZXJzb24YAiABKAsyDi5EYXRhVHlw",
+            "ZXMuS2V5Eh0KBWdyb3VwGAMgASgLMg4uRGF0YVR5cGVzLktleRIoCgZhY3Rp",
+            "b24YBCABKA4yGC5EYXRhVHlwZXMuQmlvQWN0aW9uVHlwZRImCgR0eXBlGAUg",
+            "ASgOMhguRGF0YVR5cGVzLkJpb21ldHJpY1R5cGUihgEKEUJpb21ldHJpY1Jl",
+            "c3BvbnNlEh8KBXBob3RvGAEgASgLMhAuRGF0YVR5cGVzLlBob3RvEh4KBnBl",
+            "cnNvbhgCIAEoCzIOLkRhdGFUeXBlcy5LZXkSHwoFZmFjZXMYAyABKAsyEC5E",
+            "YXRhVHlwZXMuRmFjZXMSDwoHc3VjY2VzcxgEIAEoCCJ4Cg9CaW9tZXRyaWNV",
+            "cGRhdGUSKwoOcGVyc29uX3VwZGF0ZXMYAiABKAsyES5EYXRhVHlwZXMuUGVy",
+            "c29uSAASKQoNZ3JvdXBfdXBkYXRlcxgEIAEoCzIQLkRhdGFUeXBlcy5Hcm91",
+            "cEgAQg0KC3VwZGF0ZV90eXBlMp0BChZCaW9tZXRyaWNGYWNpYWxTZXJ2aWNl",
+            "EkQKB1Byb2Nlc3MSGi5TZXJ2aWNlcy5CaW9tZXRyaWNSZXF1ZXN0GhsuU2Vy",
+            "dmljZXMuQmlvbWV0cmljUmVzcG9uc2UiABI9CgZVcGRhdGUSGS5TZXJ2aWNl",
+            "cy5CaW9tZXRyaWNVcGRhdGUaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiAEJR",
+            "CgdleC5ncnBjWkBnaXRodWIuY29tL0VuZWJyYS9TZXJ2aWNlQ29vcmRpbmF0",
+            "b3IvZ3JwYy9zZXJ2aWNlcy9mYWNpYWxzZXJ2aWNlogIDUlRHYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::DataTypes.PhotoReflection.Descriptor, global::DataTypes.BiometricsReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::DataTypes.PersonReflection.Descriptor, global::DataTypes.PhotoReflection.Descriptor, global::DataTypes.DataReflection.Descriptor, global::DataTypes.GroupReflection.Descriptor, global::DataTypes.BiometricsReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Services.PopulationCreationResponse), global::Services.PopulationCreationResponse.Parser, new[]{ "Id", "Faces" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Services.VerificationData), global::Services.VerificationData.Parser, new[]{ "TargetImage", "ComparisonImage", "ComparisonPersonId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Services.IdentificationData), global::Services.IdentificationData.Parser, new[]{ "TargetImage", "PopulationId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Services.FaceSearchResponse), global::Services.FaceSearchResponse.Parser, new[]{ "Faces", "Matches" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Services.BiometricRequest), global::Services.BiometricRequest.Parser, new[]{ "Photo", "Person", "Group", "Action", "Type" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Services.BiometricResponse), global::Services.BiometricResponse.Parser, new[]{ "Photo", "Person", "Faces", "Success" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Services.BiometricUpdate), global::Services.BiometricUpdate.Parser, new[]{ "PersonUpdates", "GroupUpdates" }, new[]{ "UpdateType" }, null, null)
           }));
     }
     #endregion
@@ -57,9 +56,9 @@ namespace Services {
   }
   #region Messages
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class PopulationCreationResponse : pb::IMessage<PopulationCreationResponse> {
-    private static readonly pb::MessageParser<PopulationCreationResponse> _parser = new pb::MessageParser<PopulationCreationResponse>(() => new PopulationCreationResponse());
-    public static pb::MessageParser<PopulationCreationResponse> Parser { get { return _parser; } }
+  public sealed partial class BiometricRequest : pb::IMessage<BiometricRequest> {
+    private static readonly pb::MessageParser<BiometricRequest> _parser = new pb::MessageParser<BiometricRequest>(() => new BiometricRequest());
+    public static pb::MessageParser<BiometricRequest> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Services.FacialServiceReflection.Descriptor.MessageTypes[0]; }
@@ -69,60 +68,100 @@ namespace Services {
       get { return Descriptor; }
     }
 
-    public PopulationCreationResponse() {
+    public BiometricRequest() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
-    public PopulationCreationResponse(PopulationCreationResponse other) : this() {
-      id_ = other.id_;
-      faces_ = other.faces_.Clone();
+    public BiometricRequest(BiometricRequest other) : this() {
+      Photo = other.photo_ != null ? other.Photo.Clone() : null;
+      Person = other.person_ != null ? other.Person.Clone() : null;
+      Group = other.group_ != null ? other.Group.Clone() : null;
+      action_ = other.action_;
+      type_ = other.type_;
     }
 
-    public PopulationCreationResponse Clone() {
-      return new PopulationCreationResponse(this);
+    public BiometricRequest Clone() {
+      return new BiometricRequest(this);
     }
 
-    /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 1;
-    private long id_;
-    public long Id {
-      get { return id_; }
+    /// <summary>Field number for the "photo" field.</summary>
+    public const int PhotoFieldNumber = 1;
+    private global::DataTypes.Photo photo_;
+    public global::DataTypes.Photo Photo {
+      get { return photo_; }
       set {
-        id_ = value;
+        photo_ = value;
       }
     }
 
-    /// <summary>Field number for the "faces" field.</summary>
-    public const int FacesFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::DataTypes.Faces> _repeated_faces_codec
-        = pb::FieldCodec.ForMessage(18, global::DataTypes.Faces.Parser);
-    private readonly pbc::RepeatedField<global::DataTypes.Faces> faces_ = new pbc::RepeatedField<global::DataTypes.Faces>();
-    public pbc::RepeatedField<global::DataTypes.Faces> Faces {
-      get { return faces_; }
+    /// <summary>Field number for the "person" field.</summary>
+    public const int PersonFieldNumber = 2;
+    private global::DataTypes.Key person_;
+    public global::DataTypes.Key Person {
+      get { return person_; }
+      set {
+        person_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "group" field.</summary>
+    public const int GroupFieldNumber = 3;
+    private global::DataTypes.Key group_;
+    public global::DataTypes.Key Group {
+      get { return group_; }
+      set {
+        group_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "action" field.</summary>
+    public const int ActionFieldNumber = 4;
+    private global::DataTypes.BioActionType action_ = 0;
+    public global::DataTypes.BioActionType Action {
+      get { return action_; }
+      set {
+        action_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "type" field.</summary>
+    public const int TypeFieldNumber = 5;
+    private global::DataTypes.BiometricType type_ = 0;
+    public global::DataTypes.BiometricType Type {
+      get { return type_; }
+      set {
+        type_ = value;
+      }
     }
 
     public override bool Equals(object other) {
-      return Equals(other as PopulationCreationResponse);
+      return Equals(other as BiometricRequest);
     }
 
-    public bool Equals(PopulationCreationResponse other) {
+    public bool Equals(BiometricRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Id != other.Id) return false;
-      if(!faces_.Equals(other.faces_)) return false;
+      if (!object.Equals(Photo, other.Photo)) return false;
+      if (!object.Equals(Person, other.Person)) return false;
+      if (!object.Equals(Group, other.Group)) return false;
+      if (Action != other.Action) return false;
+      if (Type != other.Type) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
-      if (Id != 0L) hash ^= Id.GetHashCode();
-      hash ^= faces_.GetHashCode();
+      if (photo_ != null) hash ^= Photo.GetHashCode();
+      if (person_ != null) hash ^= Person.GetHashCode();
+      if (group_ != null) hash ^= Group.GetHashCode();
+      if (Action != 0) hash ^= Action.GetHashCode();
+      if (Type != 0) hash ^= Type.GetHashCode();
       return hash;
     }
 
@@ -131,30 +170,76 @@ namespace Services {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Id != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(Id);
+      if (photo_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Photo);
       }
-      faces_.WriteTo(output, _repeated_faces_codec);
+      if (person_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Person);
+      }
+      if (group_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Group);
+      }
+      if (Action != 0) {
+        output.WriteRawTag(32);
+        output.WriteEnum((int) Action);
+      }
+      if (Type != 0) {
+        output.WriteRawTag(40);
+        output.WriteEnum((int) Type);
+      }
     }
 
     public int CalculateSize() {
       int size = 0;
-      if (Id != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Id);
+      if (photo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Photo);
       }
-      size += faces_.CalculateSize(_repeated_faces_codec);
+      if (person_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Person);
+      }
+      if (group_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Group);
+      }
+      if (Action != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Action);
+      }
+      if (Type != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
+      }
       return size;
     }
 
-    public void MergeFrom(PopulationCreationResponse other) {
+    public void MergeFrom(BiometricRequest other) {
       if (other == null) {
         return;
       }
-      if (other.Id != 0L) {
-        Id = other.Id;
+      if (other.photo_ != null) {
+        if (photo_ == null) {
+          photo_ = new global::DataTypes.Photo();
+        }
+        Photo.MergeFrom(other.Photo);
       }
-      faces_.Add(other.faces_);
+      if (other.person_ != null) {
+        if (person_ == null) {
+          person_ = new global::DataTypes.Key();
+        }
+        Person.MergeFrom(other.Person);
+      }
+      if (other.group_ != null) {
+        if (group_ == null) {
+          group_ = new global::DataTypes.Key();
+        }
+        Group.MergeFrom(other.Group);
+      }
+      if (other.Action != 0) {
+        Action = other.Action;
+      }
+      if (other.Type != 0) {
+        Type = other.Type;
+      }
     }
 
     public void MergeFrom(pb::CodedInputStream input) {
@@ -164,12 +249,33 @@ namespace Services {
           default:
             input.SkipLastField();
             break;
-          case 8: {
-            Id = input.ReadInt64();
+          case 10: {
+            if (photo_ == null) {
+              photo_ = new global::DataTypes.Photo();
+            }
+            input.ReadMessage(photo_);
             break;
           }
           case 18: {
-            faces_.AddEntriesFrom(input, _repeated_faces_codec);
+            if (person_ == null) {
+              person_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(person_);
+            break;
+          }
+          case 26: {
+            if (group_ == null) {
+              group_ = new global::DataTypes.Key();
+            }
+            input.ReadMessage(group_);
+            break;
+          }
+          case 32: {
+            action_ = (global::DataTypes.BioActionType) input.ReadEnum();
+            break;
+          }
+          case 40: {
+            type_ = (global::DataTypes.BiometricType) input.ReadEnum();
             break;
           }
         }
@@ -179,9 +285,9 @@ namespace Services {
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class VerificationData : pb::IMessage<VerificationData> {
-    private static readonly pb::MessageParser<VerificationData> _parser = new pb::MessageParser<VerificationData>(() => new VerificationData());
-    public static pb::MessageParser<VerificationData> Parser { get { return _parser; } }
+  public sealed partial class BiometricResponse : pb::IMessage<BiometricResponse> {
+    private static readonly pb::MessageParser<BiometricResponse> _parser = new pb::MessageParser<BiometricResponse>(() => new BiometricResponse());
+    public static pb::MessageParser<BiometricResponse> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Services.FacialServiceReflection.Descriptor.MessageTypes[1]; }
@@ -191,74 +297,87 @@ namespace Services {
       get { return Descriptor; }
     }
 
-    public VerificationData() {
+    public BiometricResponse() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
-    public VerificationData(VerificationData other) : this() {
-      TargetImage = other.targetImage_ != null ? other.TargetImage.Clone() : null;
-      ComparisonImage = other.comparisonImage_ != null ? other.ComparisonImage.Clone() : null;
-      comparisonPersonId_ = other.comparisonPersonId_;
+    public BiometricResponse(BiometricResponse other) : this() {
+      Photo = other.photo_ != null ? other.Photo.Clone() : null;
+      Person = other.person_ != null ? other.Person.Clone() : null;
+      Faces = other.faces_ != null ? other.Faces.Clone() : null;
+      success_ = other.success_;
     }
 
-    public VerificationData Clone() {
-      return new VerificationData(this);
+    public BiometricResponse Clone() {
+      return new BiometricResponse(this);
     }
 
-    /// <summary>Field number for the "target_image" field.</summary>
-    public const int TargetImageFieldNumber = 1;
-    private global::DataTypes.Photo targetImage_;
-    public global::DataTypes.Photo TargetImage {
-      get { return targetImage_; }
+    /// <summary>Field number for the "photo" field.</summary>
+    public const int PhotoFieldNumber = 1;
+    private global::DataTypes.Photo photo_;
+    public global::DataTypes.Photo Photo {
+      get { return photo_; }
       set {
-        targetImage_ = value;
+        photo_ = value;
       }
     }
 
-    /// <summary>Field number for the "comparison_image" field.</summary>
-    public const int ComparisonImageFieldNumber = 2;
-    private global::DataTypes.Photo comparisonImage_;
-    public global::DataTypes.Photo ComparisonImage {
-      get { return comparisonImage_; }
+    /// <summary>Field number for the "person" field.</summary>
+    public const int PersonFieldNumber = 2;
+    private global::DataTypes.Key person_;
+    public global::DataTypes.Key Person {
+      get { return person_; }
       set {
-        comparisonImage_ = value;
+        person_ = value;
       }
     }
 
-    /// <summary>Field number for the "comparison_person_id" field.</summary>
-    public const int ComparisonPersonIdFieldNumber = 3;
-    private long comparisonPersonId_;
-    public long ComparisonPersonId {
-      get { return comparisonPersonId_; }
+    /// <summary>Field number for the "faces" field.</summary>
+    public const int FacesFieldNumber = 3;
+    private global::DataTypes.Faces faces_;
+    public global::DataTypes.Faces Faces {
+      get { return faces_; }
       set {
-        comparisonPersonId_ = value;
+        faces_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "success" field.</summary>
+    public const int SuccessFieldNumber = 4;
+    private bool success_;
+    public bool Success {
+      get { return success_; }
+      set {
+        success_ = value;
       }
     }
 
     public override bool Equals(object other) {
-      return Equals(other as VerificationData);
+      return Equals(other as BiometricResponse);
     }
 
-    public bool Equals(VerificationData other) {
+    public bool Equals(BiometricResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(TargetImage, other.TargetImage)) return false;
-      if (!object.Equals(ComparisonImage, other.ComparisonImage)) return false;
-      if (ComparisonPersonId != other.ComparisonPersonId) return false;
+      if (!object.Equals(Photo, other.Photo)) return false;
+      if (!object.Equals(Person, other.Person)) return false;
+      if (!object.Equals(Faces, other.Faces)) return false;
+      if (Success != other.Success) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
-      if (targetImage_ != null) hash ^= TargetImage.GetHashCode();
-      if (comparisonImage_ != null) hash ^= ComparisonImage.GetHashCode();
-      if (ComparisonPersonId != 0L) hash ^= ComparisonPersonId.GetHashCode();
+      if (photo_ != null) hash ^= Photo.GetHashCode();
+      if (person_ != null) hash ^= Person.GetHashCode();
+      if (faces_ != null) hash ^= Faces.GetHashCode();
+      if (Success != false) hash ^= Success.GetHashCode();
       return hash;
     }
 
@@ -267,52 +386,65 @@ namespace Services {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (targetImage_ != null) {
+      if (photo_ != null) {
         output.WriteRawTag(10);
-        output.WriteMessage(TargetImage);
+        output.WriteMessage(Photo);
       }
-      if (comparisonImage_ != null) {
+      if (person_ != null) {
         output.WriteRawTag(18);
-        output.WriteMessage(ComparisonImage);
+        output.WriteMessage(Person);
       }
-      if (ComparisonPersonId != 0L) {
-        output.WriteRawTag(24);
-        output.WriteInt64(ComparisonPersonId);
+      if (faces_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Faces);
+      }
+      if (Success != false) {
+        output.WriteRawTag(32);
+        output.WriteBool(Success);
       }
     }
 
     public int CalculateSize() {
       int size = 0;
-      if (targetImage_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(TargetImage);
+      if (photo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Photo);
       }
-      if (comparisonImage_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ComparisonImage);
+      if (person_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Person);
       }
-      if (ComparisonPersonId != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ComparisonPersonId);
+      if (faces_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Faces);
+      }
+      if (Success != false) {
+        size += 1 + 1;
       }
       return size;
     }
 
-    public void MergeFrom(VerificationData other) {
+    public void MergeFrom(BiometricResponse other) {
       if (other == null) {
         return;
       }
-      if (other.targetImage_ != null) {
-        if (targetImage_ == null) {
-          targetImage_ = new global::DataTypes.Photo();
+      if (other.photo_ != null) {
+        if (photo_ == null) {
+          photo_ = new global::DataTypes.Photo();
         }
-        TargetImage.MergeFrom(other.TargetImage);
+        Photo.MergeFrom(other.Photo);
       }
-      if (other.comparisonImage_ != null) {
-        if (comparisonImage_ == null) {
-          comparisonImage_ = new global::DataTypes.Photo();
+      if (other.person_ != null) {
+        if (person_ == null) {
+          person_ = new global::DataTypes.Key();
         }
-        ComparisonImage.MergeFrom(other.ComparisonImage);
+        Person.MergeFrom(other.Person);
       }
-      if (other.ComparisonPersonId != 0L) {
-        ComparisonPersonId = other.ComparisonPersonId;
+      if (other.faces_ != null) {
+        if (faces_ == null) {
+          faces_ = new global::DataTypes.Faces();
+        }
+        Faces.MergeFrom(other.Faces);
+      }
+      if (other.Success != false) {
+        Success = other.Success;
       }
     }
 
@@ -324,21 +456,28 @@ namespace Services {
             input.SkipLastField();
             break;
           case 10: {
-            if (targetImage_ == null) {
-              targetImage_ = new global::DataTypes.Photo();
+            if (photo_ == null) {
+              photo_ = new global::DataTypes.Photo();
             }
-            input.ReadMessage(targetImage_);
+            input.ReadMessage(photo_);
             break;
           }
           case 18: {
-            if (comparisonImage_ == null) {
-              comparisonImage_ = new global::DataTypes.Photo();
+            if (person_ == null) {
+              person_ = new global::DataTypes.Key();
             }
-            input.ReadMessage(comparisonImage_);
+            input.ReadMessage(person_);
             break;
           }
-          case 24: {
-            ComparisonPersonId = input.ReadInt64();
+          case 26: {
+            if (faces_ == null) {
+              faces_ = new global::DataTypes.Faces();
+            }
+            input.ReadMessage(faces_);
+            break;
+          }
+          case 32: {
+            Success = input.ReadBool();
             break;
           }
         }
@@ -348,9 +487,9 @@ namespace Services {
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class IdentificationData : pb::IMessage<IdentificationData> {
-    private static readonly pb::MessageParser<IdentificationData> _parser = new pb::MessageParser<IdentificationData>(() => new IdentificationData());
-    public static pb::MessageParser<IdentificationData> Parser { get { return _parser; } }
+  public sealed partial class BiometricUpdate : pb::IMessage<BiometricUpdate> {
+    private static readonly pb::MessageParser<BiometricUpdate> _parser = new pb::MessageParser<BiometricUpdate>(() => new BiometricUpdate());
+    public static pb::MessageParser<BiometricUpdate> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Services.FacialServiceReflection.Descriptor.MessageTypes[2]; }
@@ -360,61 +499,87 @@ namespace Services {
       get { return Descriptor; }
     }
 
-    public IdentificationData() {
+    public BiometricUpdate() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
-    public IdentificationData(IdentificationData other) : this() {
-      TargetImage = other.targetImage_ != null ? other.TargetImage.Clone() : null;
-      populationId_ = other.populationId_;
+    public BiometricUpdate(BiometricUpdate other) : this() {
+      switch (other.UpdateTypeCase) {
+        case UpdateTypeOneofCase.PersonUpdates:
+          PersonUpdates = other.PersonUpdates.Clone();
+          break;
+        case UpdateTypeOneofCase.GroupUpdates:
+          GroupUpdates = other.GroupUpdates.Clone();
+          break;
+      }
+
     }
 
-    public IdentificationData Clone() {
-      return new IdentificationData(this);
+    public BiometricUpdate Clone() {
+      return new BiometricUpdate(this);
     }
 
-    /// <summary>Field number for the "target_image" field.</summary>
-    public const int TargetImageFieldNumber = 1;
-    private global::DataTypes.Photo targetImage_;
-    public global::DataTypes.Photo TargetImage {
-      get { return targetImage_; }
+    /// <summary>Field number for the "person_updates" field.</summary>
+    public const int PersonUpdatesFieldNumber = 2;
+    public global::DataTypes.Person PersonUpdates {
+      get { return updateTypeCase_ == UpdateTypeOneofCase.PersonUpdates ? (global::DataTypes.Person) updateType_ : null; }
       set {
-        targetImage_ = value;
+        updateType_ = value;
+        updateTypeCase_ = value == null ? UpdateTypeOneofCase.None : UpdateTypeOneofCase.PersonUpdates;
       }
     }
 
-    /// <summary>Field number for the "population_id" field.</summary>
-    public const int PopulationIdFieldNumber = 2;
-    private long populationId_;
-    public long PopulationId {
-      get { return populationId_; }
+    /// <summary>Field number for the "group_updates" field.</summary>
+    public const int GroupUpdatesFieldNumber = 4;
+    public global::DataTypes.Group GroupUpdates {
+      get { return updateTypeCase_ == UpdateTypeOneofCase.GroupUpdates ? (global::DataTypes.Group) updateType_ : null; }
       set {
-        populationId_ = value;
+        updateType_ = value;
+        updateTypeCase_ = value == null ? UpdateTypeOneofCase.None : UpdateTypeOneofCase.GroupUpdates;
       }
+    }
+
+    private object updateType_;
+    /// <summary>Enum of possible cases for the "update_type" oneof.</summary>
+    public enum UpdateTypeOneofCase {
+      None = 0,
+      PersonUpdates = 2,
+      GroupUpdates = 4,
+    }
+    private UpdateTypeOneofCase updateTypeCase_ = UpdateTypeOneofCase.None;
+    public UpdateTypeOneofCase UpdateTypeCase {
+      get { return updateTypeCase_; }
+    }
+
+    public void ClearUpdateType() {
+      updateTypeCase_ = UpdateTypeOneofCase.None;
+      updateType_ = null;
     }
 
     public override bool Equals(object other) {
-      return Equals(other as IdentificationData);
+      return Equals(other as BiometricUpdate);
     }
 
-    public bool Equals(IdentificationData other) {
+    public bool Equals(BiometricUpdate other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(TargetImage, other.TargetImage)) return false;
-      if (PopulationId != other.PopulationId) return false;
+      if (!object.Equals(PersonUpdates, other.PersonUpdates)) return false;
+      if (!object.Equals(GroupUpdates, other.GroupUpdates)) return false;
+      if (UpdateTypeCase != other.UpdateTypeCase) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
-      if (targetImage_ != null) hash ^= TargetImage.GetHashCode();
-      if (PopulationId != 0L) hash ^= PopulationId.GetHashCode();
+      if (updateTypeCase_ == UpdateTypeOneofCase.PersonUpdates) hash ^= PersonUpdates.GetHashCode();
+      if (updateTypeCase_ == UpdateTypeOneofCase.GroupUpdates) hash ^= GroupUpdates.GetHashCode();
+      hash ^= (int) updateTypeCase_;
       return hash;
     }
 
@@ -423,40 +588,40 @@ namespace Services {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (targetImage_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(TargetImage);
+      if (updateTypeCase_ == UpdateTypeOneofCase.PersonUpdates) {
+        output.WriteRawTag(18);
+        output.WriteMessage(PersonUpdates);
       }
-      if (PopulationId != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(PopulationId);
+      if (updateTypeCase_ == UpdateTypeOneofCase.GroupUpdates) {
+        output.WriteRawTag(34);
+        output.WriteMessage(GroupUpdates);
       }
     }
 
     public int CalculateSize() {
       int size = 0;
-      if (targetImage_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(TargetImage);
+      if (updateTypeCase_ == UpdateTypeOneofCase.PersonUpdates) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(PersonUpdates);
       }
-      if (PopulationId != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(PopulationId);
+      if (updateTypeCase_ == UpdateTypeOneofCase.GroupUpdates) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(GroupUpdates);
       }
       return size;
     }
 
-    public void MergeFrom(IdentificationData other) {
+    public void MergeFrom(BiometricUpdate other) {
       if (other == null) {
         return;
       }
-      if (other.targetImage_ != null) {
-        if (targetImage_ == null) {
-          targetImage_ = new global::DataTypes.Photo();
-        }
-        TargetImage.MergeFrom(other.TargetImage);
+      switch (other.UpdateTypeCase) {
+        case UpdateTypeOneofCase.PersonUpdates:
+          PersonUpdates = other.PersonUpdates;
+          break;
+        case UpdateTypeOneofCase.GroupUpdates:
+          GroupUpdates = other.GroupUpdates;
+          break;
       }
-      if (other.PopulationId != 0L) {
-        PopulationId = other.PopulationId;
-      }
+
     }
 
     public void MergeFrom(pb::CodedInputStream input) {
@@ -466,129 +631,22 @@ namespace Services {
           default:
             input.SkipLastField();
             break;
-          case 10: {
-            if (targetImage_ == null) {
-              targetImage_ = new global::DataTypes.Photo();
-            }
-            input.ReadMessage(targetImage_);
-            break;
-          }
-          case 16: {
-            PopulationId = input.ReadInt64();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class FaceSearchResponse : pb::IMessage<FaceSearchResponse> {
-    private static readonly pb::MessageParser<FaceSearchResponse> _parser = new pb::MessageParser<FaceSearchResponse>(() => new FaceSearchResponse());
-    public static pb::MessageParser<FaceSearchResponse> Parser { get { return _parser; } }
-
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Services.FacialServiceReflection.Descriptor.MessageTypes[3]; }
-    }
-
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    public FaceSearchResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    public FaceSearchResponse(FaceSearchResponse other) : this() {
-      faces_ = other.faces_.Clone();
-      matches_ = other.matches_.Clone();
-    }
-
-    public FaceSearchResponse Clone() {
-      return new FaceSearchResponse(this);
-    }
-
-    /// <summary>Field number for the "faces" field.</summary>
-    public const int FacesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::DataTypes.Faces> _repeated_faces_codec
-        = pb::FieldCodec.ForMessage(10, global::DataTypes.Faces.Parser);
-    private readonly pbc::RepeatedField<global::DataTypes.Faces> faces_ = new pbc::RepeatedField<global::DataTypes.Faces>();
-    public pbc::RepeatedField<global::DataTypes.Faces> Faces {
-      get { return faces_; }
-    }
-
-    /// <summary>Field number for the "matches" field.</summary>
-    public const int MatchesFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::DataTypes.Matches> _repeated_matches_codec
-        = pb::FieldCodec.ForMessage(18, global::DataTypes.Matches.Parser);
-    private readonly pbc::RepeatedField<global::DataTypes.Matches> matches_ = new pbc::RepeatedField<global::DataTypes.Matches>();
-    public pbc::RepeatedField<global::DataTypes.Matches> Matches {
-      get { return matches_; }
-    }
-
-    public override bool Equals(object other) {
-      return Equals(other as FaceSearchResponse);
-    }
-
-    public bool Equals(FaceSearchResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if(!faces_.Equals(other.faces_)) return false;
-      if(!matches_.Equals(other.matches_)) return false;
-      return true;
-    }
-
-    public override int GetHashCode() {
-      int hash = 1;
-      hash ^= faces_.GetHashCode();
-      hash ^= matches_.GetHashCode();
-      return hash;
-    }
-
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    public void WriteTo(pb::CodedOutputStream output) {
-      faces_.WriteTo(output, _repeated_faces_codec);
-      matches_.WriteTo(output, _repeated_matches_codec);
-    }
-
-    public int CalculateSize() {
-      int size = 0;
-      size += faces_.CalculateSize(_repeated_faces_codec);
-      size += matches_.CalculateSize(_repeated_matches_codec);
-      return size;
-    }
-
-    public void MergeFrom(FaceSearchResponse other) {
-      if (other == null) {
-        return;
-      }
-      faces_.Add(other.faces_);
-      matches_.Add(other.matches_);
-    }
-
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 10: {
-            faces_.AddEntriesFrom(input, _repeated_faces_codec);
-            break;
-          }
           case 18: {
-            matches_.AddEntriesFrom(input, _repeated_matches_codec);
+            global::DataTypes.Person subBuilder = new global::DataTypes.Person();
+            if (updateTypeCase_ == UpdateTypeOneofCase.PersonUpdates) {
+              subBuilder.MergeFrom(PersonUpdates);
+            }
+            input.ReadMessage(subBuilder);
+            PersonUpdates = subBuilder;
+            break;
+          }
+          case 34: {
+            global::DataTypes.Group subBuilder = new global::DataTypes.Group();
+            if (updateTypeCase_ == UpdateTypeOneofCase.GroupUpdates) {
+              subBuilder.MergeFrom(GroupUpdates);
+            }
+            input.ReadMessage(subBuilder);
+            GroupUpdates = subBuilder;
             break;
           }
         }

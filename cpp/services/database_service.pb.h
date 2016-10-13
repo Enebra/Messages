@@ -499,14 +499,14 @@ class MutationResult : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .DataTypes.Key key = 1;
-  bool has_key() const;
-  void clear_key();
-  static const int kKeyFieldNumber = 1;
-  const ::DataTypes::Key& key() const;
-  ::DataTypes::Key* mutable_key();
-  ::DataTypes::Key* release_key();
-  void set_allocated_key(::DataTypes::Key* key);
+  // optional .Services.Entity entity = 1;
+  bool has_entity() const;
+  void clear_entity();
+  static const int kEntityFieldNumber = 1;
+  const ::Services::Entity& entity() const;
+  ::Services::Entity* mutable_entity();
+  ::Services::Entity* release_entity();
+  void set_allocated_entity(::Services::Entity* entity);
 
   // optional string error = 2;
   void clear_error();
@@ -524,7 +524,7 @@ class MutationResult : public ::google::protobuf::Message {
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::DataTypes::Key* key_;
+  ::Services::Entity* entity_;
   ::google::protobuf::internal::ArenaStringPtr error_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_services_2fdatabase_5fservice_2eproto();
@@ -617,14 +617,14 @@ class Mutation : public ::google::protobuf::Message {
   ::Services::Entity* release_update();
   void set_allocated_update(::Services::Entity* update);
 
-  // optional .DataTypes.Key delete = 3;
+  // optional .Services.Entity delete = 3;
   bool has_delete_() const;
   void clear_delete_();
   static const int kDeleteFieldNumber = 3;
-  const ::DataTypes::Key& delete_() const;
-  ::DataTypes::Key* mutable_delete_();
-  ::DataTypes::Key* release_delete_();
-  void set_allocated_delete_(::DataTypes::Key* delete_);
+  const ::Services::Entity& delete_() const;
+  ::Services::Entity* mutable_delete_();
+  ::Services::Entity* release_delete_();
+  void set_allocated_delete_(::Services::Entity* delete_);
 
   OperationCase operation_case() const;
   // @@protoc_insertion_point(class_scope:Services.Mutation)
@@ -643,7 +643,7 @@ class Mutation : public ::google::protobuf::Message {
     OperationUnion() {}
     ::Services::Entity* insert_;
     ::Services::Entity* update_;
-    ::DataTypes::Key* delete__;
+    ::Services::Entity* delete__;
   } operation_;
   mutable int _cached_size_;
   ::google::protobuf::uint32 _oneof_case_[1];
@@ -1221,42 +1221,42 @@ CommitResponse::mutation_results() const {
 
 // MutationResult
 
-// optional .DataTypes.Key key = 1;
-inline bool MutationResult::has_key() const {
-  return !_is_default_instance_ && key_ != NULL;
+// optional .Services.Entity entity = 1;
+inline bool MutationResult::has_entity() const {
+  return !_is_default_instance_ && entity_ != NULL;
 }
-inline void MutationResult::clear_key() {
-  if (GetArenaNoVirtual() == NULL && key_ != NULL) delete key_;
-  key_ = NULL;
+inline void MutationResult::clear_entity() {
+  if (GetArenaNoVirtual() == NULL && entity_ != NULL) delete entity_;
+  entity_ = NULL;
 }
-inline const ::DataTypes::Key& MutationResult::key() const {
-  // @@protoc_insertion_point(field_get:Services.MutationResult.key)
-  return key_ != NULL ? *key_ : *default_instance_->key_;
+inline const ::Services::Entity& MutationResult::entity() const {
+  // @@protoc_insertion_point(field_get:Services.MutationResult.entity)
+  return entity_ != NULL ? *entity_ : *default_instance_->entity_;
 }
-inline ::DataTypes::Key* MutationResult::mutable_key() {
+inline ::Services::Entity* MutationResult::mutable_entity() {
   
-  if (key_ == NULL) {
-    key_ = new ::DataTypes::Key;
+  if (entity_ == NULL) {
+    entity_ = new ::Services::Entity;
   }
-  // @@protoc_insertion_point(field_mutable:Services.MutationResult.key)
-  return key_;
+  // @@protoc_insertion_point(field_mutable:Services.MutationResult.entity)
+  return entity_;
 }
-inline ::DataTypes::Key* MutationResult::release_key() {
-  // @@protoc_insertion_point(field_release:Services.MutationResult.key)
+inline ::Services::Entity* MutationResult::release_entity() {
+  // @@protoc_insertion_point(field_release:Services.MutationResult.entity)
   
-  ::DataTypes::Key* temp = key_;
-  key_ = NULL;
+  ::Services::Entity* temp = entity_;
+  entity_ = NULL;
   return temp;
 }
-inline void MutationResult::set_allocated_key(::DataTypes::Key* key) {
-  delete key_;
-  key_ = key;
-  if (key) {
+inline void MutationResult::set_allocated_entity(::Services::Entity* entity) {
+  delete entity_;
+  entity_ = entity;
+  if (entity) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:Services.MutationResult.key)
+  // @@protoc_insertion_point(field_set_allocated:Services.MutationResult.entity)
 }
 
 // optional string error = 2;
@@ -1403,7 +1403,7 @@ inline void Mutation::set_allocated_update(::Services::Entity* update) {
   // @@protoc_insertion_point(field_set_allocated:Services.Mutation.update)
 }
 
-// optional .DataTypes.Key delete = 3;
+// optional .Services.Entity delete = 3;
 inline bool Mutation::has_delete_() const {
   return operation_case() == kDelete;
 }
@@ -1416,33 +1416,33 @@ inline void Mutation::clear_delete_() {
     clear_has_operation();
   }
 }
-inline  const ::DataTypes::Key& Mutation::delete_() const {
+inline  const ::Services::Entity& Mutation::delete_() const {
   // @@protoc_insertion_point(field_get:Services.Mutation.delete)
   return has_delete_()
       ? *operation_.delete__
-      : ::DataTypes::Key::default_instance();
+      : ::Services::Entity::default_instance();
 }
-inline ::DataTypes::Key* Mutation::mutable_delete_() {
+inline ::Services::Entity* Mutation::mutable_delete_() {
   if (!has_delete_()) {
     clear_operation();
     set_has_delete_();
-    operation_.delete__ = new ::DataTypes::Key;
+    operation_.delete__ = new ::Services::Entity;
   }
   // @@protoc_insertion_point(field_mutable:Services.Mutation.delete)
   return operation_.delete__;
 }
-inline ::DataTypes::Key* Mutation::release_delete_() {
+inline ::Services::Entity* Mutation::release_delete_() {
   // @@protoc_insertion_point(field_release:Services.Mutation.delete)
   if (has_delete_()) {
     clear_has_operation();
-    ::DataTypes::Key* temp = operation_.delete__;
+    ::Services::Entity* temp = operation_.delete__;
     operation_.delete__ = NULL;
     return temp;
   } else {
     return NULL;
   }
 }
-inline void Mutation::set_allocated_delete_(::DataTypes::Key* delete_) {
+inline void Mutation::set_allocated_delete_(::Services::Entity* delete_) {
   clear_operation();
   if (delete_) {
     set_has_delete_();

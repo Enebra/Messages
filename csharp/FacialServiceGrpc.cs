@@ -12,41 +12,24 @@ namespace Services {
   {
     static readonly string __ServiceName = "Services.BiometricFacialService";
 
-    static readonly Marshaller<global::DataTypes.Photo> __Marshaller_Photo = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Photo.Parser.ParseFrom);
-    static readonly Marshaller<global::DataTypes.Faces> __Marshaller_Faces = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Faces.Parser.ParseFrom);
-    static readonly Marshaller<global::DataTypes.Photos> __Marshaller_Photos = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::DataTypes.Photos.Parser.ParseFrom);
-    static readonly Marshaller<global::Services.PopulationCreationResponse> __Marshaller_PopulationCreationResponse = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.PopulationCreationResponse.Parser.ParseFrom);
-    static readonly Marshaller<global::Services.VerificationData> __Marshaller_VerificationData = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.VerificationData.Parser.ParseFrom);
-    static readonly Marshaller<global::Services.FaceSearchResponse> __Marshaller_FaceSearchResponse = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.FaceSearchResponse.Parser.ParseFrom);
-    static readonly Marshaller<global::Services.IdentificationData> __Marshaller_IdentificationData = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.IdentificationData.Parser.ParseFrom);
+    static readonly Marshaller<global::Services.BiometricRequest> __Marshaller_BiometricRequest = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.BiometricRequest.Parser.ParseFrom);
+    static readonly Marshaller<global::Services.BiometricResponse> __Marshaller_BiometricResponse = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.BiometricResponse.Parser.ParseFrom);
+    static readonly Marshaller<global::Services.BiometricUpdate> __Marshaller_BiometricUpdate = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.BiometricUpdate.Parser.ParseFrom);
+    static readonly Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_Empty = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Google.Protobuf.WellKnownTypes.Empty.Parser.ParseFrom);
 
-    static readonly Method<global::DataTypes.Photo, global::DataTypes.Faces> __Method_Acquire = new Method<global::DataTypes.Photo, global::DataTypes.Faces>(
+    static readonly Method<global::Services.BiometricRequest, global::Services.BiometricResponse> __Method_Process = new Method<global::Services.BiometricRequest, global::Services.BiometricResponse>(
         MethodType.Unary,
         __ServiceName,
-        "Acquire",
-        __Marshaller_Photo,
-        __Marshaller_Faces);
+        "Process",
+        __Marshaller_BiometricRequest,
+        __Marshaller_BiometricResponse);
 
-    static readonly Method<global::DataTypes.Photos, global::Services.PopulationCreationResponse> __Method_CreatePopulation = new Method<global::DataTypes.Photos, global::Services.PopulationCreationResponse>(
+    static readonly Method<global::Services.BiometricUpdate, global::Google.Protobuf.WellKnownTypes.Empty> __Method_Update = new Method<global::Services.BiometricUpdate, global::Google.Protobuf.WellKnownTypes.Empty>(
         MethodType.Unary,
         __ServiceName,
-        "CreatePopulation",
-        __Marshaller_Photos,
-        __Marshaller_PopulationCreationResponse);
-
-    static readonly Method<global::Services.VerificationData, global::Services.FaceSearchResponse> __Method_Verify = new Method<global::Services.VerificationData, global::Services.FaceSearchResponse>(
-        MethodType.Unary,
-        __ServiceName,
-        "Verify",
-        __Marshaller_VerificationData,
-        __Marshaller_FaceSearchResponse);
-
-    static readonly Method<global::Services.IdentificationData, global::Services.FaceSearchResponse> __Method_Identify = new Method<global::Services.IdentificationData, global::Services.FaceSearchResponse>(
-        MethodType.Unary,
-        __ServiceName,
-        "Identify",
-        __Marshaller_IdentificationData,
-        __Marshaller_FaceSearchResponse);
+        "Update",
+        __Marshaller_BiometricUpdate,
+        __Marshaller_Empty);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -57,22 +40,12 @@ namespace Services {
     /// <summary>Base class for server-side implementations of BiometricFacialService</summary>
     public abstract class BiometricFacialServiceBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::DataTypes.Faces> Acquire(global::DataTypes.Photo request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Services.BiometricResponse> Process(global::Services.BiometricRequest request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Services.PopulationCreationResponse> CreatePopulation(global::DataTypes.Photos request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::Services.FaceSearchResponse> Verify(global::Services.VerificationData request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::Services.FaceSearchResponse> Identify(global::Services.IdentificationData request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> Update(global::Services.BiometricUpdate request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
@@ -102,69 +75,37 @@ namespace Services {
       {
       }
 
-      public virtual global::DataTypes.Faces Acquire(global::DataTypes.Photo request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::Services.BiometricResponse Process(global::Services.BiometricRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return Acquire(request, new CallOptions(headers, deadline, cancellationToken));
+        return Process(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::DataTypes.Faces Acquire(global::DataTypes.Photo request, CallOptions options)
+      public virtual global::Services.BiometricResponse Process(global::Services.BiometricRequest request, CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_Acquire, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_Process, null, options, request);
       }
-      public virtual AsyncUnaryCall<global::DataTypes.Faces> AcquireAsync(global::DataTypes.Photo request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual AsyncUnaryCall<global::Services.BiometricResponse> ProcessAsync(global::Services.BiometricRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return AcquireAsync(request, new CallOptions(headers, deadline, cancellationToken));
+        return ProcessAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncUnaryCall<global::DataTypes.Faces> AcquireAsync(global::DataTypes.Photo request, CallOptions options)
+      public virtual AsyncUnaryCall<global::Services.BiometricResponse> ProcessAsync(global::Services.BiometricRequest request, CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_Acquire, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_Process, null, options, request);
       }
-      public virtual global::Services.PopulationCreationResponse CreatePopulation(global::DataTypes.Photos request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty Update(global::Services.BiometricUpdate request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return CreatePopulation(request, new CallOptions(headers, deadline, cancellationToken));
+        return Update(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Services.PopulationCreationResponse CreatePopulation(global::DataTypes.Photos request, CallOptions options)
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty Update(global::Services.BiometricUpdate request, CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_CreatePopulation, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_Update, null, options, request);
       }
-      public virtual AsyncUnaryCall<global::Services.PopulationCreationResponse> CreatePopulationAsync(global::DataTypes.Photos request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateAsync(global::Services.BiometricUpdate request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return CreatePopulationAsync(request, new CallOptions(headers, deadline, cancellationToken));
+        return UpdateAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncUnaryCall<global::Services.PopulationCreationResponse> CreatePopulationAsync(global::DataTypes.Photos request, CallOptions options)
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> UpdateAsync(global::Services.BiometricUpdate request, CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_CreatePopulation, null, options, request);
-      }
-      public virtual global::Services.FaceSearchResponse Verify(global::Services.VerificationData request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return Verify(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Services.FaceSearchResponse Verify(global::Services.VerificationData request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_Verify, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::Services.FaceSearchResponse> VerifyAsync(global::Services.VerificationData request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return VerifyAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::Services.FaceSearchResponse> VerifyAsync(global::Services.VerificationData request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_Verify, null, options, request);
-      }
-      public virtual global::Services.FaceSearchResponse Identify(global::Services.IdentificationData request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return Identify(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Services.FaceSearchResponse Identify(global::Services.IdentificationData request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_Identify, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::Services.FaceSearchResponse> IdentifyAsync(global::Services.IdentificationData request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return IdentifyAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::Services.FaceSearchResponse> IdentifyAsync(global::Services.IdentificationData request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_Identify, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_Update, null, options, request);
       }
       protected override BiometricFacialServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -176,10 +117,8 @@ namespace Services {
     public static ServerServiceDefinition BindService(BiometricFacialServiceBase serviceImpl)
     {
       return ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_Acquire, serviceImpl.Acquire)
-          .AddMethod(__Method_CreatePopulation, serviceImpl.CreatePopulation)
-          .AddMethod(__Method_Verify, serviceImpl.Verify)
-          .AddMethod(__Method_Identify, serviceImpl.Identify).Build();
+          .AddMethod(__Method_Process, serviceImpl.Process)
+          .AddMethod(__Method_Update, serviceImpl.Update).Build();
     }
 
   }

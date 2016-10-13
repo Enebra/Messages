@@ -15,10 +15,3 @@ message Card
 }
 
 
-message Cards
-{
-  repeated Card  items = 1;
-           int64 count = 2;
-}
-
-

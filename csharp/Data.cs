@@ -25,17 +25,18 @@ namespace DataTypes {
           string.Concat(
             "ChRkYXRhdHlwZXMvZGF0YS5wcm90bxIJRGF0YVR5cGVzIj8KDE1lc3NhZ2VC",
             "eXRlcxIMCgRkYXRhGAEgASgMEiEKBHR5cGUYAiABKA4yEy5EYXRhVHlwZXMu",
-            "RGF0YVR5cGUiLgoDS2V5EgwKAmlkGAEgASgDSAASDgoEZ3VpZBgCIAEoCUgA",
-            "QgkKB2lkX3R5cGUqcAoIRGF0YVR5cGUSDAoITm9uZVR5cGUQABISCg5HZXRS",
-            "ZXF1ZXN0VHlwZRABEhMKD0dldFJlc3BvbnNlVHlwZRACEhUKEUNvbW1pdFJl",
-            "cXVlc3RUeXBlEAMSFgoSQ29tbWl0UmVzcG9uc2VUeXBlEARCSQoHZXguZ3Jw",
-            "Y1o4Z2l0aHViLmNvbS9FbmVicmEvU2VydmljZUNvb3JkaW5hdG9yL2dycGMv",
-            "ZGF0YXR5cGVzL2RhdGGiAgNSVEdiBnByb3RvMw=="));
+            "RGF0YVR5cGUiSAoDS2V5EhAKBm51bWJlchgBIAEoA0gAEhQKCmlkZW50aWZp",
+            "ZXIYAiABKAlIABIOCgRndWlkGAMgASgMSABCCQoHaWRfdHlwZSpwCghEYXRh",
+            "VHlwZRIMCghOb25lVHlwZRAAEhIKDkdldFJlcXVlc3RUeXBlEAESEwoPR2V0",
+            "UmVzcG9uc2VUeXBlEAISFQoRQ29tbWl0UmVxdWVzdFR5cGUQAxIWChJDb21t",
+            "aXRSZXNwb25zZVR5cGUQBEJJCgdleC5ncnBjWjhnaXRodWIuY29tL0VuZWJy",
+            "YS9TZXJ2aWNlQ29vcmRpbmF0b3IvZ3JwYy9kYXRhdHlwZXMvZGF0YaICA1JU",
+            "R2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::DataTypes.DataType), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.MessageBytes), global::DataTypes.MessageBytes.Parser, new[]{ "Data", "Type" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Key), global::DataTypes.Key.Parser, new[]{ "Id", "Guid" }, new[]{ "IdType" }, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::DataTypes.Key), global::DataTypes.Key.Parser, new[]{ "Number", "Identifier", "Guid" }, new[]{ "IdType" }, null, null)
           }));
     }
     #endregion
@@ -204,8 +205,11 @@ namespace DataTypes {
 
     public Key(Key other) : this() {
       switch (other.IdTypeCase) {
-        case IdTypeOneofCase.Id:
-          Id = other.Id;
+        case IdTypeOneofCase.Number:
+          Number = other.Number;
+          break;
+        case IdTypeOneofCase.Identifier:
+          Identifier = other.Identifier;
           break;
         case IdTypeOneofCase.Guid:
           Guid = other.Guid;
@@ -218,20 +222,30 @@ namespace DataTypes {
       return new Key(this);
     }
 
-    /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 1;
-    public long Id {
-      get { return idTypeCase_ == IdTypeOneofCase.Id ? (long) idType_ : 0L; }
+    /// <summary>Field number for the "number" field.</summary>
+    public const int NumberFieldNumber = 1;
+    public long Number {
+      get { return idTypeCase_ == IdTypeOneofCase.Number ? (long) idType_ : 0L; }
       set {
         idType_ = value;
-        idTypeCase_ = IdTypeOneofCase.Id;
+        idTypeCase_ = IdTypeOneofCase.Number;
+      }
+    }
+
+    /// <summary>Field number for the "identifier" field.</summary>
+    public const int IdentifierFieldNumber = 2;
+    public string Identifier {
+      get { return idTypeCase_ == IdTypeOneofCase.Identifier ? (string) idType_ : ""; }
+      set {
+        idType_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        idTypeCase_ = IdTypeOneofCase.Identifier;
       }
     }
 
     /// <summary>Field number for the "guid" field.</summary>
-    public const int GuidFieldNumber = 2;
-    public string Guid {
-      get { return idTypeCase_ == IdTypeOneofCase.Guid ? (string) idType_ : ""; }
+    public const int GuidFieldNumber = 3;
+    public pb::ByteString Guid {
+      get { return idTypeCase_ == IdTypeOneofCase.Guid ? (pb::ByteString) idType_ : pb::ByteString.Empty; }
       set {
         idType_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
         idTypeCase_ = IdTypeOneofCase.Guid;
@@ -242,8 +256,9 @@ namespace DataTypes {
     /// <summary>Enum of possible cases for the "id_type" oneof.</summary>
     public enum IdTypeOneofCase {
       None = 0,
-      Id = 1,
-      Guid = 2,
+      Number = 1,
+      Identifier = 2,
+      Guid = 3,
     }
     private IdTypeOneofCase idTypeCase_ = IdTypeOneofCase.None;
     public IdTypeOneofCase IdTypeCase {
@@ -266,7 +281,8 @@ namespace DataTypes {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Id != other.Id) return false;
+      if (Number != other.Number) return false;
+      if (Identifier != other.Identifier) return false;
       if (Guid != other.Guid) return false;
       if (IdTypeCase != other.IdTypeCase) return false;
       return true;
@@ -274,7 +290,8 @@ namespace DataTypes {
 
     public override int GetHashCode() {
       int hash = 1;
-      if (idTypeCase_ == IdTypeOneofCase.Id) hash ^= Id.GetHashCode();
+      if (idTypeCase_ == IdTypeOneofCase.Number) hash ^= Number.GetHashCode();
+      if (idTypeCase_ == IdTypeOneofCase.Identifier) hash ^= Identifier.GetHashCode();
       if (idTypeCase_ == IdTypeOneofCase.Guid) hash ^= Guid.GetHashCode();
       hash ^= (int) idTypeCase_;
       return hash;
@@ -285,23 +302,30 @@ namespace DataTypes {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (idTypeCase_ == IdTypeOneofCase.Id) {
+      if (idTypeCase_ == IdTypeOneofCase.Number) {
         output.WriteRawTag(8);
-        output.WriteInt64(Id);
+        output.WriteInt64(Number);
+      }
+      if (idTypeCase_ == IdTypeOneofCase.Identifier) {
+        output.WriteRawTag(18);
+        output.WriteString(Identifier);
       }
       if (idTypeCase_ == IdTypeOneofCase.Guid) {
-        output.WriteRawTag(18);
-        output.WriteString(Guid);
+        output.WriteRawTag(26);
+        output.WriteBytes(Guid);
       }
     }
 
     public int CalculateSize() {
       int size = 0;
-      if (idTypeCase_ == IdTypeOneofCase.Id) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Id);
+      if (idTypeCase_ == IdTypeOneofCase.Number) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Number);
+      }
+      if (idTypeCase_ == IdTypeOneofCase.Identifier) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Identifier);
       }
       if (idTypeCase_ == IdTypeOneofCase.Guid) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Guid);
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Guid);
       }
       return size;
     }
@@ -311,8 +335,11 @@ namespace DataTypes {
         return;
       }
       switch (other.IdTypeCase) {
-        case IdTypeOneofCase.Id:
-          Id = other.Id;
+        case IdTypeOneofCase.Number:
+          Number = other.Number;
+          break;
+        case IdTypeOneofCase.Identifier:
+          Identifier = other.Identifier;
           break;
         case IdTypeOneofCase.Guid:
           Guid = other.Guid;
@@ -329,11 +356,15 @@ namespace DataTypes {
             input.SkipLastField();
             break;
           case 8: {
-            Id = input.ReadInt64();
+            Number = input.ReadInt64();
             break;
           }
           case 18: {
-            Guid = input.ReadString();
+            Identifier = input.ReadString();
+            break;
+          }
+          case 26: {
+            Guid = input.ReadBytes();
             break;
           }
         }

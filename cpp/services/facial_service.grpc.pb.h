@@ -30,58 +30,36 @@ class BiometricFacialService GRPC_FINAL {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    virtual ::grpc::Status Acquire(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::DataTypes::Faces* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::Faces>> AsyncAcquire(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::Faces>>(AsyncAcquireRaw(context, request, cq));
+    virtual ::grpc::Status Process(::grpc::ClientContext* context, const ::Services::BiometricRequest& request, ::Services::BiometricResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Services::BiometricResponse>> AsyncProcess(::grpc::ClientContext* context, const ::Services::BiometricRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Services::BiometricResponse>>(AsyncProcessRaw(context, request, cq));
     }
-    virtual ::grpc::Status CreatePopulation(::grpc::ClientContext* context, const ::DataTypes::Photos& request, ::Services::PopulationCreationResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Services::PopulationCreationResponse>> AsyncCreatePopulation(::grpc::ClientContext* context, const ::DataTypes::Photos& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Services::PopulationCreationResponse>>(AsyncCreatePopulationRaw(context, request, cq));
-    }
-    virtual ::grpc::Status Verify(::grpc::ClientContext* context, const ::Services::VerificationData& request, ::Services::FaceSearchResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Services::FaceSearchResponse>> AsyncVerify(::grpc::ClientContext* context, const ::Services::VerificationData& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Services::FaceSearchResponse>>(AsyncVerifyRaw(context, request, cq));
-    }
-    virtual ::grpc::Status Identify(::grpc::ClientContext* context, const ::Services::IdentificationData& request, ::Services::FaceSearchResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Services::FaceSearchResponse>> AsyncIdentify(::grpc::ClientContext* context, const ::Services::IdentificationData& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Services::FaceSearchResponse>>(AsyncIdentifyRaw(context, request, cq));
+    virtual ::grpc::Status Update(::grpc::ClientContext* context, const ::Services::BiometricUpdate& request, ::google::protobuf::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncUpdate(::grpc::ClientContext* context, const ::Services::BiometricUpdate& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncUpdateRaw(context, request, cq));
     }
   private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::DataTypes::Faces>* AsyncAcquireRaw(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::Services::PopulationCreationResponse>* AsyncCreatePopulationRaw(::grpc::ClientContext* context, const ::DataTypes::Photos& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::Services::FaceSearchResponse>* AsyncVerifyRaw(::grpc::ClientContext* context, const ::Services::VerificationData& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::Services::FaceSearchResponse>* AsyncIdentifyRaw(::grpc::ClientContext* context, const ::Services::IdentificationData& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::Services::BiometricResponse>* AsyncProcessRaw(::grpc::ClientContext* context, const ::Services::BiometricRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncUpdateRaw(::grpc::ClientContext* context, const ::Services::BiometricUpdate& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub GRPC_FINAL : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    ::grpc::Status Acquire(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::DataTypes::Faces* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DataTypes::Faces>> AsyncAcquire(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::DataTypes::Faces>>(AsyncAcquireRaw(context, request, cq));
+    ::grpc::Status Process(::grpc::ClientContext* context, const ::Services::BiometricRequest& request, ::Services::BiometricResponse* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Services::BiometricResponse>> AsyncProcess(::grpc::ClientContext* context, const ::Services::BiometricRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Services::BiometricResponse>>(AsyncProcessRaw(context, request, cq));
     }
-    ::grpc::Status CreatePopulation(::grpc::ClientContext* context, const ::DataTypes::Photos& request, ::Services::PopulationCreationResponse* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Services::PopulationCreationResponse>> AsyncCreatePopulation(::grpc::ClientContext* context, const ::DataTypes::Photos& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Services::PopulationCreationResponse>>(AsyncCreatePopulationRaw(context, request, cq));
-    }
-    ::grpc::Status Verify(::grpc::ClientContext* context, const ::Services::VerificationData& request, ::Services::FaceSearchResponse* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Services::FaceSearchResponse>> AsyncVerify(::grpc::ClientContext* context, const ::Services::VerificationData& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Services::FaceSearchResponse>>(AsyncVerifyRaw(context, request, cq));
-    }
-    ::grpc::Status Identify(::grpc::ClientContext* context, const ::Services::IdentificationData& request, ::Services::FaceSearchResponse* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Services::FaceSearchResponse>> AsyncIdentify(::grpc::ClientContext* context, const ::Services::IdentificationData& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Services::FaceSearchResponse>>(AsyncIdentifyRaw(context, request, cq));
+    ::grpc::Status Update(::grpc::ClientContext* context, const ::Services::BiometricUpdate& request, ::google::protobuf::Empty* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncUpdate(::grpc::ClientContext* context, const ::Services::BiometricUpdate& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncUpdateRaw(context, request, cq));
     }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
-    ::grpc::ClientAsyncResponseReader< ::DataTypes::Faces>* AsyncAcquireRaw(::grpc::ClientContext* context, const ::DataTypes::Photo& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncResponseReader< ::Services::PopulationCreationResponse>* AsyncCreatePopulationRaw(::grpc::ClientContext* context, const ::DataTypes::Photos& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncResponseReader< ::Services::FaceSearchResponse>* AsyncVerifyRaw(::grpc::ClientContext* context, const ::Services::VerificationData& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncResponseReader< ::Services::FaceSearchResponse>* AsyncIdentifyRaw(::grpc::ClientContext* context, const ::Services::IdentificationData& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    const ::grpc::RpcMethod rpcmethod_Acquire_;
-    const ::grpc::RpcMethod rpcmethod_CreatePopulation_;
-    const ::grpc::RpcMethod rpcmethod_Verify_;
-    const ::grpc::RpcMethod rpcmethod_Identify_;
+    ::grpc::ClientAsyncResponseReader< ::Services::BiometricResponse>* AsyncProcessRaw(::grpc::ClientContext* context, const ::Services::BiometricRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncUpdateRaw(::grpc::ClientContext* context, const ::Services::BiometricUpdate& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    const ::grpc::RpcMethod rpcmethod_Process_;
+    const ::grpc::RpcMethod rpcmethod_Update_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -89,156 +67,80 @@ class BiometricFacialService GRPC_FINAL {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status Acquire(::grpc::ServerContext* context, const ::DataTypes::Photo* request, ::DataTypes::Faces* response);
-    virtual ::grpc::Status CreatePopulation(::grpc::ServerContext* context, const ::DataTypes::Photos* request, ::Services::PopulationCreationResponse* response);
-    virtual ::grpc::Status Verify(::grpc::ServerContext* context, const ::Services::VerificationData* request, ::Services::FaceSearchResponse* response);
-    virtual ::grpc::Status Identify(::grpc::ServerContext* context, const ::Services::IdentificationData* request, ::Services::FaceSearchResponse* response);
+    virtual ::grpc::Status Process(::grpc::ServerContext* context, const ::Services::BiometricRequest* request, ::Services::BiometricResponse* response);
+    virtual ::grpc::Status Update(::grpc::ServerContext* context, const ::Services::BiometricUpdate* request, ::google::protobuf::Empty* response);
   };
   template <class BaseClass>
-  class WithAsyncMethod_Acquire : public BaseClass {
+  class WithAsyncMethod_Process : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithAsyncMethod_Acquire() {
+    WithAsyncMethod_Process() {
       ::grpc::Service::MarkMethodAsync(0);
     }
-    ~WithAsyncMethod_Acquire() GRPC_OVERRIDE {
+    ~WithAsyncMethod_Process() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Acquire(::grpc::ServerContext* context, const ::DataTypes::Photo* request, ::DataTypes::Faces* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status Process(::grpc::ServerContext* context, const ::Services::BiometricRequest* request, ::Services::BiometricResponse* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestAcquire(::grpc::ServerContext* context, ::DataTypes::Photo* request, ::grpc::ServerAsyncResponseWriter< ::DataTypes::Faces>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestProcess(::grpc::ServerContext* context, ::Services::BiometricRequest* request, ::grpc::ServerAsyncResponseWriter< ::Services::BiometricResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_CreatePopulation : public BaseClass {
+  class WithAsyncMethod_Update : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithAsyncMethod_CreatePopulation() {
+    WithAsyncMethod_Update() {
       ::grpc::Service::MarkMethodAsync(1);
     }
-    ~WithAsyncMethod_CreatePopulation() GRPC_OVERRIDE {
+    ~WithAsyncMethod_Update() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreatePopulation(::grpc::ServerContext* context, const ::DataTypes::Photos* request, ::Services::PopulationCreationResponse* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status Update(::grpc::ServerContext* context, const ::Services::BiometricUpdate* request, ::google::protobuf::Empty* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestCreatePopulation(::grpc::ServerContext* context, ::DataTypes::Photos* request, ::grpc::ServerAsyncResponseWriter< ::Services::PopulationCreationResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestUpdate(::grpc::ServerContext* context, ::Services::BiometricUpdate* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
+  typedef WithAsyncMethod_Process<WithAsyncMethod_Update<Service > > AsyncService;
   template <class BaseClass>
-  class WithAsyncMethod_Verify : public BaseClass {
+  class WithGenericMethod_Process : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithAsyncMethod_Verify() {
-      ::grpc::Service::MarkMethodAsync(2);
-    }
-    ~WithAsyncMethod_Verify() GRPC_OVERRIDE {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Verify(::grpc::ServerContext* context, const ::Services::VerificationData* request, ::Services::FaceSearchResponse* response) GRPC_FINAL GRPC_OVERRIDE {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestVerify(::grpc::ServerContext* context, ::Services::VerificationData* request, ::grpc::ServerAsyncResponseWriter< ::Services::FaceSearchResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_Identify : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithAsyncMethod_Identify() {
-      ::grpc::Service::MarkMethodAsync(3);
-    }
-    ~WithAsyncMethod_Identify() GRPC_OVERRIDE {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Identify(::grpc::ServerContext* context, const ::Services::IdentificationData* request, ::Services::FaceSearchResponse* response) GRPC_FINAL GRPC_OVERRIDE {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestIdentify(::grpc::ServerContext* context, ::Services::IdentificationData* request, ::grpc::ServerAsyncResponseWriter< ::Services::FaceSearchResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  typedef WithAsyncMethod_Acquire<WithAsyncMethod_CreatePopulation<WithAsyncMethod_Verify<WithAsyncMethod_Identify<Service > > > > AsyncService;
-  template <class BaseClass>
-  class WithGenericMethod_Acquire : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithGenericMethod_Acquire() {
+    WithGenericMethod_Process() {
       ::grpc::Service::MarkMethodGeneric(0);
     }
-    ~WithGenericMethod_Acquire() GRPC_OVERRIDE {
+    ~WithGenericMethod_Process() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Acquire(::grpc::ServerContext* context, const ::DataTypes::Photo* request, ::DataTypes::Faces* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status Process(::grpc::ServerContext* context, const ::Services::BiometricRequest* request, ::Services::BiometricResponse* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_CreatePopulation : public BaseClass {
+  class WithGenericMethod_Update : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithGenericMethod_CreatePopulation() {
+    WithGenericMethod_Update() {
       ::grpc::Service::MarkMethodGeneric(1);
     }
-    ~WithGenericMethod_CreatePopulation() GRPC_OVERRIDE {
+    ~WithGenericMethod_Update() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreatePopulation(::grpc::ServerContext* context, const ::DataTypes::Photos* request, ::Services::PopulationCreationResponse* response) GRPC_FINAL GRPC_OVERRIDE {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_Verify : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithGenericMethod_Verify() {
-      ::grpc::Service::MarkMethodGeneric(2);
-    }
-    ~WithGenericMethod_Verify() GRPC_OVERRIDE {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Verify(::grpc::ServerContext* context, const ::Services::VerificationData* request, ::Services::FaceSearchResponse* response) GRPC_FINAL GRPC_OVERRIDE {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_Identify : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithGenericMethod_Identify() {
-      ::grpc::Service::MarkMethodGeneric(3);
-    }
-    ~WithGenericMethod_Identify() GRPC_OVERRIDE {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Identify(::grpc::ServerContext* context, const ::Services::IdentificationData* request, ::Services::FaceSearchResponse* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status Update(::grpc::ServerContext* context, const ::Services::BiometricUpdate* request, ::google::protobuf::Empty* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
