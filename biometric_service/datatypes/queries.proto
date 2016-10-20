@@ -3,6 +3,7 @@ syntax = "proto3";
 import "datatypes/visit_record.proto";
 import "datatypes/key.proto";
 import "datatypes/entity.proto";
+import "datatypes/datetime.proto";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
@@ -58,9 +59,9 @@ message GetVisitRecordRequest
            DataTypes.AccessState state          = 2;
   repeated DataTypes.Key         locations      = 3;
   repeated DataTypes.Key         persons        = 4;
-           int64                 datetime_from  = 5;
-           int64                 datetime_to    = 6;
-		       string                card           = 7;
+           DataTypes.DateTime    datetime_from  = 5;
+           DataTypes.DateTime    datetime_to    = 6;
+		   string                card           = 7;
            Page                  page           = 8;
            DataTypes.Key         id             = 9;     
 }
@@ -75,7 +76,7 @@ message Page
 message GetCardRequest
 { 
            string           search_text       = 1; //search in name, description
-		       string           unique_identifier = 2;
+		   string           unique_identifier = 2;
   repeated DataTypes.Key    owners            = 3;
            Page             page              = 4;
 }

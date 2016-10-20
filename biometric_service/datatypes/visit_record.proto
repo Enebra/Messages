@@ -2,6 +2,8 @@ syntax = "proto3";
 
 import "datatypes/card.proto";
 import "datatypes/key.proto";
+import "datatypes/datetime.proto";
+
 option go_package = "github.com/Enebra/ServiceCoordinator/grpc/datatypes/visitrecord";
 
 option java_package = "ex.grpc";
@@ -21,7 +23,7 @@ message VisitRecord
    DataTypes.Key         id           = 1;
    DataTypes.Key         person_id    = 2;
    DataTypes.Key         location_id  = 3;                 
-   int64                 time         = 4;      
+   DataTypes.DateTime    time         = 4;      
    DataTypes.Card        card         = 5;
    AccessState           state        = 6; 
 }
