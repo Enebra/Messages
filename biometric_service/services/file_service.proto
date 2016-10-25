@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+// import "google/api/annotations.proto";
+
+option java_package = "ex.grpc";
+option objc_class_prefix = "RTG";
+
+package Bioskynet.Services;
+
+service FileService
+{      	
+  rpc Heartbeat    ( EmptyMessage ) returns ( EmptyMessage  ) {}
+  rpc SayHello     ( HelloRequest )          returns ( HelloReply ) {
+    //   option (google.api.http).get = "/v1/hello/{name}";
+  }
+
+
+  rpc GetFile( FileMessage ) returns ( FileBytes ) {
+    // option (google.api.http).get = "/v1/files/{id}";
+  }
+  rpc CreateFile( FileBytes ) returns ( FileMessage ) {
+    
+  }
+  rpc DeleteFile( FileMessage ) returns ( EmptyMessage ) {
+    
+  }
+}
+
+message  FileMessage{
+  string id = 1;
+}
+
+message FileBytes{
+  bytes data = 1;
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloReply {
+  string message = 1;
+}
+
+message EmptyMessage{
+
+}
