@@ -27,7 +27,6 @@ message MutationResult
 {
   DataTypes.Entity entity = 1;
   string           error = 2;
-
 }
 
 message Mutation 
