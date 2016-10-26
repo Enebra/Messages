@@ -4,6 +4,7 @@ syntax = "proto3";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
+option go_package = "github.com/Enebra/ServiceCoordinator/grpc/services/fileservice";
 
 package Bioskynet.Services;
 
@@ -13,7 +14,7 @@ service FileService
   rpc SayHello     ( HelloRequest )          returns ( HelloReply ) {
     //   option (google.api.http).get = "/v1/hello/{name}";
   }
-  
+
   rpc GetFile( FileMessage ) returns ( FileBytes ) {}
   rpc CreateFile( FileBytes ) returns ( FileMessage ) {}
   rpc DeleteFile( FileMessage ) returns ( EmptyMessage ) {}
