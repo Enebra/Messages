@@ -13,17 +13,11 @@ service FileService
   rpc SayHello     ( HelloRequest )          returns ( HelloReply ) {
     //   option (google.api.http).get = "/v1/hello/{name}";
   }
-
-
-  rpc GetFile( FileMessage ) returns ( FileBytes ) {
-    // option (google.api.http).get = "/v1/files/{id}";
-  }
-  rpc CreateFile( FileBytes ) returns ( FileMessage ) {
-    
-  }
-  rpc DeleteFile( FileMessage ) returns ( EmptyMessage ) {
-    
-  }
+  
+  rpc GetFile( FileMessage ) returns ( FileBytes ) {}
+  rpc CreateFile( FileBytes ) returns ( FileMessage ) {}
+  rpc DeleteFile( FileMessage ) returns ( EmptyMessage ) {}
+  rpc FileExists( FileMessage ) returns ( ExistMessage ) {}
 }
 
 message  FileMessage{
@@ -44,4 +38,8 @@ message HelloReply {
 
 message EmptyMessage{
 
+}
+
+message ExistMessage{
+  bool result = 1; 
 }
