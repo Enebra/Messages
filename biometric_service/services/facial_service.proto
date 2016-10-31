@@ -21,9 +21,8 @@ message BiometricRequest
 {
   DataTypes.Photo           photo  = 1;
   DataTypes.Key             person = 2;
-  DataTypes.Key             group  = 3;
-  DataTypes.BioActionType   action = 4;
-  DataTypes.BiometricType   type   = 5;
+  DataTypes.BioActionType   action = 3;
+  DataTypes.BiometricType   type   = 4;
 }
 
 message BiometricResponse
