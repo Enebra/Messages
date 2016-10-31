@@ -26,7 +26,7 @@ message FaceCharacteristic
 
 message FrameBytes
 {
-           bytes               frame_data  = 1;
+           bytes              frame_data  = 1;
   repeated FaceCharacteristic faces       = 2;
 }
 

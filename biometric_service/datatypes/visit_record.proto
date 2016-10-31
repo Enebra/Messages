@@ -20,12 +20,13 @@ enum AccessState
 
 message VisitRecord
 {
-   DataTypes.Key         id           = 1;
-   DataTypes.Key         person_id    = 2;
-   DataTypes.Key         location_id  = 3;                 
-   DataTypes.DateTime    time         = 4;      
-   DataTypes.Card        card         = 5;
-   AccessState           state        = 6; 
+   DataTypes.Key                id           = 1;
+   DataTypes.Key                person_id    = 2;
+   DataTypes.Key                location_id  = 3;                 
+   DataTypes.DateTime           time         = 4;      
+   DataTypes.Card               card         = 5;
+   DataTypes.FaceCharacteristic face         = 6;       
+   AccessState                  state        = 7; 
 }
 
 message VisitRecords
