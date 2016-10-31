@@ -11,7 +11,7 @@ package DataTypes;
 
 message Faces
 {
-  repeated FaceCharacteristic Faces = 1;
+  repeated FaceCharacteristic faces = 1;
 }
 
 message FaceCharacteristic
@@ -19,8 +19,9 @@ message FaceCharacteristic
   DataTypes.Key    id          = 1;
   DataTypes.Box    box         = 2;  
   float            confidence  = 3;  
-  DataTypes.Key    person_id   = 4;
-  DataTypes.Key    photo_id    = 5;
+  string           fir_url     = 4;
+  DataTypes.Key    person_id   = 5;
+  DataTypes.Key    photo_id    = 6;
 }					
 
 
