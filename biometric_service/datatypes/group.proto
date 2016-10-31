@@ -1,6 +1,5 @@
 syntax = "proto3";
 
-import "datatypes/visit_record.proto";
 import "datatypes/key.proto";
 
 option java_package = "ex.grpc";
@@ -9,18 +8,24 @@ option go_package = "github.com/Enebra/ServiceCoordinator/grpc/datatypes/group";
 
 package DataTypes;
 
+enum ItemsSelectionType
+{
+  Selected_Unspecified = 0;
+  Selected_All         = 1;
+  Selected_None        = 2;
+  Selected_Custom      = 3;
+}
+
 message Group
 {
-           DataTypes.Key              id           = 1;
-           string                     name         = 2;
-           string                     description  = 3;
-           DataTypes.AccessState      access       = 4;   
-  repeated DataTypes.Key              persons      = 5;      
-  repeated DataTypes.Key              locations    = 6;    
+           DataTypes.Key      id             = 1;         
+           ItemsSelectionType selection_type = 2;   
+  repeated DataTypes.Key      persons        = 3;      
+  
 }
 
 message Groups
 { 
   repeated Group  items = 1;
-          int64  count = 2;
+           int64  count = 2;
 }

@@ -14,11 +14,17 @@ message AccessDevice
   fixed64 serial_number  = 2;  
 }
 
+message CaptureDevice
+{  
+  string  name           = 1;  
+  fixed64 serial_number  = 2;  
+}
+
 enum DeviceType 
 {
   None_Type  = 0;
   CardReader = 1;
-  Capture     = 2;
+  Capture    = 2;
 }
 
 enum DeviceState 
@@ -66,17 +72,16 @@ message DeviceStateMessage
 // Other devices (binded to location)
 message GenericDeviceStateMsg{
   DataTypes.Key location_id   = 1;
-  DeviceType type   = 2;
-  DeviceState state = 3;
-  //msg from device
-  string message    = 4;
+  DeviceType    type          = 2;
+  DeviceState   state         = 3;
+  string message              = 4;  //msg from device
 }
 
 // Notify on door state  (binded to location)
 message AccessDeviceStateMsg
 {
     DataTypes.Key  location_id = 1;
-    bool opened      = 2;
+    bool           opened      = 2;
 }
 
 message CardMsg

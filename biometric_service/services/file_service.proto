@@ -1,24 +1,19 @@
 syntax = "proto3";
 
-// import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
 option go_package = "github.com/Enebra/ServiceCoordinator/grpc/services/fileservice";
 
-package Bioskynet.Services;
+package Services;
 
 service FileService
-{      	
-  rpc Heartbeat    ( EmptyMessage ) returns ( EmptyMessage  ) {}
-  rpc SayHello     ( HelloRequest )          returns ( HelloReply ) {
-    //   option (google.api.http).get = "/v1/hello/{name}";
-  }
-
-  rpc GetFile( FileMessage ) returns ( FileBytes ) {}
-  rpc CreateFile( FileBytes ) returns ( FileMessage ) {}
-  rpc DeleteFile( FileMessage ) returns ( EmptyMessage ) {}
-  rpc FileExists( FileMessage ) returns ( ExistMessage ) {}
+{  
+  rpc Get   ( FileMessage ) returns ( FileBytes             ) {}
+  rpc Create( FileBytes   ) returns ( FileMessage           ) {}
+  rpc Delete( FileMessage ) returns ( google.protobuf.Empty ) {}
+  rpc Exists( FileMessage ) returns ( ExistMessage          ) {}
 }
 
 message  FileMessage{
@@ -27,18 +22,6 @@ message  FileMessage{
 
 message FileBytes{
   bytes data = 1;
-}
-
-message HelloRequest {
-  string name = 1;
-}
-
-message HelloReply {
-  string message = 1;
-}
-
-message EmptyMessage{
-
 }
 
 message ExistMessage{

@@ -1,9 +1,7 @@
 syntax = "proto3";
 
-import "datatypes/person.proto";
 import "datatypes/photo.proto";
 import "datatypes/key.proto";
-import "datatypes/group.proto";
 import "datatypes/biometrics.proto";
 import "google/protobuf/empty.proto";
 
@@ -19,7 +17,6 @@ service BiometricFacialService
   rpc Update           ( BiometricUpdate    ) returns ( google.protobuf.Empty ) {}
 }
 
-//TODO move to queries
 message BiometricRequest 
 {
   DataTypes.Photo           photo  = 1;
@@ -41,7 +38,7 @@ message BiometricUpdate
 {
   oneof update_type
   {   
-	  DataTypes.Person person_updates = 2;	
-	  DataTypes.Group  group_updates  = 4;
+	DataTypes.Photo insert = 1;	
+	DataTypes.Photo remove = 2;	  
   }
 }
