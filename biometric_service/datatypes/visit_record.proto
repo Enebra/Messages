@@ -3,6 +3,7 @@ syntax = "proto3";
 import "datatypes/card.proto";
 import "datatypes/key.proto";
 import "datatypes/datetime.proto";
+import "datatypes/biometrics.proto";
 
 option go_package = "github.com/Enebra/ServiceCoordinator/grpc/datatypes/visitrecord";
 
