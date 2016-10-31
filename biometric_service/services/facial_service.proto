@@ -19,10 +19,10 @@ service BiometricFacialService
 
 message BiometricRequest 
 {
-  DataTypes.Photo           photo  = 1;
-  DataTypes.Key             person = 2;
-  DataTypes.BioActionType   action = 3;
-  DataTypes.BiometricType   type   = 4;
+  DataTypes.FrameBytes    frame  = 1;
+  DataTypes.Key           person = 2;
+  DataTypes.BioActionType action = 3;
+  DataTypes.BiometricType type   = 4;
 }
 
 message BiometricResponse
