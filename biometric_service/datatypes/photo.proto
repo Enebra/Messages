@@ -11,18 +11,14 @@ package DataTypes;
 
 message Photo
 {
-  DataTypes.Key             id              = 1;  
-  string                    url             = 2;   
-  int32                     width           = 3;
-  int32                     height          = 4;
-  Purpose                   purpose         = 5;
-  DataTypes.BiometricType   biometric_type  = 6;
-  DataTypes.Key             owner_id        = 7;
+  DataTypes.Key   id                 = 1;  
+  string          url                = 2;   
+  int32           width              = 3;
+  int32           height             = 4;
+  bool            thumbnail          = 5;
+  bool            use_as_identifier  = 6;  
+  DataTypes.Key   owner_id           = 7;
+  DataTypes.Faces faces              = 8; 
+ 
 }
 
-enum Purpose
-{
-  NonePurpose = 0;
-  Thumbnail   = 1;
-  Population  = 2;
-}

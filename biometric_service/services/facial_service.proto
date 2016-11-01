@@ -27,10 +27,10 @@ message BiometricRequest
 
 message BiometricResponse
 {
-  DataTypes.Photo photo   = 1;
-  DataTypes.Key   person  = 2;
-  DataTypes.Faces faces   = 3;
-  bool            success = 4;
+  DataTypes.Photo   photo   = 1;
+  DataTypes.Matches matches = 2;
+  DataTypes.Faces   faces   = 3;
+  bool              success = 4;
 }
 
 message BiometricUpdate
