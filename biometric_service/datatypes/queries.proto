@@ -15,6 +15,7 @@ message GetResponse
 {
   DataTypes.Entities items = 1;
   int64              count = 2;
+  bool               exist = 3; // check if record exist
 }
 
 message GetRequest
@@ -25,6 +26,8 @@ message GetRequest
     DataTypes.GetCardRequest        card_request          = 2;
     DataTypes.GetLocationRequest    location_request      = 3;
     DataTypes.GetVisitRecordRequest visit_record_request  = 4;
+    DataTypes.GetGroupRequest       group_request         = 5;
+    
   }
   //TODO add error message info
 }
@@ -39,7 +42,8 @@ message GetPersonRequest
    //TODO Rights   rights
    repeated DataTypes.Key locations      = 5;
             Page          page           = 6;
-            DataTypes.Key id = 7;            
+            DataTypes.Key id = 7;      
+                   
 }
 
 message GetLocationRequest
@@ -80,3 +84,13 @@ message GetCardRequest
   repeated DataTypes.Key    owners            = 3;
            Page             page              = 4;
 }
+
+
+// if location -> receive group with persons, if person -> receive group with locations
+// if all -> receive exist (bool)
+message GetGroupRequest
+{ 
+       DataTypes.Key  location   = 1; 
+       DataTypes.Key  person     = 2;
+}
+
