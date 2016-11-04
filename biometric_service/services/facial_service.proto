@@ -33,17 +33,11 @@ message BiometricResponse
   bool              success = 4;
 }
 
-message FaceTemplate
-{
-  DataTypes.Key person_id = 1;
-  string        fir_url   = 2;
-}
-
 message BiometricUpdate
 {
   oneof update_type
   {   
-	FaceTemplate insert = 1;	
-	FaceTemplate remove = 2;	  
+	DataTypes.FaceCharacteristic insert = 1;	
+	DataTypes.FaceCharacteristic remove = 2;	  
   }
 }

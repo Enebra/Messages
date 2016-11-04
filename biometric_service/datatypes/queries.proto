@@ -21,12 +21,12 @@ message GetRequest
 {
   oneof request_type
   {
-    DataTypes.GetPersonRequest      person_request        = 1;
-    DataTypes.GetCardRequest        card_request          = 2;
-    DataTypes.GetLocationRequest    location_request      = 3;
-    DataTypes.GetVisitRecordRequest visit_record_request  = 4;
-    DataTypes.GetGroupRequest       group_request         = 5;
-    
+    DataTypes.GetPersonRequest      person_request          = 1;
+    DataTypes.GetCardRequest        card_request            = 2;
+    DataTypes.GetLocationRequest    location_request        = 3;
+    DataTypes.GetVisitRecordRequest visit_record_request    = 4;
+    DataTypes.GetGroupRequest       group_request           = 5;    
+	DataTypes.GetFaceCharRequest    facial_template_request = 6;
   }
   //TODO add error message info
 }
@@ -88,6 +88,11 @@ message GetCardRequest
 
 message GetGroupRequest
 { 
-       DataTypes.Key  location   = 1; 
+  DataTypes.Key  location   = 1; 
+}
+
+message GetFaceCharRequest
+{ 
+  DataTypes.Key id = 1; 
 }
 

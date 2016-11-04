@@ -6,6 +6,7 @@ import "datatypes/photo.proto";
 import "datatypes/location.proto";
 import "datatypes/visit_record.proto";
 import "datatypes/group.proto";
+import "datatypes/biometrics.proto";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
@@ -17,12 +18,13 @@ message Entity
 {
   oneof value_type
   {
-    DataTypes.Card        card         = 1;
-    DataTypes.Person      person       = 2;
-    DataTypes.VisitRecord visit_record = 3;
-    DataTypes.Location    location     = 4;
-    DataTypes.Photo       photo        = 5;
-    DataTypes.Group       group        = 6;
+    DataTypes.Card               card         = 1;
+    DataTypes.Person             person       = 2;
+    DataTypes.VisitRecord        visit_record = 3;
+    DataTypes.Location           location     = 4;
+    DataTypes.Photo              photo        = 5;
+    DataTypes.Group              group        = 6;
+	DataTypes.FaceCharacteristic face         = 7;
   }
 }
 
