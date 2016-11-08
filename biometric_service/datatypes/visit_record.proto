@@ -30,7 +30,18 @@ message VisitRecord
    AccessState                  state        = 7; 
 }
 
-message VisitRecords
+message VisitRecordUpdate
 {
-  repeated VisitRecord items = 1;
+  oneof record_type
+  {
+    VisitRecord inserted = 1;
+    VisitRecord deleted  = 2;
+    VisitRecord updated  = 3;
+  }
 }
+
+message VisitRecordUpdates
+{
+  repeated VisitRecordUpdate items = 1;
+}
+
