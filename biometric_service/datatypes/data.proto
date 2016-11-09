@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 import "datatypes/entity.proto";
+import "datatypes/key.proto";
 
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
@@ -25,8 +26,8 @@ enum DataType
 
 message MutationResult
 {
-  DataTypes.Entity entity = 1;
-  string           error = 2;
+  DataTypes.Key    id     = 1;
+  string           error  = 2;
 }
 
 message Mutation 
@@ -35,6 +36,6 @@ message Mutation
  {  
     DataTypes.Entity insert = 1;    
     DataTypes.Entity update = 2;
-    DataTypes.Entity delete    = 3;
+    DataTypes.Entity delete = 3;
   }
 }
