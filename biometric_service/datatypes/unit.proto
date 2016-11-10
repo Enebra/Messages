@@ -9,7 +9,6 @@ option go_package = "github.com/Enebra/ServiceCoordinator/grpc/datatypes/unit";
 
 package DataTypes;
 
-
 message Unit
 {
            DataTypes.Key      id         = 1;

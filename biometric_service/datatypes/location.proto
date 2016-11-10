@@ -16,6 +16,15 @@ message Location
   string                  description      = 3;    
   string                  unit_mac_address = 4; 
   DataTypes.AccessDevice  access_device    = 5;
-  DataTypes.CaptureDevice capture_device   = 6;
- 
+  DataTypes.CaptureDevice capture_device   = 6; 
+}
+
+message LocationUpdate
+{
+  oneof update_type
+  {
+    Location inserted = 1;
+    Location deleted  = 2;
+    Location updated  = 3;
+  }
 }
