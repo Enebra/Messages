@@ -11,9 +11,10 @@ package DataTypes;
 
 message Unit
 {
-           DataTypes.Key      id         = 1;
-           string             ip_address = 2;
-  repeated DataTypes.Location locations  = 3;
+           DataTypes.Key      id          = 1;
+           string             ip_address  = 2;
+           string             mac_address = 3;
+  repeated DataTypes.Location locations   = 4;
 }
 
 message ConnectMsg
