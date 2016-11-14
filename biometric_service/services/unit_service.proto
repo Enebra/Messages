@@ -13,14 +13,16 @@ package Services;
 
 service UnitService 
 {    
-  rpc OpenDoor            ( DataTypes.Location       )  returns ( google.protobuf.Empty       ) {}  
-  rpc GetLocationStream   ( DataTypes.Location       )  returns ( stream DataTypes.FrameBytes ) {}
-  rpc GetDevices          ( google.protobuf.Empty    )  returns ( DataTypes.Devices           ) {}
-  rpc UpdateLocation      ( DataTypes.LocationUpdate )  returns ( google.protobuf.Empty       ) {}
-  //on person registration      
-  rpc GetCard             ( DataTypes.Device         )  returns ( DataTypes.CardMsg           ) {}
-  rpc CheckDevice         ( DataTypes.Device         )  returns ( DataTypes.CheckMsg          ) {}
-  rpc GetDeviceStream     ( DataTypes.Device         )  returns ( stream DataTypes.FrameBytes ) {}
-  // on person registration & identification         
-  rpc Enroll              ( DataTypes.Device         )  returns ( DataTypes.Faces             ) {}  
+  rpc OpenDoor            ( DataTypes.Location        )  returns ( google.protobuf.Empty       ) {}  
+  rpc GetLocationStream   ( DataTypes.Location        )  returns ( stream DataTypes.FrameBytes ) {}
+  rpc GetDevices          ( google.protobuf.Empty     )  returns ( DataTypes.Devices           ) {}
+  rpc UpdateLocation      ( DataTypes.LocationUpdate  )  returns ( google.protobuf.Empty       ) {}
+  rpc UpdateLocations     ( DataTypes.LocationUpdates )  returns ( google.protobuf.Empty       ) {}
+ 
+  //on person registration       
+  rpc GetCard             ( DataTypes.Device          )  returns ( DataTypes.CardMsg           ) {}
+  rpc CheckDevice         ( DataTypes.Device          )  returns ( DataTypes.CheckMsg          ) {}
+  rpc GetDeviceStream     ( DataTypes.Device          )  returns ( stream DataTypes.FrameBytes ) {}
+  // on person registration & identification          
+  rpc Enroll              ( DataTypes.Device          )  returns ( DataTypes.Faces             ) {}  
 }
