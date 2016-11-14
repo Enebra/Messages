@@ -26,7 +26,7 @@ message GetRequest
     DataTypes.GetLocationRequest    location_request        = 3;
     DataTypes.GetVisitRecordRequest visit_record_request    = 4;
     DataTypes.GetGroupRequest       group_request           = 5;    
-	DataTypes.GetFaceCharRequest    facial_template_request = 6;
+	  DataTypes.GetFaceCharRequest    facial_template_request = 6;
   }
   //TODO add error message info
 }
@@ -65,7 +65,7 @@ message GetVisitRecordRequest
   repeated DataTypes.Key         persons        = 4;
            DataTypes.DateTime    datetime_from  = 5;
            DataTypes.DateTime    datetime_to    = 6;
-		   string                card           = 7;
+		       string                card           = 7;
            Page                  page           = 8;
            DataTypes.Key         id             = 9;     
 }
@@ -80,7 +80,7 @@ message Page
 message GetCardRequest
 { 
            string           search_text       = 1; //search in name, description
-		   string           unique_identifier = 2;
+		       string           unique_identifier = 2;
   repeated DataTypes.Key    owners            = 3;
            Page             page              = 4;
 }

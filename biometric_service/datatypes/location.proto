@@ -28,3 +28,8 @@ message LocationUpdate
     Location updated  = 3;
   }
 }
+
+message LocationUpdates
+{
+  repeated LocationUpdate items = 1;
+}
