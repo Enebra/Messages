@@ -55,8 +55,9 @@ message Devices
 
 message Device
 {
-  DeviceType device_type    = 1;
-  string device_name        = 2;
+  DeviceType device_type   = 1;
+  string     device_name   = 2;
+  fixed64    serial_number = 3;  
 }
 
 //To notify about device update
