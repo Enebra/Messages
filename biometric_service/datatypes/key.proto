@@ -13,7 +13,7 @@ message Key
     {  
       int64  number     = 1;
       string identifier = 2;
-	  bytes  guid       = 3;
+	  string guid       = 3;
     }
 }
 
