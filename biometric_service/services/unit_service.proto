@@ -14,14 +14,25 @@ package Services;
 service UnitService 
 {    
   rpc OpenDoor            ( DataTypes.Location        )  returns ( google.protobuf.Empty       ) {}  
-  rpc GetLocationStream   ( DataTypes.Location        )  returns ( stream DataTypes.FrameBytes ) {}
+  rpc GetLocationStream   ( stream StreamMsg          )  returns ( stream DataTypes.FrameBytes ) {}
   rpc GetDevices          ( google.protobuf.Empty     )  returns ( DataTypes.Devices           ) {}
   rpc UpdateLocations     ( DataTypes.LocationUpdates )  returns ( google.protobuf.Empty       ) {}
  
   //on person registration       
   rpc GetCard             ( DataTypes.Device          )  returns ( DataTypes.CardMsg           ) {}
   rpc CheckDevice         ( DataTypes.Device          )  returns ( DataTypes.CheckMsg          ) {}
-  rpc GetDeviceStream     ( DataTypes.Device          )  returns ( stream DataTypes.FrameBytes ) {}
+  rpc GetDeviceStream     ( stream StreamMsg          )  returns ( stream DataTypes.FrameBytes ) {}
   // on person registration & identification          
   rpc Enroll              ( DataTypes.Device          )  returns ( DataTypes.Faces             ) {}  
+}
+
+message StreamMsg
+{
+  oneof target_type
+  {
+    DataTypes.Device   device   = 1;
+	DataTypes.Location location = 2;
+  }
+
+  DataTypes.DeviceState state = 3;
 }
