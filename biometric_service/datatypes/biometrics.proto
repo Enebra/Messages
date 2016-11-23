@@ -116,6 +116,3 @@ enum FacialIsoComplianceTemplate
   isSharp						  =	23;
   mouthClosedBestPractice		  =	24;
 }
-
-
-

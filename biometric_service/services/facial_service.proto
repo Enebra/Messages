@@ -37,7 +37,7 @@ message BiometricUpdate
 {
   oneof update_type
   {   
-	DataTypes.FaceCharacteristic insert = 1;	
-	DataTypes.FaceCharacteristic remove = 2;	  
+	DataTypes.Faces insert = 1;	
+	DataTypes.Faces remove = 2;	  
   }
 }
