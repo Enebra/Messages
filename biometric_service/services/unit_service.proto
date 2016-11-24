@@ -31,7 +31,7 @@ message StreamMsg
   oneof target_type
   {
     DataTypes.Device   device   = 1;
-	DataTypes.Location location = 2;
+	  DataTypes.Location location = 2;
   }
 
   DataTypes.DeviceState state = 3;
