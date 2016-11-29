@@ -34,5 +34,6 @@ message StreamMsg
 	DataTypes.Location location = 2;
   }
 
-  DataTypes.DeviceState state = 3;
+  DataTypes.DeviceState state          = 3;
+  int64                 correlation_id = 4;
 }
