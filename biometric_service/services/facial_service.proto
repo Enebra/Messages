@@ -36,8 +36,30 @@ message BiometricResponse
 message BiometricUpdate
 {
   oneof update_type
-  {   
-	DataTypes.FaceCharacteristic insert = 1;	
-	DataTypes.FaceCharacteristic remove = 2;	  
+  {
+    PhotoUpdate  photo  = 1;
+    PersonUpdate person = 2;
   }
+}
+
+message PhotoUpdate
+{
+  oneof update_type
+  {
+    google.protobuf.Empty insert = 1;
+    google.protobuf.Empty update = 2;
+    google.protobuf.Empty delete = 3;
+  }
+  DataTypes.Key id = 4;
+}
+
+message PersonUpdate
+{
+  oneof update_type
+  {
+    google.protobuf.Empty insert = 1;
+    google.protobuf.Empty update = 2;
+    google.protobuf.Empty delete = 3;
+  }
+  DataTypes.Key id = 4;
 }
