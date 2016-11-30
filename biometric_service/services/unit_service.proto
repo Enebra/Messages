@@ -13,17 +13,16 @@ package Services;
 
 service UnitService 
 {    
-  rpc OpenDoor            ( DataTypes.Location        )  returns ( google.protobuf.Empty       ) {}  
-  rpc GetLocationStream   ( stream StreamMsg          )  returns ( stream DataTypes.FrameBytes ) {}
-  rpc GetDevices          ( google.protobuf.Empty     )  returns ( DataTypes.Devices           ) {}
-  rpc UpdateLocations     ( DataTypes.LocationUpdates )  returns ( google.protobuf.Empty       ) {}
- 
+  rpc OpenDoor            ( DataTypes.Location          )  returns ( google.protobuf.Empty       ) {}  
+  rpc GetStream           ( stream StreamMsg            )  returns ( stream DataTypes.FrameBytes ) {}
+  rpc GetDevices          ( DataTypes.GetDevicesRequest )  returns ( DataTypes.Devices           ) {}
+  rpc UpdateLocations     ( DataTypes.LocationUpdates   )  returns ( google.protobuf.Empty       ) {} 
+  
   //on person registration       
-  rpc GetCard             ( DataTypes.Device          )  returns ( DataTypes.CardMsg           ) {}
-  rpc CheckDevice         ( DataTypes.Device          )  returns ( DataTypes.CheckMsg          ) {}
-  rpc GetDeviceStream     ( stream StreamMsg          )  returns ( stream DataTypes.FrameBytes ) {}
+  rpc GetCard             ( DataTypes.Device            )  returns ( DataTypes.CardMsg           ) {} 
+  
   // on person registration & identification          
-  rpc Enroll              ( DataTypes.Device          )  returns ( DataTypes.Faces             ) {}  
+  rpc Enroll              ( EnrollMsg                   )  returns ( DataTypes.Faces             ) {}  
 }
 
 message StreamMsg
@@ -31,9 +30,18 @@ message StreamMsg
   oneof target_type
   {
     DataTypes.Device   device   = 1;
-	  DataTypes.Location location = 2;
+	DataTypes.Location location = 2;
   }
 
   DataTypes.DeviceState state          = 3;
   int64                 correlation_id = 4;
+}
+
+message EnrollMsg
+{
+  oneof target_type
+  {
+    DataTypes.Device   device    = 1;
+	string             photo_url = 2;
+  }
 }

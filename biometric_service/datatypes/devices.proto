@@ -85,6 +85,11 @@ message AccessDeviceStateMsg
     bool           opened      = 2;
 }
 
+message GetDevicesRequest
+{
+  DeviceType dev_type = 1;
+}
+
 message CardMsg
 {
   string card_num = 1;
